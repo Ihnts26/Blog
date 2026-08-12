@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
 
     <title>KEA | Kaye Eloisa Arnejo</title>
 
@@ -1075,6 +1075,7 @@
         </h2>
 
         <form
+            id="contact-form"
             action="https://script.google.com/macros/s/AKfycbyXQeo4DsxIp0xDpsBh5dZDdw4aHc108s9XRzij-ff78UGNo8ZIz-AcWcywF3StzGzbww/exec"
             method="POST"
         >
@@ -1218,7 +1219,7 @@
             function getCookie(name) {
 
                 const cookies =
-                    document.cookie.split(";");
+                    document.cookie ? document.cookie.split(";") : [];
 
                 for (const cookieItem of cookies) {
 
@@ -1259,13 +1260,15 @@
                CLOSE CONSENT
             ========================= */
 
-            consentClose.addEventListener(
-                "click",
-                function () {
+            if (consentClose) {
+                consentClose.addEventListener(
+                    "click",
+                    function () {
 
-                    consentBanner.classList.add("hidden");
-                }
-            );
+                        consentBanner.classList.add("hidden");
+                    }
+                );
+            }
 
 
             /* =========================
@@ -1295,15 +1298,15 @@
 
                 try {
 
-                    let visits = Number(
-                        localStorage.getItem("keaVisits") || 0
-                    );
+                    let visits = parseInt(localStorage.getItem("keaVisits") || "0", 10);
+
+                    if (Number.isNaN(visits)) visits = 0;
 
                     visits++;
 
                     localStorage.setItem(
                         "keaVisits",
-                        visits
+                        String(visits)
                     );
 
                     const counter =
@@ -1334,61 +1337,65 @@
                ACCEPT CONSENT
             ========================= */
 
-            acceptConsent.addEventListener(
-                "click",
-                function () {
+            if (acceptConsent) {
+                acceptConsent.addEventListener(
+                    "click",
+                    function () {
 
-                    if (!consentCheckbox.checked) {
+                        if (!consentCheckbox.checked) {
 
-                        alert(
-                            "Please confirm that you have read and understood the information before accepting."
+                            alert(
+                                "Please confirm that you have read and understood the information before accepting."
+                            );
+
+                            return;
+                        }
+
+                        setCookie(
+                            "kea_consent",
+                            "accepted",
+                            180
                         );
 
-                        return;
+                        consentBanner.classList.add("hidden");
+
+                        updateVisitCount();
                     }
-
-                    setCookie(
-                        "kea_consent",
-                        "accepted",
-                        180
-                    );
-
-                    consentBanner.classList.add("hidden");
-
-                    updateVisitCount();
-                }
-            );
+                );
+            }
 
 
             /* =========================
                REJECT CONSENT
             ========================= */
 
-            rejectConsent.addEventListener(
-                "click",
-                function () {
+            if (rejectConsent) {
+                rejectConsent.addEventListener(
+                    "click",
+                    function () {
 
-                    setCookie(
-                        "kea_consent",
-                        "rejected",
-                        180
-                    );
-
-                    try {
-
-                        localStorage.removeItem("keaVisits");
-
-                    } catch (error) {
-
-                        console.warn(
-                            "Could not clear local storage.",
-                            error
+                        setCookie(
+                            "kea_consent",
+                            "rejected",
+                            180
                         );
-                    }
 
-                    consentBanner.classList.add("hidden");
-                }
-            );
+                        try {
+
+                            localStorage.removeItem("keaVisits");
+
+                        } catch (error) {
+
+                            console.warn(
+                                "Could not clear local storage.",
+                                error
+                            );
+                        }
+
+                        consentBanner.classList.add("hidden");
+                    }
+                );
+            }
 
 
             /* =========================
@@ -1409,15 +1416,15 @@
                     return;
                 }
 
-                buttonElement.disabled = true;
+                if (buttonElement) buttonElement.disabled = true;
 
-                buttonElement.textContent =
+                if (buttonElement) buttonElement.textContent =
                     "Getting...";
 
-                statusElement.textContent =
+                if (statusElement) statusElement.textContent =
                     "Please allow location access.";
 
-                resultElement.textContent = "";
+                if (resultElement) resultElement.textContent = "";
 
 
                 navigator.geolocation.getCurrentPosition(
@@ -1430,19 +1437,20 @@
                         const longitude =
                             position.coords.longitude;
 
-                        statusElement.textContent =
+                        if (statusElement) statusElement.textContent =
                             "Location shared.";
 
-                        resultElement.textContent =
+                        if (resultElement) resultElement.textContent =
                             "📍 " +
                             latitude.toFixed(4) +
                             ", " +
                             longitude.toFixed(4);
 
-                        buttonElement.textContent =
-                            "Location Shared";
-
-                        buttonElement.disabled = false;
+                        if (buttonElement) {
+                            buttonElement.textContent =
+                                "Location Shared";
+                            buttonElement.disabled = false;
+                        }
                     },
 
                     function (error) {
@@ -1452,18 +1460,12 @@
                             error.message
                         );
 
-                        if (
-                            error.code ===
-                            error.PERMISSION_DENIED
-                        ) {
+                        if (error && error.code === error.PERMISSION_DENIED) {
 
                             statusElement.textContent =
                                 "Location permission denied.";
 
-                        } else if (
-                            error.code ===
-                            error.TIMEOUT
-                        ) {
+                        } else if (error && error.code === error.TIMEOUT) {
 
                             statusElement.textContent =
                                 "Location request timed out.";
@@ -1474,12 +1476,14 @@
                                 "Could not get location.";
                         }
 
-                        resultElement.textContent = "";
+                        if (resultElement) resultElement.textContent = "";
 
-                        buttonElement.textContent =
-                            "Share Location";
+                        if (buttonElement) {
+                            buttonElement.textContent =
+                                "Share Location";
 
-                        buttonElement.disabled = false;
+                            buttonElement.disabled = false;
+                        }
                     },
 
                     {
@@ -1507,123 +1511,128 @@
                 );
 
 
-            consentLocationButton.addEventListener(
-                "click",
-                function () {
+            if (consentLocationButton) {
+                consentLocationButton.addEventListener(
+                    "click",
+                    function () {
 
-                    getLocation(
-                        consentLocationStatus,
-                        consentLocationResult,
-                        consentLocationButton
-                    );
-                }
-            );
+                        getLocation(
+                            consentLocationStatus,
+                            consentLocationResult,
+                            consentLocationButton
+                        );
+                    }
+                );
+            }
 
 
             /* =========================
-   CONTACT FORM
-========================= */
+               CONTACT FORM
+            ========================= */
 
-const form = document.querySelector("#contact-form");
+            const form = document.querySelector("#contact-form");
 
-if (form) {
+            if (form) {
 
-    form.addEventListener("submit", async function (event) {
+                form.addEventListener("submit", async function (event) {
 
-        event.preventDefault();
+                    event.preventDefault();
 
-        const name =
-            document.getElementById("name").value.trim();
+                    const nameEl = document.getElementById("name");
+                    const emailEl = document.getElementById("email");
+                    const messageEl = document.getElementById("message");
+                    const honeypotEl = form.querySelector('input[name="website"]');
 
-        const email =
-            document.getElementById("email").value.trim();
+                    const name = nameEl ? nameEl.value.trim() : "";
+                    const email = emailEl ? emailEl.value.trim() : "";
+                    const message = messageEl ? messageEl.value.trim() : "";
+                    const honeypot = honeypotEl ? honeypotEl.value : "";
 
-        const message =
-            document.getElementById("message").value.trim();
+                    /* Stop bots */
 
-        const honeypot =
-            document.querySelector(
-                'input[name="website"]'
-            ).value;
+                    if (honeypot !== "") {
+                        return;
+                    }
 
-        /* Stop bots */
+                    /* Required fields */
 
-        if (honeypot !== "") {
-            return;
-        }
+                    if (!name || !email || !message) {
 
-        /* Required fields */
+                        alert("Please complete all fields.");
 
-        if (!name || !email || !message) {
+                        return;
+                    }
 
-            alert("Please complete all fields.");
+                    /* Email validation */
 
-            return;
-        }
+                    const emailPattern =
+                        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        /* Email validation */
+                    if (!emailPattern.test(email)) {
 
-        const emailPattern =
-            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        alert("Please enter a valid email address.");
 
-        if (!emailPattern.test(email)) {
+                        return;
+                    }
 
-            alert("Please enter a valid email address.");
+                    /* Final confirmation */
 
-            return;
-        }
+                    if (
+                        !confirm(
+                            "Are you sure you want to send this message?"
+                        )
+                    ) {
+                        return;
+                    }
 
-        /* Final confirmation */
+                    /* Disable button while sending */
 
-        if (
-            !confirm(
-                "Are you sure you want to send this message?"
-            )
-        ) {
-            return;
-        }
+                    const submitButton =
+                        form.querySelector("button[type='submit']");
 
-        /* Disable button while sending */
+                    if (submitButton) {
+                        submitButton.disabled = true;
+                        submitButton.textContent = "Sending...";
+                    }
 
-        const submitButton =
-            form.querySelector("button[type='submit']");
+                    try {
 
-        submitButton.disabled = true;
-        submitButton.textContent = "Sending...";
+                        const formData = new FormData(form);
 
-        try {
+                        await fetch(
+                            form.action || "https://script.google.com/macros/s/AKfycbyXQeo4DsxIp0xDpsBh5dZDdw4aHc108s9XRzij-ff78UGNo8ZIz-AcWcywF3StzGzbww/exec",
+                            {
+                                method: "POST",
+                                body: formData,
+                                mode: "no-cors"
+                            }
+                        );
 
-            const formData = new FormData(form);
+                        alert("Your message has been sent successfully!");
 
-            await fetch(
-                "https://script.google.com/macros/s/AKfycbyXQeo4DsxIp0xDpsBh5dZDdw4aHc108s9XRzij-ff78UGNo8ZIz-AcWcywF3StzGzbww/exec",
-                {
-                    method: "POST",
-                    body: formData,
-                    mode: "no-cors"
-                }
-            );
+                        form.reset();
 
-            alert("Your message has been sent successfully!");
+                    } catch (error) {
 
-            form.reset();
+                        console.error("Form submission error:", error);
 
-        } catch (error) {
+                        alert(
+                            "Something went wrong. Please try again."
+                        );
 
-            console.error("Form submission error:", error);
+                    } finally {
 
-            alert(
-                "Something went wrong. Please try again."
-            );
+                        if (submitButton) {
+                            submitButton.disabled = false;
+                            submitButton.textContent = "Send Message";
+                        }
+                    }
 
-        } finally {
+                });
+            }
 
-            submitButton.disabled = false;
-            submitButton.textContent = "Send Message";
-        }
-
-    });
-}
-
+        });
+    </script>
+</body>
 
 </html>
