@@ -1244,50 +1244,56 @@
                CONSENT STATE
             ========================= */
 
-            const savedConsent =
-                getCookie("kea_consent");
+          const savedConsent =
+    getCookie("kea_consent");
 
-            if (
-                savedConsent === "accepted" ||
-                savedConsent === "rejected"
-            ) {
+if (
+    savedConsent === "accepted" ||
+    savedConsent === "rejected" ||
+    savedConsent === "closed"
+) {
 
-                consentBanner.classList.add("hidden");
-            }
+    consentBanner.classList.add("hidden");
+}
 
+      /* =========================
+   CLOSE CONSENT
+========================= */
 
-            /* =========================
-               CLOSE CONSENT
-            ========================= */
+consentClose.addEventListener("click", function () {
 
-            if (consentClose) {
-                consentClose.addEventListener(
-                    "click",
-                    function () {
+    setCookie(
+        "kea_consent",
+        "closed",
+        180
+    );
 
-                        consentBanner.classList.add("hidden");
-                    }
-                );
-            }
+    consentBanner.classList.add("hidden");
+
+});
 
 
             /* =========================
                ESCAPE KEY
             ========================= */
 
-            document.addEventListener(
-                "keydown",
-                function (event) {
+           document.addEventListener("keydown", function (event) {
 
-                    if (
-                        event.key === "Escape" &&
-                        !consentBanner.classList.contains("hidden")
-                    ) {
+    if (
+        event.key === "Escape" &&
+        !consentBanner.classList.contains("hidden")
+    ) {
 
-                        consentBanner.classList.add("hidden");
-                    }
-                }
-            );
+        setCookie(
+            "kea_consent",
+            "closed",
+            180
+        );
+
+        consentBanner.classList.add("hidden");
+    }
+
+});
 
 
             /* =========================
