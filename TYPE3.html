@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+
+    <title>KEA</title>
+
+    <style>
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* =========================
+           BODY
+        ========================= */
+
+        body {
+            font-family: Arial, sans-serif;
+
+            background: linear-gradient(
+                135deg,
+                #8B0000,
+                #FF0000,
+                #00008B,
+                #0000FF
+            );
+
+            background-size: 400% 400%;
+            animation: metallicShift 10s ease infinite;
+
+            color: white;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+
+        @keyframes metallicShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+
+        /* =========================
+           CONSENT BANNER
+        ========================= */
+
+        #consent-banner {
+            position: fixed;
+
+            left: 50%;
+            bottom: 15px;
+
+            transform: translateX(-50%);
+
+            width: 420px;
+            max-width: calc(100% - 30px);
+            max-height: 80vh;
+
+            overflow-y: auto;
+
+            padding: 20px;
+            padding-top: 42px;
+
+            background: rgba(8, 8, 8, 0.98);
+
+            color: white;
+
+            border: 1px solid white;
+            border-radius: 10px;
+
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
+
+            z-index: 2147483647;
+        }
+
+
+        #consent-banner.hidden {
+            display: none;
+        }
+
+
+        /* =========================
+           CONSENT CLOSE BUTTON
+        ========================= */
+
+        #consent-close {
+            position: absolute;
+
+            top: 9px;
+            right: 10px;
+
+            width: 30px;
+            height: 30px;
+
+            padding: 0;
+
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+
+            background: transparent;
+            color: white;
+
+            font-size: 20px;
+            line-height: 1;
+
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            transition:
+                background 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+
+        #consent-close:hover {
+            background: #FFD700;
+            color: #000;
+            border-color: #FFD700;
+            transform: scale(1.08);
+        }
+
+
+        #consent-close:focus {
+            outline: 2px solid #FFD700;
+            outline-offset: 2px;
+        }
+
+
+        /* =========================
+           CONSENT TITLE
+        ========================= */
+
+        #consent-title {
+            font-size: 18px;
+            margin-bottom: 7px;
+
+            color: #FFD700;
+
+            text-shadow: 1px 1px 3px black;
+        }
+
+
+        .consent-intro {
+            font-size: 12px;
+            line-height: 1.45;
+
+            margin-bottom: 10px;
+
+            color: #eee;
+        }
+
+
+        /* =========================
+           CONSENT SECTIONS
+        ========================= */
+
+        .consent-section {
+            margin: 9px 0;
+            padding: 10px;
+
+            background: rgba(255, 255, 255, 0.07);
+
+            border: 1px solid rgba(255, 215, 0, 0.25);
+            border-radius: 7px;
+        }
+
+
+        .consent-section h4 {
+            margin-bottom: 4px;
+
+            color: #FFD700;
+            font-size: 13px;
+        }
+
+
+        .consent-section p {
+            margin-bottom: 0;
+
+            font-size: 11px;
+            line-height: 1.4;
+
+            color: #eee;
+        }
+
+
+        /* =========================
+           LOCATION CONSENT
+        ========================= */
+
+        .location-consent {
+            text-align: center;
+        }
+
+
+        #consent-location-button {
+            width: 100%;
+
+            padding: 9px 12px;
+            margin-top: 6px;
+
+            border: none;
+            border-radius: 6px;
+
+            background: #FFD700;
+            color: #000;
+
+            font-size: 12px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: background 0.2s ease;
+        }
+
+
+        #consent-location-button:hover {
+            background: white;
+        }
+
+
+        #consent-location-button:disabled {
+            opacity: 0.6;
+            cursor: wait;
+        }
+
+
+        #consent-location-status {
+            margin-top: 6px;
+
+            font-size: 10px;
+            color: #ddd;
+        }
+
+
+        #consent-location-result {
+            margin-top: 4px;
+
+            font-size: 10px;
+            color: #FFD700;
+
+            word-break: break-word;
+        }
+
+
+        /* =========================
+           AGREEMENT
+        ========================= */
+
+        .consent-agreement {
+            margin: 12px 0;
+            padding: 10px;
+
+            background: rgba(255, 215, 0, 0.05);
+
+            border-radius: 7px;
+
+            font-size: 11px;
+            line-height: 1.45;
+        }
+
+
+        .consent-agreement label {
+            display: flex;
+            align-items: flex-start;
+
+            gap: 8px;
+
+            cursor: pointer;
+        }
+
+
+        #consent-checkbox {
+            width: 16px;
+            height: 16px;
+
+            margin-top: 1px;
+
+            accent-color: #FFD700;
+
+            flex-shrink: 0;
+        }
+
+
+        /* =========================
+           CONSENT BUTTONS
+        ========================= */
+
+        .consent-buttons {
+            display: flex;
+
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+
+        .consent-buttons button {
+            flex: 1;
+
+            padding: 10px;
+
+            border: none;
+            border-radius: 6px;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+
+        .consent-buttons button:hover {
+            transform: translateY(-1px);
+        }
+
+
+        #accept-consent {
+            background: #FFD700;
+            color: #000;
+        }
+
+
+        #accept-consent:hover {
+            background: white;
+        }
+
+
+        #reject-consent {
+            background: #555;
+            color: white;
+        }
+
+
+        #reject-consent:hover {
+            background: #777;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            text-align: center;
+
+            padding: 30px 20px;
+
+            background: rgba(0, 0, 0, 0.5);
+
+            backdrop-filter: blur(5px);
+
+            border-bottom: 2px solid white;
+        }
+
+
+        header h1 {
+            font-size: 2.5rem;
+
+            text-shadow: 2px 2px 5px black;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+
+        nav ul {
+            list-style: none;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        nav li {
+            margin: 0 15px;
+        }
+
+
+        nav a {
+            color: white;
+
+            text-decoration: none;
+
+            padding: 14px 0;
+
+            display: block;
+
+            font-weight: bold;
+
+            text-shadow: 1px 1px 3px black;
+
+            transition: color 0.3s ease;
+        }
+
+
+        nav a:hover {
+            color: #FFD700;
+        }
+
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .container {
+            display: flex;
+
+            max-width: 1200px;
+
+            margin: 20px auto;
+
+            padding: 0 20px;
+
+            gap: 20px;
+        }
+
+
+        .main-content {
+            flex: 3;
+        }
+
+
+        article,
+        .sidebar,
+        section {
+            background: rgba(255, 255, 255, 0.1);
+
+            backdrop-filter: blur(5px);
+
+            border-radius: 10px;
+        }
+
+
+        article {
+            padding: 20px;
+
+            margin-bottom: 20px;
+
+            border-left: 5px solid white;
+        }
+
+
+        article h2,
+        section h2 {
+            margin-bottom: 15px;
+
+            text-shadow: 1px 1px 3px black;
+        }
+
+
+        article p {
+            margin-bottom: 10px;
+        }
+
+
+        .sidebar {
+            flex: 1;
+            padding: 20px;
+        }
+
+
+        .sidebar h3 {
+            margin-bottom: 10px;
+
+            text-shadow: 1px 1px 3px black;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        #contact {
+            max-width: 900px;
+
+            margin: 15px auto;
+
+            padding: 15px;
+
+            text-align: center;
+        }
+
+
+        #contact h2 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+
+        form {
+            max-width: 400px;
+
+            margin: 0 auto;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 6px;
+        }
+
+
+        form label {
+            text-align: left;
+
+            font-weight: bold;
+
+            font-size: 13px;
+        }
+
+
+        form input,
+        form textarea {
+            width: 100%;
+
+            padding: 7px 9px;
+
+            border: none;
+
+            border-radius: 5px;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 13px;
+
+            outline: none;
+        }
+
+
+        form textarea {
+            resize: vertical;
+
+            min-height: 80px;
+        }
+
+
+        form input:focus,
+        form textarea:focus {
+            box-shadow: 0 0 6px #FFD700;
+        }
+
+
+        form button {
+            padding: 8px 15px;
+
+            border: none;
+
+            border-radius: 6px;
+
+            background: #00008B;
+
+            color: white;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        form button:hover {
+            background: #0000FF;
+        }
+
+
+        /* =========================
+           VISITOR COUNTER
+        ========================= */
+
+        #visitor-tracker {
+            position: fixed;
+
+            right: 8px;
+            bottom: 8px;
+
+            width: 55px;
+
+            padding: 3px;
+
+            background: rgba(0, 0, 0, 0.85);
+
+            border: 1px solid #C0C0C0;
+
+            border-radius: 5px;
+
+            box-shadow: 0 0 8px rgba(192, 192, 192, 0.5);
+
+            text-align: center;
+
+            z-index: 9998;
+        }
+
+
+        #visitor-tracker h2 {
+            font-size: 7px;
+
+            line-height: 1;
+
+            margin: 0 0 2px;
+
+            color: #FFFFFF;
+        }
+
+
+        #visitor-tracker p {
+            font-size: 8px;
+
+            line-height: 1;
+
+            margin: 0;
+        }
+
+
+        #visit-count {
+            color: #C0C0C0;
+
+            font-size: 10px;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+
+            padding: 20px;
+
+            background: rgba(0, 0, 0, 0.5);
+
+            border-top: 2px solid white;
+
+            margin-top: 20px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+
+            nav ul {
+                flex-direction: column;
+            }
+
+
+            nav li {
+                margin: 0;
+            }
+
+
+            nav a {
+                padding: 10px;
+            }
+
+
+            .container {
+                flex-direction: column;
+
+                padding: 0 15px;
+            }
+
+
+            .sidebar {
+                width: 100%;
+            }
+
+
+            #contact {
+                margin: 15px;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            #consent-banner {
+                bottom: 10px;
+
+                width: calc(100% - 20px);
+
+                max-height: calc(100vh - 20px);
+
+                padding: 16px;
+
+                padding-top: 42px;
+            }
+
+
+            #consent-title {
+                font-size: 18px;
+            }
+
+
+            .consent-buttons {
+                flex-direction: column;
+            }
+
+
+            .consent-buttons button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         CONSENT BANNER
+    ====================================================== -->
+
+    <div
+        id="consent-banner"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="consent-title"
+    >
+
+        <button
+            id="consent-close"
+            type="button"
+            aria-label="Close privacy and consent panel"
+            title="Close"
+        >
+            &times;
+        </button>
+
+
+        <h3 id="consent-title">
+            🔐 Privacy &amp; Consent
+        </h3>
+
+
+        <p class="consent-intro">
+            KEA collects information you provide through this
+            website. Optional cookies/storage may be used for
+            basic analytics. Location sharing is optional.
+        </p>
+
+
+        <div class="consent-section">
+
+            <h4>📊 Data Collection</h4>
+
+            <p>
+                We may collect your name, email and message
+                when you use the contact form.
+            </p>
+
+        </div>
+
+
+        <div class="consent-section">
+
+            <h4>🔒 Privacy</h4>
+
+            <p>
+                Your information is used only for the purposes
+                described on this website.
+            </p>
+
+        </div>
+
+
+        <div class="consent-section">
+
+            <h4>📜 Terms</h4>
+
+            <p>
+                By using KEA, you agree to use the website
+                lawfully and responsibly.
+            </p>
+
+        </div>
+
+
+        <div class="consent-section location-consent">
+
+            <h4>📍 Location</h4>
+
+            <p>
+                Location is optional and is requested only when
+                you choose to share it.
+            </p>
+
+
+            <button
+                id="consent-location-button"
+                type="button"
+            >
+                📍 Share Location
+            </button>
+
+
+            <p id="consent-location-status">
+                Location not shared
+            </p>
+
+
+            <div id="consent-location-result"></div>
+
+        </div>
+
+
+        <div class="consent-agreement">
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    id="consent-checkbox"
+                >
+
+                <span>
+                    I have read and agree to the Privacy Policy
+                    and Terms &amp; Conditions.
+                </span>
+
+            </label>
+
+        </div>
+
+
+        <div class="consent-buttons">
+
+            <button
+                id="accept-consent"
+                type="button"
+            >
+                Accept
+            </button>
+
+
+            <button
+                id="reject-consent"
+                type="button"
+            >
+                Reject
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <h1>
+            Kaye Eloisa Arnejo
+        </h1>
+
+    </header>
+
+
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
+
+    <nav>
+
+        <ul>
+
+            <li>
+                <a href="#">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="#about">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="#contact">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <div class="container">
+
+        <main class="main-content">
+
+            <article>
+
+                <h2>
+                    First Post
+                </h2>
+
+                <p>
+                    <em>
+                        Posted on 8/10/2026 by Admin
+                    </em>
+                </p>
+
+            </article>
+
+        </main>
+
+
+        <aside
+            class="sidebar"
+            id="about"
+        >
+
+            <h3>
+                About
+            </h3>
+
+            <p>
+                Welcome to KEA.
+            </p>
+
+        </aside>
+
+    </div>
+
+
+    <!-- =====================================================
+         CONTACT
+    ====================================================== -->
+
+    <section id="contact">
+
+        <h2>
+            Contact Me
+        </h2>
+
+
+        <!-- IMPORTANT:
+             Use the URL directly here.
+             Do NOT put Markdown [ ] ( ) inside HTML.
+        -->
+
+        <form
+            action="https://script.google.com/macros/s/AKfycbyXQeo4DsxIp0xDpsBh5dZDdw4aHc108s9XRzij-ff78UGNo8ZIz-AcWcywF3StzGzbww/exec"
+            method="POST"
+        >
+
+            <label for="name">
+                Name
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                name="name"
+                autocomplete="name"
+                required
+            >
+
+
+            <label for="email">
+                Email
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                required
+            >
+
+
+            <label for="message">
+                Message
+            </label>
+
+            <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+            ></textarea>
+
+
+            <!-- Honeypot -->
+
+            <input
+                type="text"
+                name="website"
+                style="display:none"
+                tabindex="-1"
+                autocomplete="off"
+            >
+
+
+            <button type="submit">
+                Send Message
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- =====================================================
+         VISITOR COUNTER
+    ====================================================== -->
+
+    <section id="visitor-tracker">
+
+        <h2>
+            Visitors
+        </h2>
+
+        <p>
+            <span id="visit-count">
+                0
+            </span>
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+            &copy; 2026 KEA.
+            All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            /* =================================================
+               CONSENT ELEMENTS
+            ================================================= */
+
+            const consentBanner =
+                document.getElementById("consent-banner");
+
+            const consentCheckbox =
+                document.getElementById("consent-checkbox");
+
+            const acceptConsent =
+                document.getElementById("accept-consent");
+
+            const rejectConsent =
+                document.getElementById("reject-consent");
+
+            const consentClose =
+                document.getElementById("consent-close");
+
+
+            /* =================================================
+               COOKIE FUNCTIONS
+            ================================================= */
+
+            function setCookie(name, value, days) {
+
+                const expires = new Date();
+
+                expires.setTime(
+                    expires.getTime() +
+                    days * 24 * 60 * 60 * 1000
+                );
+
+                document.cookie =
+                    name +
+                    "=" +
+                    encodeURIComponent(value) +
+                    ";expires=" +
+                    expires.toUTCString() +
+                    ";path=/;SameSite=Lax";
+            }
+
+
+            function getCookie(name) {
+
+                const cookies =
+                    document.cookie.split(";");
+
+                for (const cookieItem of cookies) {
+
+                    const cookie =
+                        cookieItem.trim();
+
+                    if (
+                        cookie.startsWith(name + "=")
+                    ) {
+
+                        return decodeURIComponent(
+                            cookie.substring(name.length + 1)
+                        );
+                    }
+                }
+
+                return null;
+            }
+
+
+            /* =================================================
+               CONSENT STATE
+            ================================================= */
+
+            const savedConsent =
+                getCookie("kea_consent");
+
+
+            if (
+                savedConsent === "accepted" ||
+                savedConsent === "rejected"
+            ) {
+
+                consentBanner.classList.add("hidden");
+            }
+
+
+            /* =================================================
+               CLOSE CONSENT PANEL
+            ================================================= */
+
+            consentClose.addEventListener(
+                "click",
+                function () {
+
+                    /*
+                     * Closing the panel without choosing
+                     * Accept/Reject does not create consent.
+                     *
+                     * It only hides the panel for this
+                     * page load.
+                     */
+
+                    consentBanner.classList.add("hidden");
+                }
+            );
+
+
+            /* =================================================
+               ESCAPE CLOSE
+            ================================================= */
+
+            document.addEventListener(
+                "keydown",
+                function (event) {
+
+                    if (
+                        event.key === "Escape" &&
+                        !consentBanner.classList.contains("hidden")
+                    ) {
+
+                        consentBanner.classList.add("hidden");
+                    }
+                }
+            );
+
+
+            /* =================================================
+               VISITOR COUNTER
+            ================================================= */
+
+            function updateVisitCount() {
+
+                try {
+
+                    let visits =
+                        Number(
+                            localStorage.getItem("keaVisits") || 0
+                        );
+
+                    visits++;
+
+                    localStorage.setItem(
+                        "keaVisits",
+                        visits
+                    );
+
+                    const counter =
+                        document.getElementById("visit-count");
+
+                    if (counter) {
+                        counter.textContent = visits;
+                    }
+
+                } catch (error) {
+
+                    console.warn(
+                        "Local storage unavailable.",
+                        error
+                    );
+                }
+            }
+
+
+            /*
+             * Only count visits after acceptance.
+             */
+
+            if (savedConsent === "accepted") {
+
+                updateVisitCount();
+            }
+
+
+            /* =================================================
+               ACCEPT CONSENT
+            ================================================= */
+
+            acceptConsent.addEventListener(
+                "click",
+                function () {
+
+                    if (!consentCheckbox.checked) {
+
+                        alert(
+                            "Please confirm that you have read and understood the information before accepting."
+                        );
+
+                        return;
+                    }
+
+
+                    setCookie(
+                        "kea_consent",
+                        "accepted",
+                        180
+                    );
+
+
+                    consentBanner.classList.add("hidden");
+
+
+                    updateVisitCount();
+                }
+            );
+
+
+            /* =================================================
+               REJECT CONSENT
+            ================================================= */
+
+            rejectConsent.addEventListener(
+                "click",
+                function () {
+
+                    setCookie(
+                        "kea_consent",
+                        "rejected",
+                        180
+                    );
+
+
+                    try {
+
+                        localStorage.removeItem("keaVisits");
+
+                    } catch (error) {
+
+                        console.warn(
+                            "Could not clear local storage.",
+                            error
+                        );
+                    }
+
+
+                    consentBanner.classList.add("hidden");
+                }
+            );
+
+
+            /* =================================================
+               LOCATION FUNCTION
+            ================================================= */
+
+            function getLocation(
+                statusElement,
+                resultElement,
+                buttonElement
+            ) {
+
+                if (!navigator.geolocation) {
+
+                    statusElement.textContent =
+                        "Location is unavailable.";
+
+                    return;
+                }
+
+
+                buttonElement.disabled = true;
+
+                buttonElement.textContent = "Getting...";
+
+                statusElement.textContent =
+                    "Please allow location access.";
+
+                resultElement.textContent = "";
+
+
+                navigator.geolocation.getCurrentPosition(
+
+                    function (position) {
+
+                        const latitude =
+                            position.coords.latitude;
+
+                        const longitude =
+                            position.coords.longitude;
+
+
+                        statusElement.textContent =
+                            "Location shared.";
+
+
+                        resultElement.textContent =
+                            "📍 " +
+                            latitude.toFixed(4) +
+                            ", " +
+                            longitude.toFixed(4);
+
+
+                        buttonElement.textContent =
+                            "Location Shared";
+
+                        buttonElement.disabled = false;
+                    },
+
+
+                    function (error) {
+
+                        console.log(
+                            "Location error:",
+                            error.message
+                        );
+
+
+                        if (
+                            error.code ===
+                            error.PERMISSION_DENIED
+                        ) {
+
+                            statusElement.textContent =
+                                "Location permission denied.";
+
+                        } else if (
+                            error.code ===
+                            error.TIMEOUT
+                        ) {
+
+                            statusElement.textContent =
+                                "Location request timed out.";
+
+                        } else {
+
+                            statusElement.textContent =
+                                "Could not get location.";
+                        }
+
+
+                        resultElement.textContent = "";
+
+                        buttonElement.textContent =
+                            "Share Location";
+
+                        buttonElement.disabled = false;
+                    },
+
+
+                    {
+                        enableHighAccuracy: false,
+                        timeout: 10000,
+                        maximumAge: 60000
+                    }
+                );
+            }
+
+
+            /* =================================================
+               CONSENT LOCATION
+            ================================================= */
+
+            const consentLocationButton =
+                document.getElementById(
+                    "consent-location-button"
+                );
+
+
+            const consentLocationStatus =
+                document.getElementById(
+                    "consent-location-status"
+                );
+
+
+            const consentLocationResult =
+                document.getElementById(
+                    "consent-location-result"
+                );
+
+
+            consentLocationButton.addEventListener(
+                "click",
+                function () {
+
+                    getLocation(
+                        consentLocationStatus,
+                        consentLocationResult,
+                        consentLocationButton
+                    );
+                }
+            );
+
+
+            /* =================================================
+               CONTACT FORM
+            ================================================= */
+
+            const form =
+                document.querySelector("#contact form");
+
+
+            if (form) {
+
+                form.addEventListener(
+                    "submit",
+                    function (event) {
+
+                        const name =
+                            document
+                                .getElementById("name")
+                                .value
+                                .trim();
+
+
+                        const email =
+                            document
+                                .getElementById("email")
+                                .value
+                                .trim();
+
+
+                        const message =
+                            document
+                                .getElementById("message")
+                                .value
+                                .trim();
+
+
+                        const honeypot =
+                            document.querySelector(
+                                'input[name="website"]'
+                            ).value;
+
+
+                        /*
+                         * Stop bots.
+                         */
+
+                        if (honeypot !== "") {
+
+                            event.preventDefault();
+
+                            return;
+                        }
+
+
+                        /*
+                         * Required fields.
+                         */
+
+                        if (
+                            !name ||
+                            !email ||
+                            !message
+                        ) {
+
+                            event.preventDefault();
+
+                            alert(
+                                "Please complete all fields."
+                            );
+
+                            return;
+                        }
+
+
+                        /*
+                         * Email validation.
+                         */
+
+                        const emailPattern =
+                            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+                        if (
+                            !emailPattern.test(email)
+                        ) {
+
+                            event.preventDefault();
+
+                            alert(
+                                "Please enter a valid email address."
+                            );
+
+                            return;
+                        }
+
+
+                        /*
+                         * Final confirmation.
+                         */
+
+                        if (
+                            !confirm(
+                                "Are you sure you want to send this message?"
+                            )
+                        ) {
+
+                            event.preventDefault();
+                        }
+                    }
+                );
+            }
+
+
+            /* =================================================
+               SMOOTH NAVIGATION
+            ================================================= */
+
+            const navLinks =
+                document.querySelectorAll("nav a");
+
+
+            navLinks.forEach(
+                function (link) {
+
+                    link.addEventListener(
+                        "click",
+                        function (event) {
+
+                            const target =
+                                this.getAttribute("href");
+
+
+                            if (
+                                target &&
+                                target.startsWith("#") &&
+                                target !== "#"
+                            ) {
+
+                                event.preventDefault();
+
+
+                                const section =
+                                    document.querySelector(target);
+
+
+                                if (section) {
+
+                                    section.scrollIntoView({
+                                        behavior: "smooth"
+                                    });
+                                }
+                            }
+                        }
+                    );
+                }
+            );
+
+        });
+
+    </script>
+
+</body>
+
+</html>
