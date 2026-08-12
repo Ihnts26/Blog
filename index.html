@@ -1039,7 +1039,7 @@
 
                 <p>
                     <em>
-                        
+                        Posted on 8/10/2026 by Admin
                     </em>
                 </p>
 
@@ -1057,7 +1057,7 @@
             </h3>
 
             <p>
-                This A Little Corner of My World
+                Welcome to KEA.
             </p>
 
         </aside>
@@ -1521,108 +1521,109 @@
 
 
             /* =========================
-               CONTACT FORM
-            ========================= */
+   CONTACT FORM
+========================= */
 
-            const form =
-                document.querySelector("#contact form");
+const form = document.querySelector("#contact-form");
 
+if (form) {
 
-            if (form) {
+    form.addEventListener("submit", async function (event) {
 
-                form.addEventListener(
-                    "submit",
-                    function (event) {
+        event.preventDefault();
 
-                        const name =
-                            document
-                                .getElementById("name")
-                                .value
-                                .trim();
+        const name =
+            document.getElementById("name").value.trim();
 
-                        const email =
-                            document
-                                .getElementById("email")
-                                .value
-                                .trim();
+        const email =
+            document.getElementById("email").value.trim();
 
-                        const message =
-                            document
-                                .getElementById("message")
-                                .value
-                                .trim();
+        const message =
+            document.getElementById("message").value.trim();
 
-                        const honeypot =
-                            document.querySelector(
-                                'input[name="website"]'
-                            ).value;
+        const honeypot =
+            document.querySelector(
+                'input[name="website"]'
+            ).value;
 
+        /* Stop bots */
 
-                        /* Stop bots */
+        if (honeypot !== "") {
+            return;
+        }
 
-                        if (honeypot !== "") {
+        /* Required fields */
 
-                            event.preventDefault();
+        if (!name || !email || !message) {
 
-                            return;
-                        }
+            alert("Please complete all fields.");
 
+            return;
+        }
 
-                        /* Required fields */
+        /* Email validation */
 
-                        if (
-                            !name ||
-                            !email ||
-                            !message
-                        ) {
+        const emailPattern =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-                            event.preventDefault();
+        if (!emailPattern.test(email)) {
 
-                            alert(
-                                "Please complete all fields."
-                            );
+            alert("Please enter a valid email address.");
 
-                            return;
-                        }
+            return;
+        }
 
+        /* Final confirmation */
 
-                        /* Email validation */
+        if (
+            !confirm(
+                "Are you sure you want to send this message?"
+            )
+        ) {
+            return;
+        }
 
-                        const emailPattern =
-                            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        /* Disable button while sending */
 
+        const submitButton =
+            form.querySelector("button[type='submit']");
 
-                        if (
-                            !emailPattern.test(email)
-                        ) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
 
-                            event.preventDefault();
+        try {
 
-                            alert(
-                                "Please enter a valid email address."
-                            );
+            const formData = new FormData(form);
 
-                            return;
-                        }
+            await fetch(
+                "https://script.google.com/macros/s/AKfycbyXQeo4DsxIp0xDpsBh5dZDdw4aHc108s9XRzij-ff78UGNo8ZIz-AcWcywF3StzGzbww/exec",
+                {
+                    method: "POST",
+                    body: formData,
+                    mode: "no-cors"
+                }
+            );
 
+            alert("Your message has been sent successfully!");
 
-                        /* Final confirmation */
+            form.reset();
 
-                        if (
-                            !confirm(
-                                "Are you sure you want to send this message?"
-                            )
-                        ) {
+        } catch (error) {
 
-                            event.preventDefault();
-                        }
-                    }
-                );
-            }
+            console.error("Form submission error:", error);
 
-        });
-    </script>
+            alert(
+                "Something went wrong. Please try again."
+            );
 
-</body>
+        } finally {
+
+            submitButton.disabled = false;
+            submitButton.textContent = "Send Message";
+        }
+
+    });
+}
+
 
 </html>
