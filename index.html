@@ -52,6 +52,9 @@
 
             background-size: 300% 300%;
             animation: softBackground 18s ease-in-out infinite;
+
+            /* Reserve space for the fixed footer (fallback). The JS will set an exact value on load/resize. */
+            padding-bottom: calc(120px + env(safe-area-inset-bottom));
         }
 
         @keyframes softBackground {
@@ -383,17 +386,28 @@
         }
 
         /* =========================
-           FOOTER
+           FOOTER (fixed & centered)
         ========================= */
 
         footer {
             position: fixed;
+            left: 50%;
+            bottom: 12px;
+            transform: translateX(-50%);
+            width: calc(100% - 40px);
+            max-width: 1200px;
+            box-sizing: border-box;
+
             text-align: center;
-            padding: 20px;
+            padding: 14px 20px;
             background: rgba(255, 255, 255, 0.92);
             color: #222;
             border-top: 2px solid #222;
-            margin-top: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+
+            z-index: 9999;
+            margin-top: 0;
         }
 
         /* =========================
@@ -841,6 +855,15 @@
             #visit-count {
                 font-size: 12px;
             }
+
+            /* Footer adjustments for mobile */
+            footer {
+                bottom: 8px;
+                width: calc(100% - 20px);
+                max-width: none;
+                padding: 12px 14px;
+                border-radius: 8px;
+            }
         }
 
         /* =========================
@@ -1088,7 +1111,7 @@
 
                 <p>
                     <em>
-                        
+
                     </em>
                 </p>
 
@@ -1544,6 +1567,25 @@
                     }
                 });
             });
+
+            /* =========================
+               Footer spacing helper
+               Ensures page content isn't hidden behind the fixed footer.
+            ========================= */
+
+            function adjustFooterSpacing() {
+                const footer = document.querySelector('footer');
+                if (!footer) return;
+                // Add a small gap so content doesn't touch the footer
+                const extraGap = 24;
+                const height = footer.offsetHeight + extraGap + (window.CSS && CSS.supports('padding-bottom: env(safe-area-inset-bottom)') ? parseInt(getComputedStyle(document.documentElement).getPropertyValue('--sa-safe') || 0) : 0);
+                // Apply padding-bottom directly (overrides CSS fallback)
+                document.body.style.paddingBottom = (footer.offsetHeight + extraGap) + 'px';
+            }
+
+            // Run on load and when the viewport changes
+            adjustFooterSpacing();
+            window.addEventListener('resize', adjustFooterSpacing);
 
         });
     </script>
