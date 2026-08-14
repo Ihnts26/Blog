@@ -172,15 +172,6 @@
     .consent-section h4 { margin:0 0 6px; color:#ffd700; font-size:13px; font-weight:600; }
     .consent-section p { margin:0; font-size:12px; line-height:1.5; color:#ddd; }
 
-    .location-consent { text-align:center; }
-    #consent-location-button {
-      width:100%; padding:11px 14px; margin-top:8px; border:none; border-radius:6px; background:#ffd700; color:#000; font-size:13px; font-weight:bold; cursor:pointer;
-      transition:all .2s ease; -webkit-appearance:none; min-height:44px;
-    }
-    #consent-location-button:hover { background:white; transform:translateY(-1px); box-shadow:0 4px 12px rgba(255,215,0,0.3); }
-    #consent-location-status { margin-top:8px; font-size:11px; color:#bbb; }
-    #consent-location-result { margin-top:6px; font-size:12px; color:#ffd700; word-break:break-word; font-weight:600; }
-
     .consent-agreement { margin:12px 0; padding:12px; background: rgba(255,215,0,0.08); border-radius:8px; font-size:12px; line-height:1.5; }
     .consent-agreement label { display:flex; align-items:flex-start; gap:10px; cursor:pointer; user-select:none; }
     #consent-checkbox { width:18px; height:18px; margin-top:2px; accent-color:#ffd700; flex-shrink:0; cursor:pointer; -webkit-appearance:none; appearance:none; }
@@ -244,7 +235,7 @@
   <div id="consent-banner" role="dialog" aria-modal="true" aria-labelledby="consent-title" aria-describedby="consent-intro">
     <button id="consent-close" type="button" aria-label="Close privacy and consent dialog" title="Close">✕</button>
     <h3 id="consent-title">🔐 Privacy &amp; Consent</h3>
-    <p class="consent-intro" id="consent-intro">KEA collects information you provide through here. Optional cookies/storage may be used for basic analytics. Location sharing is optional.</p>
+    <p class="consent-intro" id="consent-intro">KEA collects information you provide through here. Optional cookies/storage may be used for basic analytics.</p>
 
     <div class="consent-section">
       <h4>📊 Data Collection</h4>
@@ -259,14 +250,6 @@
     <div class="consent-section">
       <h4>📜 Terms</h4>
       <p>By using KEA, you agree to use the terms lawfully and responsibly.</p>
-    </div>
-
-    <div class="consent-section location-consent">
-      <h4>📍 Location</h4>
-      <p>Location is optional and is requested only when you choose to share it.</p>
-      <button id="consent-location-button" type="button" aria-label="Request location permission">📍 Share Location</button>
-      <p id="consent-location-status">Location not shared</p>
-      <div id="consent-location-result" role="status"></div>
     </div>
 
     <div class="consent-agreement">
@@ -348,7 +331,7 @@
   </footer>
 
   <!-- =========================
-       JAVASCRIPT (consent, form, location, layout adjustments)
+       JAVASCRIPT (consent, form, layout adjustments)
   ========================= -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -410,44 +393,6 @@
         rejectConsent.addEventListener("click", function () {
           setCookie("kea_consent", "rejected", 180);
           consentBanner.classList.add("hidden");
-        });
-      }
-
-      /* -------------------------
-         Geolocation
-         ------------------------- */
-      function getLocation(statusElement, resultElement, buttonElement) {
-        if (!navigator.geolocation) {
-          if (statusElement) statusElement.textContent = "Location is unavailable.";
-          return;
-        }
-        if (buttonElement) { buttonElement.disabled = true; buttonElement.textContent = "Getting..."; }
-        if (statusElement) statusElement.textContent = "Requesting location...";
-        if (resultElement) resultElement.textContent = "";
-
-        navigator.geolocation.getCurrentPosition(function (position) {
-          const latitude = position.coords.latitude.toFixed(4);
-          const longitude = position.coords.longitude.toFixed(4);
-          if (statusElement) statusElement.textContent = "✓ Location shared";
-          if (resultElement) resultElement.textContent = `📍 ${latitude}, ${longitude}`;
-          if (buttonElement) { buttonElement.textContent = "✓ Location Shared"; buttonElement.disabled = false; }
-        }, function (error) {
-          console.log("Location error:", error.message);
-          let errorMsg = "Could not get location.";
-          if (error.code === error.PERMISSION_DENIED) errorMsg = "Location permission denied.";
-          else if (error.code === error.TIMEOUT) errorMsg = "Location request timed out.";
-          else if (error.code === error.POSITION_UNAVAILABLE) errorMsg = "Position unavailable.";
-          if (statusElement) statusElement.textContent = errorMsg;
-          if (resultElement) resultElement.textContent = "";
-          if (buttonElement) { buttonElement.textContent = "📍 Share Location"; buttonElement.disabled = false; }
-        }, { enableHighAccuracy: false, timeout: 8000, maximumAge: 300000 });
-      }
-      const consentLocationButton = document.getElementById("consent-location-button");
-      const consentLocationStatus = document.getElementById("consent-location-status");
-      const consentLocationResult = document.getElementById("consent-location-result");
-      if (consentLocationButton) {
-        consentLocationButton.addEventListener("click", function () {
-          getLocation(consentLocationStatus, consentLocationResult, consentLocationButton);
         });
       }
 
