@@ -25,7 +25,7 @@
       /* Fallback reserve for fixed footer (JS will calculate exact value on load/resize) */
       padding-bottom: calc(120px + env(safe-area-inset-bottom));
     }
-    @keyframes softBackground { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+    @keyframes softBackground { 0%{background-position0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
 
     /* =========================
        HEADER
@@ -106,26 +106,6 @@
     form button:hover { background:#0000cd; transform: translateY(-2px); box-shadow: 0 5px 12px rgba(0,0,139,0.25); }
     form button:active { transform:translateY(0); }
     form button:disabled { opacity:.7; cursor:not-allowed; transform:none; }
-
-    /* =========================
-       VISITOR COUNTER (will be moved above footer by JS)
-    ========================= */
-    #visitor-tracker {
-      position: fixed;
-      right: 10px;
-      bottom: 12px; /* fallback - JS will override */
-      width: 60px;
-      padding: 8px 5px;
-      background: rgba(20,20,20,0.94);
-      border: 1px solid #c0c0c0;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-      text-align: center;
-      z-index: 10000; /* above footer (9999) but below consent (very high) */
-    }
-    #visitor-tracker h2 { font-size:9px; line-height:1.2; margin:0 0 4px; color:#fff; letter-spacing:.5px; }
-    #visitor-tracker p { font-size:9px; line-height:1.2; margin:0; }
-    #visit-count { color:#ffd700; font-size:14px; font-weight:bold; display:block; }
 
     /* =========================
        FOOTER (fixed & centered)
@@ -233,7 +213,6 @@
       form input, form textarea { font-size:16px; padding:12px; }
       form button { padding:14px 18px; font-size:15px; min-height:48px; }
       #consent-banner { bottom:10px; width:calc(100% - 20px); max-width:none; max-height:calc(100vh - 80px); padding:16px; padding-top:40px; }
-      #visitor-tracker { right:8px; bottom:8px; width:55px; padding:6px 4px; }
       footer { bottom:8px; width:calc(100% - 20px); max-width:none; padding:12px 14px; border-radius:8px; }
     }
 
@@ -362,14 +341,6 @@
   </section>
 
   <!-- =========================
-       VISITOR COUNTER
-  ========================= -->
-  <section id="visitor-tracker" aria-label="Visitor counter" role="contentinfo">
-    <h2>Visits</h2>
-    <p><span id="visit-count" aria-live="polite">0</span></p>
-  </section>
-
-  <!-- =========================
        FOOTER
   ========================= -->
   <footer>
@@ -424,24 +395,6 @@
         }
       });
 
-      /* -------------------------
-         Visitor counter (localStorage)
-         ------------------------- */
-      function updateVisitCount() {
-        try {
-          let visits = parseInt(localStorage.getItem("keaVisits") || "0", 10);
-          if (Number.isNaN(visits) || visits < 0) visits = 0;
-          visits++;
-          localStorage.setItem("keaVisits", String(visits));
-          const counter = document.getElementById("visit-count");
-          if (counter) {
-            counter.textContent = String(visits);
-            counter.setAttribute("aria-label", `${visits} visitors`);
-          }
-        } catch (e) { console.warn("Local storage unavailable:", e); }
-      }
-      if (savedConsent === "accepted") updateVisitCount();
-
       if (acceptConsent) {
         acceptConsent.addEventListener("click", function () {
           if (!consentCheckbox.checked) {
@@ -451,13 +404,11 @@
           }
           setCookie("kea_consent", "accepted", 180);
           consentBanner.classList.add("hidden");
-          updateVisitCount();
         });
       }
       if (rejectConsent) {
         rejectConsent.addEventListener("click", function () {
           setCookie("kea_consent", "rejected", 180);
-          try { localStorage.removeItem("keaVisits"); } catch (e) { console.warn("Could not clear local storage:", e); }
           consentBanner.classList.add("hidden");
         });
       }
@@ -560,24 +511,16 @@
 
       /* -------------------------
          Layout helpers:
-         - adjustFooterAndTracker: prevents visitor tracker overlap and sets body padding
+         - adjustFooter: sets body padding to prevent content being hidden by fixed footer
          - adjustContactHeight: makes contact section fill visible area minus header/nav/footer
          ------------------------- */
-      function adjustFooterAndTracker() {
+      function adjustFooter() {
         const footer = document.querySelector('footer');
-        const visitor = document.getElementById('visitor-tracker');
         if (!footer) return;
         const extraGap = 24; // space between content and footer
-        const trackerGap = 16; // gap between visitor tracker and footer
-
         const fh = footer.offsetHeight || 0;
         // Set body bottom padding so content isn't hidden by fixed footer
         document.body.style.paddingBottom = (fh + extraGap) + 'px';
-
-        // Position visitor tracker above the footer
-        if (visitor) {
-          visitor.style.bottom = (fh + trackerGap) + 'px';
-        }
       }
 
       function adjustContactHeight() {
@@ -599,7 +542,7 @@
 
       // Run adjustments on load and when viewport changes
       function runLayoutAdjustments() {
-        adjustFooterAndTracker();
+        adjustFooter();
         adjustContactHeight();
       }
       runLayoutAdjustments();
