@@ -1,2360 +1,3695 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#00008b">
-  <title>KEA | Kaye Eloisa Arnejo</title>
-
-  <style>
-    /* =========================
-       RESET & DEFAULTS
-    ========================= */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 80px;
-    }
-
-    body {
-      font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Arial,
-        sans-serif;
-
-      background:
-        linear-gradient(
-          135deg,
-          #f7f8fa,
-          #ffffff,
-          #f1f4f8,
-          #ffffff
-        );
-
-      background-size: 300% 300%;
-      animation: softBackground 18s ease-in-out infinite;
-
-      color: #222;
-      line-height: 1.6;
-      min-height: 100vh;
-      overflow-x: hidden;
-
-      padding-bottom:
-        calc(120px + env(safe-area-inset-bottom));
-
-      top: 0 !important;
-    }
-
-    @keyframes softBackground {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    /* =========================
-       HEADER
-    ========================= */
-    header {
-      text-align: center;
-      padding: 20px 15px;
-
-      background: rgba(255,255,255,0.92);
-
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-
-      color: #111;
-
-      border-bottom: 2px solid #222;
-
-      box-shadow:
-        0 2px 10px rgba(0,0,0,0.05);
-
-      animation: fadeDown 0.8s ease-out;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      color: #111;
-      letter-spacing: 0.5px;
-      word-break: break-word;
-    }
-
-    @keyframes fadeDown {
-      from {
-        opacity: 0;
-        transform: translateY(-15px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
 
-    /* =========================
-       LANGUAGE TRANSLATOR
-    ========================= */
-    .language-translator {
-      position: relative;
-      z-index: 1001;
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="theme-color"
+        content="#0B1F3A">
+
+    <meta
+        name="description"
+        content="Kaye Eloisa Arnejo | Practical, hands-on freelance, contract and project support across software, electronics, construction, clinical, mental health-related, documentation and technical work.">
+
+    <title>
+        KEA | Practical Hands-On Support for Work That Needs to Get Done
+    </title>
+
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 70px;
+        }
+
+        body {
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            background: #f5f7fa;
+            color: #1f2937;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font-family: inherit;
+        }
+
+        :root {
+            --navy: #0B1F3A;
+            --blue: #2563EB;
+            --blue-dark: #1D4ED8;
+            --blue-soft: #EFF6FF;
+            --text: #1F2937;
+            --muted: #64748B;
+            --border: #E2E8F0;
+            --white: #FFFFFF;
+            --background: #F5F7FA;
+
+            --shadow:
+                0 5px 22px
+                rgba(15, 23, 42, 0.07);
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
+        header {
+            position: relative;
 
-      padding: 10px 15px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #07182D 0%,
+                    #0B1F3A 58%,
+                    #163E6D 100%
+                );
+
+            color: white;
 
-      background: rgba(255,255,255,0.96);
+            padding:
+                78px 20px
+                72px;
 
-      border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
 
-      box-shadow:
-        0 2px 6px rgba(0,0,0,0.04);
-    }
+        .hero {
+            max-width: 850px;
+            margin: auto;
+        }
 
-    #kea-language-select {
-      appearance: none;
-      -webkit-appearance: none;
+        .availability {
+            display: inline-block;
 
-      width: 270px;
-      max-width: 100%;
+            padding: 6px 14px;
+            margin-bottom: 20px;
 
-      min-height: 44px;
+            border-radius: 30px;
 
-      padding:
-        10px 42px 10px 14px;
+            background:
+                rgba(255,255,255,0.08);
 
-      border: 1px solid #ccc;
-      border-radius: 8px;
+            border:
+                1px solid
+                rgba(255,255,255,0.15);
 
-      background-color: #fff;
+            color: #BFDBFE;
 
-      color: #222;
+            font-size: 12px;
+            font-weight: 700;
+        }
 
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: 600;
+        header h1 {
+            font-size:
+                clamp(2.3rem, 6vw, 3.7rem);
 
-      cursor: pointer;
-      outline: none;
+            line-height: 1.08;
+            letter-spacing: -1.2px;
+            margin-bottom: 20px;
+        }
 
-      background-image:
-        linear-gradient(
-          45deg,
-          transparent 50%,
-          #00008b 50%
-        ),
-        linear-gradient(
-          135deg,
-          #00008b 50%,
-          transparent 50%
-        );
+        .hero-question {
+            font-size:
+                clamp(1.25rem, 3vw, 1.7rem);
 
-      background-position:
-        calc(100% - 18px) 18px,
-        calc(100% - 12px) 18px;
+            font-weight: 650;
+            margin-bottom: 12px;
+        }
 
-      background-size:
-        6px 6px,
-        6px 6px;
+        .hero-description {
+            max-width: 720px;
+            margin: auto;
 
-      background-repeat: no-repeat;
+            color: #CBDCF3;
 
-      transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
-    }
+            font-size: 1rem;
+            line-height: 1.75;
+        }
 
-    #kea-language-select:hover {
-      border-color: #00008b;
-    }
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 30px;
+        }
 
-    #kea-language-select:focus {
-      border-color: #00008b;
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
 
-      box-shadow:
-        0 0 0 3px
-        rgba(0,0,139,0.12);
-    }
+            min-height: 48px;
 
-    #kea-language-select optgroup {
-      font-weight: bold;
-    }
+            padding:
+                11px 23px;
 
-    /* =========================
-       HIDE GOOGLE TRANSLATE UI
-       No visible Google logo
-    ========================= */
-    #google_translate_element {
-      position: absolute !important;
+            border-radius: 7px;
 
-      width: 1px !important;
-      height: 1px !important;
+            text-decoration: none;
 
-      overflow: hidden !important;
+            font-size: 14px;
+            font-weight: 750;
 
-      opacity: 0 !important;
+            transition: 0.2s ease;
+        }
 
-      pointer-events: none !important;
+        .button-primary {
+            background: var(--blue);
+            color: white;
+        }
 
-      left: -9999px !important;
-      top: -9999px !important;
-    }
+        .button-primary:hover {
+            background: var(--blue-dark);
+            transform: translateY(-2px);
+        }
 
-    .goog-te-banner-frame,
-    .goog-te-balloon-frame,
-    .goog-tooltip,
-    .goog-te-spinner-pos,
-    body > .skiptranslate {
-      display: none !important;
-    }
+        .button-secondary {
+            color: white;
 
-    .goog-te-gadget {
-      font-size: 0 !important;
-    }
+            background:
+                rgba(255,255,255,0.08);
 
-    .goog-text-highlight {
-      background: transparent !important;
-      box-shadow: none !important;
-    }
+            border:
+                1px solid
+                rgba(255,255,255,0.2);
+        }
 
-    /* =========================
-       NAVIGATION
-    ========================= */
-    nav {
-      background: rgba(255,255,255,0.95);
+        .button-secondary:hover {
+            background:
+                rgba(255,255,255,0.15);
+        }
 
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
 
-      border-bottom: 1px solid #ddd;
+        /* =========================================================
+           LANGUAGE SELECTOR
+        ========================================================= */
 
-      box-shadow:
-        0 2px 8px rgba(0,0,0,0.04);
+        .language-selector {
+            position: absolute;
 
-      position: sticky;
-      top: 0;
+            top: 18px;
+            right: 20px;
 
-      z-index: 1000;
-    }
+            display: flex;
+            align-items: center;
 
-    nav ul {
-      list-style: none;
+            z-index: 10;
+        }
 
-      display: flex;
+        #language-select {
+            min-width: 125px;
 
-      justify-content: center;
-      align-items: center;
+            padding:
+                8px 30px 8px 10px;
 
-      flex-wrap: wrap;
-    }
+            border:
+                1px solid
+                rgba(255,255,255,0.25);
 
-    nav li {
-      margin: 0 12px;
-    }
+            border-radius: 6px;
 
-    nav a {
-      color: #222;
+            background:
+                rgba(255,255,255,0.10);
 
-      text-decoration: none;
+            color: #FFFFFF;
 
-      padding: 12px 0;
+            font-size: 12px;
+            font-weight: 650;
 
-      display: block;
+            cursor: pointer;
 
-      font-weight: bold;
-      font-size: 15px;
+            outline: none;
 
-      position: relative;
+            backdrop-filter:
+                blur(6px);
 
-      transition:
-        color 0.25s ease;
-    }
+            transition:
+                background 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
 
-    nav a::after {
-      content: "";
+        #language-select:hover {
+            background:
+                rgba(255,255,255,0.16);
 
-      position: absolute;
+            border-color:
+                rgba(255,255,255,0.4);
+        }
 
-      bottom: 0;
-      left: 0;
+        #language-select:focus {
+            border-color:
+                #93C5FD;
 
-      width: 0;
-      height: 2px;
+            box-shadow:
+                0 0 0 3px
+                rgba(147,197,253,0.15);
+        }
 
-      background: #00008b;
+        #language-select option {
+            background: #FFFFFF;
+            color: #334155;
+        }
 
-      transition:
-        width 0.25s ease;
-    }
 
-    nav a:hover::after,
-    nav a:focus::after {
-      width: 100%;
-    }
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
 
-    nav a:hover,
-    nav a:focus {
-      color: #00008b;
-      outline: none;
-    }
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
 
-    /* =========================
-       MAIN CONTENT
-    ========================= */
-    .container {
-      display: flex;
+            background:
+                rgba(255,255,255,0.97);
 
-      max-width: 1200px;
+            border-bottom:
+                1px solid var(--border);
 
-      margin: 30px auto;
+            box-shadow:
+                0 2px 9px
+                rgba(15,23,42,0.05);
+        }
 
-      padding: 0 20px;
+        nav ul {
+            list-style: none;
 
-      gap: 20px;
-    }
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
 
-    .main-content {
-      flex: 3;
-    }
+        nav li {
+            margin: 0 13px;
+        }
 
-    article,
-    .sidebar,
-    #contact {
-      background: rgba(255,255,255,0.9);
+        nav a {
+            display: block;
 
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+            padding:
+                14px 0;
 
-      border-radius: 10px;
+            color: #334155;
 
-      box-shadow:
-        0 4px 15px
-        rgba(0,0,0,0.07);
-    }
+            text-decoration: none;
 
-    article {
-      padding: 20px;
+            font-size: 13px;
+            font-weight: 650;
 
-      margin-bottom: 20px;
+            transition:
+                color 0.2s ease;
+        }
 
-      border-left:
-        5px solid #00008b;
+        nav a:hover {
+            color: var(--blue);
+        }
 
-      animation:
-        fadeUp 0.8s ease-out;
-    }
 
-    article h2,
-    section h2 {
-      margin-bottom: 15px;
-      color: #111;
-    }
+        /* =========================================================
+           ACCESSIBILITY
+        ========================================================= */
 
-    article p {
-      margin-bottom: 10px;
-    }
+        .sr-only {
+            position: absolute;
 
-    .sidebar {
-      flex: 1;
+            width: 1px;
+            height: 1px;
 
-      padding: 20px;
+            padding: 0;
+            margin: -1px;
 
-      animation:
-        fadeUp 1s ease-out;
-    }
+            overflow: hidden;
 
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(15px);
-      }
+            clip: rect(0, 0, 0, 0);
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+            white-space: nowrap;
 
-    /* =========================
-       CONTACT
-    ========================= */
-    #contact {
-      min-height: 100vh;
+            border: 0;
+        }
 
-      display: flex;
 
-      flex-direction: column;
+        /* =========================================================
+           GOOGLE TRANSLATE
+        ========================================================= */
 
-      align-items: center;
-      justify-content: center;
+        #google_translate_element {
+            position: absolute;
 
-      width: 100%;
+            width: 1px;
+            height: 1px;
 
-      padding: 24px 20px;
+            overflow: hidden;
 
-      margin: 0 auto;
+            opacity: 0;
 
-      background:
-        rgba(255,255,255,0.95);
+            pointer-events: none;
+        }
 
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
+        .goog-te-banner-frame.skiptranslate {
+            display: none !important;
+        }
 
-      border-radius: 10px;
+        body {
+            top: 0 !important;
+        }
 
-      box-shadow:
-        0 8px 30px
-        rgba(0,0,0,0.06);
+        .goog-tooltip,
+        .goog-tooltip:hover {
+            display: none !important;
+        }
 
-      z-index: 1;
-    }
+        .goog-text-highlight {
+            background: transparent !important;
+            box-shadow: none !important;
+        }
 
-    #contact h2 {
-      width: 100%;
 
-      text-align: center;
+        /* =========================================================
+           LAYOUT
+        ========================================================= */
 
-      margin-bottom: 6px;
+        .container {
+            max-width: 1100px;
 
-      font-size: 1.25rem;
-    }
+            margin:
+                40px auto;
 
-    #contact form {
-      width: 100%;
+            padding:
+                0 20px;
+        }
 
-      max-width: 720px;
+        .section {
+            margin-bottom: 25px;
+        }
 
-      margin: 0;
+        .card {
+            background: white;
 
-      display: flex;
+            border:
+                1px solid var(--border);
 
-      flex-direction: column;
+            border-radius: 14px;
 
-      gap: 12px;
+            padding: 34px;
 
-      padding: 18px;
+            box-shadow:
+                var(--shadow);
+        }
 
-      background:
-        rgba(255,255,255,0.98);
+        .label {
+            color: var(--blue);
 
-      border-radius: 8px;
-    }
+            font-size: 12px;
+            font-weight: 800;
 
-    form label {
-      text-align: left;
+            text-transform: uppercase;
+            letter-spacing: 0.9px;
 
-      font-weight: bold;
+            margin-bottom: 7px;
+        }
 
-      font-size: 14px;
+        .section-title {
+            color: var(--navy);
 
-      color: #222;
+            font-size:
+                clamp(1.55rem, 4vw, 2rem);
 
-      margin-top: 5px;
-    }
+            line-height: 1.25;
 
-    form input,
-    form textarea {
-      width: 100%;
+            margin-bottom: 9px;
+        }
 
-      padding: 11px 12px;
+        .section-intro {
+            max-width: 780px;
 
-      border:
-        1.5px solid #ddd;
+            color: var(--muted);
 
-      border-radius: 6px;
+            font-size: 0.95rem;
+        }
 
-      background: #fff;
 
-      color: #222;
+        /* =========================================================
+           INTRODUCTION
+        ========================================================= */
 
-      font-family: inherit;
+        .intro-grid {
+            display: grid;
 
-      font-size: 14px;
+            grid-template-columns:
+                1.2fr 0.8fr;
 
-      outline: none;
+            gap: 25px;
 
-      transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
+            align-items: stretch;
+        }
 
-      -webkit-appearance: none;
-    }
+        .intro-text {
+            padding-right: 10px;
+        }
 
-    form textarea {
-      resize: vertical;
+        .intro-text p {
+            color: #475569;
 
-      min-height: 100px;
-    }
+            margin-top: 13px;
 
-    form input:focus,
-    form textarea:focus {
-      border-color: #00008b;
+            font-size: 0.95rem;
+        }
 
-      box-shadow:
-        0 0 8px
-        rgba(0,0,139,0.25);
-    }
+        .intro-box {
+            padding: 25px;
 
-    form button {
-      margin-top: 10px;
+            background:
+                var(--blue-soft);
 
-      padding: 12px 20px;
+            border:
+                1px solid #DBEAFE;
 
-      border: none;
+            border-radius: 10px;
+        }
 
-      border-radius: 6px;
+        .intro-box strong {
+            display: block;
 
-      background: #00008b;
+            color: var(--navy);
 
-      color: white;
+            font-size: 1rem;
 
-      font-size: 14px;
+            margin-bottom: 8px;
+        }
 
-      font-weight: bold;
+        .intro-box p {
+            color: #475569;
 
-      cursor: pointer;
+            font-size: 0.88rem;
 
-      transition:
-        background 0.25s ease,
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+            margin: 0;
+        }
 
-      min-height: 48px;
-    }
 
-    form button:hover {
-      background: #0000cd;
+        /* =========================================================
+           SERVICES
+        ========================================================= */
 
-      transform:
-        translateY(-2px);
+        .services-grid {
+            display: grid;
 
-      box-shadow:
-        0 5px 12px
-        rgba(0,0,139,0.25);
-    }
+            grid-template-columns:
+                repeat(2, 1fr);
 
-    form button:active {
-      transform: translateY(0);
-    }
+            gap: 16px;
 
-    form button:disabled {
-      opacity: 0.7;
+            margin-top: 27px;
+        }
 
-      cursor: not-allowed;
+        .service {
+            padding: 24px;
 
-      transform: none;
-    }
+            border:
+                1px solid var(--border);
 
-    /* =========================
-       FOOTER
-    ========================= */
-    footer {
-      position: fixed;
+            border-radius: 10px;
 
-      left: 50%;
+            background: #FFFFFF;
 
-      bottom: 12px;
+            transition: 0.2s ease;
+        }
 
-      transform:
-        translateX(-50%);
+        .service:hover {
+            border-color: #BFDBFE;
 
-      width:
-        calc(100% - 40px);
+            transform:
+                translateY(-3px);
 
-      max-width: 1200px;
+            box-shadow:
+                0 9px 25px
+                rgba(37,99,235,0.07);
+        }
 
-      box-sizing: border-box;
+        .service-number {
+            color: #93C5FD;
 
-      text-align: center;
+            font-size: 11px;
+            font-weight: 800;
 
-      padding: 14px 20px;
+            margin-bottom: 6px;
+        }
 
-      background:
-        rgba(255,255,255,0.92);
+        .service h3 {
+            color: var(--navy);
 
-      color: #222;
+            font-size: 1.05rem;
 
-      border-top:
-        2px solid #222;
+            margin-bottom: 7px;
+        }
 
-      border-radius: 10px;
+        .service p {
+            color: var(--muted);
 
-      box-shadow:
-        0 6px 18px
-        rgba(0,0,0,0.12);
+            font-size: 0.88rem;
 
-      z-index: 9999;
-    }
+            margin-bottom: 13px;
+        }
 
-    /* =========================
-       CONSENT BANNER
-    ========================= */
-    #consent-banner {
-      position: fixed;
+        .service ul {
+            list-style: none;
 
-      left: 50%;
+            display: flex;
+            flex-direction: column;
 
-      bottom: 15px;
+            gap: 5px;
+        }
 
-      transform:
-        translateX(-50%);
+        .service li {
+            position: relative;
 
-      width: 420px;
+            padding-left: 17px;
 
-      max-width:
-        calc(100% - 30px);
+            color: #475569;
 
-      max-height:
-        calc(100vh - 100px);
+            font-size: 0.84rem;
+        }
 
-      overflow-y: auto;
+        .service li::before {
+            content: "✓";
 
-      -webkit-overflow-scrolling: touch;
+            position: absolute;
+            left: 0;
 
-      padding:
-        45px 20px 20px;
+            color: var(--blue);
 
-      background:
-        rgba(8,8,8,0.96);
+            font-weight: 800;
+        }
 
-      color: white;
 
-      border:
-        1.5px solid
-        rgba(255,255,255,0.3);
+        /* =========================================================
+           HELP
+        ========================================================= */
 
-      border-radius: 12px;
+        .help-grid {
+            display: grid;
 
-      box-shadow:
-        0 8px 24px
-        rgba(0,0,0,0.5);
+            grid-template-columns:
+                repeat(3, 1fr);
 
-      z-index: 2147483647;
+            gap: 13px;
 
-      animation:
-        consentIn
-        0.35s
-        cubic-bezier(.34,1.56,.64,1);
-    }
+            margin-top: 25px;
+        }
 
-    @keyframes consentIn {
-      from {
-        opacity: 0;
+        .help-item {
+            padding: 19px;
 
-        transform:
-          translateX(-50%)
-          translateY(20px);
-      }
+            background: #F8FAFC;
 
-      to {
-        opacity: 1;
+            border:
+                1px solid var(--border);
 
-        transform:
-          translateX(-50%)
-          translateY(0);
-      }
-    }
+            border-radius: 9px;
+        }
 
-    #consent-banner.hidden {
-      display: none;
-    }
+        .help-item strong {
+            display: block;
 
-    #consent-close {
-      position: absolute;
+            color: var(--navy);
 
-      top: 10px;
-      right: 10px;
+            font-size: 0.92rem;
 
-      width: 44px;
-      height: 44px;
+            margin-bottom: 4px;
+        }
 
-      padding: 0;
+        .help-item span {
+            color: var(--muted);
 
-      border:
-        1.5px solid
-        rgba(255,255,255,0.5);
+            font-size: 0.82rem;
+        }
 
-      border-radius: 50%;
 
-      background: transparent;
+        /* =========================================================
+           WAYS TO WORK
+        ========================================================= */
 
-      color: white;
+        .work-options {
+            display: grid;
 
-      font-size: 20px;
+            grid-template-columns:
+                repeat(3, 1fr);
 
-      cursor: pointer;
+            gap: 14px;
 
-      display: flex;
+            margin-top: 25px;
+        }
 
-      align-items: center;
-      justify-content: center;
+        .option {
+            padding: 22px;
 
-      transition: all 0.2s ease;
-    }
+            border:
+                1px solid var(--border);
 
-    #consent-close:hover {
-      background: #ffd700;
+            border-radius: 9px;
 
-      color: #000;
+            background: white;
+        }
 
-      border-color: #ffd700;
+        .option h3 {
+            color: var(--navy);
 
-      transform: scale(1.1);
-    }
+            font-size: 0.98rem;
 
-    #consent-close:focus {
-      outline:
-        2px solid #ffd700;
+            margin-bottom: 5px;
+        }
 
-      outline-offset: 2px;
-    }
+        .option p {
+            color: var(--muted);
 
-    #consent-title {
-      font-size: 16px;
+            font-size: 0.84rem;
 
-      margin:
-        0 0 8px;
+            margin: 0;
+        }
 
-      color: #ffd700;
 
-      text-shadow:
-        1px 1px 3px
-        rgba(0,0,0,0.5);
-    }
+        /* =========================================================
+           AREAS
+        ========================================================= */
 
-    .consent-intro {
-      font-size: 13px;
+        .areas {
+            display: flex;
 
-      line-height: 1.5;
+            flex-wrap: wrap;
 
-      margin-bottom: 12px;
+            gap: 8px;
 
-      color: #ddd;
-    }
+            margin-top: 22px;
+        }
 
-    .consent-section {
-      margin: 10px 0;
+        .area {
+            padding:
+                8px 14px;
 
-      padding: 12px;
+            border:
+                1px solid #DBEAFE;
 
-      background:
-        rgba(255,255,255,0.08);
+            background:
+                var(--blue-soft);
 
-      border:
-        1px solid
-        rgba(255,215,0,0.2);
+            color:
+                var(--navy);
 
-      border-radius: 8px;
-    }
+            border-radius: 30px;
 
-    .consent-section h4 {
-      margin:
-        0 0 6px;
+            font-size: 12px;
+            font-weight: 650;
+        }
 
-      color: #ffd700;
 
-      font-size: 13px;
+        /* =========================================================
+           PROCESS
+        ========================================================= */
 
-      font-weight: 600;
-    }
+        .process {
+            display: grid;
 
-    .consent-section p {
-      margin: 0;
+            grid-template-columns:
+                repeat(3, 1fr);
 
-      font-size: 12px;
+            gap: 16px;
 
-      line-height: 1.5;
+            margin-top: 25px;
+        }
 
-      color: #ddd;
-    }
+        .process-item {
+            padding: 22px;
 
-    .consent-agreement {
-      margin: 12px 0;
+            background: #F8FAFC;
 
-      padding: 12px;
+            border:
+                1px solid var(--border);
 
-      background:
-        rgba(255,215,0,0.08);
+            border-radius: 10px;
+        }
 
-      border-radius: 8px;
+        .process-number {
+            width: 36px;
+            height: 36px;
 
-      font-size: 12px;
+            display: flex;
 
-      line-height: 1.5;
-    }
+            align-items: center;
+            justify-content: center;
 
-    .consent-agreement label {
-      display: flex;
+            margin-bottom: 12px;
 
-      align-items: flex-start;
+            border-radius: 50%;
 
-      gap: 10px;
+            background: var(--blue);
 
-      cursor: pointer;
+            color: white;
 
-      user-select: none;
-    }
+            font-size: 13px;
+            font-weight: 800;
+        }
 
-    #consent-checkbox {
-      width: 18px;
+        .process-item h3 {
+            color: var(--navy);
 
-      height: 18px;
+            font-size: 0.98rem;
 
-      margin-top: 2px;
+            margin-bottom: 5px;
+        }
 
-      accent-color: #ffd700;
+        .process-item p {
+            color: var(--muted);
 
-      flex-shrink: 0;
+            font-size: 0.85rem;
 
-      cursor: pointer;
-    }
+            margin: 0;
+        }
 
-    .consent-buttons {
-      display: flex;
 
-      gap: 10px;
+        /* =========================================================
+           CTA
+        ========================================================= */
 
-      margin-top: 14px;
-    }
+        .cta {
+            padding:
+                45px 25px;
 
-    .consent-buttons button {
-      flex: 1;
+            background:
+                linear-gradient(
+                    135deg,
+                    #0B1F3A,
+                    #163E6D
+                );
 
-      padding: 12px;
+            color: white;
 
-      border: none;
+            text-align: center;
 
-      border-radius: 6px;
+            border-radius: 14px;
 
-      font-size: 13px;
+            box-shadow:
+                var(--shadow);
+        }
 
-      font-weight: bold;
+        .cta h2 {
+            font-size:
+                clamp(1.6rem, 4vw, 2.2rem);
 
-      cursor: pointer;
+            margin-bottom: 10px;
+        }
 
-      transition: all 0.2s ease;
+        .cta p {
+            max-width: 680px;
 
-      min-height: 44px;
-    }
+            margin:
+                0 auto 23px;
 
-    #accept-consent {
-      background: #ffd700;
+            color: #CBDCF3;
 
-      color: #000;
-    }
+            font-size: 0.94rem;
+        }
 
-    #accept-consent:hover {
-      background: white;
 
-      box-shadow:
-        0 4px 12px
-        rgba(255,215,0,0.4);
+        /* =========================================================
+           CONTACT
+        ========================================================= */
 
-      transform:
-        translateY(-1px);
-    }
+        #contact {
+            max-width: 850px;
 
-    #reject-consent {
-      background:
-        rgba(255,255,255,0.15);
+            margin:
+                45px auto;
 
-      color: #ddd;
+            padding:
+                0 20px;
+        }
 
-      border:
-        1px solid
-        rgba(255,255,255,0.2);
-    }
+        .contact-card {
+            background: white;
 
-    #reject-consent:hover {
-      background:
-        rgba(255,255,255,0.25);
+            border:
+                1px solid var(--border);
 
-      border-color:
-        rgba(255,255,255,0.4);
+            border-radius: 14px;
 
-      transform:
-        translateY(-1px);
-    }
+            padding: 36px;
 
-    /* =========================
-       MOBILE
-    ========================= */
-    @media (max-width: 768px) {
+            box-shadow:
+                var(--shadow);
+        }
 
-      header h1 {
-        font-size: 1.8rem;
-      }
+        .contact-header {
+            text-align: center;
 
-      nav a {
-        padding: 10px 0;
+            margin-bottom: 25px;
+        }
 
-        font-size: 14px;
-      }
+        .contact-header h2 {
+            color: var(--navy);
 
-      .container {
-        flex-direction: column;
+            font-size: 1.9rem;
 
-        padding: 0 15px;
+            margin-bottom: 8px;
+        }
 
-        gap: 15px;
-      }
+        .contact-header p {
+            max-width: 650px;
 
-      .sidebar {
-        width: 100%;
-      }
+            margin: auto;
 
-      #contact {
-        padding: 18px;
-      }
+            color: var(--muted);
 
-      form {
-        gap: 8px;
-      }
-    }
+            font-size: 0.92rem;
+        }
 
-    @media (max-width: 600px) {
+        .contact-note {
+            padding:
+                16px 18px;
 
-      html {
-        scroll-padding-top: 60px;
-      }
+            margin-bottom: 23px;
 
-      header {
-        padding: 15px 10px;
-      }
+            background:
+                var(--blue-soft);
 
-      header h1 {
-        font-size: 1.5rem;
-      }
+            border-left:
+                3px solid var(--blue);
 
-      .language-translator {
-        padding: 8px 10px;
-      }
+            border-radius: 6px;
 
-      #kea-language-select {
-        width: 100%;
-        max-width: 300px;
-      }
+            color: #475569;
 
-      nav a {
-        padding: 8px 0;
+            font-size: 0.86rem;
+        }
 
-        font-size: 13px;
-      }
+        .contact-note strong {
+            color: var(--navy);
+        }
 
-      .container {
-        padding: 0 10px;
-      }
+        form {
+            max-width: 620px;
 
-      #contact {
-        margin: 10px;
+            margin: auto;
 
-        padding: 15px;
-      }
+            display: flex;
 
-      form input,
-      form textarea {
-        font-size: 16px;
+            flex-direction: column;
 
-        padding: 12px;
-      }
+            gap: 8px;
+        }
 
-      form button {
-        padding: 14px 18px;
+        form label {
+            margin-top: 7px;
 
-        font-size: 15px;
+            color: var(--text);
 
-        min-height: 48px;
-      }
+            font-size: 13px;
+            font-weight: 700;
+        }
 
-      #consent-banner {
-        bottom: 10px;
+        form input,
+        form textarea,
+        form select {
+            width: 100%;
 
-        width:
-          calc(100% - 20px);
+            padding:
+                12px 13px;
 
-        max-width: none;
+            border:
+                1px solid #CBD5E1;
 
-        max-height:
-          calc(100vh - 80px);
+            border-radius: 7px;
 
-        padding: 16px;
+            background: white;
 
-        padding-top: 40px;
-      }
+            color: var(--text);
 
-      footer {
-        bottom: 8px;
+            font-size: 15px;
 
-        width:
-          calc(100% - 20px);
+            outline: none;
+        }
 
-        max-width: none;
+        form textarea {
+            min-height: 155px;
 
-        padding:
-          12px 14px;
+            resize: vertical;
+        }
 
-        border-radius: 8px;
-      }
-    }
+        form input:focus,
+        form textarea:focus,
+        form select:focus {
+            border-color: var(--blue);
 
-    /* =========================
-       REDUCED MOTION
-    ========================= */
-    @media (prefers-reduced-motion: reduce) {
+            box-shadow:
+                0 0 0 3px
+                rgba(37,99,235,0.11);
+        }
 
-      html {
-        scroll-behavior: auto;
-      }
+        form button {
+            min-height: 49px;
 
-      * {
-        animation-duration:
-          0.01ms !important;
+            margin-top: 13px;
 
-        animation-iteration-count:
-          1 !important;
+            border: none;
 
-        transition-duration:
-          0.01ms !important;
-      }
-    }
+            border-radius: 7px;
 
-    /* =========================
-       DARK MODE
-    ========================= */
-    @media (prefers-color-scheme: dark) {
+            background: var(--blue);
 
-      body {
-        background: #1a1a1a;
+            color: white;
 
-        color: #e0e0e0;
-      }
+            font-size: 15px;
+            font-weight: 750;
 
-      header,
-      nav,
-      article,
-      .sidebar,
-      #contact,
-      footer,
-      .language-translator {
+            cursor: pointer;
+        }
 
-        background:
-          rgba(30,30,30,0.92);
+        form button:hover {
+            background: var(--blue-dark);
+        }
 
-        color: #e0e0e0;
-      }
+        form button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
 
-      header h1,
-      article h2,
-      section h2 {
 
-        color: #fff;
-      }
+        /* =========================================================
+           PRIVACY MODAL
+        ========================================================= */
 
-      nav a {
-        color: #e0e0e0;
-      }
+        .privacy-modal {
+            position: fixed;
 
-      #kea-language-select {
+            inset: 0;
 
-        background-color: #2a2a2a;
+            z-index: 9999;
 
-        color: #e0e0e0;
+            display: flex;
 
-        border-color: #555;
-      }
+            align-items: center;
+            justify-content: center;
 
-      form input,
-      form textarea {
+            padding: 20px;
 
-        background: #2a2a2a;
+            background:
+                rgba(7, 24, 45, 0.72);
 
-        color: #e0e0e0;
+            backdrop-filter:
+                blur(5px);
 
-        border-color: #444;
-      }
-    }
-  </style>
+            overflow-y: auto;
+        }
+
+        .privacy-modal[hidden] {
+            display: none;
+        }
+
+        .privacy-panel {
+            position: relative;
+
+            width: 100%;
+
+            max-width: 650px;
+
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            padding: 32px;
+
+            background: #FFFFFF;
+
+            border-radius: 15px;
+
+            border:
+                1px solid #E2E8F0;
+
+            box-shadow:
+                0 25px 70px
+                rgba(15, 23, 42, 0.25);
+        }
+
+        .privacy-close {
+            position: absolute;
+
+            top: 14px;
+            right: 16px;
+
+            width: 36px;
+            height: 36px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: #F1F5F9;
+
+            color: #334155;
+
+            font-size: 24px;
+
+            line-height: 1;
+
+            cursor: pointer;
+        }
+
+        .privacy-close:hover {
+            background: #E2E8F0;
+        }
+
+        .privacy-panel h2 {
+            color: var(--navy);
+
+            font-size: 1.7rem;
+
+            margin-bottom: 10px;
+
+            padding-right: 35px;
+        }
+
+        .privacy-intro {
+            color: #475569;
+
+            font-size: 0.94rem;
+
+            line-height: 1.7;
+
+            margin-bottom: 22px;
+        }
+
+        .privacy-section {
+            padding: 17px 0;
+
+            border-top:
+                1px solid var(--border);
+        }
+
+        .privacy-section h3 {
+            color: var(--navy);
+
+            font-size: 0.98rem;
+
+            margin-bottom: 6px;
+        }
+
+        .privacy-section p {
+            color: var(--muted);
+
+            font-size: 0.86rem;
+
+            line-height: 1.65;
+
+            margin-bottom: 8px;
+        }
+
+        .privacy-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .privacy-actions {
+            display: flex;
+
+            gap: 10px;
+
+            margin-top: 20px;
+        }
+
+        .privacy-button {
+            flex: 1;
+
+            min-height: 47px;
+
+            border: none;
+
+            border-radius: 7px;
+
+            padding:
+                10px 18px;
+
+            font-size: 14px;
+            font-weight: 750;
+
+            cursor: pointer;
+        }
+
+        .privacy-primary {
+            background: var(--blue);
+            color: white;
+        }
+
+        .privacy-primary:hover {
+            background: var(--blue-dark);
+        }
+
+        .privacy-secondary {
+            background: #F1F5F9;
+
+            color: #334155;
+
+            border:
+                1px solid #CBD5E1;
+        }
+
+        .privacy-secondary:hover {
+            background: #E2E8F0;
+        }
+
+        .privacy-text-button {
+            display: block;
+
+            width: 100%;
+
+            margin-top: 12px;
+
+            padding: 8px;
+
+            border: none;
+
+            background: transparent;
+
+            color: var(--blue);
+
+            font-size: 13px;
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        .privacy-floating {
+            position: fixed;
+
+            right: 15px;
+            bottom: 15px;
+
+            z-index: 900;
+        }
+
+        .privacy-floating button {
+            padding:
+                8px 13px;
+
+            border:
+                1px solid #CBD5E1;
+
+            border-radius: 20px;
+
+            background:
+                rgba(255,255,255,0.96);
+
+            color: #475569;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 3px 12px
+                rgba(15,23,42,0.10);
+        }
+
+        .privacy-floating button:hover {
+            color: var(--blue);
+        }
+
+        body.privacy-modal-open {
+            overflow: hidden;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            margin-top: 45px;
+
+            padding:
+                30px 20px;
+
+            background: var(--navy);
+
+            color: #94A3B8;
+
+            text-align: center;
+
+            font-size: 13px;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 850px) {
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .help-grid {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .work-options {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .process {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .help-grid,
+            .work-options {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            header {
+                padding:
+                    70px 16px
+                    55px;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .language-selector {
+                top: 12px;
+                right: 12px;
+            }
+
+            #language-select {
+                min-width: 115px;
+
+                font-size: 11px;
+
+                padding:
+                    7px 25px 7px 8px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons .button {
+                width: 100%;
+            }
+
+            nav ul {
+                padding:
+                    5px 5px 8px;
+            }
+
+            nav li {
+                margin:
+                    0 5px;
+            }
+
+            nav a {
+                font-size: 11px;
+
+                padding:
+                    8px 1px;
+            }
+
+            .container {
+                padding:
+                    0 12px;
+
+                margin:
+                    25px auto;
+            }
+
+            .card {
+                padding: 22px;
+            }
+
+            #contact {
+                padding:
+                    0 12px;
+            }
+
+            .contact-card {
+                padding:
+                    25px 18px;
+            }
+
+            form input,
+            form textarea,
+            form select {
+                font-size: 16px;
+            }
+
+            .privacy-modal {
+                padding: 12px;
+            }
+
+            .privacy-panel {
+                padding:
+                    25px 20px;
+
+                max-height: 94vh;
+            }
+
+            .privacy-actions {
+                flex-direction: column;
+            }
+
+            .privacy-button {
+                width: 100%;
+            }
+
+        }
+
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            * {
+                transition:
+                    none !important;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-  <!-- =========================
-       CONSENT BANNER
-  ========================= -->
-  <div
-    id="consent-banner"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="consent-title"
-    aria-describedby="consent-intro"
-  >
 
-    <button
-      id="consent-close"
-      type="button"
-      aria-label="Close privacy and consent dialog"
-      title="Close"
-    >
-      ✕
-    </button>
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
 
-    <h3 id="consent-title">
-      🔐 Privacy &amp; Consent
-    </h3>
+    <header id="home">
 
-    <p
-      class="consent-intro"
-      id="consent-intro"
-    >
-      KEA collects information you provide through here.
-      Optional cookies/storage may be used for basic analytics.
-    </p>
+        <div class="language-selector">
 
-    <div class="consent-section">
+            <label
+                for="language-select"
+                class="sr-only">
+                Language
+            </label>
 
-      <h4>
-        📊 Data Collection
-      </h4>
+            <select
+                id="language-select"
+                aria-label="Select language">
 
-      <p>
-        KEA may collect your name, email and message
-        when you use the contact form.
-      </p>
+                <option value="en">English</option>
+                <option value="tl">Filipino</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+                <option value="es">Español</option>
+                <option value="it">Italiano</option>
+                <option value="pt">Português</option>
+                <option value="nl">Nederlands</option>
+                <option value="da">Dansk</option>
+                <option value="sv">Svenska</option>
+                <option value="no">Norsk</option>
+                <option value="fi">Suomi</option>
+                <option value="is">Íslenska</option>
+                <option value="pl">Polski</option>
+                <option value="cs">Čeština</option>
+                <option value="sk">Slovenčina</option>
+                <option value="hu">Magyar</option>
+                <option value="ro">Română</option>
+                <option value="bg">Български</option>
+                <option value="el">Ελληνικά</option>
+                <option value="hr">Hrvatski</option>
+                <option value="sl">Slovenščina</option>
+                <option value="et">Eesti</option>
+                <option value="lv">Latviešu</option>
+                <option value="lt">Lietuvių</option>
+                <option value="uk">Українська</option>
 
+            </select>
+
+        </div>
+
+
+        <div class="hero">
+
+            <div class="availability">
+                Available for Freelance &amp; Project Work
+            </div>
+
+            <h1>
+                Kaye Eloisa Arnejo
+            </h1>
+
+            <div class="hero-question">
+                Have work that needs to be done?
+            </div>
+
+            <p class="hero-description">
+                Practical, hands-on support across software and
+                technology, electronics and hardware, construction
+                and civil projects, clinical and mental health-related
+                work, documentation, research and technical tasks.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#contact"
+                    class="button button-primary">
+                    Tell Me What You Need
+                </a>
+
+                <a
+                    href="#services"
+                    class="button button-secondary">
+                    See What I Can Help With
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================== -->
+
+    <nav aria-label="Main navigation">
+
+        <ul>
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#services">Services</a>
+            </li>
+
+            <li>
+                <a href="#help">What I Can Help With</a>
+            </li>
+
+            <li>
+                <a href="#process">How It Works</a>
+            </li>
+
+            <li>
+                <a href="#contact">Enquire</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================================================
+         GOOGLE TRANSLATE
+    ========================================================== -->
+
+    <div
+        id="google_translate_element"
+        aria-hidden="true">
     </div>
 
-    <div class="consent-section">
 
-      <h4>
-        🔒 Privacy
-      </h4>
+    <main class="container">
 
-      <p>
-        Your information is used only for the
-        purposes described here.
-      </p>
 
-    </div>
+        <!-- =====================================================
+             INTRODUCTION
+        ====================================================== -->
 
-    <div class="consent-section">
+        <section class="section">
 
-      <h4>
-        📜 Terms
-      </h4>
+            <div class="card">
 
-      <p>
-        By using KEA, you agree to use the terms
-        lawfully and responsibly.
-      </p>
+                <div class="intro-grid">
 
-    </div>
+                    <div class="intro-text">
 
-    <div class="consent-agreement">
+                        <div class="label">
+                            Practical &amp; Hands-On Support
+                        </div>
 
-      <label>
+                        <h2 class="section-title">
+                            Let's Make the Work Easier
+                        </h2>
 
-        <input
-          type="checkbox"
-          id="consent-checkbox"
-          aria-label="I agree to the privacy policy and terms"
-        >
+                        <p>
+                            Some projects need technical knowledge.
+                            Others need someone who can get involved,
+                            organise information, prepare documentation,
+                            coordinate tasks, follow up requirements
+                            or simply take care of work that is slowing
+                            everything else down.
+                        </p>
 
-        <span>
-          I have read and agree to the Privacy Policy
-          and Terms &amp; Conditions.
-        </span>
+                        <p>
+                            My approach is practical and hands-on:
+                            understand what needs to be done, work through
+                            the details and help move the task toward a
+                            useful result.
+                        </p>
 
-      </label>
+                        <p>
+                            My background covers software and technology,
+                            electronics and hardware, construction-related
+                            environments, clinical and medical-related
+                            work, mental health-related support,
+                            research, documentation and administrative
+                            tasks.
+                        </p>
 
-    </div>
+                        <p>
+                            Support can be arranged around the actual
+                            requirement — whether that means a single
+                            task, a defined project, temporary support
+                            or ongoing assistance.
+                        </p>
 
-    <div class="consent-buttons">
+                    </div>
 
-      <button
-        id="accept-consent"
-        type="button"
-        aria-label="Accept privacy policy and consent"
-      >
-        Accept
-      </button>
 
-      <button
-        id="reject-consent"
-        type="button"
-        aria-label="Reject privacy policy"
-      >
-        Reject
-      </button>
+                    <div class="intro-box">
 
-    </div>
+                        <strong>
+                            You don't need to know exactly what service
+                            you need.
+                        </strong>
 
-  </div>
+                        <p>
+                            Tell me what you are trying to accomplish,
+                            what needs to be done and when you need it.
+                            We can identify the practical tasks involved
+                            and discuss the appropriate arrangement.
+                        </p>
 
+                        <br>
 
-  <!-- =========================
-       HEADER
-  ========================= -->
-  <header id="home">
+                        <strong>
+                            A hands-on approach means getting involved.
+                        </strong>
 
-    <h1>
-      Kaye Eloisa Arnejo
-    </h1>
+                        <p>
+                            Where appropriate, I can work through the
+                            details with you rather than simply providing
+                            general advice.
+                        </p>
 
-  </header>
+                    </div>
 
+                </div>
 
-  <!-- =========================
-       LANGUAGE SELECTOR
-       ORDER:
-       1. ENGLISH
-       2. PHILIPPINES
-       3. EUROPE
-  ========================= -->
-  <div
-    class="language-translator"
-    aria-label="Website language selector"
-  >
+            </div>
 
-    <select
-      id="kea-language-select"
-      aria-label="Select website language"
-    >
+        </section>
 
-      <!-- =====================
-           ENGLISH
-      ====================== -->
-      <optgroup label="🌐 English">
 
-        <option
-          value="en"
-          selected
-        >
-          English
-        </option>
+        <!-- =====================================================
+             SERVICES
+        ====================================================== -->
 
-      </optgroup>
+        <section
+            class="section"
+            id="services">
 
+            <div class="card">
 
-      <!-- =====================
-           PHILIPPINES
-      ====================== -->
-      <optgroup label="🇵🇭 Philippines">
+                <div class="label">
+                    Services
+                </div>
 
-        <option value="tl">
-          Filipino
-        </option>
+                <h2 class="section-title">
+                    What I Can Help You With
+                </h2>
 
-        <option value="ceb">
-          Cebuano
-        </option>
+                <p class="section-intro">
+                    Practical, hands-on support across technical,
+                    project, clinical, mental health-related,
+                    construction, research and administrative
+                    requirements.
+                </p>
 
-        <option value="ilo">
-          Ilocano
-        </option>
 
-        <option value="hil">
-          Hiligaynon
-        </option>
+                <div class="services-grid">
 
-        <option value="war">
-          Waray
-        </option>
 
-        <option value="pam">
-          Kapampangan
-        </option>
+                    <!-- SOFTWARE -->
 
-        <option value="pag">
-          Pangasinan
-        </option>
+                    <div class="service">
 
-        <option value="bcl">
-          Bikol
-        </option>
+                        <div class="service-number">
+                            01
+                        </div>
 
-      </optgroup>
+                        <h3>
+                            Software Engineering &amp; Technology
+                        </h3>
 
+                        <p>
+                            Hands-on support with software-related tasks,
+                            technical projects, digital systems and
+                            technology requirements.
+                        </p>
 
-      <!-- =====================
-           EUROPE
-      ====================== -->
-      <optgroup label="🇪🇺 Europe">
+                        <ul>
+                            <li>Software development support</li>
+                            <li>Web and application work</li>
+                            <li>Technical documentation</li>
+                            <li>Testing and troubleshooting</li>
+                            <li>Data and system organisation</li>
+                            <li>Technology project assistance</li>
+                        </ul>
 
-        <option value="fr">
-          Français
-        </option>
+                    </div>
 
-        <option value="de">
-          Deutsch
-        </option>
 
-        <option value="it">
-          Italiano
-        </option>
+                    <!-- ELECTRONICS -->
 
-        <option value="es">
-          Español
-        </option>
+                    <div class="service">
 
-        <option value="pt">
-          Português
-        </option>
+                        <div class="service-number">
+                            02
+                        </div>
 
-        <option value="nl">
-          Nederlands
-        </option>
+                        <h3>
+                            Hardware &amp; Electronics Engineering
+                        </h3>
 
-        <option value="pl">
-          Polski
-        </option>
+                        <p>
+                            Practical support for electronics, hardware
+                            and technology-related project tasks.
+                        </p>
 
-        <option value="ro">
-          Română
-        </option>
+                        <ul>
+                            <li>Electronics project support</li>
+                            <li>Hardware documentation</li>
+                            <li>Component and parts organisation</li>
+                            <li>Testing and troubleshooting support</li>
+                            <li>Technical records</li>
+                            <li>Hardware-related research</li>
+                        </ul>
 
-        <option value="el">
-          Ελληνικά
-        </option>
+                    </div>
 
-        <option value="cs">
-          Čeština
-        </option>
 
-        <option value="hu">
-          Magyar
-        </option>
+                    <!-- CONSTRUCTION -->
 
-        <option value="sv">
-          Svenska
-        </option>
+                    <div class="service">
 
-        <option value="da">
-          Dansk
-        </option>
+                        <div class="service-number">
+                            03
+                        </div>
 
-        <option value="fi">
-          Suomi
-        </option>
+                        <h3>
+                            Construction &amp; Civil Project Support
+                        </h3>
 
-        <option value="sk">
-          Slovenčina
-        </option>
+                        <p>
+                            Practical, hands-on assistance with
+                            construction, civil technology and
+                            project-related technical and
+                            administrative tasks.
+                        </p>
 
-        <option value="bg">
-          Български
-        </option>
+                        <ul>
+                            <li>Project documentation</li>
+                            <li>Technical records</li>
+                            <li>Construction administration</li>
+                            <li>Project coordination</li>
+                            <li>Material and document tracking</li>
+                            <li>Site-related documentation support</li>
+                        </ul>
 
-        <option value="hr">
-          Hrvatski
-        </option>
+                    </div>
 
-        <option value="lt">
-          Lietuvių
-        </option>
 
-        <option value="lv">
-          Latviešu
-        </option>
+                    <!-- CLINICAL / MENTAL HEALTH -->
 
-        <option value="et">
-          Eesti
-        </option>
+                    <div class="service">
 
-        <option value="sl">
-          Slovenščina
-        </option>
+                        <div class="service-number">
+                            04
+                        </div>
 
-        <option value="ga">
-          Gaeilge
-        </option>
+                        <h3>
+                            Clinical, Medical &amp; Mental Health Support
+                        </h3>
 
-        <option value="mt">
-          Malti
-        </option>
+                        <p>
+                            Appropriate non-diagnostic support for
+                            clinical, medical-related and mental
+                            health-related environments, documentation,
+                            research and coordination.
+                        </p>
 
-      </optgroup>
+                        <ul>
+                            <li>Clinical documentation</li>
+                            <li>Records organisation</li>
+                            <li>Research assistance</li>
+                            <li>Administrative support</li>
+                            <li>Information organisation</li>
+                            <li>Mental health-related project support</li>
+                            <li>Wellbeing and support-service administration</li>
+                            <li>Clinical project coordination</li>
+                        </ul>
 
-    </select>
+                    </div>
 
 
-    <!--
-      Hidden Google Translate engine.
-      The visible interface is our own dropdown.
-    -->
-    <div id="google_translate_element"></div>
+                    <!-- ADMIN -->
 
-  </div>
+                    <div class="service">
 
+                        <div class="service-number">
+                            05
+                        </div>
 
-  <!-- =========================
-       NAVIGATION
-  ========================= -->
-  <nav aria-label="Main navigation">
+                        <h3>
+                            Administrative &amp; Documentation Support
+                        </h3>
 
-    <ul>
+                        <p>
+                            Hands-on help with the documents, records
+                            and administrative work that keeps a project
+                            or organisation organised.
+                        </p>
 
-      <li>
-        <a href="#home">
-          Home
-        </a>
-      </li>
+                        <ul>
+                            <li>Document preparation</li>
+                            <li>Data entry and organisation</li>
+                            <li>Records management</li>
+                            <li>File organisation</li>
+                            <li>Scheduling</li>
+                            <li>General administrative tasks</li>
+                        </ul>
 
-      <li>
-        <a href="#about">
-          About
-        </a>
-      </li>
+                    </div>
 
-      <li>
-        <a href="#contact">
-          Contact
-        </a>
-      </li>
 
-    </ul>
+                    <!-- RESEARCH -->
 
-  </nav>
+                    <div class="service">
 
+                        <div class="service-number">
+                            06
+                        </div>
 
-  <!-- =========================
-       MAIN CONTENT
-  ========================= -->
-  <div class="container">
+                        <h3>
+                            Research &amp; Technical Information
+                        </h3>
 
-    <main class="main-content">
+                        <p>
+                            Hands-on help finding, organising and
+                            presenting information needed for technical,
+                            project or general research work.
+                        </p>
 
-      <article>
+                        <ul>
+                            <li>Online research</li>
+                            <li>Technical information gathering</li>
+                            <li>Product and component research</li>
+                            <li>Data organisation</li>
+                            <li>Research summaries</li>
+                            <li>Reference documentation</li>
+                        </ul>
 
-        <h2></h2>
+                    </div>
 
-        <p>
-          <em></em>
-        </p>
 
-      </article>
+                    <!-- CUSTOM -->
+
+                    <div class="service">
+
+                        <div class="service-number">
+                            07
+                        </div>
+
+                        <h3>
+                            Custom Project Support
+                        </h3>
+
+                        <p>
+                            Have a requirement that does not fit neatly
+                            into one category? Start with the task and
+                            we can discuss the practical, hands-on
+                            support needed.
+                        </p>
+
+                        <ul>
+                            <li>Define the task</li>
+                            <li>Clarify the expected result</li>
+                            <li>Identify required support</li>
+                            <li>Discuss timeframe</li>
+                            <li>Agree on the scope</li>
+                            <li>Work toward the required result</li>
+                        </ul>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             HELP
+        ====================================================== -->
+
+        <section
+            class="section"
+            id="help">
+
+            <div class="card">
+
+                <div class="label">
+                    Start With the Task
+                </div>
+
+                <h2 class="section-title">
+                    Maybe You Need Someone to...
+                </h2>
+
+                <p class="section-intro">
+                    You do not need to figure out the perfect job title
+                    first. Start with the actual work that needs to be
+                    completed.
+                </p>
+
+
+                <div class="help-grid">
+
+                    <div class="help-item">
+                        <strong>Build or improve software</strong>
+                        <span>
+                            Development, testing, troubleshooting,
+                            documentation and technology tasks.
+                        </span>
+                    </div>
+
+                    <div class="help-item">
+                        <strong>Work on electronics</strong>
+                        <span>
+                            Hardware, components, technical records,
+                            testing and electronics-related tasks.
+                        </span>
+                    </div>
+
+                    <div class="help-item">
+                        <strong>Support a construction project</strong>
+                        <span>
+                            Documentation, records, coordination,
+                            project assistance and technical tasks.
+                        </span>
+                    </div>
+
+                    <div class="help-item">
+                        <strong>Support clinical-related work</strong>
+                        <span>
+                            Documentation, research, records and
+                            appropriate administrative support.
+                        </span>
+                    </div>
+
+                    <div class="help-item">
+                        <strong>Support mental health-related work</strong>
+                        <span>
+                            Non-diagnostic administrative, research,
+                            documentation, coordination and
+                            support-service tasks.
+                        </span>
+                    </div>
+
+                    <div class="help-item">
+                        <strong>Organise technical information</strong>
+                        <span>
+                            Research, references, specifications,
+                            records and project information.
+                        </span>
+                    </div>
+
+                    <div class="help-item">
+                        <strong>Prepare technical documents</strong>
+                        <span>
+                            Organising project information, records,
+                            references and technical documentation.
+                        </span>
+                    </div>
+
+                    <div class="help-item">
+                        <strong>Organise data and records</strong>
+                        <span>
+                            Data entry, information organisation,
+                            file management and record keeping.
+                        </span>
+                    </div>
+
+                    <div class="help-item">
+                        <strong>Catch up on a backlog</strong>
+                        <span>
+                            Take on specific tasks when workload has
+                            become difficult to manage.
+                        </span>
+                    </div>
+
+                    <div class="help-item">
+                        <strong>Handle something specific</strong>
+                        <span>
+                            Explain the requirement and discuss the
+                            practical support needed.
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             WAYS TO WORK
+        ====================================================== -->
+
+        <section class="section">
+
+            <div class="card">
+
+                <div class="label">
+                    Flexible Arrangements
+                </div>
+
+                <h2 class="section-title">
+                    Work With Me Based on What You Need
+                </h2>
+
+                <p class="section-intro">
+                    Different tasks require different arrangements.
+                    The work can be discussed around the scope,
+                    timeframe and expected result.
+                </p>
+
+                <div class="work-options">
+
+                    <div class="option">
+                        <h3>One-Time Task</h3>
+                        <p>
+                            A specific task that simply needs to
+                            be completed.
+                        </p>
+                    </div>
+
+                    <div class="option">
+                        <h3>Short-Term Help</h3>
+                        <p>
+                            Additional support during a busy period
+                            or temporary workload.
+                        </p>
+                    </div>
+
+                    <div class="option">
+                        <h3>Project-Based</h3>
+                        <p>
+                            Support for a defined project with an
+                            agreed scope and timeframe.
+                        </p>
+                    </div>
+
+                    <div class="option">
+                        <h3>Ongoing Support</h3>
+                        <p>
+                            Regular help with recurring technical,
+                            administrative or project tasks.
+                        </p>
+                    </div>
+
+                    <div class="option">
+                        <h3>Contract Work</h3>
+                        <p>
+                            Work based on agreed responsibilities,
+                            requirements and duration.
+                        </p>
+                    </div>
+
+                    <div class="option">
+                        <h3>Custom Arrangement</h3>
+                        <p>
+                            Something different? Tell me about the
+                            requirement and we can discuss it.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             AREAS
+        ====================================================== -->
+
+        <section class="section">
+
+            <div class="card">
+
+                <div class="label">
+                    Areas of Support
+                </div>
+
+                <h2 class="section-title">
+                    Different Types of Work, One Practical Approach
+                </h2>
+
+                <p class="section-intro">
+                    My approach is hands-on and task-focused, allowing
+                    me to work across different technical and
+                    professional environments depending on the
+                    requirement.
+                </p>
+
+                <div class="areas">
+
+                    <span class="area">Software</span>
+                    <span class="area">Web Technology</span>
+                    <span class="area">Hardware</span>
+                    <span class="area">Electronics</span>
+                    <span class="area">Technical Documentation</span>
+                    <span class="area">Construction</span>
+                    <span class="area">Civil Projects</span>
+                    <span class="area">Clinical Support</span>
+                    <span class="area">Medical-Related Support</span>
+                    <span class="area">Mental Health-Related Support</span>
+                    <span class="area">Research</span>
+                    <span class="area">Documentation</span>
+                    <span class="area">Data Organisation</span>
+                    <span class="area">Project Support</span>
+                    <span class="area">Technical Support</span>
+                    <span class="area">Administrative Support</span>
+                    <span class="area">Hands-On Support</span>
+                    <span class="area">Freelance Work</span>
+                    <span class="area">Contract Work</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PROCESS
+        ====================================================== -->
+
+        <section
+            class="section"
+            id="process">
+
+            <div class="card">
+
+                <div class="label">
+                    Simple Process
+                </div>
+
+                <h2 class="section-title">
+                    Tell Me What Needs to Be Done
+                </h2>
+
+                <p class="section-intro">
+                    You do not need to prepare a complicated proposal.
+                    A simple description of the task is enough to
+                    start the conversation. The goal is to understand
+                    the requirement and take a practical, hands-on
+                    approach to the work.
+                </p>
+
+                <div class="process">
+
+                    <div class="process-item">
+
+                        <div class="process-number">
+                            1
+                        </div>
+
+                        <h3>
+                            Tell Me About the Work
+                        </h3>
+
+                        <p>
+                            Explain the task, problem, project,
+                            technical requirement or workload you
+                            need help with.
+                        </p>
+
+                    </div>
+
+
+                    <div class="process-item">
+
+                        <div class="process-number">
+                            2
+                        </div>
+
+                        <h3>
+                            Discuss the Requirement
+                        </h3>
+
+                        <p>
+                            We clarify the scope, timeframe,
+                            expected output, resources and other
+                            relevant details.
+                        </p>
+
+                    </div>
+
+
+                    <div class="process-item">
+
+                        <div class="process-number">
+                            3
+                        </div>
+
+                        <h3>
+                            Get Hands-On and Get It Done
+                        </h3>
+
+                        <p>
+                            If it is a good fit, we agree on the
+                            responsibilities and arrangement and
+                            work toward the required result.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CTA
+        ====================================================== -->
+
+        <section class="section">
+
+            <div class="cta">
+
+                <h2>
+                    Have Something You Need Help With?
+                </h2>
+
+                <p>
+                    Whether it is software, electronics, construction,
+                    clinical or mental health-related work,
+                    documentation, research or a specific task you
+                    have not quite figured out yet, send me the details.
+                </p>
+
+                <a
+                    href="#contact"
+                    class="button button-primary">
+                    Tell Me What You Need
+                </a>
+
+            </div>
+
+        </section>
 
     </main>
 
 
-    <aside
-      class="sidebar"
-      id="about"
-    >
+    <!-- =========================================================
+         CONTACT
+    ========================================================== -->
 
-      <h3>
-        About
-      </h3>
+    <section id="contact">
 
-      <p>
-        Hands-On Approach on Every Project
-      </p>
+        <div class="contact-card">
 
-    </aside>
+            <div class="contact-header">
 
-  </div>
+                <div class="label">
+                    Project / Service Enquiry
+                </div>
 
+                <h2>
+                    Tell Me What You Need
+                </h2>
 
-  <!-- =========================
-       CONTACT
-  ========================= -->
-  <section id="contact">
+                <p>
+                    Give me a few details about the work.
+                    You do not need to know exactly what service
+                    category it belongs to.
+                </p>
 
-    <h2>
-      DISCUSS A PROJECT
-    </h2>
-
-
-    <form
-      id="contact-form"
-      action="https://script.google.com/macros/s/AKfycbyXQeo4DsxIp0xDpsBh5dZDdw4aHc108s9XRzij-ff78UGNo8ZIz-AcWcywF3StzGzbww/exec"
-      method="POST"
-      novalidate
-    >
-
-      <label for="name">
-        Name
-      </label>
-
-      <input
-        type="text"
-        id="name"
-        name="name"
-        autocomplete="name"
-        placeholder="Your name"
-        required
-        aria-required="true"
-      >
+            </div>
 
 
-      <label for="email">
-        Email
-      </label>
+            <div class="contact-note">
 
-      <input
-        type="email"
-        id="email"
-        name="email"
-        autocomplete="email"
-        placeholder="your.email@example.com"
-        required
-        aria-required="true"
-      >
+                <strong>Privacy:</strong>
+
+                The information you submit will be used to respond
+                to your enquiry and discuss the work you are requesting.
+                Please do not include passwords, financial information,
+                medical records or other sensitive information unless
+                it is genuinely necessary for the enquiry.
+
+            </div>
 
 
-      <label for="message">
-        Message
-      </label>
-
-      <textarea
-        id="message"
-        name="message"
-        rows="5"
-        placeholder="Your message here..."
-        required
-        aria-required="true"
-      ></textarea>
+            <form
+                id="contact-form"
+                action="https://script.google.com/macros/s/AKfycbzhkcw76ij3XXhOLu3aEBrkNhau1hgO3bSkS15m7KNuH8j01IieB6Pr8k9OLO0AK1fQ/exec"
+                method="POST"
+                target="form-response-frame"
+                novalidate>
 
 
-      <!-- Honeypot -->
-      <input
-        type="text"
-        name="website"
-        style="display:none"
-        tabindex="-1"
-        autocomplete="off"
-        aria-hidden="true"
-      >
+                <label for="name">
+                    Name / Organisation
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    autocomplete="name"
+                    placeholder="Your name or organisation"
+                    maxlength="200"
+                    required>
 
 
-      <button
-        type="submit"
-        aria-label="Send your message"
-      >
-        Send Message
-      </button>
+                <label for="email">
+                    Email
+                </label>
 
-    </form>
-
-  </section>
-
-
-  <!-- =========================
-       FOOTER
-  ========================= -->
-  <footer>
-
-    <p>
-      &copy; 2026 KEA. All rights reserved.
-    </p>
-
-  </footer>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    autocomplete="email"
+                    placeholder="your.email@example.com"
+                    maxlength="320"
+                    required>
 
 
-  <!-- =========================
-       TRANSLATION ENGINE
-  ========================= -->
-  <script>
-    function googleTranslateElementInit() {
+                <label for="service">
+                    What kind of help do you need?
+                </label>
 
-      new google.translate.TranslateElement(
-        {
-          pageLanguage: "en",
-          autoDisplay: false
-        },
-        "google_translate_element"
-      );
+                <select
+                    id="service"
+                    name="service">
 
-      setTimeout(
-        initializeLanguageSelector,
-        1200
-      );
-    }
+                    <option value="">
+                        Choose one if applicable
+                    </option>
+
+                    <option value="Software Engineering / Technology">
+                        Software Engineering / Technology
+                    </option>
+
+                    <option value="Hardware / Electronics">
+                        Hardware / Electronics
+                    </option>
+
+                    <option value="Construction / Civil Project">
+                        Construction / Civil Project
+                    </option>
+
+                    <option value="Clinical / Medical Support">
+                        Clinical / Medical Support
+                    </option>
+
+                    <option value="Mental Health-Related Support">
+                        Mental Health-Related Support
+                    </option>
+
+                    <option value="Administrative / Documentation">
+                        Administrative / Documentation
+                    </option>
+
+                    <option value="Research / Information">
+                        Research / Information
+                    </option>
+
+                    <option value="Project / Task Support">
+                        Project / Task Support
+                    </option>
+
+                    <option value="Something Else">
+                        Something Else
+                    </option>
+
+                </select>
 
 
-    function initializeLanguageSelector() {
+                <label for="timeframe">
+                    When do you need help?
+                </label>
 
-      const selector =
-        document.getElementById(
-          "kea-language-select"
-        );
-
-      if (!selector) {
-        return;
-      }
-
-
-      if (
-        selector.dataset.ready === "true"
-      ) {
-        return;
-      }
+                <input
+                    type="text"
+                    id="timeframe"
+                    name="timeframe"
+                    maxlength="200"
+                    placeholder="Example: ASAP, next week, this month, ongoing">
 
 
-      selector.dataset.ready = "true";
+                <label for="message">
+                    Tell Me About the Work
+                </label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="7"
+                    maxlength="10000"
+                    placeholder="What needs to be done? What would you like help with? What should the final result look like?"
+                    required></textarea>
 
 
-      selector.addEventListener(
-        "change",
+                <!-- =================================================
+                     OPTIONAL LOCATION
+                ================================================== -->
+
+                <input
+                    type="hidden"
+                    id="location-permission"
+                    name="location_permission"
+                    value="not_requested">
+
+                <input
+                    type="hidden"
+                    id="latitude"
+                    name="latitude"
+                    value="">
+
+                <input
+                    type="hidden"
+                    id="longitude"
+                    name="longitude"
+                    value="">
+
+                <input
+                    type="hidden"
+                    id="location-accuracy"
+                    name="location_accuracy"
+                    value="">
+
+
+                <!-- =================================================
+                     HONEYPOT
+                ================================================== -->
+
+                <input
+                    type="text"
+                    name="website"
+                    tabindex="-1"
+                    autocomplete="off"
+                    aria-hidden="true"
+                    style="
+                        display:none !important;
+                        position:absolute !important;
+                        left:-9999px !important;
+                        width:1px !important;
+                        height:1px !important;
+                    ">
+
+
+                <button
+                    type="submit"
+                    id="submit-button">
+
+                    Send Requirement
+
+                </button>
+
+            </form>
+
+
+            <iframe
+                name="form-response-frame"
+                id="form-response-frame"
+                title="Form response"
+                aria-hidden="true"
+                style="
+                    width:0;
+                    height:0;
+                    border:0;
+                    position:absolute;
+                    left:-9999px;
+                    top:-9999px;
+                    visibility:hidden;
+                ">
+            </iframe>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+        <p>
+            Freelance • Contract • Project Support
+        </p>
+
+        <p>
+            Software • Electronics • Construction • Clinical •
+            Mental Health-Related • Technical Support
+        </p>
+
+        <br>
+
+        <p>
+            &copy; 2026 KEA. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================================================
+         PRIVACY / TERMS / LOCATION MODAL
+    ========================================================== -->
+
+    <div
+        id="privacy-modal"
+        class="privacy-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="privacy-modal-title"
+        hidden>
+
+        <div class="privacy-panel">
+
+            <button
+                type="button"
+                class="privacy-close"
+                id="privacy-close"
+                aria-label="Close privacy panel">
+
+                &times;
+
+            </button>
+
+
+            <div class="label">
+                Privacy &amp; Terms
+            </div>
+
+
+            <h2 id="privacy-modal-title">
+                Your Privacy Matters
+            </h2>
+
+
+            <p class="privacy-intro">
+                This page may request your location to help provide
+                relevant information or support related to your enquiry.
+                Location access is optional.
+            </p>
+
+
+            <div class="privacy-section">
+
+                <h3>
+                    Location Information
+                </h3>
+
+                <p>
+                    If you choose to allow location access, your browser
+                    may provide your approximate or precise location,
+                    depending on your device and browser settings.
+                </p>
+
+                <p>
+                    Your location will only be requested after you give
+                    permission. This page does not continuously track
+                    your location.
+                </p>
+
+            </div>
+
+
+            <div class="privacy-section">
+
+                <h3>
+                    How Information Is Used
+                </h3>
+
+                <p>
+                    Information submitted through this page may be used
+                    to respond to your enquiry, understand your requirements,
+                    provide appropriate support and communicate with you
+                    about your request.
+                </p>
+
+            </div>
+
+
+            <div class="privacy-section">
+
+                <h3>
+                    Technical &amp; Professional Scope
+                </h3>
+
+                <p>
+                    Technical, construction, clinical, medical and
+                    mental health-related support is subject to the actual
+                    scope of work, applicable requirements, qualifications,
+                    permissions and any professional responsibilities
+                    that may apply.
+                </p>
+
+                <p>
+                    Mental health-related support offered through this
+                    page is not a substitute for emergency care,
+                    diagnosis, psychotherapy, medical treatment or other
+                    regulated professional services unless separately
+                    agreed and appropriately qualified.
+                </p>
+
+            </div>
+
+
+            <div class="privacy-section">
+
+                <h3>
+                    Terms of Use
+                </h3>
+
+                <p>
+                    Information provided through this page should be
+                    accurate and must not be used for unlawful purposes.
+                    Any proposed work remains subject to discussion,
+                    availability, scope and agreement before work begins.
+                </p>
+
+            </div>
+
+
+            <div class="privacy-section">
+
+                <h3>
+                    Your Choice
+                </h3>
+
+                <p>
+                    You can use this page without allowing location
+                    access. Refusing location permission will not prevent
+                    you from submitting an enquiry.
+                </p>
+
+            </div>
+
+
+            <div class="privacy-actions">
+
+                <button
+                    type="button"
+                    class="privacy-button privacy-primary"
+                    id="allow-location">
+
+                    Allow Location
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="privacy-button privacy-secondary"
+                    id="deny-location">
+
+                    Don't Allow
+
+                </button>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="privacy-text-button"
+                id="privacy-understood">
+
+                Continue Without Location
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         FLOATING PRIVACY BUTTON
+    ========================================================== -->
+
+    <div class="privacy-floating">
+
+        <button
+            type="button"
+            id="open-privacy">
+
+            Privacy &amp; Terms
+
+        </button>
+
+    </div>
+
+
+    <!-- =========================================================
+         GOOGLE TRANSLATE
+    ========================================================== -->
+
+    <script>
+
+        function googleTranslateElementInit() {
+
+            new google.translate.TranslateElement(
+                {
+                    pageLanguage: "en",
+
+                    includedLanguages:
+                        "en,tl,fr,de,es,it,pt,nl,da,sv,no,fi,is,pl,cs,sk,hu,ro,bg,el,hr,sl,et,lv,lt,uk",
+
+                    autoDisplay: false
+                },
+
+                "google_translate_element"
+            );
+
+        }
+
+    </script>
+
+
+    <script
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+    document.addEventListener(
+        "DOMContentLoaded",
         function () {
 
-          const language =
-            this.value;
 
-          translatePage(language);
+            /* =====================================================
+               LANGUAGE SELECTOR
+            ===================================================== */
 
-        }
-      );
-    }
-
-
-    function translatePage(language) {
-
-      const googleSelector =
-        document.querySelector(
-          ".goog-te-combo"
-        );
+            const languageSelect =
+                document.getElementById(
+                    "language-select"
+                );
 
 
-      if (!googleSelector) {
+            let languageAttempts = 0;
 
-        setTimeout(
-          function () {
-            translatePage(language);
-          },
-          300
-        );
-
-        return;
-      }
+            const maximumLanguageAttempts = 40;
 
 
-      googleSelector.value =
-        language;
-
-
-      googleSelector.dispatchEvent(
-        new Event("change")
-      );
-    }
-
-
-    window.addEventListener(
-      "load",
-      function () {
-
-        setTimeout(
-          initializeLanguageSelector,
-          1500
-        );
-
-      }
-    );
-  </script>
-
-
-  <!-- Google Translate engine -->
-  <script
-    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-  ></script>
-
-
-  <!-- =========================
-       MAIN JAVASCRIPT
-  ========================= -->
-  <script>
-    document.addEventListener(
-      "DOMContentLoaded",
-      function () {
-
-        /* =========================
-           CONSENT
-        ========================= */
-
-        const consentBanner =
-          document.getElementById(
-            "consent-banner"
-          );
-
-        const consentCheckbox =
-          document.getElementById(
-            "consent-checkbox"
-          );
-
-        const acceptConsent =
-          document.getElementById(
-            "accept-consent"
-          );
-
-        const rejectConsent =
-          document.getElementById(
-            "reject-consent"
-          );
-
-        const consentClose =
-          document.getElementById(
-            "consent-close"
-          );
-
-
-        function setCookie(
-          name,
-          value,
-          days
-        ) {
-
-          try {
-
-            const expires =
-              new Date();
-
-            expires.setTime(
-              expires.getTime() +
-              days *
-              24 *
-              60 *
-              60 *
-              1000
-            );
-
-
-            document.cookie =
-              name +
-              "=" +
-              encodeURIComponent(value) +
-              ";expires=" +
-              expires.toUTCString() +
-              ";path=/;SameSite=Lax;Secure";
-
-          } catch (error) {
-
-            console.warn(
-              "Cookie setting failed:",
-              error
-            );
-
-          }
-        }
-
-
-        function getCookie(name) {
-
-          try {
-
-            const cookies =
-              document.cookie
-                ? document.cookie.split(";")
-                : [];
-
-
-            for (
-              const c of cookies
+            function setGoogleLanguage(
+                language
             ) {
 
-              const cookie =
-                c.trim();
-
-
-              if (
-                cookie.startsWith(
-                  name + "="
-                )
-              ) {
-
-                return decodeURIComponent(
-                  cookie.substring(
-                    name.length + 1
-                  )
-                );
-
-              }
-
-            }
-
-          } catch (error) {
-
-            console.warn(
-              "Cookie reading failed:",
-              error
-            );
-
-          }
-
-
-          return null;
-        }
-
-
-        const savedConsent =
-          getCookie(
-            "kea_consent"
-          );
-
-
-        if (
-          savedConsent === "accepted" ||
-          savedConsent === "rejected" ||
-          savedConsent === "closed"
-        ) {
-
-          consentBanner.classList.add(
-            "hidden"
-          );
-
-        }
-
-
-        consentClose.addEventListener(
-          "click",
-          function () {
-
-            setCookie(
-              "kea_consent",
-              "closed",
-              180
-            );
-
-            consentBanner.classList.add(
-              "hidden"
-            );
-
-          }
-        );
-
-
-        document.addEventListener(
-          "keydown",
-          function (event) {
-
-            if (
-              event.key === "Escape" &&
-              !consentBanner.classList.contains(
-                "hidden"
-              )
-            ) {
-
-              setCookie(
-                "kea_consent",
-                "closed",
-                180
-              );
-
-              consentBanner.classList.add(
-                "hidden"
-              );
-
-            }
-
-          }
-        );
-
-
-        acceptConsent.addEventListener(
-          "click",
-          function () {
-
-            if (
-              !consentCheckbox.checked
-            ) {
-
-              alert(
-                "Please confirm that you have read and agree to the privacy policy and terms."
-              );
-
-              consentCheckbox.focus();
-
-              return;
-            }
-
-
-            setCookie(
-              "kea_consent",
-              "accepted",
-              180
-            );
-
-
-            consentBanner.classList.add(
-              "hidden"
-            );
-
-          }
-        );
-
-
-        rejectConsent.addEventListener(
-          "click",
-          function () {
-
-            setCookie(
-              "kea_consent",
-              "rejected",
-              180
-            );
-
-
-            consentBanner.classList.add(
-              "hidden"
-            );
-
-          }
-        );
-
-
-        /* =========================
-           CONTACT FORM
-        ========================= */
-
-        const form =
-          document.getElementById(
-            "contact-form"
-          );
-
-
-        if (form) {
-
-          form.addEventListener(
-            "submit",
-            async function (event) {
-
-              event.preventDefault();
-
-
-              const nameEl =
-                document.getElementById(
-                  "name"
-                );
-
-              const emailEl =
-                document.getElementById(
-                  "email"
-                );
-
-              const messageEl =
-                document.getElementById(
-                  "message"
-                );
-
-              const honeypotEl =
-                form.querySelector(
-                  'input[name="website"]'
-                );
-
-
-              const name =
-                nameEl.value.trim();
-
-              const email =
-                emailEl.value.trim();
-
-              const message =
-                messageEl.value.trim();
-
-              const honeypot =
-                honeypotEl.value;
-
-
-              if (
-                honeypot !== ""
-              ) {
-
-                console.warn(
-                  "Honeypot triggered"
-                );
-
-                return;
-              }
-
-
-              if (
-                !name ||
-                !email ||
-                !message
-              ) {
-
-                alert(
-                  "Please complete all fields."
-                );
-
-                return;
-              }
-
-
-              const emailPattern =
-                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-
-              if (
-                !emailPattern.test(
-                  email
-                )
-              ) {
-
-                alert(
-                  "Please enter a valid email address."
-                );
-
-                emailEl.focus();
-
-                return;
-              }
-
-
-              if (
-                !confirm(
-                  "Are you sure you want to send this message?"
-                )
-              ) {
-
-                return;
-              }
-
-
-              const submitButton =
-                form.querySelector(
-                  "button[type='submit']"
-                );
-
-
-              const originalText =
-                submitButton.textContent;
-
-
-              submitButton.disabled =
-                true;
-
-              submitButton.textContent =
-                "Sending...";
-
-
-              try {
-
-                const formData =
-                  new FormData(form);
-
-
-                await fetch(
-                  form.action,
-                  {
-                    method: "POST",
-                    body: formData,
-                    mode: "no-cors"
-                  }
-                );
-
-
-                alert(
-                  "✓ Your message has been sent successfully!"
-                );
-
-
-                form.reset();
-
-
-              } catch (error) {
-
-                console.error(
-                  "Form submission error:",
-                  error
-                );
-
-
-                alert(
-                  "Something went wrong. Please try again."
-                );
-
-              } finally {
-
-                submitButton.disabled =
-                  false;
-
-                submitButton.textContent =
-                  originalText;
-
-              }
-
-            }
-          );
-
-        }
-
-
-        /* =========================
-           SMOOTH SCROLL
-        ========================= */
-
-        document
-          .querySelectorAll(
-            'a[href^="#"]'
-          )
-          .forEach(
-            anchor => {
-
-              anchor.addEventListener(
-                "click",
-                function (event) {
-
-                  const href =
-                    this.getAttribute(
-                      "href"
-                    );
-
-
-                  if (
-                    href === "#" ||
-                    href === ""
-                  ) {
-
-                    return;
-                  }
-
-
-                  const target =
+                const googleSelect =
                     document.querySelector(
-                      href
+                        ".goog-te-combo"
                     );
 
 
-                  if (!target) {
-                    return;
-                  }
+                if (googleSelect) {
 
+                    googleSelect.value =
+                        language;
 
-                  event.preventDefault();
+                    googleSelect.dispatchEvent(
+                        new Event(
+                            "change",
+                            {
+                                bubbles: true
+                            }
+                        )
+                    );
 
-
-                  target.scrollIntoView(
-                    {
-                      behavior: "smooth",
-                      block: "start"
-                    }
-                  );
+                    return true;
 
                 }
-              );
+
+
+                return false;
 
             }
-          );
 
 
-        /* =========================
-           LAYOUT ADJUSTMENTS
-        ========================= */
+            function translatePage(
+                language
+            ) {
 
-        function adjustFooter() {
+                if (
+                    setGoogleLanguage(
+                        language
+                    )
+                ) {
 
-          const footer =
-            document.querySelector(
-              "footer"
+                    return;
+
+                }
+
+
+                languageAttempts++;
+
+
+                if (
+                    languageAttempts <
+                    maximumLanguageAttempts
+                ) {
+
+                    window.setTimeout(
+                        function () {
+
+                            translatePage(
+                                language
+                            );
+
+                        },
+                        250
+                    );
+
+                }
+
+            }
+
+
+            if (languageSelect) {
+
+                languageSelect.addEventListener(
+                    "change",
+                    function () {
+
+                        languageAttempts = 0;
+
+                        translatePage(
+                            this.value
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               FORM ELEMENTS
+            ===================================================== */
+
+            const form =
+                document.getElementById(
+                    "contact-form"
+                );
+
+            const button =
+                document.getElementById(
+                    "submit-button"
+                );
+
+            const iframe =
+                document.getElementById(
+                    "form-response-frame"
+                );
+
+            const nameInput =
+                document.getElementById(
+                    "name"
+                );
+
+            const emailInput =
+                document.getElementById(
+                    "email"
+                );
+
+            const messageInput =
+                document.getElementById(
+                    "message"
+                );
+
+            const honeypot =
+                form
+                    ? form.querySelector(
+                        'input[name="website"]'
+                    )
+                    : null;
+
+
+            /* =====================================================
+               PRIVACY ELEMENTS
+            ===================================================== */
+
+            const privacyModal =
+                document.getElementById(
+                    "privacy-modal"
+                );
+
+            const privacyClose =
+                document.getElementById(
+                    "privacy-close"
+                );
+
+            const openPrivacy =
+                document.getElementById(
+                    "open-privacy"
+                );
+
+            const allowLocation =
+                document.getElementById(
+                    "allow-location"
+                );
+
+            const denyLocation =
+                document.getElementById(
+                    "deny-location"
+                );
+
+            const privacyUnderstood =
+                document.getElementById(
+                    "privacy-understood"
+                );
+
+            const locationPermission =
+                document.getElementById(
+                    "location-permission"
+                );
+
+            const latitudeInput =
+                document.getElementById(
+                    "latitude"
+                );
+
+            const longitudeInput =
+                document.getElementById(
+                    "longitude"
+                );
+
+            const accuracyInput =
+                document.getElementById(
+                    "location-accuracy"
+                );
+
+
+            /* =====================================================
+               SAFETY CHECK
+            ===================================================== */
+
+            if (
+                !form ||
+                !button ||
+                !iframe ||
+                !nameInput ||
+                !emailInput ||
+                !messageInput
+            ) {
+
+                console.error(
+                    "KEA contact form could not be initialised."
+                );
+
+                return;
+
+            }
+
+
+            /* =====================================================
+               STATE
+            ===================================================== */
+
+            let submitting = false;
+
+            let timeoutID = null;
+
+
+            /* =====================================================
+               PRIVACY MODAL
+            ===================================================== */
+
+            function openPrivacyModal() {
+
+                if (!privacyModal) {
+                    return;
+                }
+
+                privacyModal.hidden = false;
+
+                document.body.classList.add(
+                    "privacy-modal-open"
+                );
+
+            }
+
+
+            function closePrivacyModal() {
+
+                if (!privacyModal) {
+                    return;
+                }
+
+                privacyModal.hidden = true;
+
+                document.body.classList.remove(
+                    "privacy-modal-open"
+                );
+
+            }
+
+
+            /* =====================================================
+               DENY / CONTINUE WITHOUT LOCATION
+            ===================================================== */
+
+            function denyLocationAccess() {
+
+                localStorage.setItem(
+                    "kea_location_consent",
+                    "denied"
+                );
+
+                if (locationPermission) {
+
+                    locationPermission.value =
+                        "denied";
+
+                }
+
+                closePrivacyModal();
+
+            }
+
+
+            /* =====================================================
+               PRIVACY BUTTONS
+            ===================================================== */
+
+            if (openPrivacy) {
+
+                openPrivacy.addEventListener(
+                    "click",
+                    openPrivacyModal
+                );
+
+            }
+
+
+            if (privacyClose) {
+
+                privacyClose.addEventListener(
+                    "click",
+                    denyLocationAccess
+                );
+
+            }
+
+
+            if (denyLocation) {
+
+                denyLocation.addEventListener(
+                    "click",
+                    denyLocationAccess
+                );
+
+            }
+
+
+            if (privacyUnderstood) {
+
+                privacyUnderstood.addEventListener(
+                    "click",
+                    denyLocationAccess
+                );
+
+            }
+
+
+            /* =====================================================
+               ESCAPE KEY
+            ===================================================== */
+
+            document.addEventListener(
+                "keydown",
+                function (event) {
+
+                    if (
+                        event.key === "Escape" &&
+                        privacyModal &&
+                        !privacyModal.hidden
+                    ) {
+
+                        denyLocationAccess();
+
+                    }
+
+                }
             );
 
 
-          if (!footer) {
-            return;
-          }
+            /* =====================================================
+               LOCATION REQUEST
+            ===================================================== */
+
+            if (allowLocation) {
+
+                allowLocation.addEventListener(
+                    "click",
+                    function () {
 
 
-          const extraGap = 24;
+                        if (!navigator.geolocation) {
 
-          const footerHeight =
-            footer.offsetHeight || 0;
+                            alert(
+                                "Location services are not available in this browser."
+                            );
+
+                            localStorage.setItem(
+                                "kea_location_consent",
+                                "unavailable"
+                            );
+
+                            if (locationPermission) {
+
+                                locationPermission.value =
+                                    "unavailable";
+
+                            }
+
+                            closePrivacyModal();
+
+                            return;
+
+                        }
 
 
-          document.body.style.paddingBottom =
-            (
-              footerHeight +
-              extraGap
-            ) + "px";
+                        allowLocation.disabled = true;
+
+                        allowLocation.textContent =
+                            "Requesting Location...";
+
+
+                        navigator.geolocation.getCurrentPosition(
+
+                            function (position) {
+
+                                const coords =
+                                    position.coords;
+
+
+                                if (latitudeInput) {
+
+                                    latitudeInput.value =
+                                        coords.latitude;
+
+                                }
+
+
+                                if (longitudeInput) {
+
+                                    longitudeInput.value =
+                                        coords.longitude;
+
+                                }
+
+
+                                if (accuracyInput) {
+
+                                    accuracyInput.value =
+                                        coords.accuracy;
+
+                                }
+
+
+                                if (locationPermission) {
+
+                                    locationPermission.value =
+                                        "granted";
+
+                                }
+
+
+                                localStorage.setItem(
+                                    "kea_location_consent",
+                                    "granted"
+                                );
+
+
+                                allowLocation.disabled =
+                                    false;
+
+                                allowLocation.textContent =
+                                    "Allow Location";
+
+
+                                closePrivacyModal();
+
+                            },
+
+
+                            function (error) {
+
+                                console.warn(
+                                    "Location was not provided:",
+                                    error.message
+                                );
+
+
+                                if (locationPermission) {
+
+                                    locationPermission.value =
+                                        "denied";
+
+                                }
+
+
+                                localStorage.setItem(
+                                    "kea_location_consent",
+                                    "denied"
+                                );
+
+
+                                allowLocation.disabled =
+                                    false;
+
+                                allowLocation.textContent =
+                                    "Allow Location";
+
+
+                                closePrivacyModal();
+
+                            },
+
+
+                            {
+                                enableHighAccuracy: false,
+                                timeout: 10000,
+                                maximumAge: 300000
+                            }
+
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               RESTORE LOCATION CONSENT
+            ===================================================== */
+
+            const savedLocationConsent =
+                localStorage.getItem(
+                    "kea_location_consent"
+                );
+
+
+            if (
+                savedLocationConsent === "granted"
+            ) {
+
+                if (locationPermission) {
+
+                    locationPermission.value =
+                        "previously_granted";
+
+                }
+
+            }
+
+
+            if (
+                savedLocationConsent === "denied"
+            ) {
+
+                if (locationPermission) {
+
+                    locationPermission.value =
+                        "previously_denied";
+
+                }
+
+            }
+
+
+            /* =====================================================
+               FIRST VISIT PRIVACY MODAL
+            ===================================================== */
+
+            if (!savedLocationConsent) {
+
+                openPrivacyModal();
+
+            }
+
+
+            /* =====================================================
+               GOOGLE APPS SCRIPT RESPONSE
+            ===================================================== */
+
+            window.addEventListener(
+                "message",
+                function (event) {
+
+                    const data =
+                        event.data;
+
+
+                    if (
+                        !data ||
+                        data.type !==
+                            "KEA_FORM_RESPONSE"
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    if (!submitting) {
+
+                        return;
+
+                    }
+
+
+                    if (timeoutID) {
+
+                        clearTimeout(
+                            timeoutID
+                        );
+
+                        timeoutID = null;
+
+                    }
+
+
+                    submitting = false;
+
+                    button.disabled = false;
+
+                    button.textContent =
+                        "Send Requirement";
+
+
+                    /* =============================================
+                       SUCCESS
+                    ============================================= */
+
+                    if (
+                        data.success === true
+                    ) {
+
+                        alert(
+                            data.message ||
+                            "Thank you. Your requirement has been sent."
+                        );
+
+
+                        form.reset();
+
+
+                        const currentConsent =
+                            localStorage.getItem(
+                                "kea_location_consent"
+                            );
+
+
+                        if (locationPermission) {
+
+                            if (
+                                currentConsent ===
+                                    "granted"
+                            ) {
+
+                                locationPermission.value =
+                                    "previously_granted";
+
+                            } else if (
+                                currentConsent ===
+                                    "denied"
+                            ) {
+
+                                locationPermission.value =
+                                    "previously_denied";
+
+                            } else {
+
+                                locationPermission.value =
+                                    "not_requested";
+
+                            }
+
+                        }
+
+
+                        nameInput.focus();
+
+                        return;
+
+                    }
+
+
+                    /* =============================================
+                       ERROR
+                    ============================================= */
+
+                    alert(
+                        data.message ||
+                        "Something went wrong while sending your requirement. Please try again."
+                    );
+
+                }
+            );
+
+
+            /* =====================================================
+               FORM SUBMISSION
+            ===================================================== */
+
+            form.addEventListener(
+                "submit",
+                function (event) {
+
+                    event.preventDefault();
+
+
+                    if (submitting) {
+
+                        return;
+
+                    }
+
+
+                    /* =============================================
+                       HONEYPOT
+                    ============================================= */
+
+                    if (
+                        honeypot &&
+                        honeypot.value.trim() !== ""
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    /* =============================================
+                       VALUES
+                    ============================================= */
+
+                    const name =
+                        nameInput.value.trim();
+
+                    const email =
+                        emailInput.value.trim();
+
+                    const message =
+                        messageInput.value.trim();
+
+
+                    /* =============================================
+                       VALIDATION
+                    ============================================= */
+
+                    if (!name) {
+
+                        alert(
+                            "Please enter your name or organisation."
+                        );
+
+                        nameInput.focus();
+
+                        return;
+
+                    }
+
+
+                    if (!email) {
+
+                        alert(
+                            "Please enter your email address."
+                        );
+
+                        emailInput.focus();
+
+                        return;
+
+                    }
+
+
+                    if (
+                        !emailInput.checkValidity()
+                    ) {
+
+                        alert(
+                            "Please enter a valid email address."
+                        );
+
+                        emailInput.focus();
+
+                        return;
+
+                    }
+
+
+                    if (!message) {
+
+                        alert(
+                            "Please tell me about the work you need help with."
+                        );
+
+                        messageInput.focus();
+
+                        return;
+
+                    }
+
+
+                    /* =============================================
+                       CONFIRMATION
+                    ============================================= */
+
+                    const confirmed =
+                        window.confirm(
+                            "Send this requirement?"
+                        );
+
+
+                    if (!confirmed) {
+
+                        return;
+
+                    }
+
+
+                    /* =============================================
+                       START SUBMISSION
+                    ============================================= */
+
+                    submitting = true;
+
+                    button.disabled = true;
+
+                    button.textContent =
+                        "Sending...";
+
+
+                    HTMLFormElement.prototype.submit.call(
+                        form
+                    );
+
+
+                    /* =============================================
+                       TIMEOUT
+                    ============================================= */
+
+                    timeoutID =
+                        window.setTimeout(
+                            function () {
+
+                                if (!submitting) {
+
+                                    return;
+
+                                }
+
+
+                                submitting = false;
+
+                                button.disabled =
+                                    false;
+
+                                button.textContent =
+                                    "Send Requirement";
+
+
+                                alert(
+                                    "The submission is taking longer than expected. Please check your internet connection and try again."
+                                );
+
+                            },
+                            25000
+                        );
+
+                }
+            );
+
+
+            /* =====================================================
+               SMOOTH SCROLL
+            ===================================================== */
+
+            document
+                .querySelectorAll(
+                    'a[href^="#"]'
+                )
+                .forEach(
+                    function (anchor) {
+
+                        anchor.addEventListener(
+                            "click",
+                            function (event) {
+
+                                const targetID =
+                                    this.getAttribute(
+                                        "href"
+                                    );
+
+
+                                if (
+                                    !targetID ||
+                                    targetID === "#"
+                                ) {
+
+                                    return;
+
+                                }
+
+
+                                const target =
+                                    document.querySelector(
+                                        targetID
+                                    );
+
+
+                                if (!target) {
+
+                                    return;
+
+                                }
+
+
+                                event.preventDefault();
+
+
+                                target.scrollIntoView({
+
+                                    behavior:
+                                        "smooth",
+
+                                    block:
+                                        "start"
+
+                                });
+
+                            }
+                        );
+
+                    }
+                );
+
         }
-
-
-        function adjustContactHeight() {
-
-          const contact =
-            document.getElementById(
-              "contact"
-            );
-
-
-          if (!contact) {
-            return;
-          }
-
-
-          const header =
-            document.querySelector(
-              "header"
-            );
-
-          const language =
-            document.querySelector(
-              ".language-translator"
-            );
-
-          const nav =
-            document.querySelector(
-              "nav"
-            );
-
-          const footer =
-            document.querySelector(
-              "footer"
-            );
-
-
-          const headerHeight =
-            header
-              ? header.offsetHeight
-              : 0;
-
-
-          const languageHeight =
-            language
-              ? language.offsetHeight
-              : 0;
-
-
-          const navHeight =
-            nav
-              ? nav.offsetHeight
-              : 0;
-
-
-          const footerHeight =
-            footer
-              ? footer.offsetHeight
-              : 0;
-
-
-          const extraGap = 32;
-
-
-          const desired =
-            Math.max(
-              320,
-
-              window.innerHeight -
-              headerHeight -
-              languageHeight -
-              navHeight -
-              footerHeight -
-              extraGap
-            );
-
-
-          contact.style.minHeight =
-            desired + "px";
-        }
-
-
-        function runLayoutAdjustments() {
-
-          adjustFooter();
-
-          adjustContactHeight();
-
-        }
-
-
-        runLayoutAdjustments();
-
-
-        window.addEventListener(
-          "resize",
-          runLayoutAdjustments
-        );
-
-
-        window.addEventListener(
-          "orientationchange",
-          runLayoutAdjustments
-        );
-
-
-        /* =========================
-           RESIZE OBSERVER
-        ========================= */
-
-        if (
-          window.ResizeObserver
-        ) {
-
-          const resizeObserver =
-            new ResizeObserver(
-              runLayoutAdjustments
-            );
-
-
-          const footer =
-            document.querySelector(
-              "footer"
-            );
-
-          const header =
-            document.querySelector(
-              "header"
-            );
-
-          const language =
-            document.querySelector(
-              ".language-translator"
-            );
-
-          const nav =
-            document.querySelector(
-              "nav"
-            );
-
-
-          if (footer) {
-            resizeObserver.observe(
-              footer
-            );
-          }
-
-
-          if (header) {
-            resizeObserver.observe(
-              header
-            );
-          }
-
-
-          if (language) {
-            resizeObserver.observe(
-              language
-            );
-          }
-
-
-          if (nav) {
-            resizeObserver.observe(
-              nav
-            );
-          }
-
-        }
-
-      }
     );
-  </script>
+
+    </script>
 
 </body>
+
 </html>
