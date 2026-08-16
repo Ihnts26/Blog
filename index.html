@@ -3900,254 +3900,167 @@ document.addEventListener(
                 }
             );
         }
+               
+ /* =================================================
+                   FORM SUBMISSION
+================================================= */
 
+                form.addEventListener(
+                    "submit",
+                    function (event) {
 
-        /* =====================================================
-           FORM
-        ===================================================== */
+                        event.preventDefault();
 
-        const form =
-            document.getElementById(
-                "contact-form"
-            );
 
-        const button =
-            document.getElementById(
-                "submit-button"
-            );
+                        if (submitting) {
 
-        const iframe =
-            document.getElementById(
-                "form-response-frame"
-            );
+                            return;
 
-        const nameInput =
-            document.getElementById(
-                "name"
-            );
+                        }
 
-        const emailInput =
-            document.getElementById(
-                "email"
-            );
 
-        const messageInput =
-            document.getElementById(
-                "message"
-            );
+                        /* HONEYPOT */
 
-        const honeypot =
-            form
-                ? form.querySelector(
-                    'input[name="website"]'
-                )
-                : null;
+                        if (
+                            honeypot &&
+                            honeypot.value.trim() !== ""
+                        ) {
 
+                            return;
 
-        if (
-            !form ||
-            !button ||
-            !iframe ||
-            !nameInput ||
-            !emailInput ||
-            !messageInput
-        ) {
-            console.error(
-                "KEA contact form could not be initialised."
-            );
+                        }
 
-            return;
-        }
 
+                        /* VALUES */
 
-        let submitting = false;
-        let timeoutID = null;
+                        const name =
+                            nameInput.value.trim();
 
+                        const email =
+                            emailInput.value.trim();
 
-        window.addEventListener(
-            "message",
-            function (event) {
+                        const message =
+                            messageInput.value.trim();
 
-                const data =
-                    event.data;
 
-                if (
-                    !data ||
-                    data.type !==
-                    "KEA_FORM_RESPONSE"
-                ) {
-                    return;
-                }
+                        /* VALIDATION */
 
-                if (!submitting) {
-                    return;
-                }
-
-                if (timeoutID) {
-                    clearTimeout(timeoutID);
-                    timeoutID = null;
-                }
-
-                submitting = false;
-
-                button.disabled = false;
-
-                button.textContent =
-                    window.currentStrings.submit_button;
-
-
-                if (data.success === true) {
-
-                    alert(
-                        data.message ||
-                        window.currentStrings.thank_you
-                    );
-
-                    form.reset();
-
-                    nameInput.focus();
-
-                    return;
-                }
-
-
-                alert(
-                    data.message ||
-                    window.currentStrings.send_error
-                );
-            }
-        );
-
-
-        form.addEventListener(
-            "submit",
-            function (event) {
-
-                event.preventDefault();
-
-                if (submitting) {
-                    return;
-                }
-
-
-                if (
-                    honeypot &&
-                    honeypot.value.trim() !== ""
-                ) {
-                    return;
-                }
-
-
-                const name =
-                    nameInput.value.trim();
-
-                const email =
-                    emailInput.value.trim();
-
-                const message =
-                    messageInput.value.trim();
-
-
-                if (!name) {
-
-                    alert(
-                        window.currentStrings.required_name ||
-                        "Please enter your name or organisation."
-                    );
-
-                    nameInput.focus();
-
-                    return;
-                }
-
-
-                if (!email) {
-
-                    alert(
-                        window.currentStrings.label_email
-                    );
-
-                    emailInput.focus();
-
-                    return;
-                }
-
-
-                if (
-                    !emailInput.checkValidity()
-                ) {
-
-                    alert(
-                        window.currentStrings.invalid_email ||
-                        "Please enter a valid email address."
-                    );
-
-                    emailInput.focus();
-
-                    return;
-                }
-
-
-                if (!message) {
-
-                    alert(
-                        window.currentStrings.required_message ||
-                        "Please tell me about the work you need help with."
-                    );
-
-                    messageInput.focus();
-
-                    return;
-                }
-
-
-                const confirmed =
-                    window.confirm(
-                        window.currentStrings.send_confirm
-                    );
-
-                if (!confirmed) {
-                    return;
-                }
-
-
-                submitting = true;
-
-                button.disabled = true;
-
-                button.textContent =
-                    window.currentStrings.sending;
-
-
-                HTMLFormElement.prototype.submit.call(
-                    form
-                );
-
-
-                timeoutID =
-                    window.setTimeout(
-                        function () {
-
-                            if (!submitting) {
-                                return;
-                            }
-
-                            submitting = false;
-
-                            button.disabled = false;
-
-                            button.textContent =
-                                window.currentStrings.submit_button;
+                        if (!name) {
 
                             alert(
-                                window.currentStrings.timeout
+                                "Please enter your name or organisation."
                             );
 
-                        },
-                        25000
-                    );
-            }
-        );
+                            nameInput.focus();
+
+                            return;
+
+                        }
+
+
+                        if (!email) {
+
+                            alert(
+                                "Please enter your email address."
+                            );
+
+                            emailInput.focus();
+
+                            return;
+
+                        }
+
+
+                        if (
+                            !emailInput.checkValidity()
+                        ) {
+
+                            alert(
+                                "Please enter a valid email address."
+                            );
+
+                            emailInput.focus();
+
+                            return;
+
+                        }
+
+
+                        if (!message) {
+
+                            alert(
+                                "Please tell me about the work you need help with."
+                            );
+
+                            messageInput.focus();
+
+                            return;
+
+                        }
+
+
+                        /* CONFIRMATION */
+
+                        const confirmed =
+                            window.confirm(
+                                "Send this requirement?"
+                            );
+
+
+                        if (!confirmed) {
+
+                            return;
+
+                        }
+
+
+                        /* START SUBMISSION */
+
+                        submitting = true;
+
+                        button.disabled = true;
+
+                        button.textContent =
+                            "Sending...";
+
+
+                        HTMLFormElement.prototype.submit.call(
+                            form
+                        );
+
+
+                        /* TIMEOUT */
+
+                        timeoutID =
+                            window.setTimeout(
+                                function () {
+
+                                    if (!submitting) {
+
+                                        return;
+
+                                    }
+
+
+                                    submitting = false;
+
+                                    button.disabled =
+                                        false;
+
+                                    button.textContent =
+                                        "Send Requirement";
+
+
+                                    alert(
+                                        "The submission is taking longer than expected. Please check your internet connection and try again."
+                                    );
+
+                                },
+                                25000
+                            );
+
+                    }
+                );
 
 
         /* =====================================================
