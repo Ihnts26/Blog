@@ -21,14 +21,15 @@
         KEA | Practical Hands-On Support for Work That Needs to Get Done
     </title>
 
-
     <style>
 
         /* =========================================================
            RESET
         ========================================================= */
 
-        * {
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -51,6 +52,10 @@
             color: #1f2937;
             line-height: 1.6;
             overflow-x: hidden;
+        }
+
+        body.privacy-modal-open {
+            overflow: hidden;
         }
 
         a {
@@ -76,8 +81,7 @@
             --background: #F5F7FA;
 
             --shadow:
-                0 5px 22px
-                rgba(15, 23, 42, 0.07);
+                0 5px 22px rgba(15, 23, 42, 0.07);
         }
 
 
@@ -88,6 +92,8 @@
         header {
             position: relative;
 
+            padding: 78px 20px 72px;
+
             background:
                 linear-gradient(
                     135deg,
@@ -97,11 +103,6 @@
                 );
 
             color: white;
-
-            padding:
-                78px 20px
-                72px;
-
             text-align: center;
         }
 
@@ -118,12 +119,8 @@
 
             border-radius: 30px;
 
-            background:
-                rgba(255,255,255,0.08);
-
-            border:
-                1px solid
-                rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
 
             color: #BFDBFE;
 
@@ -132,19 +129,19 @@
         }
 
         header h1 {
-            font-size:
-                clamp(2.3rem, 6vw, 3.7rem);
+            font-size: clamp(2.3rem, 6vw, 3.7rem);
 
             line-height: 1.08;
             letter-spacing: -1.2px;
+
             margin-bottom: 20px;
         }
 
         .hero-question {
-            font-size:
-                clamp(1.25rem, 3vw, 1.7rem);
+            font-size: clamp(1.25rem, 3vw, 1.7rem);
 
             font-weight: 650;
+
             margin-bottom: 12px;
         }
 
@@ -163,6 +160,7 @@
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
+
             gap: 10px;
             margin-top: 30px;
         }
@@ -173,9 +171,7 @@
             justify-content: center;
 
             min-height: 48px;
-
-            padding:
-                11px 23px;
+            padding: 11px 23px;
 
             border-radius: 7px;
 
@@ -200,17 +196,13 @@
         .button-secondary {
             color: white;
 
-            background:
-                rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.08);
 
-            border:
-                1px solid
-                rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         .button-secondary:hover {
-            background:
-                rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.15);
         }
 
 
@@ -223,15 +215,12 @@
             top: 0;
             z-index: 1000;
 
-            background:
-                rgba(255,255,255,0.97);
+            background: rgba(255,255,255,0.97);
 
-            border-bottom:
-                1px solid var(--border);
+            border-bottom: 1px solid var(--border);
 
             box-shadow:
-                0 2px 9px
-                rgba(15,23,42,0.05);
+                0 2px 9px rgba(15,23,42,0.05);
         }
 
         nav ul {
@@ -250,8 +239,7 @@
         nav a {
             display: block;
 
-            padding:
-                14px 0;
+            padding: 14px 0;
 
             color: #334155;
 
@@ -260,8 +248,7 @@
             font-size: 13px;
             font-weight: 650;
 
-            transition:
-                color 0.2s ease;
+            transition: color 0.2s ease;
         }
 
         nav a:hover {
@@ -299,11 +286,9 @@
         .container {
             max-width: 1100px;
 
-            margin:
-                40px auto;
+            margin: 40px auto;
 
-            padding:
-                0 20px;
+            padding: 0 20px;
         }
 
         .section {
@@ -313,15 +298,12 @@
         .card {
             background: white;
 
-            border:
-                1px solid var(--border);
-
+            border: 1px solid var(--border);
             border-radius: 14px;
 
             padding: 34px;
 
-            box-shadow:
-                var(--shadow);
+            box-shadow: var(--shadow);
         }
 
         .label {
@@ -339,8 +321,7 @@
         .section-title {
             color: var(--navy);
 
-            font-size:
-                clamp(1.55rem, 4vw, 2rem);
+            font-size: clamp(1.55rem, 4vw, 2rem);
 
             line-height: 1.25;
 
@@ -363,8 +344,7 @@
         .intro-grid {
             display: grid;
 
-            grid-template-columns:
-                1.2fr 0.8fr;
+            grid-template-columns: 1.2fr 0.8fr;
 
             gap: 25px;
 
@@ -386,11 +366,9 @@
         .intro-box {
             padding: 25px;
 
-            background:
-                var(--blue-soft);
+            background: var(--blue-soft);
 
-            border:
-                1px solid #DBEAFE;
+            border: 1px solid #DBEAFE;
 
             border-radius: 10px;
         }
@@ -421,8 +399,7 @@
         .services-grid {
             display: grid;
 
-            grid-template-columns:
-                repeat(2, 1fr);
+            grid-template-columns: repeat(2, 1fr);
 
             gap: 16px;
 
@@ -432,9 +409,7 @@
         .service {
             padding: 24px;
 
-            border:
-                1px solid var(--border);
-
+            border: 1px solid var(--border);
             border-radius: 10px;
 
             background: #FFFFFF;
@@ -445,12 +420,10 @@
         .service:hover {
             border-color: #BFDBFE;
 
-            transform:
-                translateY(-3px);
+            transform: translateY(-3px);
 
             box-shadow:
-                0 9px 25px
-                rgba(37,99,235,0.07);
+                0 9px 25px rgba(37,99,235,0.07);
         }
 
         .service-number {
@@ -516,8 +489,7 @@
         .help-grid {
             display: grid;
 
-            grid-template-columns:
-                repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr);
 
             gap: 13px;
 
@@ -529,8 +501,7 @@
 
             background: #F8FAFC;
 
-            border:
-                1px solid var(--border);
+            border: 1px solid var(--border);
 
             border-radius: 9px;
         }
@@ -559,8 +530,7 @@
         .work-options {
             display: grid;
 
-            grid-template-columns:
-                repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr);
 
             gap: 14px;
 
@@ -570,9 +540,7 @@
         .option {
             padding: 22px;
 
-            border:
-                1px solid var(--border);
-
+            border: 1px solid var(--border);
             border-radius: 9px;
 
             background: white;
@@ -610,17 +578,13 @@
         }
 
         .area {
-            padding:
-                8px 14px;
+            padding: 8px 14px;
 
-            border:
-                1px solid #DBEAFE;
+            border: 1px solid #DBEAFE;
 
-            background:
-                var(--blue-soft);
+            background: var(--blue-soft);
 
-            color:
-                var(--navy);
+            color: var(--navy);
 
             border-radius: 30px;
 
@@ -636,8 +600,7 @@
         .process {
             display: grid;
 
-            grid-template-columns:
-                repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr);
 
             gap: 16px;
 
@@ -649,8 +612,7 @@
 
             background: #F8FAFC;
 
-            border:
-                1px solid var(--border);
+            border: 1px solid var(--border);
 
             border-radius: 10px;
         }
@@ -698,8 +660,7 @@
         ========================================================= */
 
         .cta {
-            padding:
-                45px 25px;
+            padding: 45px 25px;
 
             background:
                 linear-gradient(
@@ -714,13 +675,11 @@
 
             border-radius: 14px;
 
-            box-shadow:
-                var(--shadow);
+            box-shadow: var(--shadow);
         }
 
         .cta h2 {
-            font-size:
-                clamp(1.6rem, 4vw, 2.2rem);
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
 
             margin-bottom: 10px;
         }
@@ -728,8 +687,7 @@
         .cta p {
             max-width: 680px;
 
-            margin:
-                0 auto 23px;
+            margin: 0 auto 23px;
 
             color: #CBDCF3;
 
@@ -744,25 +702,21 @@
         #contact {
             max-width: 850px;
 
-            margin:
-                45px auto;
+            margin: 45px auto;
 
-            padding:
-                0 20px;
+            padding: 0 20px;
         }
 
         .contact-card {
             background: white;
 
-            border:
-                1px solid var(--border);
+            border: 1px solid var(--border);
 
             border-radius: 14px;
 
             padding: 36px;
 
-            box-shadow:
-                var(--shadow);
+            box-shadow: var(--shadow);
         }
 
         .contact-header {
@@ -790,16 +744,13 @@
         }
 
         .contact-note {
-            padding:
-                16px 18px;
+            padding: 16px 18px;
 
             margin-bottom: 23px;
 
-            background:
-                var(--blue-soft);
+            background: var(--blue-soft);
 
-            border-left:
-                3px solid var(--blue);
+            border-left: 3px solid var(--blue);
 
             border-radius: 6px;
 
@@ -818,7 +769,6 @@
             margin: auto;
 
             display: flex;
-
             flex-direction: column;
 
             gap: 8px;
@@ -838,11 +788,9 @@
         form select {
             width: 100%;
 
-            padding:
-                12px 13px;
+            padding: 12px 13px;
 
-            border:
-                1px solid #CBD5E1;
+            border: 1px solid #CBD5E1;
 
             border-radius: 7px;
 
@@ -867,8 +815,7 @@
             border-color: var(--blue);
 
             box-shadow:
-                0 0 0 3px
-                rgba(37,99,235,0.11);
+                0 0 0 3px rgba(37,99,235,0.11);
         }
 
         form button {
@@ -888,6 +835,10 @@
             font-weight: 750;
 
             cursor: pointer;
+
+            transition:
+                background 0.2s ease,
+                opacity 0.2s ease;
         }
 
         form button:hover {
@@ -895,8 +846,32 @@
         }
 
         form button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
+            opacity: 0.65;
+
+            cursor: wait;
+        }
+
+        .form-status {
+            min-height: 24px;
+
+            margin-top: 12px;
+
+            text-align: center;
+
+            font-size: 13px;
+            font-weight: 650;
+        }
+
+        .form-status.success {
+            color: #15803D;
+        }
+
+        .form-status.error {
+            color: #B91C1C;
+        }
+
+        .form-status.sending {
+            color: var(--muted);
         }
 
 
@@ -918,11 +893,9 @@
 
             padding: 20px;
 
-            background:
-                rgba(7, 24, 45, 0.72);
+            background: rgba(7, 24, 45, 0.72);
 
-            backdrop-filter:
-                blur(5px);
+            backdrop-filter: blur(5px);
 
             overflow-y: auto;
         }
@@ -948,12 +921,10 @@
 
             border-radius: 15px;
 
-            border:
-                1px solid #E2E8F0;
+            border: 1px solid #E2E8F0;
 
             box-shadow:
-                0 25px 70px
-                rgba(15, 23, 42, 0.25);
+                0 25px 70px rgba(15, 23, 42, 0.25);
         }
 
         .privacy-close {
@@ -1007,8 +978,7 @@
         .privacy-section {
             padding: 17px 0;
 
-            border-top:
-                1px solid var(--border);
+            border-top: 1px solid var(--border);
         }
 
         .privacy-section h3 {
@@ -1050,8 +1020,7 @@
 
             border-radius: 7px;
 
-            padding:
-                10px 18px;
+            padding: 10px 18px;
 
             font-size: 14px;
             font-weight: 750;
@@ -1073,8 +1042,7 @@
 
             color: #334155;
 
-            border:
-                1px solid #CBD5E1;
+            border: 1px solid #CBD5E1;
         }
 
         .privacy-secondary:hover {
@@ -1112,16 +1080,13 @@
         }
 
         .privacy-floating button {
-            padding:
-                8px 13px;
+            padding: 8px 13px;
 
-            border:
-                1px solid #CBD5E1;
+            border: 1px solid #CBD5E1;
 
             border-radius: 20px;
 
-            background:
-                rgba(255,255,255,0.96);
+            background: rgba(255,255,255,0.96);
 
             color: #475569;
 
@@ -1131,16 +1096,11 @@
             cursor: pointer;
 
             box-shadow:
-                0 3px 12px
-                rgba(15,23,42,0.10);
+                0 3px 12px rgba(15,23,42,0.10);
         }
 
         .privacy-floating button:hover {
             color: var(--blue);
-        }
-
-        body.privacy-modal-open {
-            overflow: hidden;
         }
 
 
@@ -1151,8 +1111,7 @@
         footer {
             margin-top: 45px;
 
-            padding:
-                30px 20px;
+            padding: 30px 20px;
 
             background: var(--navy);
 
@@ -1179,19 +1138,16 @@
             }
 
             .help-grid {
-                grid-template-columns:
-                    1fr 1fr;
+                grid-template-columns: 1fr 1fr;
             }
 
             .work-options {
-                grid-template-columns:
-                    1fr 1fr;
+                grid-template-columns: 1fr 1fr;
             }
 
             .process {
                 grid-template-columns: 1fr;
             }
-
         }
 
 
@@ -1205,16 +1161,13 @@
             .work-options {
                 grid-template-columns: 1fr;
             }
-
         }
 
 
         @media (max-width: 600px) {
 
             header {
-                padding:
-                    70px 16px
-                    55px;
+                padding: 70px 16px 55px;
             }
 
             header h1 {
@@ -1230,28 +1183,23 @@
             }
 
             nav ul {
-                padding:
-                    5px 5px 8px;
+                padding: 5px 5px 8px;
             }
 
             nav li {
-                margin:
-                    0 5px;
+                margin: 0 5px;
             }
 
             nav a {
                 font-size: 11px;
 
-                padding:
-                    8px 1px;
+                padding: 8px 1px;
             }
 
             .container {
-                padding:
-                    0 12px;
+                padding: 0 12px;
 
-                margin:
-                    25px auto;
+                margin: 25px auto;
             }
 
             .card {
@@ -1259,13 +1207,11 @@
             }
 
             #contact {
-                padding:
-                    0 12px;
+                padding: 0 12px;
             }
 
             .contact-card {
-                padding:
-                    25px 18px;
+                padding: 25px 18px;
             }
 
             form input,
@@ -1279,8 +1225,7 @@
             }
 
             .privacy-panel {
-                padding:
-                    25px 20px;
+                padding: 25px 20px;
 
                 max-height: 94vh;
             }
@@ -1292,7 +1237,6 @@
             .privacy-button {
                 width: 100%;
             }
-
         }
 
 
@@ -1302,11 +1246,11 @@
                 scroll-behavior: auto;
             }
 
-            * {
-                transition:
-                    none !important;
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
             }
-
         }
 
     </style>
@@ -1520,8 +1464,6 @@
                 <div class="services-grid">
 
 
-                    <!-- SOFTWARE -->
-
                     <div class="service">
 
                         <div class="service-number">
@@ -1550,8 +1492,6 @@
                     </div>
 
 
-                    <!-- ELECTRONICS -->
-
                     <div class="service">
 
                         <div class="service-number">
@@ -1578,8 +1518,6 @@
 
                     </div>
 
-
-                    <!-- CONSTRUCTION -->
 
                     <div class="service">
 
@@ -1609,8 +1547,6 @@
 
                     </div>
 
-
-                    <!-- CLINICAL / MENTAL HEALTH -->
 
                     <div class="service">
 
@@ -1643,8 +1579,6 @@
                     </div>
 
 
-                    <!-- ADMIN -->
-
                     <div class="service">
 
                         <div class="service-number">
@@ -1673,8 +1607,6 @@
                     </div>
 
 
-                    <!-- RESEARCH -->
-
                     <div class="service">
 
                         <div class="service-number">
@@ -1702,8 +1634,6 @@
 
                     </div>
 
-
-                    <!-- CUSTOM -->
 
                     <div class="service">
 
@@ -1764,7 +1694,6 @@
                     first. Start with the actual work that needs to be
                     completed.
                 </p>
-
 
                 <div class="help-grid">
 
@@ -2150,6 +2079,10 @@
             </div>
 
 
+            <!-- =====================================================
+                 FORM
+            ====================================================== -->
+
             <form
                 id="contact-form"
                 action="https://script.google.com/macros/s/AKfycbzhkcw76ij3XXhOLu3aEBrkNhau1hgO3bSkS15m7KNuH8j01IieB6Pr8k9OLO0AK1fQ/exec"
@@ -2263,7 +2196,7 @@
 
 
                 <!-- =================================================
-                     OPTIONAL LOCATION
+                     LOCATION
                 ================================================== -->
 
                 <input
@@ -2318,14 +2251,29 @@
 
                 </button>
 
+
+                <!-- STATUS -->
+
+                <div
+                    id="form-status"
+                    class="form-status"
+                    role="status"
+                    aria-live="polite">
+                </div>
+
             </form>
 
+
+            <!-- =====================================================
+                 HIDDEN RESPONSE FRAME
+            ====================================================== -->
 
             <iframe
                 name="form-response-frame"
                 id="form-response-frame"
                 title="Form response"
                 aria-hidden="true"
+                tabindex="-1"
                 style="
                     width:0;
                     height:0;
@@ -2367,7 +2315,7 @@
 
 
     <!-- =========================================================
-         PRIVACY / TERMS / LOCATION MODAL
+         PRIVACY MODAL
     ========================================================== -->
 
     <div
@@ -2540,7 +2488,7 @@
 
 
     <!-- =========================================================
-         FLOATING PRIVACY BUTTON
+         PRIVACY BUTTON
     ========================================================== -->
 
     <div class="privacy-floating">
@@ -2562,818 +2510,727 @@
 
     <script>
 
-    document.addEventListener(
-        "DOMContentLoaded",
-        function () {
-
-
-            /* =====================================================
-               FORM ELEMENTS
-            ===================================================== */
-
-            const form =
-                document.getElementById(
-                    "contact-form"
-                );
-
-            const button =
-                document.getElementById(
-                    "submit-button"
-                );
-
-            const iframe =
-                document.getElementById(
-                    "form-response-frame"
-                );
-
-            const nameInput =
-                document.getElementById(
-                    "name"
-                );
-
-            const emailInput =
-                document.getElementById(
-                    "email"
-                );
-
-            const messageInput =
-                document.getElementById(
-                    "message"
-                );
-
-            const honeypot =
-                form
-                    ? form.querySelector(
-                        'input[name="website"]'
-                    )
-                    : null;
+    document.addEventListener("DOMContentLoaded", function () {
 
+        "use strict";
 
-            /* =====================================================
-               PRIVACY ELEMENTS
-            ===================================================== */
 
-            const privacyModal =
-                document.getElementById(
-                    "privacy-modal"
-                );
+        /* =========================================================
+           FORM ELEMENTS
+        ========================================================= */
 
-            const privacyClose =
-                document.getElementById(
-                    "privacy-close"
-                );
+        const form =
+            document.getElementById("contact-form");
 
-            const openPrivacy =
-                document.getElementById(
-                    "open-privacy"
-                );
+        const button =
+            document.getElementById("submit-button");
 
-            const allowLocation =
-                document.getElementById(
-                    "allow-location"
-                );
+        const iframe =
+            document.getElementById("form-response-frame");
 
-            const denyLocation =
-                document.getElementById(
-                    "deny-location"
-                );
+        const status =
+            document.getElementById("form-status");
 
-            const privacyUnderstood =
-                document.getElementById(
-                    "privacy-understood"
-                );
+        const nameInput =
+            document.getElementById("name");
 
-            const locationPermission =
-                document.getElementById(
-                    "location-permission"
-                );
+        const emailInput =
+            document.getElementById("email");
 
-            const latitudeInput =
-                document.getElementById(
-                    "latitude"
-                );
+        const messageInput =
+            document.getElementById("message");
 
-            const longitudeInput =
-                document.getElementById(
-                    "longitude"
-                );
+        const honeypot =
+            form
+                ? form.querySelector('input[name="website"]')
+                : null;
 
-            const accuracyInput =
-                document.getElementById(
-                    "location-accuracy"
-                );
 
+        /* =========================================================
+           PRIVACY ELEMENTS
+        ========================================================= */
 
-            /* =====================================================
-               SAFETY CHECK
-            ===================================================== */
+        const privacyModal =
+            document.getElementById("privacy-modal");
 
-            if (
-                !form ||
-                !button ||
-                !iframe ||
-                !nameInput ||
-                !emailInput ||
-                !messageInput
-            ) {
+        const privacyClose =
+            document.getElementById("privacy-close");
 
-                console.error(
-                    "KEA contact form could not be initialised."
-                );
+        const openPrivacy =
+            document.getElementById("open-privacy");
 
-                return;
+        const allowLocation =
+            document.getElementById("allow-location");
 
-            }
+        const denyLocation =
+            document.getElementById("deny-location");
 
+        const privacyUnderstood =
+            document.getElementById("privacy-understood");
 
-            /* =====================================================
-               STATE
-            ===================================================== */
+        const locationPermission =
+            document.getElementById("location-permission");
 
-            let submitting = false;
+        const latitudeInput =
+            document.getElementById("latitude");
 
-            let timeoutID = null;
+        const longitudeInput =
+            document.getElementById("longitude");
 
+        const accuracyInput =
+            document.getElementById("location-accuracy");
 
-            /* =====================================================
-               PRIVACY MODAL
-            ===================================================== */
 
-            function openPrivacyModal() {
+        /* =========================================================
+           SAFETY CHECK
+        ========================================================= */
 
-                if (!privacyModal) {
-                    return;
-                }
+        if (
+            !form ||
+            !button ||
+            !iframe ||
+            !nameInput ||
+            !emailInput ||
+            !messageInput
+        ) {
 
-                privacyModal.hidden = false;
-
-                document.body.classList.add(
-                    "privacy-modal-open"
-                );
-
-            }
-
-
-            function closePrivacyModal() {
-
-                if (!privacyModal) {
-                    return;
-                }
-
-                privacyModal.hidden = true;
-
-                document.body.classList.remove(
-                    "privacy-modal-open"
-                );
-
-            }
-
-
-            /* =====================================================
-               DENY / CONTINUE WITHOUT LOCATION
-            ===================================================== */
-
-            function denyLocationAccess() {
-
-                localStorage.setItem(
-                    "kea_location_consent",
-                    "denied"
-                );
-
-                if (locationPermission) {
-
-                    locationPermission.value =
-                        "denied";
-
-                }
-
-                closePrivacyModal();
-
-            }
-
-
-            /* =====================================================
-               PRIVACY BUTTONS
-            ===================================================== */
-
-            if (openPrivacy) {
-
-                openPrivacy.addEventListener(
-                    "click",
-                    openPrivacyModal
-                );
-
-            }
-
-
-            if (privacyClose) {
-
-                privacyClose.addEventListener(
-                    "click",
-                    denyLocationAccess
-                );
-
-            }
-
-
-            if (denyLocation) {
-
-                denyLocation.addEventListener(
-                    "click",
-                    denyLocationAccess
-                );
-
-            }
-
-
-            if (privacyUnderstood) {
-
-                privacyUnderstood.addEventListener(
-                    "click",
-                    denyLocationAccess
-                );
-
-            }
-
-
-            /* =====================================================
-               ESCAPE KEY
-            ===================================================== */
-
-            document.addEventListener(
-                "keydown",
-                function (event) {
-
-                    if (
-                        event.key === "Escape" &&
-                        privacyModal &&
-                        !privacyModal.hidden
-                    ) {
-
-                        denyLocationAccess();
-
-                    }
-
-                }
+            console.error(
+                "KEA contact form could not be initialised."
             );
 
-
-            /* =====================================================
-               LOCATION REQUEST
-            ===================================================== */
-
-            if (allowLocation) {
-
-                allowLocation.addEventListener(
-                    "click",
-                    function () {
+            return;
+        }
 
 
-                        if (!navigator.geolocation) {
+        /* =========================================================
+           STATE
+        ========================================================= */
 
-                            alert(
-                                "Location services are not available in this browser."
-                            );
+        let submitting = false;
 
-                            localStorage.setItem(
-                                "kea_location_consent",
-                                "unavailable"
-                            );
+        let timeoutID = null;
+
+        let iframeReady = false;
+
+
+        /* =========================================================
+           STATUS
+        ========================================================= */
+
+        function setStatus(message, type) {
+
+            if (!status) {
+                return;
+            }
+
+            status.textContent = message;
+
+            status.className =
+                "form-status" +
+                (type ? " " + type : "");
+        }
+
+
+        function resetButton() {
+
+            button.disabled = false;
+
+            button.textContent =
+                "Send Requirement";
+        }
+
+
+        function finishSubmission() {
+
+            if (!submitting) {
+                return;
+            }
+
+            submitting = false;
+
+            if (timeoutID) {
+
+                clearTimeout(timeoutID);
+
+                timeoutID = null;
+            }
+
+            resetButton();
+        }
+
+
+        /* =========================================================
+           PRIVACY MODAL
+        ========================================================= */
+
+        function openPrivacyModal() {
+
+            if (!privacyModal) {
+                return;
+            }
+
+            privacyModal.hidden = false;
+
+            document.body.classList.add(
+                "privacy-modal-open"
+            );
+        }
+
+
+        function closePrivacyModal() {
+
+            if (!privacyModal) {
+                return;
+            }
+
+            privacyModal.hidden = true;
+
+            document.body.classList.remove(
+                "privacy-modal-open"
+            );
+        }
+
+
+        function denyLocationAccess() {
+
+            localStorage.setItem(
+                "kea_location_consent",
+                "denied"
+            );
+
+            if (locationPermission) {
+
+                locationPermission.value =
+                    "denied";
+            }
+
+            closePrivacyModal();
+        }
+
+
+        /* =========================================================
+           PRIVACY EVENTS
+        ========================================================= */
+
+        if (openPrivacy) {
+
+            openPrivacy.addEventListener(
+                "click",
+                openPrivacyModal
+            );
+        }
+
+
+        if (privacyClose) {
+
+            privacyClose.addEventListener(
+                "click",
+                denyLocationAccess
+            );
+        }
+
+
+        if (denyLocation) {
+
+            denyLocation.addEventListener(
+                "click",
+                denyLocationAccess
+            );
+        }
+
+
+        if (privacyUnderstood) {
+
+            privacyUnderstood.addEventListener(
+                "click",
+                denyLocationAccess
+            );
+        }
+
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Escape" &&
+                    privacyModal &&
+                    !privacyModal.hidden
+                ) {
+
+                    denyLocationAccess();
+                }
+            }
+        );
+
+
+        /* =========================================================
+           LOCATION
+        ========================================================= */
+
+        if (allowLocation) {
+
+            allowLocation.addEventListener(
+                "click",
+                function () {
+
+                    if (!navigator.geolocation) {
+
+                        alert(
+                            "Location services are not available in this browser."
+                        );
+
+                        localStorage.setItem(
+                            "kea_location_consent",
+                            "unavailable"
+                        );
+
+                        if (locationPermission) {
+
+                            locationPermission.value =
+                                "unavailable";
+                        }
+
+                        closePrivacyModal();
+
+                        return;
+                    }
+
+
+                    allowLocation.disabled = true;
+
+                    allowLocation.textContent =
+                        "Requesting Location...";
+
+
+                    navigator.geolocation.getCurrentPosition(
+
+                        function (position) {
+
+                            const coords =
+                                position.coords;
+
+
+                            if (latitudeInput) {
+
+                                latitudeInput.value =
+                                    coords.latitude;
+                            }
+
+
+                            if (longitudeInput) {
+
+                                longitudeInput.value =
+                                    coords.longitude;
+                            }
+
+
+                            if (accuracyInput) {
+
+                                accuracyInput.value =
+                                    coords.accuracy;
+                            }
+
 
                             if (locationPermission) {
 
                                 locationPermission.value =
-                                    "unavailable";
-
+                                    "granted";
                             }
 
-                            closePrivacyModal();
 
-                            return;
-
-                        }
-
-
-                        allowLocation.disabled = true;
-
-                        allowLocation.textContent =
-                            "Requesting Location...";
-
-
-                        navigator.geolocation.getCurrentPosition(
-
-                            function (position) {
-
-                                const coords =
-                                    position.coords;
-
-
-                                if (latitudeInput) {
-
-                                    latitudeInput.value =
-                                        coords.latitude;
-
-                                }
-
-
-                                if (longitudeInput) {
-
-                                    longitudeInput.value =
-                                        coords.longitude;
-
-                                }
-
-
-                                if (accuracyInput) {
-
-                                    accuracyInput.value =
-                                        coords.accuracy;
-
-                                }
-
-
-                                if (locationPermission) {
-
-                                    locationPermission.value =
-                                        "granted";
-
-                                }
-
-
-                                localStorage.setItem(
-                                    "kea_location_consent",
-                                    "granted"
-                                );
-
-
-                                allowLocation.disabled =
-                                    false;
-
-                                allowLocation.textContent =
-                                    "Allow Location";
-
-
-                                closePrivacyModal();
-
-                            },
-
-
-                            function (error) {
-
-                                console.warn(
-                                    "Location was not provided:",
-                                    error.message
-                                );
-
-
-                                if (locationPermission) {
-
-                                    locationPermission.value =
-                                        "denied";
-
-                                }
-
-
-                                localStorage.setItem(
-                                    "kea_location_consent",
-                                    "denied"
-                                );
-
-
-                                allowLocation.disabled =
-                                    false;
-
-                                allowLocation.textContent =
-                                    "Allow Location";
-
-
-                                closePrivacyModal();
-
-                            },
-
-
-                            {
-                                enableHighAccuracy: false,
-                                timeout: 10000,
-                                maximumAge: 300000
-                            }
-
-                        );
-
-                    }
-                );
-
-            }
-
-
-            /* =====================================================
-               RESTORE LOCATION CONSENT
-            ===================================================== */
-
-            const savedLocationConsent =
-                localStorage.getItem(
-                    "kea_location_consent"
-                );
-
-
-            if (
-                savedLocationConsent === "granted"
-            ) {
-
-                if (locationPermission) {
-
-                    locationPermission.value =
-                        "previously_granted";
-
-                }
-
-            }
-
-
-            if (
-                savedLocationConsent === "denied"
-            ) {
-
-                if (locationPermission) {
-
-                    locationPermission.value =
-                        "previously_denied";
-
-                }
-
-            }
-
-
-            /* =====================================================
-               FIRST VISIT PRIVACY MODAL
-            ===================================================== */
-
-            if (!savedLocationConsent) {
-
-                openPrivacyModal();
-
-            }
-
-
-            /* =====================================================
-               GOOGLE APPS SCRIPT RESPONSE
-            ===================================================== */
-
-            window.addEventListener(
-                "message",
-                function (event) {
-
-                    const data =
-                        event.data;
-
-
-                    if (
-                        !data ||
-                        data.type !==
-                            "KEA_FORM_RESPONSE"
-                    ) {
-
-                        return;
-
-                    }
-
-
-                    if (!submitting) {
-
-                        return;
-
-                    }
-
-
-                    if (timeoutID) {
-
-                        clearTimeout(
-                            timeoutID
-                        );
-
-                        timeoutID = null;
-
-                    }
-
-
-                    submitting = false;
-
-                    button.disabled = false;
-
-                    button.textContent =
-                        "Send Requirement";
-
-
-                    /* =============================================
-                       SUCCESS
-                    ============================================= */
-
-                    if (
-                        data.success === true
-                    ) {
-
-                        alert(
-                            data.message ||
-                            "Thank you. Your requirement has been sent."
-                        );
-
-
-                        form.reset();
-
-
-                        const currentConsent =
-                            localStorage.getItem(
-                                "kea_location_consent"
+                            localStorage.setItem(
+                                "kea_location_consent",
+                                "granted"
                             );
 
 
-                        if (locationPermission) {
+                            allowLocation.disabled =
+                                false;
 
-                            if (
-                                currentConsent ===
-                                    "granted"
-                            ) {
+                            allowLocation.textContent =
+                                "Allow Location";
 
-                                locationPermission.value =
-                                    "previously_granted";
 
-                            } else if (
-                                currentConsent ===
-                                    "denied"
-                            ) {
+                            closePrivacyModal();
 
-                                locationPermission.value =
-                                    "previously_denied";
+                        },
 
-                            } else {
+
+                        function () {
+
+                            if (locationPermission) {
 
                                 locationPermission.value =
-                                    "not_requested";
-
+                                    "denied";
                             }
 
+
+                            localStorage.setItem(
+                                "kea_location_consent",
+                                "denied"
+                            );
+
+
+                            allowLocation.disabled =
+                                false;
+
+                            allowLocation.textContent =
+                                "Allow Location";
+
+
+                            closePrivacyModal();
+                        },
+
+
+                        {
+                            enableHighAccuracy: false,
+                            timeout: 10000,
+                            maximumAge: 300000
                         }
-
-
-                        nameInput.focus();
-
-                        return;
-
-                    }
-
-
-                    /* =============================================
-                       ERROR
-                    ============================================= */
-
-                    alert(
-                        data.message ||
-                        "Something went wrong while sending your requirement. Please try again."
                     );
-
                 }
+            );
+        }
+
+
+        /* =========================================================
+           RESTORE LOCATION CONSENT
+        ========================================================= */
+
+        const savedLocationConsent =
+            localStorage.getItem(
+                "kea_location_consent"
             );
 
 
-            /* =====================================================
-               FORM SUBMISSION
-            ===================================================== */
+        if (savedLocationConsent === "granted") {
 
-            form.addEventListener(
-                "submit",
-                function (event) {
+            if (locationPermission) {
 
-                    event.preventDefault();
+                locationPermission.value =
+                    "previously_granted";
+            }
+        }
 
 
-                    if (submitting) {
+        if (savedLocationConsent === "denied") {
 
-                        return;
+            if (locationPermission) {
 
-                    }
+                locationPermission.value =
+                    "previously_denied";
+            }
+        }
 
 
-                    /* =============================================
-                       HONEYPOT
-                    ============================================= */
+        /* =========================================================
+           FIRST VISIT PRIVACY
+        ========================================================= */
 
-                    if (
-                        honeypot &&
-                        honeypot.value.trim() !== ""
-                    ) {
+        if (!savedLocationConsent) {
 
-                        return;
+            openPrivacyModal();
+        }
 
-                    }
 
+        /* =========================================================
+           IFRAME LOAD
+           
+           Google Apps Script returns to the iframe after doPost()
+           finishes. This lets us detect completion without relying
+           on postMessage.
+        ========================================================= */
 
-                    /* =============================================
-                       VALUES
-                    ============================================= */
+        iframe.addEventListener(
+            "load",
+            function () {
 
-                    const name =
-                        nameInput.value.trim();
+                if (!iframeReady) {
 
-                    const email =
-                        emailInput.value.trim();
+                    iframeReady = true;
 
-                    const message =
-                        messageInput.value.trim();
-
-
-                    /* =============================================
-                       VALIDATION
-                    ============================================= */
-
-                    if (!name) {
-
-                        alert(
-                            "Please enter your name or organisation."
-                        );
-
-                        nameInput.focus();
-
-                        return;
-
-                    }
-
-
-                    if (!email) {
-
-                        alert(
-                            "Please enter your email address."
-                        );
-
-                        emailInput.focus();
-
-                        return;
-
-                    }
-
-
-                    if (
-                        !emailInput.checkValidity()
-                    ) {
-
-                        alert(
-                            "Please enter a valid email address."
-                        );
-
-                        emailInput.focus();
-
-                        return;
-
-                    }
-
-
-                    if (!message) {
-
-                        alert(
-                            "Please tell me about the work you need help with."
-                        );
-
-                        messageInput.focus();
-
-                        return;
-
-                    }
-
-
-                    /* =============================================
-                       CONFIRMATION
-                    ============================================= */
-
-                    const confirmed =
-                        window.confirm(
-                            "Send this requirement?"
-                        );
-
-
-                    if (!confirmed) {
-
-                        return;
-
-                    }
-
-
-                    /* =============================================
-                       START SUBMISSION
-                    ============================================= */
-
-                    submitting = true;
-
-                    button.disabled = true;
-
-                    button.textContent =
-                        "Sending...";
-
-
-                    HTMLFormElement.prototype.submit.call(
-                        form
-                    );
-
-
-                    /* =============================================
-                       TIMEOUT
-                    ============================================= */
-
-                    timeoutID =
-                        window.setTimeout(
-                            function () {
-
-                                if (!submitting) {
-
-                                    return;
-
-                                }
-
-
-                                submitting = false;
-
-                                button.disabled =
-                                    false;
-
-                                button.textContent =
-                                    "Send Requirement";
-
-
-                                alert(
-                                    "The submission is taking longer than expected. Please check your internet connection and try again."
-                                );
-
-                            },
-                            25000
-                        );
-
+                    return;
                 }
-            );
 
 
-            /* =====================================================
-               SMOOTH SCROLL
-            ===================================================== */
-
-            document
-                .querySelectorAll(
-                    'a[href^="#"]'
-                )
-                .forEach(
-                    function (anchor) {
-
-                        anchor.addEventListener(
-                            "click",
-                            function (event) {
-
-                                const targetID =
-                                    this.getAttribute(
-                                        "href"
-                                    );
+                if (!submitting) {
+                    return;
+                }
 
 
-                                if (
-                                    !targetID ||
-                                    targetID === "#"
-                                ) {
-
-                                    return;
-
-                                }
+                finishSubmission();
 
 
-                                const target =
-                                    document.querySelector(
-                                        targetID
-                                    );
-
-
-                                if (!target) {
-
-                                    return;
-
-                                }
-
-
-                                event.preventDefault();
-
-
-                                target.scrollIntoView({
-
-                                    behavior:
-                                        "smooth",
-
-                                    block:
-                                        "start"
-
-                                });
-
-                            }
-                        );
-
-                    }
+                setStatus(
+                    "Your requirement has been sent successfully.",
+                    "success"
                 );
 
-        }
-    );
+
+                form.reset();
+
+
+                const currentConsent =
+                    localStorage.getItem(
+                        "kea_location_consent"
+                    );
+
+
+                if (locationPermission) {
+
+                    if (
+                        currentConsent ===
+                        "granted"
+                    ) {
+
+                        locationPermission.value =
+                            "previously_granted";
+
+                    } else if (
+                        currentConsent ===
+                        "denied"
+                    ) {
+
+                        locationPermission.value =
+                            "previously_denied";
+
+                    } else {
+
+                        locationPermission.value =
+                            "not_requested";
+                    }
+                }
+
+
+                nameInput.focus();
+
+            }
+        );
+
+
+        /* =========================================================
+           FORM SUBMISSION
+        ========================================================= */
+
+        form.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                if (submitting) {
+                    return;
+                }
+
+
+                /* =================================================
+                   HONEYPOT
+                ================================================= */
+
+                if (
+                    honeypot &&
+                    honeypot.value.trim() !== ""
+                ) {
+
+                    return;
+                }
+
+
+                /* =================================================
+                   VALIDATION
+                ================================================= */
+
+                const name =
+                    nameInput.value.trim();
+
+                const email =
+                    emailInput.value.trim();
+
+                const message =
+                    messageInput.value.trim();
+
+
+                if (!name) {
+
+                    setStatus(
+                        "Please enter your name or organisation.",
+                        "error"
+                    );
+
+                    nameInput.focus();
+
+                    return;
+                }
+
+
+                if (!email) {
+
+                    setStatus(
+                        "Please enter your email address.",
+                        "error"
+                    );
+
+                    emailInput.focus();
+
+                    return;
+                }
+
+
+                if (!emailInput.checkValidity()) {
+
+                    setStatus(
+                        "Please enter a valid email address.",
+                        "error"
+                    );
+
+                    emailInput.focus();
+
+                    return;
+                }
+
+
+                if (!message) {
+
+                    setStatus(
+                        "Please tell me about the work you need help with.",
+                        "error"
+                    );
+
+                    messageInput.focus();
+
+                    return;
+                }
+
+
+                /* =================================================
+                   CONFIRM
+                ================================================= */
+
+                const confirmed =
+                    window.confirm(
+                        "Send this requirement?"
+                    );
+
+
+                if (!confirmed) {
+                    return;
+                }
+
+
+                /* =================================================
+                   START
+                ================================================= */
+
+                submitting = true;
+
+                iframeReady = false;
+
+                button.disabled = true;
+
+                button.textContent =
+                    "Sending...";
+
+
+                setStatus(
+                    "Sending your requirement...",
+                    "sending"
+                );
+
+
+                /*
+                 * Native form submission.
+                 *
+                 * This is intentionally used instead of fetch()
+                 * because Google Apps Script web apps commonly
+                 * involve redirects/CORS restrictions.
+                 */
+
+                HTMLFormElement.prototype.submit.call(
+                    form
+                );
+
+
+                /* =================================================
+                   TIMEOUT
+                ================================================= */
+
+                timeoutID =
+                    window.setTimeout(
+                        function () {
+
+                            if (!submitting) {
+                                return;
+                            }
+
+
+                            finishSubmission();
+
+
+                            setStatus(
+                                "The server is taking longer than expected. Your submission may still be processing. Please wait a moment before trying again.",
+                                "error"
+                            );
+
+                        },
+                        20000
+                    );
+            }
+        );
+
+
+        /* =========================================================
+           SMOOTH SCROLL
+        ========================================================= */
+
+        document
+            .querySelectorAll('a[href^="#"]')
+            .forEach(
+                function (anchor) {
+
+                    anchor.addEventListener(
+                        "click",
+                        function (event) {
+
+                            const targetID =
+                                this.getAttribute(
+                                    "href"
+                                );
+
+
+                            if (
+                                !targetID ||
+                                targetID === "#"
+                            ) {
+                                return;
+                            }
+
+
+                            const target =
+                                document.querySelector(
+                                    targetID
+                                );
+
+
+                            if (!target) {
+                                return;
+                            }
+
+
+                            event.preventDefault();
+
+
+                            target.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start"
+                            });
+                        }
+                    );
+                }
+            );
+
+    });
 
     </script>
 
