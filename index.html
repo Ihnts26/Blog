@@ -222,7 +222,7 @@
             position: absolute;
 
             top: 18px;
-            left: 20px;
+            right: 20px;
 
             display: flex;
             align-items: center;
@@ -231,10 +231,10 @@
         }
 
         #language-select {
-            min-width: 145px;
+            min-width: 125px;
 
             padding:
-                9px 32px 9px 11px;
+                8px 30px 8px 10px;
 
             border:
                 1px solid
@@ -361,6 +361,42 @@
             white-space: nowrap;
 
             border: 0;
+        }
+
+
+        /* =========================================================
+           GOOGLE TRANSLATE
+        ========================================================= */
+
+        #google_translate_element {
+            position: absolute;
+
+            width: 1px;
+            height: 1px;
+
+            overflow: hidden;
+
+            opacity: 0;
+
+            pointer-events: none;
+        }
+
+        .goog-te-banner-frame.skiptranslate {
+            display: none !important;
+        }
+
+        body {
+            top: 0 !important;
+        }
+
+        .goog-tooltip,
+        .goog-tooltip:hover {
+            display: none !important;
+        }
+
+        .goog-text-highlight {
+            background: transparent !important;
+            box-shadow: none !important;
         }
 
 
@@ -1295,11 +1331,11 @@
 
             .language-selector {
                 top: 12px;
-                left: 12px;
+                right: 12px;
             }
 
             #language-select {
-                min-width: 125px;
+                min-width: 115px;
 
                 font-size: 11px;
 
@@ -1423,20 +1459,17 @@
 
                 <option value="en">English</option>
                 <option value="tl">Filipino</option>
-
                 <option value="fr">Français</option>
                 <option value="de">Deutsch</option>
                 <option value="es">Español</option>
                 <option value="it">Italiano</option>
                 <option value="pt">Português</option>
                 <option value="nl">Nederlands</option>
-
                 <option value="da">Dansk</option>
                 <option value="sv">Svenska</option>
                 <option value="no">Norsk</option>
                 <option value="fi">Suomi</option>
                 <option value="is">Íslenska</option>
-
                 <option value="pl">Polski</option>
                 <option value="cs">Čeština</option>
                 <option value="sk">Slovenčina</option>
@@ -1444,7 +1477,6 @@
                 <option value="ro">Română</option>
                 <option value="bg">Български</option>
                 <option value="el">Ελληνικά</option>
-
                 <option value="hr">Hrvatski</option>
                 <option value="sl">Slovenščina</option>
                 <option value="et">Eesti</option>
@@ -1459,9 +1491,7 @@
 
         <div class="hero">
 
-            <div
-                class="availability"
-                data-i18n="availability">
+            <div class="availability">
                 Available for Freelance &amp; Project Work
             </div>
 
@@ -1469,15 +1499,11 @@
                 Kaye Eloisa Arnejo
             </h1>
 
-            <div
-                class="hero-question"
-                data-i18n="hero_question">
+            <div class="hero-question">
                 Have work that needs to be done?
             </div>
 
-            <p
-                class="hero-description"
-                data-i18n="hero_description">
+            <p class="hero-description">
                 Practical, hands-on support across software and
                 technology, electronics and hardware, construction
                 and civil projects, clinical and mental health-related
@@ -1488,15 +1514,13 @@
 
                 <a
                     href="#contact"
-                    class="button button-primary"
-                    data-i18n="tell_need">
+                    class="button button-primary">
                     Tell Me What You Need
                 </a>
 
                 <a
                     href="#services"
-                    class="button button-secondary"
-                    data-i18n="see_help">
+                    class="button button-secondary">
                     See What I Can Help With
                 </a>
 
@@ -1516,48 +1540,38 @@
         <ul>
 
             <li>
-                <a
-                    href="#home"
-                    data-i18n="nav_home">
-                    Home
-                </a>
+                <a href="#home">Home</a>
             </li>
 
             <li>
-                <a
-                    href="#services"
-                    data-i18n="nav_services">
-                    Services
-                </a>
+                <a href="#services">Services</a>
             </li>
 
             <li>
-                <a
-                    href="#help"
-                    data-i18n="nav_help">
-                    What I Can Help With
-                </a>
+                <a href="#help">What I Can Help With</a>
             </li>
 
             <li>
-                <a
-                    href="#process"
-                    data-i18n="nav_process">
-                    How It Works
-                </a>
+                <a href="#process">How It Works</a>
             </li>
 
             <li>
-                <a
-                    href="#contact"
-                    data-i18n="nav_enquire">
-                    Enquire
-                </a>
+                <a href="#contact">Enquire</a>
             </li>
 
         </ul>
 
     </nav>
+
+
+    <!-- =========================================================
+         GOOGLE TRANSLATE
+    ========================================================== -->
+
+    <div
+        id="google_translate_element"
+        aria-hidden="true">
+    </div>
 
 
     <main class="container">
@@ -1575,19 +1589,15 @@
 
                     <div class="intro-text">
 
-                        <div
-                            class="label"
-                            data-i18n="intro_label">
+                        <div class="label">
                             Practical &amp; Hands-On Support
                         </div>
 
-                        <h2
-                            class="section-title"
-                            data-i18n="intro_title">
+                        <h2 class="section-title">
                             Let's Make the Work Easier
                         </h2>
 
-                        <p data-i18n="intro_p1">
+                        <p>
                             Some projects need technical knowledge.
                             Others need someone who can get involved,
                             organise information, prepare documentation,
@@ -1596,14 +1606,14 @@
                             everything else down.
                         </p>
 
-                        <p data-i18n="intro_p2">
+                        <p>
                             My approach is practical and hands-on:
                             understand what needs to be done, work through
                             the details and help move the task toward a
                             useful result.
                         </p>
 
-                        <p data-i18n="intro_p3">
+                        <p>
                             My background covers software and technology,
                             electronics and hardware, construction-related
                             environments, clinical and medical-related
@@ -1612,7 +1622,7 @@
                             tasks.
                         </p>
 
-                        <p data-i18n="intro_p4">
+                        <p>
                             Support can be arranged around the actual
                             requirement — whether that means a single
                             task, a defined project, temporary support
@@ -1624,12 +1634,12 @@
 
                     <div class="intro-box">
 
-                        <strong data-i18n="intro_box_1_title">
+                        <strong>
                             You don't need to know exactly what service
                             you need.
                         </strong>
 
-                        <p data-i18n="intro_box_1_text">
+                        <p>
                             Tell me what you are trying to accomplish,
                             what needs to be done and when you need it.
                             We can identify the practical tasks involved
@@ -1638,11 +1648,11 @@
 
                         <br>
 
-                        <strong data-i18n="intro_box_2_title">
+                        <strong>
                             A hands-on approach means getting involved.
                         </strong>
 
-                        <p data-i18n="intro_box_2_text">
+                        <p>
                             Where appropriate, I can work through the
                             details with you rather than simply providing
                             general advice.
@@ -1667,21 +1677,15 @@
 
             <div class="card">
 
-                <div
-                    class="label"
-                    data-i18n="services_label">
+                <div class="label">
                     Services
                 </div>
 
-                <h2
-                    class="section-title"
-                    data-i18n="services_title">
+                <h2 class="section-title">
                     What I Can Help You With
                 </h2>
 
-                <p
-                    class="section-intro"
-                    data-i18n="services_intro">
+                <p class="section-intro">
                     Practical, hands-on support across technical,
                     project, clinical, mental health-related,
                     construction, research and administrative
@@ -1692,45 +1696,37 @@
                 <div class="services-grid">
 
 
+                    <!-- SOFTWARE -->
+
                     <div class="service">
 
                         <div class="service-number">
                             01
                         </div>
 
-                        <h3 data-i18n="software_title">
+                        <h3>
                             Software Engineering &amp; Technology
                         </h3>
 
-                        <p data-i18n="software_desc">
+                        <p>
                             Hands-on support with software-related tasks,
                             technical projects, digital systems and
                             technology requirements.
                         </p>
 
                         <ul>
-                            <li data-i18n="software_1">
-                                Software development support
-                            </li>
-                            <li data-i18n="software_2">
-                                Web and application work
-                            </li>
-                            <li data-i18n="software_3">
-                                Technical documentation
-                            </li>
-                            <li data-i18n="software_4">
-                                Testing and troubleshooting
-                            </li>
-                            <li data-i18n="software_5">
-                                Data and system organisation
-                            </li>
-                            <li data-i18n="software_6">
-                                Technology project assistance
-                            </li>
+                            <li>Software development support</li>
+                            <li>Web and application work</li>
+                            <li>Technical documentation</li>
+                            <li>Testing and troubleshooting</li>
+                            <li>Data and system organisation</li>
+                            <li>Technology project assistance</li>
                         </ul>
 
                     </div>
 
+
+                    <!-- ELECTRONICS -->
 
                     <div class="service">
 
@@ -1738,38 +1734,28 @@
                             02
                         </div>
 
-                        <h3 data-i18n="hardware_title">
+                        <h3>
                             Hardware &amp; Electronics Engineering
                         </h3>
 
-                        <p data-i18n="hardware_desc">
+                        <p>
                             Practical support for electronics, hardware
                             and technology-related project tasks.
                         </p>
 
                         <ul>
-                            <li data-i18n="hardware_1">
-                                Electronics project support
-                            </li>
-                            <li data-i18n="hardware_2">
-                                Hardware documentation
-                            </li>
-                            <li data-i18n="hardware_3">
-                                Component and parts organisation
-                            </li>
-                            <li data-i18n="hardware_4">
-                                Testing and troubleshooting support
-                            </li>
-                            <li data-i18n="hardware_5">
-                                Technical records
-                            </li>
-                            <li data-i18n="hardware_6">
-                                Hardware-related research
-                            </li>
+                            <li>Electronics project support</li>
+                            <li>Hardware documentation</li>
+                            <li>Component and parts organisation</li>
+                            <li>Testing and troubleshooting support</li>
+                            <li>Technical records</li>
+                            <li>Hardware-related research</li>
                         </ul>
 
                     </div>
 
+
+                    <!-- CONSTRUCTION -->
 
                     <div class="service">
 
@@ -1777,11 +1763,11 @@
                             03
                         </div>
 
-                        <h3 data-i18n="construction_title">
+                        <h3>
                             Construction &amp; Civil Project Support
                         </h3>
 
-                        <p data-i18n="construction_desc">
+                        <p>
                             Practical, hands-on assistance with
                             construction, civil technology and
                             project-related technical and
@@ -1789,28 +1775,18 @@
                         </p>
 
                         <ul>
-                            <li data-i18n="construction_1">
-                                Project documentation
-                            </li>
-                            <li data-i18n="construction_2">
-                                Technical records
-                            </li>
-                            <li data-i18n="construction_3">
-                                Construction administration
-                            </li>
-                            <li data-i18n="construction_4">
-                                Project coordination
-                            </li>
-                            <li data-i18n="construction_5">
-                                Material and document tracking
-                            </li>
-                            <li data-i18n="construction_6">
-                                Site-related documentation support
-                            </li>
+                            <li>Project documentation</li>
+                            <li>Technical records</li>
+                            <li>Construction administration</li>
+                            <li>Project coordination</li>
+                            <li>Material and document tracking</li>
+                            <li>Site-related documentation support</li>
                         </ul>
 
                     </div>
 
+
+                    <!-- CLINICAL / MENTAL HEALTH -->
 
                     <div class="service">
 
@@ -1818,11 +1794,11 @@
                             04
                         </div>
 
-                        <h3 data-i18n="clinical_title">
+                        <h3>
                             Clinical, Medical &amp; Mental Health Support
                         </h3>
 
-                        <p data-i18n="clinical_desc">
+                        <p>
                             Appropriate non-diagnostic support for
                             clinical, medical-related and mental
                             health-related environments, documentation,
@@ -1830,34 +1806,20 @@
                         </p>
 
                         <ul>
-                            <li data-i18n="clinical_1">
-                                Clinical documentation
-                            </li>
-                            <li data-i18n="clinical_2">
-                                Records organisation
-                            </li>
-                            <li data-i18n="clinical_3">
-                                Research assistance
-                            </li>
-                            <li data-i18n="clinical_4">
-                                Administrative support
-                            </li>
-                            <li data-i18n="clinical_5">
-                                Information organisation
-                            </li>
-                            <li data-i18n="clinical_6">
-                                Mental health-related project support
-                            </li>
-                            <li data-i18n="clinical_7">
-                                Wellbeing and support-service administration
-                            </li>
-                            <li data-i18n="clinical_8">
-                                Clinical project coordination
-                            </li>
+                            <li>Clinical documentation</li>
+                            <li>Records organisation</li>
+                            <li>Research assistance</li>
+                            <li>Administrative support</li>
+                            <li>Information organisation</li>
+                            <li>Mental health-related project support</li>
+                            <li>Wellbeing and support-service administration</li>
+                            <li>Clinical project coordination</li>
                         </ul>
 
                     </div>
 
+
+                    <!-- ADMIN -->
 
                     <div class="service">
 
@@ -1865,39 +1827,29 @@
                             05
                         </div>
 
-                        <h3 data-i18n="admin_title">
+                        <h3>
                             Administrative &amp; Documentation Support
                         </h3>
 
-                        <p data-i18n="admin_desc">
+                        <p>
                             Hands-on help with the documents, records
                             and administrative work that keeps a project
                             or organisation organised.
                         </p>
 
                         <ul>
-                            <li data-i18n="admin_1">
-                                Document preparation
-                            </li>
-                            <li data-i18n="admin_2">
-                                Data entry and organisation
-                            </li>
-                            <li data-i18n="admin_3">
-                                Records management
-                            </li>
-                            <li data-i18n="admin_4">
-                                File organisation
-                            </li>
-                            <li data-i18n="admin_5">
-                                Scheduling
-                            </li>
-                            <li data-i18n="admin_6">
-                                General administrative tasks
-                            </li>
+                            <li>Document preparation</li>
+                            <li>Data entry and organisation</li>
+                            <li>Records management</li>
+                            <li>File organisation</li>
+                            <li>Scheduling</li>
+                            <li>General administrative tasks</li>
                         </ul>
 
                     </div>
 
+
+                    <!-- RESEARCH -->
 
                     <div class="service">
 
@@ -1905,39 +1857,29 @@
                             06
                         </div>
 
-                        <h3 data-i18n="research_title">
+                        <h3>
                             Research &amp; Technical Information
                         </h3>
 
-                        <p data-i18n="research_desc">
+                        <p>
                             Hands-on help finding, organising and
                             presenting information needed for technical,
                             project or general research work.
                         </p>
 
                         <ul>
-                            <li data-i18n="research_1">
-                                Online research
-                            </li>
-                            <li data-i18n="research_2">
-                                Technical information gathering
-                            </li>
-                            <li data-i18n="research_3">
-                                Product and component research
-                            </li>
-                            <li data-i18n="research_4">
-                                Data organisation
-                            </li>
-                            <li data-i18n="research_5">
-                                Research summaries
-                            </li>
-                            <li data-i18n="research_6">
-                                Reference documentation
-                            </li>
+                            <li>Online research</li>
+                            <li>Technical information gathering</li>
+                            <li>Product and component research</li>
+                            <li>Data organisation</li>
+                            <li>Research summaries</li>
+                            <li>Reference documentation</li>
                         </ul>
 
                     </div>
 
+
+                    <!-- CUSTOM -->
 
                     <div class="service">
 
@@ -1945,11 +1887,11 @@
                             07
                         </div>
 
-                        <h3 data-i18n="custom_title">
+                        <h3>
                             Custom Project Support
                         </h3>
 
-                        <p data-i18n="custom_desc">
+                        <p>
                             Have a requirement that does not fit neatly
                             into one category? Start with the task and
                             we can discuss the practical, hands-on
@@ -1957,27 +1899,16 @@
                         </p>
 
                         <ul>
-                            <li data-i18n="custom_1">
-                                Define the task
-                            </li>
-                            <li data-i18n="custom_2">
-                                Clarify the expected result
-                            </li>
-                            <li data-i18n="custom_3">
-                                Identify required support
-                            </li>
-                            <li data-i18n="custom_4">
-                                Discuss timeframe
-                            </li>
-                            <li data-i18n="custom_5">
-                                Agree on the scope
-                            </li>
-                            <li data-i18n="custom_6">
-                                Work toward the required result
-                            </li>
+                            <li>Define the task</li>
+                            <li>Clarify the expected result</li>
+                            <li>Identify required support</li>
+                            <li>Discuss timeframe</li>
+                            <li>Agree on the scope</li>
+                            <li>Work toward the required result</li>
                         </ul>
 
                     </div>
+
 
                 </div>
 
@@ -1996,21 +1927,15 @@
 
             <div class="card">
 
-                <div
-                    class="label"
-                    data-i18n="help_label">
+                <div class="label">
                     Start With the Task
                 </div>
 
-                <h2
-                    class="section-title"
-                    data-i18n="help_title">
+                <h2 class="section-title">
                     Maybe You Need Someone to...
                 </h2>
 
-                <p
-                    class="section-intro"
-                    data-i18n="help_intro">
+                <p class="section-intro">
                     You do not need to figure out the perfect job title
                     first. Start with the actual work that needs to be
                     completed.
@@ -2020,50 +1945,40 @@
                 <div class="help-grid">
 
                     <div class="help-item">
-                        <strong data-i18n="help_1_title">
-                            Build or improve software
-                        </strong>
-                        <span data-i18n="help_1_text">
+                        <strong>Build or improve software</strong>
+                        <span>
                             Development, testing, troubleshooting,
                             documentation and technology tasks.
                         </span>
                     </div>
 
                     <div class="help-item">
-                        <strong data-i18n="help_2_title">
-                            Work on electronics
-                        </strong>
-                        <span data-i18n="help_2_text">
+                        <strong>Work on electronics</strong>
+                        <span>
                             Hardware, components, technical records,
                             testing and electronics-related tasks.
                         </span>
                     </div>
 
                     <div class="help-item">
-                        <strong data-i18n="help_3_title">
-                            Support a construction project
-                        </strong>
-                        <span data-i18n="help_3_text">
+                        <strong>Support a construction project</strong>
+                        <span>
                             Documentation, records, coordination,
                             project assistance and technical tasks.
                         </span>
                     </div>
 
                     <div class="help-item">
-                        <strong data-i18n="help_4_title">
-                            Support clinical-related work
-                        </strong>
-                        <span data-i18n="help_4_text">
+                        <strong>Support clinical-related work</strong>
+                        <span>
                             Documentation, research, records and
                             appropriate administrative support.
                         </span>
                     </div>
 
                     <div class="help-item">
-                        <strong data-i18n="help_5_title">
-                            Support mental health-related work
-                        </strong>
-                        <span data-i18n="help_5_text">
+                        <strong>Support mental health-related work</strong>
+                        <span>
                             Non-diagnostic administrative, research,
                             documentation, coordination and
                             support-service tasks.
@@ -2071,50 +1986,40 @@
                     </div>
 
                     <div class="help-item">
-                        <strong data-i18n="help_6_title">
-                            Organise technical information
-                        </strong>
-                        <span data-i18n="help_6_text">
+                        <strong>Organise technical information</strong>
+                        <span>
                             Research, references, specifications,
                             records and project information.
                         </span>
                     </div>
 
                     <div class="help-item">
-                        <strong data-i18n="help_7_title">
-                            Prepare technical documents
-                        </strong>
-                        <span data-i18n="help_7_text">
+                        <strong>Prepare technical documents</strong>
+                        <span>
                             Organising project information, records,
                             references and technical documentation.
                         </span>
                     </div>
 
                     <div class="help-item">
-                        <strong data-i18n="help_8_title">
-                            Organise data and records
-                        </strong>
-                        <span data-i18n="help_8_text">
+                        <strong>Organise data and records</strong>
+                        <span>
                             Data entry, information organisation,
                             file management and record keeping.
                         </span>
                     </div>
 
                     <div class="help-item">
-                        <strong data-i18n="help_9_title">
-                            Catch up on a backlog
-                        </strong>
-                        <span data-i18n="help_9_text">
+                        <strong>Catch up on a backlog</strong>
+                        <span>
                             Take on specific tasks when workload has
                             become difficult to manage.
                         </span>
                     </div>
 
                     <div class="help-item">
-                        <strong data-i18n="help_10_title">
-                            Handle something specific
-                        </strong>
-                        <span data-i18n="help_10_text">
+                        <strong>Handle something specific</strong>
+                        <span>
                             Explain the requirement and discuss the
                             practical support needed.
                         </span>
@@ -2135,21 +2040,15 @@
 
             <div class="card">
 
-                <div
-                    class="label"
-                    data-i18n="ways_label">
+                <div class="label">
                     Flexible Arrangements
                 </div>
 
-                <h2
-                    class="section-title"
-                    data-i18n="ways_title">
+                <h2 class="section-title">
                     Work With Me Based on What You Need
                 </h2>
 
-                <p
-                    class="section-intro"
-                    data-i18n="ways_intro">
+                <p class="section-intro">
                     Different tasks require different arrangements.
                     The work can be discussed around the scope,
                     timeframe and expected result.
@@ -2158,60 +2057,48 @@
                 <div class="work-options">
 
                     <div class="option">
-                        <h3 data-i18n="way_1_title">
-                            One-Time Task
-                        </h3>
-                        <p data-i18n="way_1_text">
+                        <h3>One-Time Task</h3>
+                        <p>
                             A specific task that simply needs to
                             be completed.
                         </p>
                     </div>
 
                     <div class="option">
-                        <h3 data-i18n="way_2_title">
-                            Short-Term Help
-                        </h3>
-                        <p data-i18n="way_2_text">
+                        <h3>Short-Term Help</h3>
+                        <p>
                             Additional support during a busy period
                             or temporary workload.
                         </p>
                     </div>
 
                     <div class="option">
-                        <h3 data-i18n="way_3_title">
-                            Project-Based
-                        </h3>
-                        <p data-i18n="way_3_text">
+                        <h3>Project-Based</h3>
+                        <p>
                             Support for a defined project with an
                             agreed scope and timeframe.
                         </p>
                     </div>
 
                     <div class="option">
-                        <h3 data-i18n="way_4_title">
-                            Ongoing Support
-                        </h3>
-                        <p data-i18n="way_4_text">
+                        <h3>Ongoing Support</h3>
+                        <p>
                             Regular help with recurring technical,
                             administrative or project tasks.
                         </p>
                     </div>
 
                     <div class="option">
-                        <h3 data-i18n="way_5_title">
-                            Contract Work
-                        </h3>
-                        <p data-i18n="way_5_text">
+                        <h3>Contract Work</h3>
+                        <p>
                             Work based on agreed responsibilities,
                             requirements and duration.
                         </p>
                     </div>
 
                     <div class="option">
-                        <h3 data-i18n="way_6_title">
-                            Custom Arrangement
-                        </h3>
-                        <p data-i18n="way_6_text">
+                        <h3>Custom Arrangement</h3>
+                        <p>
                             Something different? Tell me about the
                             requirement and we can discuss it.
                         </p>
@@ -2232,21 +2119,15 @@
 
             <div class="card">
 
-                <div
-                    class="label"
-                    data-i18n="areas_label">
+                <div class="label">
                     Areas of Support
                 </div>
 
-                <h2
-                    class="section-title"
-                    data-i18n="areas_title">
+                <h2 class="section-title">
                     Different Types of Work, One Practical Approach
                 </h2>
 
-                <p
-                    class="section-intro"
-                    data-i18n="areas_intro">
+                <p class="section-intro">
                     My approach is hands-on and task-focused, allowing
                     me to work across different technical and
                     professional environments depending on the
@@ -2292,21 +2173,15 @@
 
             <div class="card">
 
-                <div
-                    class="label"
-                    data-i18n="process_label">
+                <div class="label">
                     Simple Process
                 </div>
 
-                <h2
-                    class="section-title"
-                    data-i18n="process_title">
+                <h2 class="section-title">
                     Tell Me What Needs to Be Done
                 </h2>
 
-                <p
-                    class="section-intro"
-                    data-i18n="process_intro">
+                <p class="section-intro">
                     You do not need to prepare a complicated proposal.
                     A simple description of the task is enough to
                     start the conversation. The goal is to understand
@@ -2322,11 +2197,11 @@
                             1
                         </div>
 
-                        <h3 data-i18n="process_1_title">
+                        <h3>
                             Tell Me About the Work
                         </h3>
 
-                        <p data-i18n="process_1_text">
+                        <p>
                             Explain the task, problem, project,
                             technical requirement or workload you
                             need help with.
@@ -2341,11 +2216,11 @@
                             2
                         </div>
 
-                        <h3 data-i18n="process_2_title">
+                        <h3>
                             Discuss the Requirement
                         </h3>
 
-                        <p data-i18n="process_2_text">
+                        <p>
                             We clarify the scope, timeframe,
                             expected output, resources and other
                             relevant details.
@@ -2360,11 +2235,11 @@
                             3
                         </div>
 
-                        <h3 data-i18n="process_3_title">
+                        <h3>
                             Get Hands-On and Get It Done
                         </h3>
 
-                        <p data-i18n="process_3_text">
+                        <p>
                             If it is a good fit, we agree on the
                             responsibilities and arrangement and
                             work toward the required result.
@@ -2387,11 +2262,11 @@
 
             <div class="cta">
 
-                <h2 data-i18n="cta_title">
+                <h2>
                     Have Something You Need Help With?
                 </h2>
 
-                <p data-i18n="cta_text">
+                <p>
                     Whether it is software, electronics, construction,
                     clinical or mental health-related work,
                     documentation, research or a specific task you
@@ -2400,8 +2275,7 @@
 
                 <a
                     href="#contact"
-                    class="button button-primary"
-                    data-i18n="tell_need">
+                    class="button button-primary">
                     Tell Me What You Need
                 </a>
 
@@ -2422,17 +2296,15 @@
 
             <div class="contact-header">
 
-                <div
-                    class="label"
-                    data-i18n="contact_label">
+                <div class="label">
                     Project / Service Enquiry
                 </div>
 
-                <h2 data-i18n="contact_title">
+                <h2>
                     Tell Me What You Need
                 </h2>
 
-                <p data-i18n="contact_intro">
+                <p>
                     Give me a few details about the work.
                     You do not need to know exactly what service
                     category it belongs to.
@@ -2443,17 +2315,13 @@
 
             <div class="contact-note">
 
-                <strong data-i18n="privacy_label">
-                    Privacy:
-                </strong>
+                <strong>Privacy:</strong>
 
-                <span data-i18n="privacy_note">
-                    The information you submit will be used to respond
-                    to your enquiry and discuss the work you are requesting.
-                    Please do not include passwords, financial information,
-                    medical records or other sensitive information unless
-                    it is genuinely necessary for the enquiry.
-                </span>
+                The information you submit will be used to respond
+                to your enquiry and discuss the work you are requesting.
+                Please do not include passwords, financial information,
+                medical records or other sensitive information unless
+                it is genuinely necessary for the enquiry.
 
             </div>
 
@@ -2466,9 +2334,7 @@
                 novalidate>
 
 
-                <label
-                    for="name"
-                    data-i18n="name_label">
+                <label for="name">
                     Name / Organisation
                 </label>
 
@@ -2478,14 +2344,11 @@
                     name="name"
                     autocomplete="name"
                     placeholder="Your name or organisation"
-                    data-i18n-placeholder="name_placeholder"
                     maxlength="200"
                     required>
 
 
-                <label
-                    for="email"
-                    data-i18n="email_label">
+                <label for="email">
                     Email
                 </label>
 
@@ -2495,14 +2358,11 @@
                     name="email"
                     autocomplete="email"
                     placeholder="your.email@example.com"
-                    data-i18n-placeholder="email_placeholder"
                     maxlength="320"
                     required>
 
 
-                <label
-                    for="service"
-                    data-i18n="service_label">
+                <label for="service">
                     What kind of help do you need?
                 </label>
 
@@ -2510,72 +2370,50 @@
                     id="service"
                     name="service">
 
-                    <option
-                        value=""
-                        data-i18n="service_choose">
+                    <option value="">
                         Choose one if applicable
                     </option>
 
-                    <option
-                        value="Software Engineering / Technology"
-                        data-i18n="service_software">
+                    <option value="Software Engineering / Technology">
                         Software Engineering / Technology
                     </option>
 
-                    <option
-                        value="Hardware / Electronics"
-                        data-i18n="service_hardware">
+                    <option value="Hardware / Electronics">
                         Hardware / Electronics
                     </option>
 
-                    <option
-                        value="Construction / Civil Project"
-                        data-i18n="service_construction">
+                    <option value="Construction / Civil Project">
                         Construction / Civil Project
                     </option>
 
-                    <option
-                        value="Clinical / Medical Support"
-                        data-i18n="service_clinical">
+                    <option value="Clinical / Medical Support">
                         Clinical / Medical Support
                     </option>
 
-                    <option
-                        value="Mental Health-Related Support"
-                        data-i18n="service_mental">
+                    <option value="Mental Health-Related Support">
                         Mental Health-Related Support
                     </option>
 
-                    <option
-                        value="Administrative / Documentation"
-                        data-i18n="service_admin">
+                    <option value="Administrative / Documentation">
                         Administrative / Documentation
                     </option>
 
-                    <option
-                        value="Research / Information"
-                        data-i18n="service_research">
+                    <option value="Research / Information">
                         Research / Information
                     </option>
 
-                    <option
-                        value="Project / Task Support"
-                        data-i18n="service_project">
+                    <option value="Project / Task Support">
                         Project / Task Support
                     </option>
 
-                    <option
-                        value="Something Else"
-                        data-i18n="service_other">
+                    <option value="Something Else">
                         Something Else
                     </option>
 
                 </select>
 
 
-                <label
-                    for="timeframe"
-                    data-i18n="timeframe_label">
+                <label for="timeframe">
                     When do you need help?
                 </label>
 
@@ -2584,11 +2422,25 @@
                     id="timeframe"
                     name="timeframe"
                     maxlength="200"
-                    placeholder="Example: ASAP, next week, this month, ongoing"
-                    data-i18n-placeholder="timeframe_placeholder">
+                    placeholder="Example: ASAP, next week, this month, ongoing">
 
 
-                <!-- LOCATION -->
+                <label for="message">
+                    Tell Me About the Work
+                </label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="7"
+                    maxlength="10000"
+                    placeholder="What needs to be done? What would you like help with? What should the final result look like?"
+                    required></textarea>
+
+
+                <!-- =================================================
+                     OPTIONAL LOCATION
+                ================================================== -->
 
                 <input
                     type="hidden"
@@ -2615,23 +2467,9 @@
                     value="">
 
 
-                <label
-                    for="message"
-                    data-i18n="message_label">
-                    Tell Me About the Work
-                </label>
-
-                <textarea
-                    id="message"
-                    name="message"
-                    rows="7"
-                    maxlength="10000"
-                    placeholder="What needs to be done? What would you like help with? What should the final result look like?"
-                    data-i18n-placeholder="message_placeholder"
-                    required></textarea>
-
-
-                <!-- HONEYPOT -->
+                <!-- =================================================
+                     HONEYPOT
+                ================================================== -->
 
                 <input
                     type="text"
@@ -2650,8 +2488,7 @@
 
                 <button
                     type="submit"
-                    id="submit-button"
-                    data-i18n="submit_button">
+                    id="submit-button">
 
                     Send Requirement
 
@@ -2687,11 +2524,11 @@
 
     <footer>
 
-        <p data-i18n="footer_1">
+        <p>
             Freelance • Contract • Project Support
         </p>
 
-        <p data-i18n="footer_2">
+        <p>
             Software • Electronics • Construction • Clinical •
             Mental Health-Related • Technical Support
         </p>
@@ -2699,10 +2536,7 @@
         <br>
 
         <p>
-            &copy; 2026 KEA.
-            <span data-i18n="footer_rights">
-                All rights reserved.
-            </span>
+            &copy; 2026 KEA. All rights reserved.
         </p>
 
     </footer>
@@ -2733,23 +2567,17 @@
             </button>
 
 
-            <div
-                class="label"
-                data-i18n="privacy_terms">
+            <div class="label">
                 Privacy &amp; Terms
             </div>
 
 
-            <h2
-                id="privacy-modal-title"
-                data-i18n="privacy_title">
+            <h2 id="privacy-modal-title">
                 Your Privacy Matters
             </h2>
 
 
-            <p
-                class="privacy-intro"
-                data-i18n="privacy_intro">
+            <p class="privacy-intro">
                 This page may request your location to help provide
                 relevant information or support related to your enquiry.
                 Location access is optional.
@@ -2758,17 +2586,17 @@
 
             <div class="privacy-section">
 
-                <h3 data-i18n="location_title">
+                <h3>
                     Location Information
                 </h3>
 
-                <p data-i18n="location_p1">
+                <p>
                     If you choose to allow location access, your browser
                     may provide your approximate or precise location,
                     depending on your device and browser settings.
                 </p>
 
-                <p data-i18n="location_p2">
+                <p>
                     Your location will only be requested after you give
                     permission. This page does not continuously track
                     your location.
@@ -2779,11 +2607,11 @@
 
             <div class="privacy-section">
 
-                <h3 data-i18n="information_title">
+                <h3>
                     How Information Is Used
                 </h3>
 
-                <p data-i18n="information_p">
+                <p>
                     Information submitted through this page may be used
                     to respond to your enquiry, understand your requirements,
                     provide appropriate support and communicate with you
@@ -2795,11 +2623,11 @@
 
             <div class="privacy-section">
 
-                <h3 data-i18n="scope_title">
+                <h3>
                     Technical &amp; Professional Scope
                 </h3>
 
-                <p data-i18n="scope_p1">
+                <p>
                     Technical, construction, clinical, medical and
                     mental health-related support is subject to the actual
                     scope of work, applicable requirements, qualifications,
@@ -2807,7 +2635,7 @@
                     that may apply.
                 </p>
 
-                <p data-i18n="scope_p2">
+                <p>
                     Mental health-related support offered through this
                     page is not a substitute for emergency care,
                     diagnosis, psychotherapy, medical treatment or other
@@ -2820,11 +2648,11 @@
 
             <div class="privacy-section">
 
-                <h3 data-i18n="terms_title">
+                <h3>
                     Terms of Use
                 </h3>
 
-                <p data-i18n="terms_p">
+                <p>
                     Information provided through this page should be
                     accurate and must not be used for unlawful purposes.
                     Any proposed work remains subject to discussion,
@@ -2836,11 +2664,11 @@
 
             <div class="privacy-section">
 
-                <h3 data-i18n="choice_title">
+                <h3>
                     Your Choice
                 </h3>
 
-                <p data-i18n="choice_p">
+                <p>
                     You can use this page without allowing location
                     access. Refusing location permission will not prevent
                     you from submitting an enquiry.
@@ -2854,8 +2682,7 @@
                 <button
                     type="button"
                     class="privacy-button privacy-primary"
-                    id="allow-location"
-                    data-i18n="allow_location">
+                    id="allow-location">
 
                     Allow Location
 
@@ -2865,8 +2692,7 @@
                 <button
                     type="button"
                     class="privacy-button privacy-secondary"
-                    id="deny-location"
-                    data-i18n="dont_allow">
+                    id="deny-location">
 
                     Don't Allow
 
@@ -2878,8 +2704,7 @@
             <button
                 type="button"
                 class="privacy-text-button"
-                id="privacy-understood"
-                data-i18n="continue_without_location">
+                id="privacy-understood">
 
                 Continue Without Location
 
@@ -2898,8 +2723,7 @@
 
         <button
             type="button"
-            id="open-privacy"
-            data-i18n="privacy_terms">
+            id="open-privacy">
 
             Privacy &amp; Terms
 
@@ -2909,1537 +2733,960 @@
 
 
     <!-- =========================================================
+         GOOGLE TRANSLATE
+    ========================================================== -->
+
+    <script>
+
+        function googleTranslateElementInit() {
+
+            new google.translate.TranslateElement(
+                {
+                    pageLanguage: "en",
+
+                    includedLanguages:
+                        "en,tl,fr,de,es,it,pt,nl,da,sv,no,fi,is,pl,cs,sk,hu,ro,bg,el,hr,sl,et,lv,lt,uk",
+
+                    autoDisplay: false
+                },
+
+                "google_translate_element"
+            );
+
+        }
+
+    </script>
+
+
+    <script
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
+
+
+    <!-- =========================================================
          JAVASCRIPT
     ========================================================== -->
 
     <script>
 
-        document.addEventListener(
-            "DOMContentLoaded",
-            function () {
+    document.addEventListener(
+        "DOMContentLoaded",
+        function () {
 
 
-                /* =================================================
-                   ELEMENT REFERENCES
-                ================================================= */
+            /* =====================================================
+               LANGUAGE SELECTOR
+            ===================================================== */
 
-                const privacyModal =
-                    document.getElementById(
-                        "privacy-modal"
-                    );
+            const languageSelect =
+                document.getElementById(
+                    "language-select"
+                );
 
-                const privacyClose =
-                    document.getElementById(
-                        "privacy-close"
-                    );
 
-                const openPrivacy =
-                    document.getElementById(
-                        "open-privacy"
-                    );
+            let languageAttempts = 0;
 
-                const allowLocation =
-                    document.getElementById(
-                        "allow-location"
-                    );
+            const maximumLanguageAttempts = 40;
 
-                const denyLocation =
-                    document.getElementById(
-                        "deny-location"
-                    );
 
-                const privacyUnderstood =
-                    document.getElementById(
-                        "privacy-understood"
-                    );
+            function setGoogleLanguage(
+                language
+            ) {
 
-                const locationPermission =
-                    document.getElementById(
-                        "location-permission"
-                    );
-
-                const latitudeInput =
-                    document.getElementById(
-                        "latitude"
-                    );
-
-                const longitudeInput =
-                    document.getElementById(
-                        "longitude"
-                    );
-
-                const accuracyInput =
-                    document.getElementById(
-                        "location-accuracy"
+                const googleSelect =
+                    document.querySelector(
+                        ".goog-te-combo"
                     );
 
 
-                /* =================================================
-                   FORM REFERENCES
-                ================================================= */
+                if (googleSelect) {
 
-                const form =
-                    document.getElementById(
-                        "contact-form"
-                    );
+                    googleSelect.value =
+                        language;
 
-                const button =
-                    document.getElementById(
-                        "submit-button"
-                    );
-
-                const nameInput =
-                    document.getElementById(
-                        "name"
-                    );
-
-                const emailInput =
-                    document.getElementById(
-                        "email"
-                    );
-
-                const serviceInput =
-                    document.getElementById(
-                        "service"
-                    );
-
-                const timeframeInput =
-                    document.getElementById(
-                        "timeframe"
-                    );
-
-                const messageInput =
-                    document.getElementById(
-                        "message"
-                    );
-
-                const honeypot =
-                    form
-                        ? form.querySelector(
-                            '[name="website"]'
-                        )
-                        : null;
-
-
-                /* =================================================
-                   STATE
-                ================================================= */
-
-                let submitting = false;
-
-                let timeoutID = null;
-
-
-                /* =================================================
-                   PRIVACY MODAL
-                ================================================= */
-
-                function openPrivacyModal() {
-
-                    if (!privacyModal) {
-                        return;
-                    }
-
-                    privacyModal.hidden = false;
-
-                    document.body.classList.add(
-                        "privacy-modal-open"
-                    );
-
-                    if (privacyClose) {
-                        privacyClose.focus();
-                    }
-
-                }
-
-
-                function closePrivacyModal() {
-
-                    if (!privacyModal) {
-                        return;
-                    }
-
-                    privacyModal.hidden = true;
-
-                    document.body.classList.remove(
-                        "privacy-modal-open"
-                    );
-
-                }
-
-
-                /* =================================================
-                   DENY LOCATION
-                ================================================= */
-
-                function denyLocationAccess() {
-
-                    localStorage.setItem(
-                        "kea_location_consent",
-                        "denied"
-                    );
-
-                    if (locationPermission) {
-
-                        locationPermission.value =
-                            "denied";
-
-                    }
-
-                    closePrivacyModal();
-
-                }
-
-
-                /* =================================================
-                   OPEN PRIVACY
-                ================================================= */
-
-                if (openPrivacy) {
-
-                    openPrivacy.addEventListener(
-                        "click",
-                        openPrivacyModal
-                    );
-
-                }
-
-
-                /* =================================================
-                   CLOSE PRIVACY
-                ================================================= */
-
-                if (privacyClose) {
-
-                    privacyClose.addEventListener(
-                        "click",
-                        denyLocationAccess
-                    );
-
-                }
-
-
-                if (denyLocation) {
-
-                    denyLocation.addEventListener(
-                        "click",
-                        denyLocationAccess
-                    );
-
-                }
-
-
-                if (privacyUnderstood) {
-
-                    privacyUnderstood.addEventListener(
-                        "click",
-                        denyLocationAccess
-                    );
-
-                }
-
-
-                /* =================================================
-                   CLICK OUTSIDE MODAL
-                ================================================= */
-
-                if (privacyModal) {
-
-                    privacyModal.addEventListener(
-                        "click",
-                        function (event) {
-
-                            if (
-                                event.target ===
-                                privacyModal
-                            ) {
-
-                                denyLocationAccess();
-
+                    googleSelect.dispatchEvent(
+                        new Event(
+                            "change",
+                            {
+                                bubbles: true
                             }
-
-                        }
+                        )
                     );
+
+                    return true;
 
                 }
 
 
-                /* =================================================
-                   ESCAPE KEY
-                ================================================= */
+                return false;
 
-                document.addEventListener(
-                    "keydown",
-                    function (event) {
+            }
 
-                        if (
-                            event.key === "Escape" &&
-                            privacyModal &&
-                            !privacyModal.hidden
-                        ) {
 
-                            denyLocationAccess();
+            function translatePage(
+                language
+            ) {
 
-                        }
+                if (
+                    setGoogleLanguage(
+                        language
+                    )
+                ) {
+
+                    return;
+
+                }
+
+
+                languageAttempts++;
+
+
+                if (
+                    languageAttempts <
+                    maximumLanguageAttempts
+                ) {
+
+                    window.setTimeout(
+                        function () {
+
+                            translatePage(
+                                language
+                            );
+
+                        },
+                        250
+                    );
+
+                }
+
+            }
+
+
+            if (languageSelect) {
+
+                languageSelect.addEventListener(
+                    "change",
+                    function () {
+
+                        languageAttempts = 0;
+
+                        translatePage(
+                            this.value
+                        );
 
                     }
                 );
 
+            }
 
-                /* =================================================
-                   LOCATION REQUEST
-                ================================================= */
 
-                if (allowLocation) {
+            /* =====================================================
+               FORM ELEMENTS
+            ===================================================== */
 
-                    allowLocation.addEventListener(
-                        "click",
-                        function () {
+            const form =
+                document.getElementById(
+                    "contact-form"
+                );
 
-                            if (
-                                !navigator.geolocation
-                            ) {
+            const button =
+                document.getElementById(
+                    "submit-button"
+                );
 
-                                if (
-                                    locationPermission
-                                ) {
+            const iframe =
+                document.getElementById(
+                    "form-response-frame"
+                );
 
-                                    locationPermission.value =
-                                        "unavailable";
+            const nameInput =
+                document.getElementById(
+                    "name"
+                );
+
+            const emailInput =
+                document.getElementById(
+                    "email"
+                );
+
+            const messageInput =
+                document.getElementById(
+                    "message"
+                );
+
+            const honeypot =
+                form
+                    ? form.querySelector(
+                        'input[name="website"]'
+                    )
+                    : null;
+
+
+            /* =====================================================
+               PRIVACY ELEMENTS
+            ===================================================== */
+
+            const privacyModal =
+                document.getElementById(
+                    "privacy-modal"
+                );
+
+            const privacyClose =
+                document.getElementById(
+                    "privacy-close"
+                );
+
+            const openPrivacy =
+                document.getElementById(
+                    "open-privacy"
+                );
+
+            const allowLocation =
+                document.getElementById(
+                    "allow-location"
+                );
+
+            const denyLocation =
+                document.getElementById(
+                    "deny-location"
+                );
+
+            const privacyUnderstood =
+                document.getElementById(
+                    "privacy-understood"
+                );
+
+            const locationPermission =
+                document.getElementById(
+                    "location-permission"
+                );
+
+            const latitudeInput =
+                document.getElementById(
+                    "latitude"
+                );
+
+            const longitudeInput =
+                document.getElementById(
+                    "longitude"
+                );
+
+            const accuracyInput =
+                document.getElementById(
+                    "location-accuracy"
+                );
+
+
+            /* =====================================================
+               SAFETY CHECK
+            ===================================================== */
+
+            if (
+                !form ||
+                !button ||
+                !iframe ||
+                !nameInput ||
+                !emailInput ||
+                !messageInput
+            ) {
+
+                console.error(
+                    "KEA contact form could not be initialised."
+                );
+
+                return;
+
+            }
+
+
+            /* =====================================================
+               STATE
+            ===================================================== */
+
+            let submitting = false;
+
+            let timeoutID = null;
+
+
+            /* =====================================================
+               PRIVACY MODAL
+            ===================================================== */
+
+            function openPrivacyModal() {
+
+                if (!privacyModal) {
+                    return;
+                }
+
+                privacyModal.hidden = false;
+
+                document.body.classList.add(
+                    "privacy-modal-open"
+                );
+
+            }
+
+
+            function closePrivacyModal() {
+
+                if (!privacyModal) {
+                    return;
+                }
+
+                privacyModal.hidden = true;
+
+                document.body.classList.remove(
+                    "privacy-modal-open"
+                );
+
+            }
+
+
+            /* =====================================================
+               DENY / CONTINUE WITHOUT LOCATION
+            ===================================================== */
+
+            function denyLocationAccess() {
+
+                localStorage.setItem(
+                    "kea_location_consent",
+                    "denied"
+                );
+
+                if (locationPermission) {
+
+                    locationPermission.value =
+                        "denied";
+
+                }
+
+                closePrivacyModal();
+
+            }
+
+
+            /* =====================================================
+               PRIVACY BUTTONS
+            ===================================================== */
+
+            if (openPrivacy) {
+
+                openPrivacy.addEventListener(
+                    "click",
+                    openPrivacyModal
+                );
+
+            }
+
+
+            if (privacyClose) {
+
+                privacyClose.addEventListener(
+                    "click",
+                    denyLocationAccess
+                );
+
+            }
+
+
+            if (denyLocation) {
+
+                denyLocation.addEventListener(
+                    "click",
+                    denyLocationAccess
+                );
+
+            }
+
+
+            if (privacyUnderstood) {
+
+                privacyUnderstood.addEventListener(
+                    "click",
+                    denyLocationAccess
+                );
+
+            }
+
+
+            /* =====================================================
+               ESCAPE KEY
+            ===================================================== */
+
+            document.addEventListener(
+                "keydown",
+                function (event) {
+
+                    if (
+                        event.key === "Escape" &&
+                        privacyModal &&
+                        !privacyModal.hidden
+                    ) {
+
+                        denyLocationAccess();
+
+                    }
+
+                }
+            );
+
+
+            /* =====================================================
+               LOCATION REQUEST
+            ===================================================== */
+
+            if (allowLocation) {
+
+                allowLocation.addEventListener(
+                    "click",
+                    function () {
+
+
+                        if (!navigator.geolocation) {
+
+                            alert(
+                                "Location services are not available in this browser."
+                            );
+
+                            localStorage.setItem(
+                                "kea_location_consent",
+                                "unavailable"
+                            );
+
+                            if (locationPermission) {
+
+                                locationPermission.value =
+                                    "unavailable";
+
+                            }
+
+                            closePrivacyModal();
+
+                            return;
+
+                        }
+
+
+                        allowLocation.disabled = true;
+
+                        allowLocation.textContent =
+                            "Requesting Location...";
+
+
+                        navigator.geolocation.getCurrentPosition(
+
+                            function (position) {
+
+                                const coords =
+                                    position.coords;
+
+
+                                if (latitudeInput) {
+
+                                    latitudeInput.value =
+                                        coords.latitude;
 
                                 }
+
+
+                                if (longitudeInput) {
+
+                                    longitudeInput.value =
+                                        coords.longitude;
+
+                                }
+
+
+                                if (accuracyInput) {
+
+                                    accuracyInput.value =
+                                        coords.accuracy;
+
+                                }
+
+
+                                if (locationPermission) {
+
+                                    locationPermission.value =
+                                        "granted";
+
+                                }
+
 
                                 localStorage.setItem(
                                     "kea_location_consent",
-                                    "unavailable"
+                                    "granted"
                                 );
 
-                                alert(
-                                    "Location services are not available in this browser."
-                                );
+
+                                allowLocation.disabled =
+                                    false;
+
+                                allowLocation.textContent =
+                                    "Allow Location";
+
 
                                 closePrivacyModal();
 
-                                return;
+                            },
 
-                            }
 
+                            function (error) {
 
-                            allowLocation.disabled =
-                                true;
-
-                            const originalText =
-                                allowLocation.textContent;
-
-                            allowLocation.textContent =
-                                "Requesting Location...";
-
-
-                            navigator.geolocation.getCurrentPosition(
-
-                                function (position) {
-
-                                    const coords =
-                                        position.coords;
-
-
-                                    if (
-                                        latitudeInput
-                                    ) {
-
-                                        latitudeInput.value =
-                                            String(
-                                                coords.latitude
-                                            );
-
-                                    }
-
-
-                                    if (
-                                        longitudeInput
-                                    ) {
-
-                                        longitudeInput.value =
-                                            String(
-                                                coords.longitude
-                                            );
-
-                                    }
-
-
-                                    if (
-                                        accuracyInput
-                                    ) {
-
-                                        accuracyInput.value =
-                                            String(
-                                                coords.accuracy
-                                            );
-
-                                    }
-
-
-                                    if (
-                                        locationPermission
-                                    ) {
-
-                                        locationPermission.value =
-                                            "granted";
-
-                                    }
-
-
-                                    localStorage.setItem(
-                                        "kea_location_consent",
-                                        "granted"
-                                    );
-
-
-                                    allowLocation.disabled =
-                                        false;
-
-                                    allowLocation.textContent =
-                                        originalText;
-
-
-                                    closePrivacyModal();
-
-                                },
-
-
-                                function (error) {
-
-                                    console.warn(
-                                        "Location was not provided:",
-                                        error.message
-                                    );
-
-
-                                    if (
-                                        locationPermission
-                                    ) {
-
-                                        locationPermission.value =
-                                            "denied";
-
-                                    }
-
-
-                                    localStorage.setItem(
-                                        "kea_location_consent",
-                                        "denied"
-                                    );
-
-
-                                    allowLocation.disabled =
-                                        false;
-
-                                    allowLocation.textContent =
-                                        originalText;
-
-
-                                    closePrivacyModal();
-
-                                },
-
-
-                                {
-                                    enableHighAccuracy: false,
-                                    timeout: 10000,
-                                    maximumAge: 300000
-                                }
-
-                            );
-
-                        }
-                    );
-
-                }
-
-
-                /* =================================================
-                   RESTORE LOCATION CONSENT
-                ================================================= */
-
-                const savedLocationConsent =
-                    localStorage.getItem(
-                        "kea_location_consent"
-                    );
-
-
-                if (
-                    savedLocationConsent ===
-                    "granted"
-                ) {
-
-                    if (locationPermission) {
-
-                        locationPermission.value =
-                            "previously_granted";
-
-                    }
-
-                }
-
-
-                if (
-                    savedLocationConsent ===
-                    "denied"
-                ) {
-
-                    if (locationPermission) {
-
-                        locationPermission.value =
-                            "previously_denied";
-
-                    }
-
-                }
-
-
-                if (
-                    savedLocationConsent ===
-                    "unavailable"
-                ) {
-
-                    if (locationPermission) {
-
-                        locationPermission.value =
-                            "previously_unavailable";
-
-                    }
-
-                }
-
-
-                /* =================================================
-                   FIRST VISIT
-                ================================================= */
-
-                if (!savedLocationConsent) {
-
-                    openPrivacyModal();
-
-                }
-
-
-                /* =================================================
-                   GOOGLE APPS SCRIPT RESPONSE
-                ================================================= */
-
-                window.addEventListener(
-                    "message",
-                    function (event) {
-
-                        const data =
-                            event.data;
-
-
-                        if (
-                            !data ||
-                            data.type !==
-                            "KEA_FORM_RESPONSE"
-                        ) {
-
-                            return;
-
-                        }
-
-
-                        if (!submitting) {
-
-                            return;
-
-                        }
-
-
-                        if (timeoutID) {
-
-                            clearTimeout(
-                                timeoutID
-                            );
-
-                            timeoutID = null;
-
-                        }
-
-
-                        submitting = false;
-
-
-                        if (button) {
-
-                            button.disabled =
-                                false;
-
-                            button.textContent =
-                                "Send Requirement";
-
-                        }
-
-
-                        if (
-                            data.success === true
-                        ) {
-
-                            alert(
-                                data.message ||
-                                "Thank you. Your requirement has been sent."
-                            );
-
-
-                            if (form) {
-
-                                form.reset();
-
-                            }
-
-
-                            const currentConsent =
-                                localStorage.getItem(
-                                    "kea_location_consent"
+                                console.warn(
+                                    "Location was not provided:",
+                                    error.message
                                 );
 
 
-                            if (
-                                locationPermission
-                            ) {
-
-                                if (
-                                    currentConsent ===
-                                    "granted"
-                                ) {
+                                if (locationPermission) {
 
                                     locationPermission.value =
-                                        "previously_granted";
-
-                                } else if (
-                                    currentConsent ===
-                                    "denied"
-                                ) {
-
-                                    locationPermission.value =
-                                        "previously_denied";
-
-                                } else if (
-                                    currentConsent ===
-                                    "unavailable"
-                                ) {
-
-                                    locationPermission.value =
-                                        "previously_unavailable";
-
-                                } else {
-
-                                    locationPermission.value =
-                                        "not_requested";
+                                        "denied";
 
                                 }
 
+
+                                localStorage.setItem(
+                                    "kea_location_consent",
+                                    "denied"
+                                );
+
+
+                                allowLocation.disabled =
+                                    false;
+
+                                allowLocation.textContent =
+                                    "Allow Location";
+
+
+                                closePrivacyModal();
+
+                            },
+
+
+                            {
+                                enableHighAccuracy: false,
+                                timeout: 10000,
+                                maximumAge: 300000
                             }
 
-
-                            if (nameInput) {
-
-                                nameInput.focus();
-
-                            }
-
-
-                            return;
-
-                        }
-
-
-                        alert(
-                            data.message ||
-                            "Something went wrong while sending your requirement. Please try again."
                         );
 
                     }
                 );
 
+            }
 
-                /* =================================================
-                   FORM SUBMISSION
-                ================================================= */
 
-                if (form) {
+            /* =====================================================
+               RESTORE LOCATION CONSENT
+            ===================================================== */
 
-                    form.addEventListener(
-                        "submit",
-                        function (event) {
+            const savedLocationConsent =
+                localStorage.getItem(
+                    "kea_location_consent"
+                );
 
-                            event.preventDefault();
 
+            if (
+                savedLocationConsent === "granted"
+            ) {
 
-                            if (submitting) {
+                if (locationPermission) {
 
-                                return;
-
-                            }
-
-
-                            /* HONEYPOT */
-
-                            if (
-                                honeypot &&
-                                honeypot.value.trim() !== ""
-                            ) {
-
-                                return;
-
-                            }
-
-
-                            /* VALUES */
-
-                            const name =
-                                nameInput.value.trim();
-
-                            const email =
-                                emailInput.value.trim();
-
-                            const message =
-                                messageInput.value.trim();
-
-
-                            /* VALIDATION */
-
-                            if (!name) {
-
-                                alert(
-                                    "Please enter your name or organisation."
-                                );
-
-                                nameInput.focus();
-
-                                return;
-
-                            }
-
-
-                            if (!email) {
-
-                                alert(
-                                    "Please enter your email address."
-                                );
-
-                                emailInput.focus();
-
-                                return;
-
-                            }
-
-
-                            if (
-                                !emailInput.checkValidity()
-                            ) {
-
-                                alert(
-                                    "Please enter a valid email address."
-                                );
-
-                                emailInput.focus();
-
-                                return;
-
-                            }
-
-
-                            if (!message) {
-
-                                alert(
-                                    "Please tell me about the work you need help with."
-                                );
-
-                                messageInput.focus();
-
-                                return;
-
-                            }
-
-
-                            /* CONFIRMATION */
-
-                            const confirmed =
-                                window.confirm(
-                                    "Send this requirement?"
-                                );
-
-
-                            if (!confirmed) {
-
-                                return;
-
-                            }
-
-
-                            /* SUBMIT */
-
-                            submitting = true;
-
-
-                            if (button) {
-
-                                button.disabled =
-                                    true;
-
-                                button.textContent =
-                                    "Sending...";
-
-                            }
-
-
-                            /*
-                             * Native submit bypasses this
-                             * event listener and submits to
-                             * the hidden iframe.
-                             */
-
-                            HTMLFormElement
-                                .prototype
-                                .submit
-                                .call(form);
-
-
-                            /* TIMEOUT */
-
-                            timeoutID =
-                                window.setTimeout(
-                                    function () {
-
-                                        if (
-                                            !submitting
-                                        ) {
-
-                                            return;
-
-                                        }
-
-
-                                        submitting =
-                                            false;
-
-
-                                        if (button) {
-
-                                            button.disabled =
-                                                false;
-
-                                            button.textContent =
-                                                "Send Requirement";
-
-                                        }
-
-
-                                        alert(
-                                            "The submission is taking longer than expected. Please check your internet connection and try again."
-                                        );
-
-                                    },
-                                    25000
-                                );
-
-                        }
-                    );
+                    locationPermission.value =
+                        "previously_granted";
 
                 }
 
+            }
 
-                /* =================================================
-                   SMOOTH SCROLL
-                ================================================= */
 
-                document
-                    .querySelectorAll(
-                        'a[href^="#"]'
-                    )
-                    .forEach(
-                        function (anchor) {
+            if (
+                savedLocationConsent === "denied"
+            ) {
 
-                            anchor.addEventListener(
-                                "click",
-                                function (event) {
+                if (locationPermission) {
 
-                                    const targetID =
-                                        this.getAttribute(
-                                            "href"
-                                        );
-
-
-                                    if (
-                                        !targetID ||
-                                        targetID === "#"
-                                    ) {
-
-                                        return;
-
-                                    }
-
-
-                                    const target =
-                                        document.querySelector(
-                                            targetID
-                                        );
-
-
-                                    if (!target) {
-
-                                        return;
-
-                                    }
-
-
-                                    event.preventDefault();
-
-
-                                    target.scrollIntoView({
-
-                                        behavior:
-                                            "smooth",
-
-                                        block:
-                                            "start"
-
-                                    });
-
-                                }
-                            );
-
-                        }
-                    );
-
-
-                /* =================================================
-                   LANGUAGE SYSTEM
-                ================================================= */
-
-                const languageSelect =
-                    document.getElementById(
-                        "language-select"
-                    );
-
-
-                const translations = {
-
-                    en: {
-
-                        availability:
-                            "Available for Freelance & Project Work",
-
-                        hero_question:
-                            "Have work that needs to be done?",
-
-                        hero_description:
-                            "Practical, hands-on support across software and technology, electronics and hardware, construction and civil projects, clinical and mental health-related work, documentation, research and technical tasks.",
-
-                        tell_need:
-                            "Tell Me What You Need",
-
-                        see_help:
-                            "See What I Can Help With",
-
-                        nav_home:
-                            "Home",
-
-                        nav_services:
-                            "Services",
-
-                        nav_help:
-                            "What I Can Help With",
-
-                        nav_process:
-                            "How It Works",
-
-                        nav_enquire:
-                            "Enquire",
-
-                        intro_label:
-                            "Practical & Hands-On Support",
-
-                        intro_title:
-                            "Let's Make the Work Easier",
-
-                        intro_p1:
-                            "Some projects need technical knowledge. Others need someone who can get involved, organise information, prepare documentation, coordinate tasks, follow up requirements or simply take care of work that is slowing everything else down.",
-
-                        intro_p2:
-                            "My approach is practical and hands-on: understand what needs to be done, work through the details and help move the task toward a useful result.",
-
-                        intro_p3:
-                            "My background covers software and technology, electronics and hardware, construction-related environments, clinical and medical-related work, mental health-related support, research, documentation and administrative tasks.",
-
-                        intro_p4:
-                            "Support can be arranged around the actual requirement — whether that means a single task, a defined project, temporary support or ongoing assistance.",
-
-                        intro_box_1_title:
-                            "You don't need to know exactly what service you need.",
-
-                        intro_box_1_text:
-                            "Tell me what you are trying to accomplish, what needs to be done and when you need it. We can identify the practical tasks involved and discuss the appropriate arrangement.",
-
-                        intro_box_2_title:
-                            "A hands-on approach means getting involved.",
-
-                        intro_box_2_text:
-                            "Where appropriate, I can work through the details with you rather than simply providing general advice.",
-
-                        services_label:
-                            "Services",
-
-                        services_title:
-                            "What I Can Help You With",
-
-                        services_intro:
-                            "Practical, hands-on support across technical, project, clinical, mental health-related, construction, research and administrative requirements.",
-
-                        help_label:
-                            "Start With the Task",
-
-                        help_title:
-                            "Maybe You Need Someone to...",
-
-                        help_intro:
-                            "You do not need to figure out the perfect job title first. Start with the actual work that needs to be completed.",
-
-                        ways_label:
-                            "Flexible Arrangements",
-
-                        ways_title:
-                            "Work With Me Based on What You Need",
-
-                        ways_intro:
-                            "Different tasks require different arrangements. The work can be discussed around the scope, timeframe and expected result.",
-
-                        areas_label:
-                            "Areas of Support",
-
-                        areas_title:
-                            "Different Types of Work, One Practical Approach",
-
-                        areas_intro:
-                            "My approach is hands-on and task-focused, allowing me to work across different technical and professional environments depending on the requirement.",
-
-                        process_label:
-                            "Simple Process",
-
-                        process_title:
-                            "Tell Me What Needs to Be Done",
-
-                        process_intro:
-                            "You do not need to prepare a complicated proposal. A simple description of the task is enough to start the conversation. The goal is to understand the requirement and take a practical, hands-on approach to the work.",
-
-                        process_1_title:
-                            "Tell Me About the Work",
-
-                        process_1_text:
-                            "Explain the task, problem, project, technical requirement or workload you need help with.",
-
-                        process_2_title:
-                            "Discuss the Requirement",
-
-                        process_2_text:
-                            "We clarify the scope, timeframe, expected output, resources and other relevant details.",
-
-                        process_3_title:
-                            "Get Hands-On and Get It Done",
-
-                        process_3_text:
-                            "If it is a good fit, we agree on the responsibilities and arrangement and work toward the required result.",
-
-                        cta_title:
-                            "Have Something You Need Help With?",
-
-                        cta_text:
-                            "Whether it is software, electronics, construction, clinical or mental health-related work, documentation, research or a specific task you have not quite figured out yet, send me the details.",
-
-                        contact_label:
-                            "Project / Service Enquiry",
-
-                        contact_title:
-                            "Tell Me What You Need",
-
-                        contact_intro:
-                            "Give me a few details about the work. You do not need to know exactly what service category it belongs to.",
-
-                        privacy_label:
-                            "Privacy:",
-
-                        privacy_note:
-                            "The information you submit will be used to respond to your enquiry and discuss the work you are requesting. Please do not include passwords, financial information, medical records or other sensitive information unless it is genuinely necessary for the enquiry.",
-
-                        name_label:
-                            "Name / Organisation",
-
-                        name_placeholder:
-                            "Your name or organisation",
-
-                        email_label:
-                            "Email",
-
-                        email_placeholder:
-                            "your.email@example.com",
-
-                        service_label:
-                            "What kind of help do you need?",
-
-                        service_choose:
-                            "Choose one if applicable",
-
-                        service_software:
-                            "Software Engineering / Technology",
-
-                        service_hardware:
-                            "Hardware / Electronics",
-
-                        service_construction:
-                            "Construction / Civil Project",
-
-                        service_clinical:
-                            "Clinical / Medical Support",
-
-                        service_mental:
-                            "Mental Health-Related Support",
-
-                        service_admin:
-                            "Administrative / Documentation",
-
-                        service_research:
-                            "Research / Information",
-
-                        service_project:
-                            "Project / Task Support",
-
-                        service_other:
-                            "Something Else",
-
-                        timeframe_label:
-                            "When do you need help?",
-
-                        timeframe_placeholder:
-                            "Example: ASAP, next week, this month, ongoing",
-
-                        message_label:
-                            "Tell Me About the Work",
-
-                        message_placeholder:
-                            "What needs to be done? What would you like help with? What should the final result look like?",
-
-                        submit_button:
-                            "Send Requirement",
-
-                        privacy_terms:
-                            "Privacy & Terms",
-
-                        privacy_title:
-                            "Your Privacy Matters",
-
-                        privacy_intro:
-                            "This page may request your location to help provide relevant information or support related to your enquiry. Location access is optional.",
-
-                        location_title:
-                            "Location Information",
-
-                        location_p1:
-                            "If you choose to allow location access, your browser may provide your approximate or precise location, depending on your device and browser settings.",
-
-                        location_p2:
-                            "Your location will only be requested after you give permission. This page does not continuously track your location.",
-
-                        information_title:
-                            "How Information Is Used",
-
-                        information_p:
-                            "Information submitted through this page may be used to respond to your enquiry, understand your requirements, provide appropriate support and communicate with you about your request.",
-
-                        scope_title:
-                            "Technical & Professional Scope",
-
-                        scope_p1:
-                            "Technical, construction, clinical, medical and mental health-related support is subject to the actual scope of work, applicable requirements, qualifications, permissions and any professional responsibilities that may apply.",
-
-                        scope_p2:
-                            "Mental health-related support offered through this page is not a substitute for emergency care, diagnosis, psychotherapy, medical treatment or other regulated professional services unless separately agreed and appropriately qualified.",
-
-                        terms_title:
-                            "Terms of Use",
-
-                        terms_p:
-                            "Information provided through this page should be accurate and must not be used for unlawful purposes. Any proposed work remains subject to discussion, availability, scope and agreement before work begins.",
-
-                        choice_title:
-                            "Your Choice",
-
-                        choice_p:
-                            "You can use this page without allowing location access. Refusing location permission will not prevent you from submitting an enquiry.",
-
-                        allow_location:
-                            "Allow Location",
-
-                        dont_allow:
-                            "Don't Allow",
-
-                        continue_without_location:
-                            "Continue Without Location",
-
-                        footer_1:
-                            "Freelance • Contract • Project Support",
-
-                        footer_2:
-                            "Software • Electronics • Construction • Clinical • Mental Health-Related • Technical Support",
-
-                        footer_rights:
-                            "All rights reserved."
-
-                    },
-
-
-                    tl: {
-
-                        availability:
-                            "Available para sa Freelance at Project Work",
-
-                        hero_question:
-                            "May trabaho ka bang kailangang matapos?",
-
-                        hero_description:
-                            "Praktikal at hands-on na suporta para sa software at technology, electronics at hardware, construction at civil projects, clinical at mental health-related work, documentation, research at technical tasks.",
-
-                        tell_need:
-                            "Sabihin Kung Ano ang Kailangan Mo",
-
-                        see_help:
-                            "Tingnan Kung Saan Ako Makakatulong",
-
-                        nav_home:
-                            "Home",
-
-                        nav_services:
-                            "Mga Serbisyo",
-
-                        nav_help:
-                            "Saan Ako Makakatulong",
-
-                        nav_process:
-                            "Paano Ito Gumagana",
-
-                        nav_enquire:
-                            "Magtanong",
-
-                        intro_label:
-                            "Praktikal at Hands-On na Suporta",
-
-                        intro_title:
-                            "Gawing Mas Madali ang Trabaho",
-
-                        services_label:
-                            "Mga Serbisyo",
-
-                        services_title:
-                            "Mga Maaari Kong Tulong sa Iyo",
-
-                        help_label:
-                            "Magsimula sa Gawain",
-
-                        help_title:
-                            "Baka Kailangan Mo ng Tulong Para...",
-
-                        ways_label:
-                            "Flexible na Arrangement",
-
-                        ways_title:
-                            "Makipagtrabaho sa Akin Batay sa Iyong Pangangailangan",
-
-                        areas_label:
-                            "Mga Lugar ng Suporta",
-
-                        areas_title:
-                            "Iba't Ibang Uri ng Trabaho, Isang Praktikal na Paraan",
-
-                        process_label:
-                            "Simpleng Proseso",
-
-                        process_title:
-                            "Sabihin Kung Ano ang Kailangang Gawin",
-
-                        cta_title:
-                            "May Kailangan Ka Bang Tulong?",
-
-                        contact_label:
-                            "Project / Service Enquiry",
-
-                        contact_title:
-                            "Sabihin Kung Ano ang Kailangan Mo",
-
-                        contact_intro:
-                            "Magbigay ng ilang detalye tungkol sa trabaho. Hindi kailangang alam mo agad kung anong service category ito.",
-
-                        privacy_label:
-                            "Privacy:",
-
-                        privacy_note:
-                            "Ang impormasyong isusumite mo ay gagamitin upang tumugon sa iyong enquiry at talakayin ang trabahong hinihingi mo. Huwag magsama ng passwords, financial information, medical records o ibang sensitibong impormasyon maliban kung talagang kailangan.",
-
-                        name_label:
-                            "Pangalan / Organisasyon",
-
-                        name_placeholder:
-                            "Iyong pangalan o organisasyon",
-
-                        email_label:
-                            "Email",
-
-                        email_placeholder:
-                            "your.email@example.com",
-
-                        service_label:
-                            "Anong uri ng tulong ang kailangan mo?",
-
-                        service_choose:
-                            "Pumili kung naaangkop",
-
-                        service_software:
-                            "Software Engineering / Technology",
-
-                        service_hardware:
-                            "Hardware / Electronics",
-
-                        service_construction:
-                            "Construction / Civil Project",
-
-                        service_clinical:
-                            "Clinical / Medical Support",
-
-                        service_mental:
-                            "Mental Health-Related Support",
-
-                        service_admin:
-                            "Administrative / Documentation",
-
-                        service_research:
-                            "Research / Information",
-
-                        service_project:
-                            "Project / Task Support",
-
-                        service_other:
-                            "Iba Pa",
-
-                        timeframe_label:
-                            "Kailan mo kailangan ng tulong?",
-
-                        timeframe_placeholder:
-                            "Halimbawa: ASAP, next week, ngayong buwan, ongoing",
-
-                        message_label:
-                            "Sabihin ang Tungkol sa Trabaho",
-
-                        message_placeholder:
-                            "Ano ang kailangang gawin? Saan mo kailangan ng tulong? Ano ang gusto mong maging resulta?",
-
-                        submit_button:
-                            "Ipadala ang Requirement",
-
-                        privacy_terms:
-                            "Privacy at Terms",
-
-                        privacy_title:
-                            "Mahalaga ang Iyong Privacy",
-
-                        privacy_intro:
-                            "Maaaring humingi ang page na ito ng iyong location upang makatulong sa iyong enquiry. Optional ang location access.",
-
-                        location_title:
-                            "Location Information",
-
-                        location_p1:
-                            "Kung papayagan mo ang location access, maaaring ibigay ng browser ang approximate o precise location mo depende sa iyong device at browser settings.",
-
-                        location_p2:
-                            "Hihingin lamang ang location pagkatapos mong magbigay ng permission. Hindi patuloy na tine-track ng page na ito ang iyong location.",
-
-                        information_title:
-                            "Paano Ginagamit ang Information",
-
-                        information_p:
-                            "Ang impormasyong isusumite sa page na ito ay maaaring gamitin upang tumugon sa enquiry, maintindihan ang requirements at makipag-ugnayan tungkol sa request.",
-
-                        scope_title:
-                            "Technical at Professional Scope",
-
-                        scope_p1:
-                            "Ang technical, construction, clinical, medical at mental health-related support ay nakadepende sa aktwal na scope, requirements, qualifications, permissions at professional responsibilities na maaaring naaangkop.",
-
-                        scope_p2:
-                            "Ang mental health-related support sa page na ito ay hindi kapalit ng emergency care, diagnosis, psychotherapy, medical treatment o ibang regulated professional services.",
-
-                        terms_title:
-                            "Terms of Use",
-
-                        terms_p:
-                            "Ang impormasyong ibinibigay sa page na ito ay dapat tama at hindi dapat gamitin para sa unlawful purposes. Ang anumang proposed work ay subject sa discussion, availability, scope at agreement bago magsimula.",
-
-                        choice_title:
-                            "Iyong Choice",
-
-                        choice_p:
-                            "Maaari mong gamitin ang page na ito nang hindi nagbibigay ng location access. Ang pagtanggi sa location permission ay hindi makakapigil sa pagsusumite ng enquiry.",
-
-                        allow_location:
-                            "Payagan ang Location",
-
-                        dont_allow:
-                            "Huwag Payagan",
-
-                        continue_without_location:
-                            "Magpatuloy Nang Walang Location",
-
-                        footer_1:
-                            "Freelance • Contract • Project Support",
-
-                        footer_2:
-                            "Software • Electronics • Construction • Clinical • Mental Health-Related • Technical Support",
-
-                        footer_rights:
-                            "Lahat ng karapatan ay nakalaan."
-
-                    }
-
-                };
-
-
-                /* =================================================
-                   LANGUAGE APPLICATION
-                ================================================= */
-
-                function applyLanguage(language) {
-
-                    const dictionary =
-                        translations[language] ||
-                        translations.en;
-
-
-                    document.documentElement.lang =
-                        language === "tl"
-                            ? "tl"
-                            : "en";
-
-
-                    document
-                        .querySelectorAll(
-                            "[data-i18n]"
-                        )
-                        .forEach(
-                            function (element) {
-
-                                const key =
-                                    element.getAttribute(
-                                        "data-i18n"
-                                    );
-
-
-                                if (
-                                    dictionary[key] !==
-                                    undefined
-                                ) {
-
-                                    element.textContent =
-                                        dictionary[key];
-
-                                }
-
-                            }
-                        );
-
-
-                    document
-                        .querySelectorAll(
-                            "[data-i18n-placeholder]"
-                        )
-                        .forEach(
-                            function (element) {
-
-                                const key =
-                                    element.getAttribute(
-                                        "data-i18n-placeholder"
-                                    );
-
-
-                                if (
-                                    dictionary[key] !==
-                                    undefined
-                                ) {
-
-                                    element.placeholder =
-                                        dictionary[key];
-
-                                }
-
-                            }
-                        );
-
-
-                    localStorage.setItem(
-                        "kea_language",
-                        language
-                    );
+                    locationPermission.value =
+                        "previously_denied";
 
                 }
 
-
-                /* =================================================
-                   LANGUAGE SELECTOR
-                ================================================= */
-
-                if (languageSelect) {
-
-                    languageSelect.addEventListener(
-                        "change",
-                        function () {
-
-                            applyLanguage(
-                                this.value
-                            );
-
-                        }
-                    );
+            }
 
 
-                    const savedLanguage =
-                        localStorage.getItem(
-                            "kea_language"
-                        );
+            /* =====================================================
+               FIRST VISIT PRIVACY MODAL
+            ===================================================== */
+
+            if (!savedLocationConsent) {
+
+                openPrivacyModal();
+
+            }
+
+
+            /* =====================================================
+               GOOGLE APPS SCRIPT RESPONSE
+            ===================================================== */
+
+            window.addEventListener(
+                "message",
+                function (event) {
+
+                    const data =
+                        event.data;
 
 
                     if (
-                        savedLanguage &&
-                        translations[savedLanguage]
+                        !data ||
+                        data.type !==
+                            "KEA_FORM_RESPONSE"
                     ) {
 
-                        languageSelect.value =
-                            savedLanguage;
-
-                        applyLanguage(
-                            savedLanguage
-                        );
-
-                    } else {
-
-                        languageSelect.value =
-                            "en";
-
-                        applyLanguage(
-                            "en"
-                        );
+                        return;
 
                     }
 
+
+                    if (!submitting) {
+
+                        return;
+
+                    }
+
+
+                    if (timeoutID) {
+
+                        clearTimeout(
+                            timeoutID
+                        );
+
+                        timeoutID = null;
+
+                    }
+
+
+                    submitting = false;
+
+                    button.disabled = false;
+
+                    button.textContent =
+                        "Send Requirement";
+
+
+                    /* =============================================
+                       SUCCESS
+                    ============================================= */
+
+                    if (
+                        data.success === true
+                    ) {
+
+                        alert(
+                            data.message ||
+                            "Thank you. Your requirement has been sent."
+                        );
+
+
+                        form.reset();
+
+
+                        const currentConsent =
+                            localStorage.getItem(
+                                "kea_location_consent"
+                            );
+
+
+                        if (locationPermission) {
+
+                            if (
+                                currentConsent ===
+                                    "granted"
+                            ) {
+
+                                locationPermission.value =
+                                    "previously_granted";
+
+                            } else if (
+                                currentConsent ===
+                                    "denied"
+                            ) {
+
+                                locationPermission.value =
+                                    "previously_denied";
+
+                            } else {
+
+                                locationPermission.value =
+                                    "not_requested";
+
+                            }
+
+                        }
+
+
+                        nameInput.focus();
+
+                        return;
+
+                    }
+
+
+                    /* =============================================
+                       ERROR
+                    ============================================= */
+
+                    alert(
+                        data.message ||
+                        "Something went wrong while sending your requirement. Please try again."
+                    );
+
                 }
+            );
 
 
-            }
-        );
+            /* =====================================================
+               FORM SUBMISSION
+            ===================================================== */
+
+            form.addEventListener(
+                "submit",
+                function (event) {
+
+                    event.preventDefault();
+
+
+                    if (submitting) {
+
+                        return;
+
+                    }
+
+
+                    /* =============================================
+                       HONEYPOT
+                    ============================================= */
+
+                    if (
+                        honeypot &&
+                        honeypot.value.trim() !== ""
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    /* =============================================
+                       VALUES
+                    ============================================= */
+
+                    const name =
+                        nameInput.value.trim();
+
+                    const email =
+                        emailInput.value.trim();
+
+                    const message =
+                        messageInput.value.trim();
+
+
+                    /* =============================================
+                       VALIDATION
+                    ============================================= */
+
+                    if (!name) {
+
+                        alert(
+                            "Please enter your name or organisation."
+                        );
+
+                        nameInput.focus();
+
+                        return;
+
+                    }
+
+
+                    if (!email) {
+
+                        alert(
+                            "Please enter your email address."
+                        );
+
+                        emailInput.focus();
+
+                        return;
+
+                    }
+
+
+                    if (
+                        !emailInput.checkValidity()
+                    ) {
+
+                        alert(
+                            "Please enter a valid email address."
+                        );
+
+                        emailInput.focus();
+
+                        return;
+
+                    }
+
+
+                    if (!message) {
+
+                        alert(
+                            "Please tell me about the work you need help with."
+                        );
+
+                        messageInput.focus();
+
+                        return;
+
+                    }
+
+
+                    /* =============================================
+                       CONFIRMATION
+                    ============================================= */
+
+                    const confirmed =
+                        window.confirm(
+                            "Send this requirement?"
+                        );
+
+
+                    if (!confirmed) {
+
+                        return;
+
+                    }
+
+
+                    /* =============================================
+                       START SUBMISSION
+                    ============================================= */
+
+                    submitting = true;
+
+                    button.disabled = true;
+
+                    button.textContent =
+                        "Sending...";
+
+
+                    HTMLFormElement.prototype.submit.call(
+                        form
+                    );
+
+
+                    /* =============================================
+                       TIMEOUT
+                    ============================================= */
+
+                    timeoutID =
+                        window.setTimeout(
+                            function () {
+
+                                if (!submitting) {
+
+                                    return;
+
+                                }
+
+
+                                submitting = false;
+
+                                button.disabled =
+                                    false;
+
+                                button.textContent =
+                                    "Send Requirement";
+
+
+                                alert(
+                                    "The submission is taking longer than expected. Please check your internet connection and try again."
+                                );
+
+                            },
+                            25000
+                        );
+
+                }
+            );
+
+
+            /* =====================================================
+               SMOOTH SCROLL
+            ===================================================== */
+
+            document
+                .querySelectorAll(
+                    'a[href^="#"]'
+                )
+                .forEach(
+                    function (anchor) {
+
+                        anchor.addEventListener(
+                            "click",
+                            function (event) {
+
+                                const targetID =
+                                    this.getAttribute(
+                                        "href"
+                                    );
+
+
+                                if (
+                                    !targetID ||
+                                    targetID === "#"
+                                ) {
+
+                                    return;
+
+                                }
+
+
+                                const target =
+                                    document.querySelector(
+                                        targetID
+                                    );
+
+
+                                if (!target) {
+
+                                    return;
+
+                                }
+
+
+                                event.preventDefault();
+
+
+                                target.scrollIntoView({
+
+                                    behavior:
+                                        "smooth",
+
+                                    block:
+                                        "start"
+
+                                });
+
+                            }
+                        );
+
+                    }
+                );
+
+        }
+    );
 
     </script>
 
