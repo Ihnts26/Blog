@@ -21,6 +21,7 @@
         KEA | Practical Hands-On Support for Work That Needs to Get Done
     </title>
 
+
     <style>
 
         /* =========================================================
@@ -30,8 +31,6 @@
         *,
         *::before,
         *::after {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
@@ -41,6 +40,8 @@
         }
 
         body {
+            margin: 0;
+
             font-family:
                 -apple-system,
                 BlinkMacSystemFont,
@@ -50,12 +51,10 @@
 
             background: #f5f7fa;
             color: #1f2937;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
 
-        body.privacy-modal-open {
-            overflow: hidden;
+            line-height: 1.6;
+
+            overflow-x: hidden;
         }
 
         a {
@@ -81,7 +80,8 @@
             --background: #F5F7FA;
 
             --shadow:
-                0 5px 22px rgba(15, 23, 42, 0.07);
+                0 5px 22px
+                rgba(15, 23, 42, 0.07);
         }
 
 
@@ -92,7 +92,13 @@
         header {
             position: relative;
 
-            padding: 78px 20px 72px;
+            padding:
+                78px 20px
+                72px;
+
+            text-align: center;
+
+            color: white;
 
             background:
                 linear-gradient(
@@ -101,9 +107,6 @@
                     #0B1F3A 58%,
                     #163E6D 100%
                 );
-
-            color: white;
-            text-align: center;
         }
 
         .hero {
@@ -119,8 +122,12 @@
 
             border-radius: 30px;
 
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.15);
+            background:
+                rgba(255,255,255,0.08);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.15);
 
             color: #BFDBFE;
 
@@ -129,20 +136,22 @@
         }
 
         header h1 {
-            font-size: clamp(2.3rem, 6vw, 3.7rem);
+            margin-bottom: 20px;
+
+            font-size:
+                clamp(2.3rem, 6vw, 3.7rem);
 
             line-height: 1.08;
             letter-spacing: -1.2px;
-
-            margin-bottom: 20px;
         }
 
         .hero-question {
-            font-size: clamp(1.25rem, 3vw, 1.7rem);
+            margin-bottom: 12px;
+
+            font-size:
+                clamp(1.25rem, 3vw, 1.7rem);
 
             font-weight: 650;
-
-            margin-bottom: 12px;
         }
 
         .hero-description {
@@ -157,21 +166,27 @@
 
         .hero-buttons {
             display: flex;
+
             justify-content: center;
             align-items: center;
+
             flex-wrap: wrap;
 
             gap: 10px;
+
             margin-top: 30px;
         }
 
         .button {
             display: inline-flex;
+
             align-items: center;
             justify-content: center;
 
             min-height: 48px;
-            padding: 11px 23px;
+
+            padding:
+                11px 23px;
 
             border-radius: 7px;
 
@@ -180,7 +195,9 @@
             font-size: 14px;
             font-weight: 750;
 
-            transition: 0.2s ease;
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
         }
 
         .button-primary {
@@ -196,13 +213,17 @@
         .button-secondary {
             color: white;
 
-            background: rgba(255,255,255,0.08);
+            background:
+                rgba(255,255,255,0.08);
 
-            border: 1px solid rgba(255,255,255,0.2);
+            border:
+                1px solid
+                rgba(255,255,255,0.2);
         }
 
         .button-secondary:hover {
-            background: rgba(255,255,255,0.15);
+            background:
+                rgba(255,255,255,0.15);
         }
 
 
@@ -215,21 +236,29 @@
             top: 0;
             z-index: 1000;
 
-            background: rgba(255,255,255,0.97);
+            background:
+                rgba(255,255,255,0.97);
 
-            border-bottom: 1px solid var(--border);
+            border-bottom:
+                1px solid var(--border);
 
             box-shadow:
-                0 2px 9px rgba(15,23,42,0.05);
+                0 2px 9px
+                rgba(15,23,42,0.05);
         }
 
         nav ul {
-            list-style: none;
-
             display: flex;
+
             justify-content: center;
             align-items: center;
+
             flex-wrap: wrap;
+
+            list-style: none;
+
+            margin: 0;
+            padding: 0;
         }
 
         nav li {
@@ -248,34 +277,12 @@
             font-size: 13px;
             font-weight: 650;
 
-            transition: color 0.2s ease;
+            transition:
+                color 0.2s ease;
         }
 
         nav a:hover {
             color: var(--blue);
-        }
-
-
-        /* =========================================================
-           ACCESSIBILITY
-        ========================================================= */
-
-        .sr-only {
-            position: absolute;
-
-            width: 1px;
-            height: 1px;
-
-            padding: 0;
-            margin: -1px;
-
-            overflow: hidden;
-
-            clip: rect(0, 0, 0, 0);
-
-            white-space: nowrap;
-
-            border: 0;
         }
 
 
@@ -286,9 +293,11 @@
         .container {
             max-width: 1100px;
 
-            margin: 40px auto;
+            margin:
+                40px auto;
 
-            padding: 0 20px;
+            padding:
+                0 20px;
         }
 
         .section {
@@ -296,17 +305,22 @@
         }
 
         .card {
-            background: white;
-
-            border: 1px solid var(--border);
-            border-radius: 14px;
-
             padding: 34px;
 
-            box-shadow: var(--shadow);
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 14px;
+
+            box-shadow:
+                var(--shadow);
         }
 
         .label {
+            margin-bottom: 7px;
+
             color: var(--blue);
 
             font-size: 12px;
@@ -314,18 +328,17 @@
 
             text-transform: uppercase;
             letter-spacing: 0.9px;
-
-            margin-bottom: 7px;
         }
 
         .section-title {
+            margin-bottom: 9px;
+
             color: var(--navy);
 
-            font-size: clamp(1.55rem, 4vw, 2rem);
+            font-size:
+                clamp(1.55rem, 4vw, 2rem);
 
             line-height: 1.25;
-
-            margin-bottom: 9px;
         }
 
         .section-intro {
@@ -344,7 +357,8 @@
         .intro-grid {
             display: grid;
 
-            grid-template-columns: 1.2fr 0.8fr;
+            grid-template-columns:
+                1.2fr 0.8fr;
 
             gap: 25px;
 
@@ -356,9 +370,9 @@
         }
 
         .intro-text p {
-            color: #475569;
-
             margin-top: 13px;
+
+            color: #475569;
 
             font-size: 0.95rem;
         }
@@ -366,9 +380,11 @@
         .intro-box {
             padding: 25px;
 
-            background: var(--blue-soft);
+            background:
+                var(--blue-soft);
 
-            border: 1px solid #DBEAFE;
+            border:
+                1px solid #DBEAFE;
 
             border-radius: 10px;
         }
@@ -376,19 +392,19 @@
         .intro-box strong {
             display: block;
 
+            margin-bottom: 8px;
+
             color: var(--navy);
 
             font-size: 1rem;
-
-            margin-bottom: 8px;
         }
 
         .intro-box p {
+            margin: 0;
+
             color: #475569;
 
             font-size: 0.88rem;
-
-            margin: 0;
         }
 
 
@@ -399,7 +415,8 @@
         .services-grid {
             display: grid;
 
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns:
+                repeat(2, 1fr);
 
             gap: 16px;
 
@@ -409,55 +426,66 @@
         .service {
             padding: 24px;
 
-            border: 1px solid var(--border);
-            border-radius: 10px;
-
             background: #FFFFFF;
 
-            transition: 0.2s ease;
+            border:
+                1px solid var(--border);
+
+            border-radius: 10px;
+
+            transition:
+                border-color 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
         }
 
         .service:hover {
             border-color: #BFDBFE;
 
-            transform: translateY(-3px);
+            transform:
+                translateY(-3px);
 
             box-shadow:
-                0 9px 25px rgba(37,99,235,0.07);
+                0 9px 25px
+                rgba(37,99,235,0.07);
         }
 
         .service-number {
+            margin-bottom: 6px;
+
             color: #93C5FD;
 
             font-size: 11px;
             font-weight: 800;
-
-            margin-bottom: 6px;
         }
 
         .service h3 {
+            margin-bottom: 7px;
+
             color: var(--navy);
 
             font-size: 1.05rem;
-
-            margin-bottom: 7px;
         }
 
         .service p {
+            margin-bottom: 13px;
+
             color: var(--muted);
 
             font-size: 0.88rem;
-
-            margin-bottom: 13px;
         }
 
         .service ul {
-            list-style: none;
-
             display: flex;
+
             flex-direction: column;
 
             gap: 5px;
+
+            list-style: none;
+
+            margin: 0;
+            padding: 0;
         }
 
         .service li {
@@ -483,25 +511,45 @@
 
 
         /* =========================================================
-           HELP
+           HELP / WORK / PROCESS
         ========================================================= */
 
-        .help-grid {
+        .help-grid,
+        .work-options,
+        .process {
             display: grid;
 
-            grid-template-columns: repeat(3, 1fr);
-
-            gap: 13px;
+            gap: 14px;
 
             margin-top: 25px;
         }
 
-        .help-item {
-            padding: 19px;
+        .help-grid {
+            grid-template-columns:
+                repeat(3, 1fr);
+        }
+
+        .work-options {
+            grid-template-columns:
+                repeat(3, 1fr);
+        }
+
+        .process {
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 16px;
+        }
+
+        .help-item,
+        .option,
+        .process-item {
+            padding: 20px;
 
             background: #F8FAFC;
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
             border-radius: 9px;
         }
@@ -509,11 +557,11 @@
         .help-item strong {
             display: block;
 
+            margin-bottom: 4px;
+
             color: var(--navy);
 
             font-size: 0.92rem;
-
-            margin-bottom: 4px;
         }
 
         .help-item span {
@@ -522,99 +570,30 @@
             font-size: 0.82rem;
         }
 
-
-        /* =========================================================
-           WAYS TO WORK
-        ========================================================= */
-
-        .work-options {
-            display: grid;
-
-            grid-template-columns: repeat(3, 1fr);
-
-            gap: 14px;
-
-            margin-top: 25px;
-        }
-
         .option {
-            padding: 22px;
-
-            border: 1px solid var(--border);
-            border-radius: 9px;
-
             background: white;
         }
 
-        .option h3 {
+        .option h3,
+        .process-item h3 {
+            margin-bottom: 5px;
+
             color: var(--navy);
 
             font-size: 0.98rem;
-
-            margin-bottom: 5px;
         }
 
-        .option p {
+        .option p,
+        .process-item p {
+            margin: 0;
+
             color: var(--muted);
 
             font-size: 0.84rem;
-
-            margin: 0;
-        }
-
-
-        /* =========================================================
-           AREAS
-        ========================================================= */
-
-        .areas {
-            display: flex;
-
-            flex-wrap: wrap;
-
-            gap: 8px;
-
-            margin-top: 22px;
-        }
-
-        .area {
-            padding: 8px 14px;
-
-            border: 1px solid #DBEAFE;
-
-            background: var(--blue-soft);
-
-            color: var(--navy);
-
-            border-radius: 30px;
-
-            font-size: 12px;
-            font-weight: 650;
-        }
-
-
-        /* =========================================================
-           PROCESS
-        ========================================================= */
-
-        .process {
-            display: grid;
-
-            grid-template-columns: repeat(3, 1fr);
-
-            gap: 16px;
-
-            margin-top: 25px;
         }
 
         .process-item {
             padding: 22px;
-
-            background: #F8FAFC;
-
-            border: 1px solid var(--border);
-
-            border-radius: 10px;
         }
 
         .process-number {
@@ -638,20 +617,37 @@
             font-weight: 800;
         }
 
-        .process-item h3 {
-            color: var(--navy);
 
-            font-size: 0.98rem;
+        /* =========================================================
+           AREAS
+        ========================================================= */
 
-            margin-bottom: 5px;
+        .areas {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-top: 22px;
         }
 
-        .process-item p {
-            color: var(--muted);
+        .area {
+            padding:
+                8px 14px;
 
-            font-size: 0.85rem;
+            background:
+                var(--blue-soft);
 
-            margin: 0;
+            border:
+                1px solid #DBEAFE;
+
+            border-radius: 30px;
+
+            color: var(--navy);
+
+            font-size: 12px;
+            font-weight: 650;
         }
 
 
@@ -660,7 +656,8 @@
         ========================================================= */
 
         .cta {
-            padding: 45px 25px;
+            padding:
+                45px 25px;
 
             background:
                 linear-gradient(
@@ -669,25 +666,28 @@
                     #163E6D
                 );
 
+            border-radius: 14px;
+
             color: white;
 
             text-align: center;
 
-            border-radius: 14px;
-
-            box-shadow: var(--shadow);
+            box-shadow:
+                var(--shadow);
         }
 
         .cta h2 {
-            font-size: clamp(1.6rem, 4vw, 2.2rem);
-
             margin-bottom: 10px;
+
+            font-size:
+                clamp(1.6rem, 4vw, 2.2rem);
         }
 
         .cta p {
             max-width: 680px;
 
-            margin: 0 auto 23px;
+            margin:
+                0 auto 23px;
 
             color: #CBDCF3;
 
@@ -702,35 +702,39 @@
         #contact {
             max-width: 850px;
 
-            margin: 45px auto;
+            margin:
+                45px auto;
 
-            padding: 0 20px;
+            padding:
+                0 20px;
         }
 
         .contact-card {
+            padding: 36px;
+
             background: white;
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
             border-radius: 14px;
 
-            padding: 36px;
-
-            box-shadow: var(--shadow);
+            box-shadow:
+                var(--shadow);
         }
 
         .contact-header {
-            text-align: center;
-
             margin-bottom: 25px;
+
+            text-align: center;
         }
 
         .contact-header h2 {
+            margin-bottom: 8px;
+
             color: var(--navy);
 
             font-size: 1.9rem;
-
-            margin-bottom: 8px;
         }
 
         .contact-header p {
@@ -744,13 +748,16 @@
         }
 
         .contact-note {
-            padding: 16px 18px;
+            padding:
+                16px 18px;
 
             margin-bottom: 23px;
 
-            background: var(--blue-soft);
+            background:
+                var(--blue-soft);
 
-            border-left: 3px solid var(--blue);
+            border-left:
+                3px solid var(--blue);
 
             border-radius: 6px;
 
@@ -766,12 +773,13 @@
         form {
             max-width: 620px;
 
-            margin: auto;
-
             display: flex;
+
             flex-direction: column;
 
             gap: 8px;
+
+            margin: auto;
         }
 
         form label {
@@ -788,9 +796,11 @@
         form select {
             width: 100%;
 
-            padding: 12px 13px;
+            padding:
+                12px 13px;
 
-            border: 1px solid #CBD5E1;
+            border:
+                1px solid #CBD5E1;
 
             border-radius: 7px;
 
@@ -815,7 +825,8 @@
             border-color: var(--blue);
 
             box-shadow:
-                0 0 0 3px rgba(37,99,235,0.11);
+                0 0 0 3px
+                rgba(37,99,235,0.11);
         }
 
         form button {
@@ -837,8 +848,7 @@
             cursor: pointer;
 
             transition:
-                background 0.2s ease,
-                opacity 0.2s ease;
+                background 0.2s ease;
         }
 
         form button:hover {
@@ -852,14 +862,15 @@
         }
 
         .form-status {
-            min-height: 24px;
+            min-height: 22px;
 
             margin-top: 12px;
 
-            text-align: center;
+            color: var(--muted);
 
-            font-size: 13px;
-            font-weight: 650;
+            font-size: 14px;
+
+            text-align: center;
         }
 
         .form-status.success {
@@ -868,10 +879,6 @@
 
         .form-status.error {
             color: #B91C1C;
-        }
-
-        .form-status.sending {
-            color: var(--muted);
         }
 
 
@@ -893,9 +900,11 @@
 
             padding: 20px;
 
-            background: rgba(7, 24, 45, 0.72);
+            background:
+                rgba(7,24,45,0.72);
 
-            backdrop-filter: blur(5px);
+            backdrop-filter:
+                blur(5px);
 
             overflow-y: auto;
         }
@@ -908,7 +917,6 @@
             position: relative;
 
             width: 100%;
-
             max-width: 650px;
 
             max-height: 90vh;
@@ -919,12 +927,14 @@
 
             background: #FFFFFF;
 
+            border:
+                1px solid #E2E8F0;
+
             border-radius: 15px;
 
-            border: 1px solid #E2E8F0;
-
             box-shadow:
-                0 25px 70px rgba(15, 23, 42, 0.25);
+                0 25px 70px
+                rgba(15,23,42,0.25);
         }
 
         .privacy-close {
@@ -956,47 +966,48 @@
         }
 
         .privacy-panel h2 {
-            color: var(--navy);
-
-            font-size: 1.7rem;
-
             margin-bottom: 10px;
 
             padding-right: 35px;
+
+            color: var(--navy);
+
+            font-size: 1.7rem;
         }
 
         .privacy-intro {
+            margin-bottom: 22px;
+
             color: #475569;
 
             font-size: 0.94rem;
 
             line-height: 1.7;
-
-            margin-bottom: 22px;
         }
 
         .privacy-section {
             padding: 17px 0;
 
-            border-top: 1px solid var(--border);
+            border-top:
+                1px solid var(--border);
         }
 
         .privacy-section h3 {
+            margin-bottom: 6px;
+
             color: var(--navy);
 
             font-size: 0.98rem;
-
-            margin-bottom: 6px;
         }
 
         .privacy-section p {
+            margin-bottom: 8px;
+
             color: var(--muted);
 
             font-size: 0.86rem;
 
             line-height: 1.65;
-
-            margin-bottom: 8px;
         }
 
         .privacy-section p:last-child {
@@ -1016,11 +1027,12 @@
 
             min-height: 47px;
 
+            padding:
+                10px 18px;
+
             border: none;
 
             border-radius: 7px;
-
-            padding: 10px 18px;
 
             font-size: 14px;
             font-weight: 750;
@@ -1042,7 +1054,8 @@
 
             color: #334155;
 
-            border: 1px solid #CBD5E1;
+            border:
+                1px solid #CBD5E1;
         }
 
         .privacy-secondary:hover {
@@ -1080,13 +1093,16 @@
         }
 
         .privacy-floating button {
-            padding: 8px 13px;
+            padding:
+                8px 13px;
 
-            border: 1px solid #CBD5E1;
+            border:
+                1px solid #CBD5E1;
 
             border-radius: 20px;
 
-            background: rgba(255,255,255,0.96);
+            background:
+                rgba(255,255,255,0.96);
 
             color: #475569;
 
@@ -1096,11 +1112,16 @@
             cursor: pointer;
 
             box-shadow:
-                0 3px 12px rgba(15,23,42,0.10);
+                0 3px 12px
+                rgba(15,23,42,0.10);
         }
 
         .privacy-floating button:hover {
             color: var(--blue);
+        }
+
+        body.privacy-modal-open {
+            overflow: hidden;
         }
 
 
@@ -1111,7 +1132,8 @@
         footer {
             margin-top: 45px;
 
-            padding: 30px 20px;
+            padding:
+                30px 20px;
 
             background: var(--navy);
 
@@ -1138,16 +1160,19 @@
             }
 
             .help-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns:
+                    1fr 1fr;
             }
 
             .work-options {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns:
+                    1fr 1fr;
             }
 
             .process {
                 grid-template-columns: 1fr;
             }
+
         }
 
 
@@ -1161,13 +1186,16 @@
             .work-options {
                 grid-template-columns: 1fr;
             }
+
         }
 
 
         @media (max-width: 600px) {
 
             header {
-                padding: 70px 16px 55px;
+                padding:
+                    70px 16px
+                    55px;
             }
 
             header h1 {
@@ -1183,23 +1211,28 @@
             }
 
             nav ul {
-                padding: 5px 5px 8px;
+                padding:
+                    5px 5px 8px;
             }
 
             nav li {
-                margin: 0 5px;
+                margin:
+                    0 5px;
             }
 
             nav a {
-                font-size: 11px;
+                padding:
+                    8px 1px;
 
-                padding: 8px 1px;
+                font-size: 11px;
             }
 
             .container {
-                padding: 0 12px;
+                margin:
+                    25px auto;
 
-                margin: 25px auto;
+                padding:
+                    0 12px;
             }
 
             .card {
@@ -1207,11 +1240,13 @@
             }
 
             #contact {
-                padding: 0 12px;
+                padding:
+                    0 12px;
             }
 
             .contact-card {
-                padding: 25px 18px;
+                padding:
+                    25px 18px;
             }
 
             form input,
@@ -1225,9 +1260,10 @@
             }
 
             .privacy-panel {
-                padding: 25px 20px;
-
                 max-height: 94vh;
+
+                padding:
+                    25px 20px;
             }
 
             .privacy-actions {
@@ -1237,6 +1273,7 @@
             .privacy-button {
                 width: 100%;
             }
+
         }
 
 
@@ -1249,8 +1286,10 @@
             *,
             *::before,
             *::after {
+                scroll-behavior: auto !important;
                 transition: none !important;
             }
+
         }
 
     </style>
@@ -1261,1329 +1300,1357 @@
 <body>
 
 
-    <!-- =========================================================
-         HERO
-    ========================================================== -->
+<!-- =========================================================
+     HERO
+========================================================= -->
 
-    <header id="home">
+<header id="home">
 
-        <div class="hero">
+    <div class="hero">
 
-            <div class="availability">
-                Available for Freelance &amp; Project Work
-            </div>
-
-            <h1>
-                Kaye Eloisa Arnejo
-            </h1>
-
-            <div class="hero-question">
-                Have work that needs to be done?
-            </div>
-
-            <p class="hero-description">
-                Practical, hands-on support across software and
-                technology, electronics and hardware, construction
-                and civil projects, clinical and mental health-related
-                work, documentation, research and technical tasks.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a
-                    href="#contact"
-                    class="button button-primary">
-                    Tell Me What You Need
-                </a>
-
-                <a
-                    href="#services"
-                    class="button button-secondary">
-                    See What I Can Help With
-                </a>
-
-            </div>
-
+        <div class="availability">
+            Available for Freelance &amp; Project Work
         </div>
 
-    </header>
-
-
-    <!-- =========================================================
-         NAVIGATION
-    ========================================================== -->
-
-    <nav aria-label="Main navigation">
-
-        <ul>
-
-            <li>
-                <a href="#home">Home</a>
-            </li>
-
-            <li>
-                <a href="#services">Services</a>
-            </li>
-
-            <li>
-                <a href="#help">What I Can Help With</a>
-            </li>
-
-            <li>
-                <a href="#process">How It Works</a>
-            </li>
-
-            <li>
-                <a href="#contact">Enquire</a>
-            </li>
-
-        </ul>
-
-    </nav>
-
-
-    <main class="container">
-
-
-        <!-- =====================================================
-             INTRODUCTION
-        ====================================================== -->
-
-        <section class="section">
-
-            <div class="card">
-
-                <div class="intro-grid">
-
-                    <div class="intro-text">
-
-                        <div class="label">
-                            Practical &amp; Hands-On Support
-                        </div>
-
-                        <h2 class="section-title">
-                            Let's Make the Work Easier
-                        </h2>
-
-                        <p>
-                            Some projects need technical knowledge.
-                            Others need someone who can get involved,
-                            organise information, prepare documentation,
-                            coordinate tasks, follow up requirements
-                            or simply take care of work that is slowing
-                            everything else down.
-                        </p>
-
-                        <p>
-                            My approach is practical and hands-on:
-                            understand what needs to be done, work through
-                            the details and help move the task toward a
-                            useful result.
-                        </p>
-
-                        <p>
-                            My background covers software and technology,
-                            electronics and hardware, construction-related
-                            environments, clinical and medical-related
-                            work, mental health-related support,
-                            research, documentation and administrative
-                            tasks.
-                        </p>
-
-                        <p>
-                            Support can be arranged around the actual
-                            requirement — whether that means a single
-                            task, a defined project, temporary support
-                            or ongoing assistance.
-                        </p>
-
-                    </div>
-
-
-                    <div class="intro-box">
-
-                        <strong>
-                            You don't need to know exactly what service
-                            you need.
-                        </strong>
-
-                        <p>
-                            Tell me what you are trying to accomplish,
-                            what needs to be done and when you need it.
-                            We can identify the practical tasks involved
-                            and discuss the appropriate arrangement.
-                        </p>
-
-                        <br>
-
-                        <strong>
-                            A hands-on approach means getting involved.
-                        </strong>
-
-                        <p>
-                            Where appropriate, I can work through the
-                            details with you rather than simply providing
-                            general advice.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             SERVICES
-        ====================================================== -->
-
-        <section
-            class="section"
-            id="services">
-
-            <div class="card">
-
-                <div class="label">
-                    Services
-                </div>
-
-                <h2 class="section-title">
-                    What I Can Help You With
-                </h2>
-
-                <p class="section-intro">
-                    Practical, hands-on support across technical,
-                    project, clinical, mental health-related,
-                    construction, research and administrative
-                    requirements.
-                </p>
-
-
-                <div class="services-grid">
-
-
-                    <div class="service">
-
-                        <div class="service-number">
-                            01
-                        </div>
-
-                        <h3>
-                            Software Engineering &amp; Technology
-                        </h3>
-
-                        <p>
-                            Hands-on support with software-related tasks,
-                            technical projects, digital systems and
-                            technology requirements.
-                        </p>
-
-                        <ul>
-                            <li>Software development support</li>
-                            <li>Web and application work</li>
-                            <li>Technical documentation</li>
-                            <li>Testing and troubleshooting</li>
-                            <li>Data and system organisation</li>
-                            <li>Technology project assistance</li>
-                        </ul>
-
-                    </div>
-
-
-                    <div class="service">
-
-                        <div class="service-number">
-                            02
-                        </div>
-
-                        <h3>
-                            Hardware &amp; Electronics Engineering
-                        </h3>
-
-                        <p>
-                            Practical support for electronics, hardware
-                            and technology-related project tasks.
-                        </p>
-
-                        <ul>
-                            <li>Electronics project support</li>
-                            <li>Hardware documentation</li>
-                            <li>Component and parts organisation</li>
-                            <li>Testing and troubleshooting support</li>
-                            <li>Technical records</li>
-                            <li>Hardware-related research</li>
-                        </ul>
-
-                    </div>
-
-
-                    <div class="service">
-
-                        <div class="service-number">
-                            03
-                        </div>
-
-                        <h3>
-                            Construction &amp; Civil Project Support
-                        </h3>
-
-                        <p>
-                            Practical, hands-on assistance with
-                            construction, civil technology and
-                            project-related technical and
-                            administrative tasks.
-                        </p>
-
-                        <ul>
-                            <li>Project documentation</li>
-                            <li>Technical records</li>
-                            <li>Construction administration</li>
-                            <li>Project coordination</li>
-                            <li>Material and document tracking</li>
-                            <li>Site-related documentation support</li>
-                        </ul>
-
-                    </div>
-
-
-                    <div class="service">
-
-                        <div class="service-number">
-                            04
-                        </div>
-
-                        <h3>
-                            Clinical, Medical &amp; Mental Health Support
-                        </h3>
-
-                        <p>
-                            Appropriate non-diagnostic support for
-                            clinical, medical-related and mental
-                            health-related environments, documentation,
-                            research and coordination.
-                        </p>
-
-                        <ul>
-                            <li>Clinical documentation</li>
-                            <li>Records organisation</li>
-                            <li>Research assistance</li>
-                            <li>Administrative support</li>
-                            <li>Information organisation</li>
-                            <li>Mental health-related project support</li>
-                            <li>Wellbeing and support-service administration</li>
-                            <li>Clinical project coordination</li>
-                        </ul>
-
-                    </div>
-
-
-                    <div class="service">
-
-                        <div class="service-number">
-                            05
-                        </div>
-
-                        <h3>
-                            Administrative &amp; Documentation Support
-                        </h3>
-
-                        <p>
-                            Hands-on help with the documents, records
-                            and administrative work that keeps a project
-                            or organisation organised.
-                        </p>
-
-                        <ul>
-                            <li>Document preparation</li>
-                            <li>Data entry and organisation</li>
-                            <li>Records management</li>
-                            <li>File organisation</li>
-                            <li>Scheduling</li>
-                            <li>General administrative tasks</li>
-                        </ul>
-
-                    </div>
-
-
-                    <div class="service">
-
-                        <div class="service-number">
-                            06
-                        </div>
-
-                        <h3>
-                            Research &amp; Technical Information
-                        </h3>
-
-                        <p>
-                            Hands-on help finding, organising and
-                            presenting information needed for technical,
-                            project or general research work.
-                        </p>
-
-                        <ul>
-                            <li>Online research</li>
-                            <li>Technical information gathering</li>
-                            <li>Product and component research</li>
-                            <li>Data organisation</li>
-                            <li>Research summaries</li>
-                            <li>Reference documentation</li>
-                        </ul>
-
-                    </div>
-
-
-                    <div class="service">
-
-                        <div class="service-number">
-                            07
-                        </div>
-
-                        <h3>
-                            Custom Project Support
-                        </h3>
-
-                        <p>
-                            Have a requirement that does not fit neatly
-                            into one category? Start with the task and
-                            we can discuss the practical, hands-on
-                            support needed.
-                        </p>
-
-                        <ul>
-                            <li>Define the task</li>
-                            <li>Clarify the expected result</li>
-                            <li>Identify required support</li>
-                            <li>Discuss timeframe</li>
-                            <li>Agree on the scope</li>
-                            <li>Work toward the required result</li>
-                        </ul>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             HELP
-        ====================================================== -->
-
-        <section
-            class="section"
-            id="help">
-
-            <div class="card">
-
-                <div class="label">
-                    Start With the Task
-                </div>
-
-                <h2 class="section-title">
-                    Maybe You Need Someone to...
-                </h2>
-
-                <p class="section-intro">
-                    You do not need to figure out the perfect job title
-                    first. Start with the actual work that needs to be
-                    completed.
-                </p>
-
-                <div class="help-grid">
-
-                    <div class="help-item">
-                        <strong>Build or improve software</strong>
-                        <span>
-                            Development, testing, troubleshooting,
-                            documentation and technology tasks.
-                        </span>
-                    </div>
-
-                    <div class="help-item">
-                        <strong>Work on electronics</strong>
-                        <span>
-                            Hardware, components, technical records,
-                            testing and electronics-related tasks.
-                        </span>
-                    </div>
-
-                    <div class="help-item">
-                        <strong>Support a construction project</strong>
-                        <span>
-                            Documentation, records, coordination,
-                            project assistance and technical tasks.
-                        </span>
-                    </div>
-
-                    <div class="help-item">
-                        <strong>Support clinical-related work</strong>
-                        <span>
-                            Documentation, research, records and
-                            appropriate administrative support.
-                        </span>
-                    </div>
-
-                    <div class="help-item">
-                        <strong>Support mental health-related work</strong>
-                        <span>
-                            Non-diagnostic administrative, research,
-                            documentation, coordination and
-                            support-service tasks.
-                        </span>
-                    </div>
-
-                    <div class="help-item">
-                        <strong>Organise technical information</strong>
-                        <span>
-                            Research, references, specifications,
-                            records and project information.
-                        </span>
-                    </div>
-
-                    <div class="help-item">
-                        <strong>Prepare technical documents</strong>
-                        <span>
-                            Organising project information, records,
-                            references and technical documentation.
-                        </span>
-                    </div>
-
-                    <div class="help-item">
-                        <strong>Organise data and records</strong>
-                        <span>
-                            Data entry, information organisation,
-                            file management and record keeping.
-                        </span>
-                    </div>
-
-                    <div class="help-item">
-                        <strong>Catch up on a backlog</strong>
-                        <span>
-                            Take on specific tasks when workload has
-                            become difficult to manage.
-                        </span>
-                    </div>
-
-                    <div class="help-item">
-                        <strong>Handle something specific</strong>
-                        <span>
-                            Explain the requirement and discuss the
-                            practical support needed.
-                        </span>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             WAYS TO WORK
-        ====================================================== -->
-
-        <section class="section">
-
-            <div class="card">
-
-                <div class="label">
-                    Flexible Arrangements
-                </div>
-
-                <h2 class="section-title">
-                    Work With Me Based on What You Need
-                </h2>
-
-                <p class="section-intro">
-                    Different tasks require different arrangements.
-                    The work can be discussed around the scope,
-                    timeframe and expected result.
-                </p>
-
-                <div class="work-options">
-
-                    <div class="option">
-                        <h3>One-Time Task</h3>
-                        <p>
-                            A specific task that simply needs to
-                            be completed.
-                        </p>
-                    </div>
-
-                    <div class="option">
-                        <h3>Short-Term Help</h3>
-                        <p>
-                            Additional support during a busy period
-                            or temporary workload.
-                        </p>
-                    </div>
-
-                    <div class="option">
-                        <h3>Project-Based</h3>
-                        <p>
-                            Support for a defined project with an
-                            agreed scope and timeframe.
-                        </p>
-                    </div>
-
-                    <div class="option">
-                        <h3>Ongoing Support</h3>
-                        <p>
-                            Regular help with recurring technical,
-                            administrative or project tasks.
-                        </p>
-                    </div>
-
-                    <div class="option">
-                        <h3>Contract Work</h3>
-                        <p>
-                            Work based on agreed responsibilities,
-                            requirements and duration.
-                        </p>
-                    </div>
-
-                    <div class="option">
-                        <h3>Custom Arrangement</h3>
-                        <p>
-                            Something different? Tell me about the
-                            requirement and we can discuss it.
-                        </p>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             AREAS
-        ====================================================== -->
-
-        <section class="section">
-
-            <div class="card">
-
-                <div class="label">
-                    Areas of Support
-                </div>
-
-                <h2 class="section-title">
-                    Different Types of Work, One Practical Approach
-                </h2>
-
-                <p class="section-intro">
-                    My approach is hands-on and task-focused, allowing
-                    me to work across different technical and
-                    professional environments depending on the
-                    requirement.
-                </p>
-
-                <div class="areas">
-
-                    <span class="area">Software</span>
-                    <span class="area">Web Technology</span>
-                    <span class="area">Hardware</span>
-                    <span class="area">Electronics</span>
-                    <span class="area">Technical Documentation</span>
-                    <span class="area">Construction</span>
-                    <span class="area">Civil Projects</span>
-                    <span class="area">Clinical Support</span>
-                    <span class="area">Medical-Related Support</span>
-                    <span class="area">Mental Health-Related Support</span>
-                    <span class="area">Research</span>
-                    <span class="area">Documentation</span>
-                    <span class="area">Data Organisation</span>
-                    <span class="area">Project Support</span>
-                    <span class="area">Technical Support</span>
-                    <span class="area">Administrative Support</span>
-                    <span class="area">Hands-On Support</span>
-                    <span class="area">Freelance Work</span>
-                    <span class="area">Contract Work</span>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             PROCESS
-        ====================================================== -->
-
-        <section
-            class="section"
-            id="process">
-
-            <div class="card">
-
-                <div class="label">
-                    Simple Process
-                </div>
-
-                <h2 class="section-title">
-                    Tell Me What Needs to Be Done
-                </h2>
-
-                <p class="section-intro">
-                    You do not need to prepare a complicated proposal.
-                    A simple description of the task is enough to
-                    start the conversation. The goal is to understand
-                    the requirement and take a practical, hands-on
-                    approach to the work.
-                </p>
-
-                <div class="process">
-
-                    <div class="process-item">
-
-                        <div class="process-number">
-                            1
-                        </div>
-
-                        <h3>
-                            Tell Me About the Work
-                        </h3>
-
-                        <p>
-                            Explain the task, problem, project,
-                            technical requirement or workload you
-                            need help with.
-                        </p>
-
-                    </div>
-
-
-                    <div class="process-item">
-
-                        <div class="process-number">
-                            2
-                        </div>
-
-                        <h3>
-                            Discuss the Requirement
-                        </h3>
-
-                        <p>
-                            We clarify the scope, timeframe,
-                            expected output, resources and other
-                            relevant details.
-                        </p>
-
-                    </div>
-
-
-                    <div class="process-item">
-
-                        <div class="process-number">
-                            3
-                        </div>
-
-                        <h3>
-                            Get Hands-On and Get It Done
-                        </h3>
-
-                        <p>
-                            If it is a good fit, we agree on the
-                            responsibilities and arrangement and
-                            work toward the required result.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             CTA
-        ====================================================== -->
-
-        <section class="section">
-
-            <div class="cta">
-
-                <h2>
-                    Have Something You Need Help With?
-                </h2>
-
-                <p>
-                    Whether it is software, electronics, construction,
-                    clinical or mental health-related work,
-                    documentation, research or a specific task you
-                    have not quite figured out yet, send me the details.
-                </p>
-
-                <a
-                    href="#contact"
-                    class="button button-primary">
-                    Tell Me What You Need
-                </a>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =========================================================
-         CONTACT
-    ========================================================== -->
-
-    <section id="contact">
-
-        <div class="contact-card">
-
-            <div class="contact-header">
-
-                <div class="label">
-                    Project / Service Enquiry
-                </div>
-
-                <h2>
-                    Tell Me What You Need
-                </h2>
-
-                <p>
-                    Give me a few details about the work.
-                    You do not need to know exactly what service
-                    category it belongs to.
-                </p>
-
-            </div>
-
-
-            <div class="contact-note">
-
-                <strong>Privacy:</strong>
-
-                The information you submit will be used to respond
-                to your enquiry and discuss the work you are requesting.
-                Please do not include passwords, financial information,
-                medical records or other sensitive information unless
-                it is genuinely necessary for the enquiry.
-
-            </div>
-
-
-            <!-- =====================================================
-                 FORM
-            ====================================================== -->
-
-            <form
-                id="contact-form"
-                action="https://script.google.com/macros/s/AKfycbxQw_rH1aZ9xNzjs43-CzLj2QUZzqtMBPw-TlEoFYp9bv4pYZDc4Nq0KrA7I75yqKA_0w/exec"
-                method="POST"
-                target="form-response-frame"
-                novalidate>
-
-
-                <label for="name">
-                    Name / Organisation
-                </label>
-
-                <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    autocomplete="name"
-                    placeholder="Your name or organisation"
-                    maxlength="200"
-                    required>
-
-
-                <label for="email">
-                    Email
-                </label>
-
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    autocomplete="email"
-                    placeholder="your.email@example.com"
-                    maxlength="320"
-                    required>
-
-
-                <label for="service">
-                    What kind of help do you need?
-                </label>
-
-                <select
-                    id="service"
-                    name="service">
-
-                    <option value="">
-                        Choose one if applicable
-                    </option>
-
-                    <option value="Software Engineering / Technology">
-                        Software Engineering / Technology
-                    </option>
-
-                    <option value="Hardware / Electronics">
-                        Hardware / Electronics
-                    </option>
-
-                    <option value="Construction / Civil Project">
-                        Construction / Civil Project
-                    </option>
-
-                    <option value="Clinical / Medical Support">
-                        Clinical / Medical Support
-                    </option>
-
-                    <option value="Mental Health-Related Support">
-                        Mental Health-Related Support
-                    </option>
-
-                    <option value="Administrative / Documentation">
-                        Administrative / Documentation
-                    </option>
-
-                    <option value="Research / Information">
-                        Research / Information
-                    </option>
-
-                    <option value="Project / Task Support">
-                        Project / Task Support
-                    </option>
-
-                    <option value="Something Else">
-                        Something Else
-                    </option>
-
-                </select>
-
-
-                <label for="timeframe">
-                    When do you need help?
-                </label>
-
-                <input
-                    type="text"
-                    id="timeframe"
-                    name="timeframe"
-                    maxlength="200"
-                    placeholder="Example: ASAP, next week, this month, ongoing">
-
-
-                <label for="message">
-                    Tell Me About the Work
-                </label>
-
-                <textarea
-                    id="message"
-                    name="message"
-                    rows="7"
-                    maxlength="10000"
-                    placeholder="What needs to be done? What would you like help with? What should the final result look like?"
-                    required></textarea>
-
-
-                <!-- =================================================
-                     LOCATION
-                ================================================== -->
-
-                <input
-                    type="hidden"
-                    id="location-permission"
-                    name="location_permission"
-                    value="not_requested">
-
-                <input
-                    type="hidden"
-                    id="latitude"
-                    name="latitude"
-                    value="">
-
-                <input
-                    type="hidden"
-                    id="longitude"
-                    name="longitude"
-                    value="">
-
-                <input
-                    type="hidden"
-                    id="location-accuracy"
-                    name="location_accuracy"
-                    value="">
-
-
-                <!-- =================================================
-                     HONEYPOT
-                ================================================== -->
-
-                <input
-                    type="text"
-                    name="website"
-                    tabindex="-1"
-                    autocomplete="off"
-                    aria-hidden="true"
-                    style="
-                        display:none !important;
-                        position:absolute !important;
-                        left:-9999px !important;
-                        width:1px !important;
-                        height:1px !important;
-                    ">
-
-
-                <button
-                    type="submit"
-                    id="submit-button">
-
-                    Send Requirement
-
-                </button>
-
-
-                <!-- STATUS -->
-
-                <div
-                    id="form-status"
-                    class="form-status"
-                    role="status"
-                    aria-live="polite">
-                </div>
-
-            </form>
-
-
-            <!-- =====================================================
-                 HIDDEN RESPONSE FRAME
-            ====================================================== -->
-
-            <iframe
-                name="form-response-frame"
-                id="form-response-frame"
-                title="Form response"
-                aria-hidden="true"
-                tabindex="-1"
-                style="
-                    width:0;
-                    height:0;
-                    border:0;
-                    position:absolute;
-                    left:-9999px;
-                    top:-9999px;
-                    visibility:hidden;
-                ">
-            </iframe>
-
+        <h1>
+            Kaye Eloisa Arnejo
+        </h1>
+
+        <div class="hero-question">
+            Have work that needs to be done?
         </div>
 
-    </section>
-
-
-    <!-- =========================================================
-         FOOTER
-    ========================================================== -->
-
-    <footer>
-
-        <p>
-            Freelance • Contract • Project Support
+        <p class="hero-description">
+            Practical, hands-on support across software and
+            technology, electronics and hardware, construction
+            and civil projects, clinical and mental health-related
+            work, documentation, research and technical tasks.
         </p>
 
-        <p>
-            Software • Electronics • Construction • Clinical •
-            Mental Health-Related • Technical Support
-        </p>
+        <div class="hero-buttons">
 
-        <br>
+            <a
+                href="#contact"
+                class="button button-primary">
+                Tell Me What You Need
+            </a>
 
-        <p>
-            &copy; 2026 KEA. All rights reserved.
-        </p>
-
-    </footer>
-
-
-    <!-- =========================================================
-         PRIVACY MODAL
-    ========================================================== -->
-
-    <div
-        id="privacy-modal"
-        class="privacy-modal"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="privacy-modal-title"
-        hidden>
-
-        <div class="privacy-panel">
-
-            <button
-                type="button"
-                class="privacy-close"
-                id="privacy-close"
-                aria-label="Close privacy panel">
-
-                &times;
-
-            </button>
-
-
-            <div class="label">
-                Privacy &amp; Terms
-            </div>
-
-
-            <h2 id="privacy-modal-title">
-                Your Privacy Matters
-            </h2>
-
-
-            <p class="privacy-intro">
-                This page may request your location to help provide
-                relevant information or support related to your enquiry.
-                Location access is optional.
-            </p>
-
-
-            <div class="privacy-section">
-
-                <h3>
-                    Location Information
-                </h3>
-
-                <p>
-                    If you choose to allow location access, your browser
-                    may provide your approximate or precise location,
-                    depending on your device and browser settings.
-                </p>
-
-                <p>
-                    Your location will only be requested after you give
-                    permission. This page does not continuously track
-                    your location.
-                </p>
-
-            </div>
-
-
-            <div class="privacy-section">
-
-                <h3>
-                    How Information Is Used
-                </h3>
-
-                <p>
-                    Information submitted through this page may be used
-                    to respond to your enquiry, understand your requirements,
-                    provide appropriate support and communicate with you
-                    about your request.
-                </p>
-
-            </div>
-
-
-            <div class="privacy-section">
-
-                <h3>
-                    Technical &amp; Professional Scope
-                </h3>
-
-                <p>
-                    Technical, construction, clinical, medical and
-                    mental health-related support is subject to the actual
-                    scope of work, applicable requirements, qualifications,
-                    permissions and any professional responsibilities
-                    that may apply.
-                </p>
-
-                <p>
-                    Mental health-related support offered through this
-                    page is not a substitute for emergency care,
-                    diagnosis, psychotherapy, medical treatment or other
-                    regulated professional services unless separately
-                    agreed and appropriately qualified.
-                </p>
-
-            </div>
-
-
-            <div class="privacy-section">
-
-                <h3>
-                    Terms of Use
-                </h3>
-
-                <p>
-                    Information provided through this page should be
-                    accurate and must not be used for unlawful purposes.
-                    Any proposed work remains subject to discussion,
-                    availability, scope and agreement before work begins.
-                </p>
-
-            </div>
-
-
-            <div class="privacy-section">
-
-                <h3>
-                    Your Choice
-                </h3>
-
-                <p>
-                    You can use this page without allowing location
-                    access. Refusing location permission will not prevent
-                    you from submitting an enquiry.
-                </p>
-
-            </div>
-
-
-            <div class="privacy-actions">
-
-                <button
-                    type="button"
-                    class="privacy-button privacy-primary"
-                    id="allow-location">
-
-                    Allow Location
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="privacy-button privacy-secondary"
-                    id="deny-location">
-
-                    Don't Allow
-
-                </button>
-
-            </div>
-
-
-            <button
-                type="button"
-                class="privacy-text-button"
-                id="privacy-understood">
-
-                Continue Without Location
-
-            </button>
+            <a
+                href="#services"
+                class="button button-secondary">
+                See What I Can Help With
+            </a>
 
         </div>
 
     </div>
 
+</header>
 
-    <!-- =========================================================
-         PRIVACY BUTTON
-    ========================================================== -->
 
-    <div class="privacy-floating">
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav aria-label="Main navigation">
+
+    <ul>
+
+        <li>
+            <a href="#home">Home</a>
+        </li>
+
+        <li>
+            <a href="#services">Services</a>
+        </li>
+
+        <li>
+            <a href="#help">What I Can Help With</a>
+        </li>
+
+        <li>
+            <a href="#process">How It Works</a>
+        </li>
+
+        <li>
+            <a href="#contact">Enquire</a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<main class="container">
+
+
+<!-- =========================================================
+     INTRODUCTION
+========================================================= -->
+
+<section class="section">
+
+    <div class="card">
+
+        <div class="intro-grid">
+
+            <div class="intro-text">
+
+                <div class="label">
+                    Practical &amp; Hands-On Support
+                </div>
+
+                <h2 class="section-title">
+                    Let's Make the Work Easier
+                </h2>
+
+                <p>
+                    Some projects need technical knowledge.
+                    Others need someone who can get involved,
+                    organise information, prepare documentation,
+                    coordinate tasks, follow up requirements
+                    or simply take care of work that is slowing
+                    everything else down.
+                </p>
+
+                <p>
+                    My approach is practical and hands-on:
+                    understand what needs to be done, work through
+                    the details and help move the task toward a
+                    useful result.
+                </p>
+
+                <p>
+                    My background covers software and technology,
+                    electronics and hardware, construction-related
+                    environments, clinical and medical-related
+                    work, mental health-related support,
+                    research, documentation and administrative
+                    tasks.
+                </p>
+
+                <p>
+                    Support can be arranged around the actual
+                    requirement — whether that means a single
+                    task, a defined project, temporary support
+                    or ongoing assistance.
+                </p>
+
+            </div>
+
+
+            <div class="intro-box">
+
+                <strong>
+                    You don't need to know exactly what service
+                    you need.
+                </strong>
+
+                <p>
+                    Tell me what you are trying to accomplish,
+                    what needs to be done and when you need it.
+                    We can identify the practical tasks involved
+                    and discuss the appropriate arrangement.
+                </p>
+
+                <br>
+
+                <strong>
+                    A hands-on approach means getting involved.
+                </strong>
+
+                <p>
+                    Where appropriate, I can work through the
+                    details with you rather than simply providing
+                    general advice.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SERVICES
+========================================================= -->
+
+<section
+    class="section"
+    id="services">
+
+    <div class="card">
+
+        <div class="label">
+            Services
+        </div>
+
+        <h2 class="section-title">
+            What I Can Help You With
+        </h2>
+
+        <p class="section-intro">
+            Practical, hands-on support across technical,
+            project, clinical, mental health-related,
+            construction, research and administrative
+            requirements.
+        </p>
+
+
+        <div class="services-grid">
+
+
+            <div class="service">
+
+                <div class="service-number">
+                    01
+                </div>
+
+                <h3>
+                    Software Engineering &amp; Technology
+                </h3>
+
+                <p>
+                    Hands-on support with software-related tasks,
+                    technical projects, digital systems and
+                    technology requirements.
+                </p>
+
+                <ul>
+                    <li>Software development support</li>
+                    <li>Web and application work</li>
+                    <li>Technical documentation</li>
+                    <li>Testing and troubleshooting</li>
+                    <li>Data and system organisation</li>
+                    <li>Technology project assistance</li>
+                </ul>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-number">
+                    02
+                </div>
+
+                <h3>
+                    Hardware &amp; Electronics Engineering
+                </h3>
+
+                <p>
+                    Practical support for electronics, hardware
+                    and technology-related project tasks.
+                </p>
+
+                <ul>
+                    <li>Electronics project support</li>
+                    <li>Hardware documentation</li>
+                    <li>Component and parts organisation</li>
+                    <li>Testing and troubleshooting support</li>
+                    <li>Technical records</li>
+                    <li>Hardware-related research</li>
+                </ul>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-number">
+                    03
+                </div>
+
+                <h3>
+                    Construction &amp; Civil Project Support
+                </h3>
+
+                <p>
+                    Practical, hands-on assistance with
+                    construction, civil technology and
+                    project-related technical and
+                    administrative tasks.
+                </p>
+
+                <ul>
+                    <li>Project documentation</li>
+                    <li>Technical records</li>
+                    <li>Construction administration</li>
+                    <li>Project coordination</li>
+                    <li>Material and document tracking</li>
+                    <li>Site-related documentation support</li>
+                </ul>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-number">
+                    04
+                </div>
+
+                <h3>
+                    Clinical, Medical &amp; Mental Health Support
+                </h3>
+
+                <p>
+                    Appropriate non-diagnostic support for
+                    clinical, medical-related and mental
+                    health-related environments, documentation,
+                    research and coordination.
+                </p>
+
+                <ul>
+                    <li>Clinical documentation</li>
+                    <li>Records organisation</li>
+                    <li>Research assistance</li>
+                    <li>Administrative support</li>
+                    <li>Information organisation</li>
+                    <li>Mental health-related project support</li>
+                    <li>Wellbeing and support-service administration</li>
+                    <li>Clinical project coordination</li>
+                </ul>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-number">
+                    05
+                </div>
+
+                <h3>
+                    Administrative &amp; Documentation Support
+                </h3>
+
+                <p>
+                    Hands-on help with the documents, records
+                    and administrative work that keeps a project
+                    or organisation organised.
+                </p>
+
+                <ul>
+                    <li>Document preparation</li>
+                    <li>Data entry and organisation</li>
+                    <li>Records management</li>
+                    <li>File organisation</li>
+                    <li>Scheduling</li>
+                    <li>General administrative tasks</li>
+                </ul>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-number">
+                    06
+                </div>
+
+                <h3>
+                    Research &amp; Technical Information
+                </h3>
+
+                <p>
+                    Hands-on help finding, organising and
+                    presenting information needed for technical,
+                    project or general research work.
+                </p>
+
+                <ul>
+                    <li>Online research</li>
+                    <li>Technical information gathering</li>
+                    <li>Product and component research</li>
+                    <li>Data organisation</li>
+                    <li>Research summaries</li>
+                    <li>Reference documentation</li>
+                </ul>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-number">
+                    07
+                </div>
+
+                <h3>
+                    Custom Project Support
+                </h3>
+
+                <p>
+                    Have a requirement that does not fit neatly
+                    into one category? Start with the task and
+                    we can discuss the practical, hands-on
+                    support needed.
+                </p>
+
+                <ul>
+                    <li>Define the task</li>
+                    <li>Clarify the expected result</li>
+                    <li>Identify required support</li>
+                    <li>Discuss timeframe</li>
+                    <li>Agree on the scope</li>
+                    <li>Work toward the required result</li>
+                </ul>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     HELP
+========================================================= -->
+
+<section
+    class="section"
+    id="help">
+
+    <div class="card">
+
+        <div class="label">
+            Start With the Task
+        </div>
+
+        <h2 class="section-title">
+            Maybe You Need Someone to...
+        </h2>
+
+        <p class="section-intro">
+            You do not need to figure out the perfect job title
+            first. Start with the actual work that needs to be
+            completed.
+        </p>
+
+
+        <div class="help-grid">
+
+            <div class="help-item">
+                <strong>Build or improve software</strong>
+                <span>
+                    Development, testing, troubleshooting,
+                    documentation and technology tasks.
+                </span>
+            </div>
+
+            <div class="help-item">
+                <strong>Work on electronics</strong>
+                <span>
+                    Hardware, components, technical records,
+                    testing and electronics-related tasks.
+                </span>
+            </div>
+
+            <div class="help-item">
+                <strong>Support a construction project</strong>
+                <span>
+                    Documentation, records, coordination,
+                    project assistance and technical tasks.
+                </span>
+            </div>
+
+            <div class="help-item">
+                <strong>Support clinical-related work</strong>
+                <span>
+                    Documentation, research, records and
+                    appropriate administrative support.
+                </span>
+            </div>
+
+            <div class="help-item">
+                <strong>Support mental health-related work</strong>
+                <span>
+                    Non-diagnostic administrative, research,
+                    documentation, coordination and
+                    support-service tasks.
+                </span>
+            </div>
+
+            <div class="help-item">
+                <strong>Organise technical information</strong>
+                <span>
+                    Research, references, specifications,
+                    records and project information.
+                </span>
+            </div>
+
+            <div class="help-item">
+                <strong>Prepare technical documents</strong>
+                <span>
+                    Organising project information, records,
+                    references and technical documentation.
+                </span>
+            </div>
+
+            <div class="help-item">
+                <strong>Organise data and records</strong>
+                <span>
+                    Data entry, information organisation,
+                    file management and record keeping.
+                </span>
+            </div>
+
+            <div class="help-item">
+                <strong>Catch up on a backlog</strong>
+                <span>
+                    Take on specific tasks when workload has
+                    become difficult to manage.
+                </span>
+            </div>
+
+            <div class="help-item">
+                <strong>Handle something specific</strong>
+                <span>
+                    Explain the requirement and discuss the
+                    practical support needed.
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     WAYS TO WORK
+========================================================= -->
+
+<section class="section">
+
+    <div class="card">
+
+        <div class="label">
+            Flexible Arrangements
+        </div>
+
+        <h2 class="section-title">
+            Work With Me Based on What You Need
+        </h2>
+
+        <p class="section-intro">
+            Different tasks require different arrangements.
+            The work can be discussed around the scope,
+            timeframe and expected result.
+        </p>
+
+        <div class="work-options">
+
+            <div class="option">
+                <h3>One-Time Task</h3>
+                <p>
+                    A specific task that simply needs to
+                    be completed.
+                </p>
+            </div>
+
+            <div class="option">
+                <h3>Short-Term Help</h3>
+                <p>
+                    Additional support during a busy period
+                    or temporary workload.
+                </p>
+            </div>
+
+            <div class="option">
+                <h3>Project-Based</h3>
+                <p>
+                    Support for a defined project with an
+                    agreed scope and timeframe.
+                </p>
+            </div>
+
+            <div class="option">
+                <h3>Ongoing Support</h3>
+                <p>
+                    Regular help with recurring technical,
+                    administrative or project tasks.
+                </p>
+            </div>
+
+            <div class="option">
+                <h3>Contract Work</h3>
+                <p>
+                    Work based on agreed responsibilities,
+                    requirements and duration.
+                </p>
+            </div>
+
+            <div class="option">
+                <h3>Custom Arrangement</h3>
+                <p>
+                    Something different? Tell me about the
+                    requirement and we can discuss it.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     AREAS
+========================================================= -->
+
+<section class="section">
+
+    <div class="card">
+
+        <div class="label">
+            Areas of Support
+        </div>
+
+        <h2 class="section-title">
+            Different Types of Work, One Practical Approach
+        </h2>
+
+        <p class="section-intro">
+            My approach is hands-on and task-focused, allowing
+            me to work across different technical and
+            professional environments depending on the
+            requirement.
+        </p>
+
+        <div class="areas">
+
+            <span class="area">Software</span>
+            <span class="area">Web Technology</span>
+            <span class="area">Hardware</span>
+            <span class="area">Electronics</span>
+            <span class="area">Technical Documentation</span>
+            <span class="area">Construction</span>
+            <span class="area">Civil Projects</span>
+            <span class="area">Clinical Support</span>
+            <span class="area">Medical-Related Support</span>
+            <span class="area">Mental Health-Related Support</span>
+            <span class="area">Research</span>
+            <span class="area">Documentation</span>
+            <span class="area">Data Organisation</span>
+            <span class="area">Project Support</span>
+            <span class="area">Technical Support</span>
+            <span class="area">Administrative Support</span>
+            <span class="area">Hands-On Support</span>
+            <span class="area">Freelance Work</span>
+            <span class="area">Contract Work</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PROCESS
+========================================================= -->
+
+<section
+    class="section"
+    id="process">
+
+    <div class="card">
+
+        <div class="label">
+            Simple Process
+        </div>
+
+        <h2 class="section-title">
+            Tell Me What Needs to Be Done
+        </h2>
+
+        <p class="section-intro">
+            You do not need to prepare a complicated proposal.
+            A simple description of the task is enough to
+            start the conversation. The goal is to understand
+            the requirement and take a practical, hands-on
+            approach to the work.
+        </p>
+
+        <div class="process">
+
+            <div class="process-item">
+
+                <div class="process-number">
+                    1
+                </div>
+
+                <h3>
+                    Tell Me About the Work
+                </h3>
+
+                <p>
+                    Explain the task, problem, project,
+                    technical requirement or workload you
+                    need help with.
+                </p>
+
+            </div>
+
+
+            <div class="process-item">
+
+                <div class="process-number">
+                    2
+                </div>
+
+                <h3>
+                    Discuss the Requirement
+                </h3>
+
+                <p>
+                    We clarify the scope, timeframe,
+                    expected output, resources and other
+                    relevant details.
+                </p>
+
+            </div>
+
+
+            <div class="process-item">
+
+                <div class="process-number">
+                    3
+                </div>
+
+                <h3>
+                    Get Hands-On and Get It Done
+                </h3>
+
+                <p>
+                    If it is a good fit, we agree on the
+                    responsibilities and arrangement and
+                    work toward the required result.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="section">
+
+    <div class="cta">
+
+        <h2>
+            Have Something You Need Help With?
+        </h2>
+
+        <p>
+            Whether it is software, electronics, construction,
+            clinical or mental health-related work,
+            documentation, research or a specific task you
+            have not quite figured out yet, send me the details.
+        </p>
+
+        <a
+            href="#contact"
+            class="button button-primary">
+            Tell Me What You Need
+        </a>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section id="contact">
+
+    <div class="contact-card">
+
+        <div class="contact-header">
+
+            <div class="label">
+                Project / Service Enquiry
+            </div>
+
+            <h2>
+                Tell Me What You Need
+            </h2>
+
+            <p>
+                Give me a few details about the work.
+                You do not need to know exactly what service
+                category it belongs to.
+            </p>
+
+        </div>
+
+
+        <div class="contact-note">
+
+            <strong>Privacy:</strong>
+
+            The information you submit will be used to respond
+            to your enquiry and discuss the work you are requesting.
+            Please do not include passwords, financial information,
+            medical records or other sensitive information unless
+            it is genuinely necessary for the enquiry.
+
+        </div>
+
+
+        <form
+            id="contact-form"
+            action="https://script.google.com/macros/s/AKfycbzhkcw76ij3XXhOLu3aEBrkNhau1hgO3bSkS15m7KNuH8j01IieB6Pr8k9OLO0AK1fQ/exec"
+            method="POST"
+            target="form-response-frame"
+            novalidate>
+
+
+            <label for="name">
+                Name / Organisation
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                name="name"
+                autocomplete="name"
+                placeholder="Your name or organisation"
+                maxlength="200"
+                required>
+
+
+            <label for="email">
+                Email
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                placeholder="your.email@example.com"
+                maxlength="320"
+                required>
+
+
+            <label for="service">
+                What kind of help do you need?
+            </label>
+
+            <select
+                id="service"
+                name="service">
+
+                <option value="">
+                    Choose one if applicable
+                </option>
+
+                <option value="Software Engineering / Technology">
+                    Software Engineering / Technology
+                </option>
+
+                <option value="Hardware / Electronics">
+                    Hardware / Electronics
+                </option>
+
+                <option value="Construction / Civil Project">
+                    Construction / Civil Project
+                </option>
+
+                <option value="Clinical / Medical Support">
+                    Clinical / Medical Support
+                </option>
+
+                <option value="Mental Health-Related Support">
+                    Mental Health-Related Support
+                </option>
+
+                <option value="Administrative / Documentation">
+                    Administrative / Documentation
+                </option>
+
+                <option value="Research / Information">
+                    Research / Information
+                </option>
+
+                <option value="Project / Task Support">
+                    Project / Task Support
+                </option>
+
+                <option value="Something Else">
+                    Something Else
+                </option>
+
+            </select>
+
+
+            <label for="timeframe">
+                When do you need help?
+            </label>
+
+            <input
+                type="text"
+                id="timeframe"
+                name="timeframe"
+                maxlength="200"
+                placeholder="Example: ASAP, next week, this month, ongoing">
+
+
+            <label for="message">
+                Tell Me About the Work
+            </label>
+
+            <textarea
+                id="message"
+                name="message"
+                rows="7"
+                maxlength="10000"
+                placeholder="What needs to be done? What would you like help with? What should the final result look like?"
+                required></textarea>
+
+
+            <!-- =================================================
+                 LOCATION
+            ================================================== -->
+
+            <input
+                type="hidden"
+                id="location-permission"
+                name="location_permission"
+                value="not_requested">
+
+            <input
+                type="hidden"
+                id="latitude"
+                name="latitude"
+                value="">
+
+            <input
+                type="hidden"
+                id="longitude"
+                name="longitude"
+                value="">
+
+            <input
+                type="hidden"
+                id="location-accuracy"
+                name="location_accuracy"
+                value="">
+
+
+            <!-- =================================================
+                 HONEYPOT
+            ================================================== -->
+
+            <input
+                type="text"
+                name="website"
+                tabindex="-1"
+                autocomplete="off"
+                aria-hidden="true"
+                style="
+                    display:none !important;
+                    position:absolute !important;
+                    left:-9999px !important;
+                    width:1px !important;
+                    height:1px !important;
+                ">
+
+
+            <button
+                type="submit"
+                id="submit-button">
+
+                Send Requirement
+
+            </button>
+
+
+            <div
+                id="form-status"
+                class="form-status"
+                role="status"
+                aria-live="polite">
+            </div>
+
+        </form>
+
+
+        <iframe
+            name="form-response-frame"
+            id="form-response-frame"
+            title="Form response"
+            aria-hidden="true"
+            tabindex="-1"
+            style="
+                width:0;
+                height:0;
+                border:0;
+                position:absolute;
+                left:-9999px;
+                top:-9999px;
+                visibility:hidden;
+            ">
+        </iframe>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <p>
+        Freelance • Contract • Project Support
+    </p>
+
+    <p>
+        Software • Electronics • Construction • Clinical •
+        Mental Health-Related • Technical Support
+    </p>
+
+    <br>
+
+    <p>
+        &copy; 2026 KEA. All rights reserved.
+    </p>
+
+</footer>
+
+
+<!-- =========================================================
+     PRIVACY MODAL
+========================================================= -->
+
+<div
+    id="privacy-modal"
+    class="privacy-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="privacy-modal-title"
+    hidden>
+
+    <div class="privacy-panel">
 
         <button
             type="button"
-            id="open-privacy">
+            class="privacy-close"
+            id="privacy-close"
+            aria-label="Close privacy panel">
 
+            &times;
+
+        </button>
+
+
+        <div class="label">
             Privacy &amp; Terms
+        </div>
+
+
+        <h2 id="privacy-modal-title">
+            Your Privacy Matters
+        </h2>
+
+
+        <p class="privacy-intro">
+            This page may request your location to help provide
+            relevant information or support related to your enquiry.
+            Location access is optional.
+        </p>
+
+
+        <div class="privacy-section">
+
+            <h3>
+                Location Information
+            </h3>
+
+            <p>
+                If you choose to allow location access, your browser
+                may provide your approximate or precise location,
+                depending on your device and browser settings.
+            </p>
+
+            <p>
+                Your location will only be requested after you give
+                permission. This page does not continuously track
+                your location.
+            </p>
+
+        </div>
+
+
+        <div class="privacy-section">
+
+            <h3>
+                How Information Is Used
+            </h3>
+
+            <p>
+                Information submitted through this page may be used
+                to respond to your enquiry, understand your requirements,
+                provide appropriate support and communicate with you
+                about your request.
+            </p>
+
+        </div>
+
+
+        <div class="privacy-section">
+
+            <h3>
+                Technical &amp; Professional Scope
+            </h3>
+
+            <p>
+                Technical, construction, clinical, medical and
+                mental health-related support is subject to the actual
+                scope of work, applicable requirements, qualifications,
+                permissions and any professional responsibilities
+                that may apply.
+            </p>
+
+            <p>
+                Mental health-related support offered through this
+                page is not a substitute for emergency care,
+                diagnosis, psychotherapy, medical treatment or other
+                regulated professional services unless separately
+                agreed and appropriately qualified.
+            </p>
+
+        </div>
+
+
+        <div class="privacy-section">
+
+            <h3>
+                Terms of Use
+            </h3>
+
+            <p>
+                Information provided through this page should be
+                accurate and must not be used for unlawful purposes.
+                Any proposed work remains subject to discussion,
+                availability, scope and agreement before work begins.
+            </p>
+
+        </div>
+
+
+        <div class="privacy-section">
+
+            <h3>
+                Your Choice
+            </h3>
+
+            <p>
+                You can use this page without allowing location
+                access. Refusing location permission will not prevent
+                you from submitting an enquiry.
+            </p>
+
+        </div>
+
+
+        <div class="privacy-actions">
+
+            <button
+                type="button"
+                class="privacy-button privacy-primary"
+                id="allow-location">
+
+                Allow Location
+
+            </button>
+
+
+            <button
+                type="button"
+                class="privacy-button privacy-secondary"
+                id="deny-location">
+
+                Don't Allow
+
+            </button>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="privacy-text-button"
+            id="privacy-understood">
+
+            Continue Without Location
 
         </button>
 
     </div>
 
-
-    <!-- =========================================================
-         JAVASCRIPT
-    ========================================================== -->
-
-    <script>
-
-    document.addEventListener("DOMContentLoaded", function () {
-
-        "use strict";
+</div>
 
 
-        /* =========================================================
-           FORM ELEMENTS
-        ========================================================= */
+<!-- =========================================================
+     PRIVACY FLOATING BUTTON
+========================================================= -->
+
+<div class="privacy-floating">
+
+    <button
+        type="button"
+        id="open-privacy">
+
+        Privacy &amp; Terms
+
+    </button>
+
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+        /* =====================================================
+           ELEMENTS
+        ===================================================== */
 
         const form =
-            document.getElementById("contact-form");
+            document.getElementById(
+                "contact-form"
+            );
 
         const button =
-            document.getElementById("submit-button");
-
-        const iframe =
-            document.getElementById("form-response-frame");
+            document.getElementById(
+                "submit-button"
+            );
 
         const status =
-            document.getElementById("form-status");
+            document.getElementById(
+                "form-status"
+            );
 
         const nameInput =
-            document.getElementById("name");
+            document.getElementById(
+                "name"
+            );
 
         const emailInput =
-            document.getElementById("email");
+            document.getElementById(
+                "email"
+            );
 
         const messageInput =
-            document.getElementById("message");
+            document.getElementById(
+                "message"
+            );
+
+        const iframe =
+            document.getElementById(
+                "form-response-frame"
+            );
 
         const honeypot =
             form
-                ? form.querySelector('input[name="website"]')
+                ? form.querySelector(
+                    'input[name="website"]'
+                )
                 : null;
 
 
-        /* =========================================================
-           PRIVACY ELEMENTS
-        ========================================================= */
+        /* =====================================================
+           PRIVACY
+        ===================================================== */
 
         const privacyModal =
-            document.getElementById("privacy-modal");
+            document.getElementById(
+                "privacy-modal"
+            );
 
         const privacyClose =
-            document.getElementById("privacy-close");
+            document.getElementById(
+                "privacy-close"
+            );
 
         const openPrivacy =
-            document.getElementById("open-privacy");
+            document.getElementById(
+                "open-privacy"
+            );
 
         const allowLocation =
-            document.getElementById("allow-location");
+            document.getElementById(
+                "allow-location"
+            );
 
         const denyLocation =
-            document.getElementById("deny-location");
+            document.getElementById(
+                "deny-location"
+            );
 
         const privacyUnderstood =
-            document.getElementById("privacy-understood");
+            document.getElementById(
+                "privacy-understood"
+            );
 
         const locationPermission =
-            document.getElementById("location-permission");
+            document.getElementById(
+                "location-permission"
+            );
 
         const latitudeInput =
-            document.getElementById("latitude");
+            document.getElementById(
+                "latitude"
+            );
 
         const longitudeInput =
-            document.getElementById("longitude");
+            document.getElementById(
+                "longitude"
+            );
 
         const accuracyInput =
-            document.getElementById("location-accuracy");
+            document.getElementById(
+                "location-accuracy"
+            );
 
 
-        /* =========================================================
-           SAFETY CHECK
-        ========================================================= */
+        /* =====================================================
+           SAFETY
+        ===================================================== */
 
         if (
             !form ||
@@ -2602,36 +2669,37 @@
         }
 
 
-        /* =========================================================
+        /* =====================================================
            STATE
-        ========================================================= */
+        ===================================================== */
 
         let submitting = false;
 
-        let timeoutID = null;
 
-        let iframeReady = false;
-
-
-        /* =========================================================
+        /* =====================================================
            STATUS
-        ========================================================= */
+        ===================================================== */
 
-        function setStatus(message, type) {
+        function showStatus(
+            message,
+            type = ""
+        ) {
 
             if (!status) {
                 return;
             }
 
-            status.textContent = message;
+            status.textContent =
+                message;
 
             status.className =
-                "form-status" +
-                (type ? " " + type : "");
+                "form-status " + type;
         }
 
 
         function resetButton() {
+
+            submitting = false;
 
             button.disabled = false;
 
@@ -2640,28 +2708,9 @@
         }
 
 
-        function finishSubmission() {
-
-            if (!submitting) {
-                return;
-            }
-
-            submitting = false;
-
-            if (timeoutID) {
-
-                clearTimeout(timeoutID);
-
-                timeoutID = null;
-            }
-
-            resetButton();
-        }
-
-
-        /* =========================================================
+        /* =====================================================
            PRIVACY MODAL
-        ========================================================= */
+        ===================================================== */
 
         function openPrivacyModal() {
 
@@ -2699,7 +2748,6 @@
             );
 
             if (locationPermission) {
-
                 locationPermission.value =
                     "denied";
             }
@@ -2707,10 +2755,6 @@
             closePrivacyModal();
         }
 
-
-        /* =========================================================
-           PRIVACY EVENTS
-        ========================================================= */
 
         if (openPrivacy) {
 
@@ -2760,13 +2804,14 @@
 
                     denyLocationAccess();
                 }
+
             }
         );
 
 
-        /* =========================================================
+        /* =====================================================
            LOCATION
-        ========================================================= */
+        ===================================================== */
 
         if (allowLocation) {
 
@@ -2786,7 +2831,6 @@
                         );
 
                         if (locationPermission) {
-
                             locationPermission.value =
                                 "unavailable";
                         }
@@ -2797,7 +2841,8 @@
                     }
 
 
-                    allowLocation.disabled = true;
+                    allowLocation.disabled =
+                        true;
 
                     allowLocation.textContent =
                         "Requesting Location...";
@@ -2812,28 +2857,24 @@
 
 
                             if (latitudeInput) {
-
                                 latitudeInput.value =
                                     coords.latitude;
                             }
 
 
                             if (longitudeInput) {
-
                                 longitudeInput.value =
                                     coords.longitude;
                             }
 
 
                             if (accuracyInput) {
-
                                 accuracyInput.value =
                                     coords.accuracy;
                             }
 
 
                             if (locationPermission) {
-
                                 locationPermission.value =
                                     "granted";
                             }
@@ -2860,7 +2901,6 @@
                         function () {
 
                             if (locationPermission) {
-
                                 locationPermission.value =
                                     "denied";
                             }
@@ -2880,6 +2920,7 @@
 
 
                             closePrivacyModal();
+
                         },
 
 
@@ -2888,15 +2929,17 @@
                             timeout: 10000,
                             maximumAge: 300000
                         }
+
                     );
+
                 }
             );
         }
 
 
-        /* =========================================================
+        /* =====================================================
            RESTORE LOCATION CONSENT
-        ========================================================= */
+        ===================================================== */
 
         const savedLocationConsent =
             localStorage.getItem(
@@ -2904,52 +2947,52 @@
             );
 
 
-        if (savedLocationConsent === "granted") {
+        if (
+            savedLocationConsent ===
+            "granted"
+        ) {
 
             if (locationPermission) {
-
                 locationPermission.value =
                     "previously_granted";
             }
         }
 
 
-        if (savedLocationConsent === "denied") {
+        if (
+            savedLocationConsent ===
+            "denied"
+        ) {
 
             if (locationPermission) {
-
                 locationPermission.value =
                     "previously_denied";
             }
         }
 
 
-        /* =========================================================
-           FIRST VISIT PRIVACY
-        ========================================================= */
-
         if (!savedLocationConsent) {
-
             openPrivacyModal();
         }
 
 
-        /* =========================================================
-           IFRAME LOAD
-           
-           Google Apps Script returns to the iframe after doPost()
-           finishes. This lets us detect completion without relying
-           on postMessage.
-        ========================================================= */
+        /* =====================================================
+           GOOGLE APPS SCRIPT RESPONSE
+        ===================================================== */
 
-        iframe.addEventListener(
-            "load",
-            function () {
+        window.addEventListener(
+            "message",
+            function (event) {
 
-                if (!iframeReady) {
+                const data =
+                    event.data;
 
-                    iframeReady = true;
 
+                if (
+                    !data ||
+                    data.type !==
+                        "KEA_FORM_RESPONSE"
+                ) {
                     return;
                 }
 
@@ -2959,59 +3002,74 @@
                 }
 
 
-                finishSubmission();
+                resetButton();
 
 
-                setStatus(
-                    "Your requirement has been sent successfully.",
-                    "success"
-                );
+                if (
+                    data.success === true
+                ) {
 
-
-                form.reset();
-
-
-                const currentConsent =
-                    localStorage.getItem(
-                        "kea_location_consent"
+                    showStatus(
+                        data.message ||
+                        "Thank you. Your requirement has been received.",
+                        "success"
                     );
 
 
-                if (locationPermission) {
+                    form.reset();
 
-                    if (
-                        currentConsent ===
-                        "granted"
-                    ) {
 
-                        locationPermission.value =
-                            "previously_granted";
+                    const consent =
+                        localStorage.getItem(
+                            "kea_location_consent"
+                        );
 
-                    } else if (
-                        currentConsent ===
-                        "denied"
-                    ) {
 
-                        locationPermission.value =
-                            "previously_denied";
+                    if (locationPermission) {
 
-                    } else {
+                        if (
+                            consent ===
+                            "granted"
+                        ) {
 
-                        locationPermission.value =
-                            "not_requested";
+                            locationPermission.value =
+                                "previously_granted";
+
+                        } else if (
+                            consent ===
+                            "denied"
+                        ) {
+
+                            locationPermission.value =
+                                "previously_denied";
+
+                        } else {
+
+                            locationPermission.value =
+                                "not_requested";
+                        }
                     }
+
+
+                    nameInput.focus();
+
+                    return;
                 }
 
 
-                nameInput.focus();
+                showStatus(
+                    data.message ||
+                    "Something went wrong. Please try again.",
+                    "error"
+                );
 
             }
         );
 
 
-        /* =========================================================
+        /* =====================================================
            FORM SUBMISSION
-        ========================================================= */
+        ===================================================== */
 
         form.addEventListener(
             "submit",
@@ -3039,7 +3097,7 @@
 
 
                 /* =================================================
-                   VALIDATION
+                   VALUES
                 ================================================= */
 
                 const name =
@@ -3052,9 +3110,13 @@
                     messageInput.value.trim();
 
 
+                /* =================================================
+                   VALIDATION
+                ================================================= */
+
                 if (!name) {
 
-                    setStatus(
+                    showStatus(
                         "Please enter your name or organisation.",
                         "error"
                     );
@@ -3067,7 +3129,7 @@
 
                 if (!email) {
 
-                    setStatus(
+                    showStatus(
                         "Please enter your email address.",
                         "error"
                     );
@@ -3078,9 +3140,11 @@
                 }
 
 
-                if (!emailInput.checkValidity()) {
+                if (
+                    !emailInput.checkValidity()
+                ) {
 
-                    setStatus(
+                    showStatus(
                         "Please enter a valid email address.",
                         "error"
                     );
@@ -3093,7 +3157,7 @@
 
                 if (!message) {
 
-                    setStatus(
+                    showStatus(
                         "Please tell me about the work you need help with.",
                         "error"
                     );
@@ -3105,46 +3169,26 @@
 
 
                 /* =================================================
-                   CONFIRM
-                ================================================= */
-
-                const confirmed =
-                    window.confirm(
-                        "Send this requirement?"
-                    );
-
-
-                if (!confirmed) {
-                    return;
-                }
-
-
-                /* =================================================
-                   START
+                   SUBMIT
                 ================================================= */
 
                 submitting = true;
-
-                iframeReady = false;
 
                 button.disabled = true;
 
                 button.textContent =
                     "Sending...";
 
-
-                setStatus(
-                    "Sending your requirement...",
-                    "sending"
+                showStatus(
+                    "Sending your requirement..."
                 );
 
 
                 /*
-                 * Native form submission.
+                 * Native form submission is intentional here.
                  *
-                 * This is intentionally used instead of fetch()
-                 * because Google Apps Script web apps commonly
-                 * involve redirects/CORS restrictions.
+                 * It works with the hidden iframe and does not
+                 * require CORS/fetch configuration.
                  */
 
                 HTMLFormElement.prototype.submit.call(
@@ -3152,40 +3196,46 @@
                 );
 
 
-                /* =================================================
-                   TIMEOUT
-                ================================================= */
+                /*
+                 * Safety timeout.
+                 *
+                 * This is deliberately much longer than normal,
+                 * because Google Apps Script can occasionally
+                 * experience temporary delays.
+                 */
 
-                timeoutID =
-                    window.setTimeout(
-                        function () {
+                window.setTimeout(
+                    function () {
 
-                            if (!submitting) {
-                                return;
-                            }
-
-
-                            finishSubmission();
+                        if (!submitting) {
+                            return;
+                        }
 
 
-                            setStatus(
-                                "The server is taking longer than expected. Your submission may still be processing. Please wait a moment before trying again.",
-                                "error"
-                            );
+                        resetButton();
 
-                        },
-                        20000
-                    );
+
+                        showStatus(
+                            "The server is taking longer than expected. Your enquiry may still have been received. Please wait a moment before trying again.",
+                            "error"
+                        );
+
+                    },
+                    30000
+                );
+
             }
         );
 
 
-        /* =========================================================
+        /* =====================================================
            SMOOTH SCROLL
-        ========================================================= */
+        ===================================================== */
 
         document
-            .querySelectorAll('a[href^="#"]')
+            .querySelectorAll(
+                'a[href^="#"]'
+            )
             .forEach(
                 function (anchor) {
 
@@ -3222,17 +3272,25 @@
 
 
                             target.scrollIntoView({
-                                behavior: "smooth",
-                                block: "start"
+
+                                behavior:
+                                    "smooth",
+
+                                block:
+                                    "start"
+
                             });
+
                         }
                     );
+
                 }
             );
 
-    });
+    }
+);
 
-    </script>
+</script>
 
 </body>
 
