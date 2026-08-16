@@ -1131,6 +1131,14 @@
 
         }
 
+        /* Hidden Google Translate widget styling */
+        #google_translate_element {
+            display: none !important;
+            height: 0 !important;
+            overflow: hidden !important;
+            visibility: hidden !important;
+        }
+
     </style>
 
 </head>
@@ -1267,6 +1275,8 @@
 
         </div>
 
+        <!-- Hidden Google Translate widget (loaded but not visible) -->
+        <div id="google_translate_element" aria-hidden="true"></div>
 
         <div class="hero">
 
@@ -1803,7 +1813,7 @@
 
         <!-- =====================================================
              WAYS TO WORK
-        ====================================================== -->
+        ========================================================= -->
 
         <section class="section">
 
@@ -2260,7 +2270,7 @@
 
     <!-- =========================================================
          FOOTER
-    ========================================================== -->
+    ========================================================= -->
 
     <footer>
 
@@ -2287,18 +2297,39 @@
     ========================================================== -->
 
     <script>
+        // Google Translate init callback (global)
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                autoDisplay: false,
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+
+        // Simple cookie helpers
+        function setCookie(name, value, days) {
+            var expires = "";
+            if (typeof days === "number") {
+                var d = new Date();
+                d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + d.toUTCString();
+            }
+            document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/";
+        }
+        function getCookie(name) {
+            var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+            return match ? decodeURIComponent(match[2]) : '';
+        }
 
         document.addEventListener(
             "DOMContentLoaded",
             function () {
 
-
                 /* =====================================================
                    LANGUAGE SELECTOR
-
-                   No Google Translate.
-                   No external translation company.
-                   The selector is completely local to this HTML file.
+                   Uses Google Translate (external service). The visible
+                   language-select controls translation. The translate
+                   UI is hidden.
                 ===================================================== */
 
                 const languageSelect =
@@ -2316,38 +2347,45 @@
                             const language =
                                 this.value;
 
+                            // Update the document language attribute
                             document.documentElement.lang =
                                 language;
 
                             /*
-                             * English is the original page language.
+                             * Note: This uses the Google Website Translator.
+                             * Setting the 'googtrans' cookie requests translation
+                             * from Google. The page is reloaded to let the
+                             * Translate script apply the language.
                              *
-                             * Because automatic translation requires
-                             * either an external translation service
-                             * or translation dictionaries embedded
-                             * directly in the page, this version does
-                             * not send page content anywhere.
-                             *
-                             * The dropdown is therefore ready for
-                             * completely local translation dictionaries
-                             * to be added later.
+                             * Privacy note: Loading Google Translate contacts
+                             * Google's servers and may send text for translation.
                              */
 
+                            // Determine desired googtrans value
+                            const desired = '/en/' + language;
+
+                            // If language is 'en' we clear translation by setting /en/en
+                            const current = getCookie('googtrans') || '';
+
                             if (language === "en") {
-
+                                if (current !== '/en/en') {
+                                    setCookie('googtrans', '/en/en', 365);
+                                    // reload to remove translation
+                                    window.location.reload();
+                                }
                                 return;
-
                             }
 
-                            alert(
-                                "This language option is ready for a local translation dictionary. No external translation service is being used."
-                            );
+                            if (current !== desired) {
+                                // request translation and reload to apply
+                                setCookie('googtrans', desired, 365);
+                                window.location.reload();
+                            }
 
                         }
                     );
 
                 }
-
 
                 /* =====================================================
                    FORM ELEMENTS
@@ -2740,6 +2778,9 @@
         );
 
     </script>
+
+    <!-- Load Google Translate script (calls googleTranslateElementInit) -->
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer></script>
 
 </body>
 
