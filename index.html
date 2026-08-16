@@ -1636,6 +1636,209 @@
 </footer>
 
 <script>
+
+
+    <!-- =========================================================
+         PRIVACY / TERMS / LOCATION MODAL
+    ========================================================== -->
+
+    <div
+        id="privacy-modal"
+        class="privacy-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="privacy-modal-title"
+        hidden>
+
+        <div class="privacy-panel">
+
+            <button
+                type="button"
+                class="privacy-close"
+                id="privacy-close"
+                aria-label="Close privacy panel">
+
+                &times;
+
+            </button>
+
+
+            <div
+                class="label"
+                data-i18n="privacy_terms">
+                Privacy &amp; Terms
+            </div>
+
+
+            <h2
+                id="privacy-modal-title"
+                data-i18n="privacy_title">
+                Your Privacy Matters
+            </h2>
+
+
+            <p
+                class="privacy-intro"
+                data-i18n="privacy_intro">
+                This page may request your location to help provide
+                relevant information or support related to your enquiry.
+                Location access is optional.
+            </p>
+
+
+            <div class="privacy-section">
+
+                <h3 data-i18n="location_title">
+                    Location Information
+                </h3>
+
+                <p data-i18n="location_p1">
+                    If you choose to allow location access, your browser
+                    may provide your approximate or precise location,
+                    depending on your device and browser settings.
+                </p>
+
+                <p data-i18n="location_p2">
+                    Your location will only be requested after you give
+                    permission. This page does not continuously track
+                    your location.
+                </p>
+
+            </div>
+
+
+            <div class="privacy-section">
+
+                <h3 data-i18n="information_title">
+                    How Information Is Used
+                </h3>
+
+                <p data-i18n="information_p">
+                    Information submitted through this page may be used
+                    to respond to your enquiry, understand your requirements,
+                    provide appropriate support and communicate with you
+                    about your request.
+                </p>
+
+            </div>
+
+
+            <div class="privacy-section">
+
+                <h3 data-i18n="scope_title">
+                    Technical &amp; Professional Scope
+                </h3>
+
+                <p data-i18n="scope_p1">
+                    Technical, construction, clinical, medical and
+                    mental health-related support is subject to the actual
+                    scope of work, applicable requirements, qualifications,
+                    permissions and any professional responsibilities
+                    that may apply.
+                </p>
+
+                <p data-i18n="scope_p2">
+                    Mental health-related support offered through this
+                    page is not a substitute for emergency care,
+                    diagnosis, psychotherapy, medical treatment or other
+                    regulated professional services unless separately
+                    agreed and appropriately qualified.
+                </p>
+
+            </div>
+
+
+            <div class="privacy-section">
+
+                <h3 data-i18n="terms_title">
+                    Terms of Use
+                </h3>
+
+                <p data-i18n="terms_p">
+                    Information provided through this page should be
+                    accurate and must not be used for unlawful purposes.
+                    Any proposed work remains subject to discussion,
+                    availability, scope and agreement before work begins.
+                </p>
+
+            </div>
+
+
+            <div class="privacy-section">
+
+                <h3 data-i18n="choice_title">
+                    Your Choice
+                </h3>
+
+                <p data-i18n="choice_p">
+                    You can use this page without allowing location
+                    access. Refusing location permission will not prevent
+                    you from submitting an enquiry.
+                </p>
+
+            </div>
+
+
+            <div class="privacy-actions">
+
+                <button
+                    type="button"
+                    class="privacy-button privacy-primary"
+                    id="allow-location"
+                    data-i18n="allow_location">
+
+                    Allow Location
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="privacy-button privacy-secondary"
+                    id="deny-location"
+                    data-i18n="dont_allow">
+
+                    Don't Allow
+
+                </button>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="privacy-text-button"
+                id="privacy-understood"
+                data-i18n="continue_without_location">
+
+                Continue Without Location
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         FLOATING PRIVACY BUTTON
+    ========================================================== -->
+
+    <div class="privacy-floating">
+
+        <button
+            type="button"
+            id="open-privacy"
+            data-i18n="privacy_terms">
+
+            Privacy &amp; Terms
+
+        </button>
+
+    </div>
+
+
+
 /* =========================================================
    LANGUAGE / TRANSLATION SYSTEM
 ========================================================= */
@@ -2902,6 +3105,576 @@ const languagePacks = {
     }
 
 };
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+
+                /* =================================================
+                   FORM ELEMENTS
+                ================================================= */
+
+                const form =
+                    document.getElementById(
+                        "contact-form"
+                    );
+
+                const button =
+                    document.getElementById(
+                        "submit-button"
+                    );
+
+                const iframe =
+                    document.getElementById(
+                        "form-response-frame"
+                    );
+
+                const nameInput =
+                    document.getElementById(
+                        "name"
+                    );
+
+                const emailInput =
+                    document.getElementById(
+                        "email"
+                    );
+
+                const messageInput =
+                    document.getElementById(
+                        "message"
+                    );
+
+                const honeypot =
+                    form
+                        ? form.querySelector(
+                            'input[name="website"]'
+                        )
+                        : null;
+
+
+                /* =================================================
+                   PRIVACY ELEMENTS
+                ================================================= */
+
+                const privacyModal =
+                    document.getElementById(
+                        "privacy-modal"
+                    );
+
+                const privacyClose =
+                    document.getElementById(
+                        "privacy-close"
+                    );
+
+                const openPrivacy =
+                    document.getElementById(
+                        "open-privacy"
+                    );
+
+                const allowLocation =
+                    document.getElementById(
+                        "allow-location"
+                    );
+
+                const denyLocation =
+                    document.getElementById(
+                        "deny-location"
+                    );
+
+                const privacyUnderstood =
+                    document.getElementById(
+                        "privacy-understood"
+                    );
+
+                const locationPermission =
+                    document.getElementById(
+                        "location-permission"
+                    );
+
+                const latitudeInput =
+                    document.getElementById(
+                        "latitude"
+                    );
+
+                const longitudeInput =
+                    document.getElementById(
+                        "longitude"
+                    );
+
+                const accuracyInput =
+                    document.getElementById(
+                        "location-accuracy"
+                    );
+
+
+                /* =================================================
+                   SAFETY CHECK
+                ================================================= */
+
+                if (
+                    !form ||
+                    !button ||
+                    !iframe ||
+                    !nameInput ||
+                    !emailInput ||
+                    !messageInput
+                ) {
+
+                    console.error(
+                        "KEA contact form could not be initialised."
+                    );
+
+                    return;
+
+                }
+
+
+                /* =================================================
+                   STATE
+                ================================================= */
+
+                let submitting = false;
+
+                let timeoutID = null;
+
+
+                /* =================================================
+                   PRIVACY MODAL
+                ================================================= */
+
+                function openPrivacyModal() {
+
+                    if (!privacyModal) {
+                        return;
+                    }
+
+                    privacyModal.hidden = false;
+
+                    document.body.classList.add(
+                        "privacy-modal-open"
+                    );
+
+                }
+
+
+                function closePrivacyModal() {
+
+                    if (!privacyModal) {
+                        return;
+                    }
+
+                    privacyModal.hidden = true;
+
+                    document.body.classList.remove(
+                        "privacy-modal-open"
+                    );
+
+                }
+
+
+                /* =================================================
+                   DENY / CONTINUE WITHOUT LOCATION
+                ================================================= */
+
+                function denyLocationAccess() {
+
+                    localStorage.setItem(
+                        "kea_location_consent",
+                        "denied"
+                    );
+
+                    if (locationPermission) {
+
+                        locationPermission.value =
+                            "denied";
+
+                    }
+
+                    closePrivacyModal();
+
+                }
+
+
+                /* =================================================
+                   PRIVACY BUTTONS
+                ================================================= */
+
+                if (openPrivacy) {
+
+                    openPrivacy.addEventListener(
+                        "click",
+                        openPrivacyModal
+                    );
+
+                }
+
+
+                if (privacyClose) {
+
+                    privacyClose.addEventListener(
+                        "click",
+                        denyLocationAccess
+                    );
+
+                }
+
+
+                if (denyLocation) {
+
+                    denyLocation.addEventListener(
+                        "click",
+                        denyLocationAccess
+                    );
+
+                }
+
+
+                if (privacyUnderstood) {
+
+                    privacyUnderstood.addEventListener(
+                        "click",
+                        denyLocationAccess
+                    );
+
+                }
+
+
+                /* =================================================
+                   ESCAPE KEY
+                ================================================= */
+
+                document.addEventListener(
+                    "keydown",
+                    function (event) {
+
+                        if (
+                            event.key === "Escape" &&
+                            privacyModal &&
+                            !privacyModal.hidden
+                        ) {
+
+                            denyLocationAccess();
+
+                        }
+
+                    }
+                );
+
+
+                /* =================================================
+                   LOCATION REQUEST
+                ================================================= */
+
+                if (allowLocation) {
+
+                    allowLocation.addEventListener(
+                        "click",
+                        function () {
+
+
+                            if (!navigator.geolocation) {
+
+                                alert(
+                                    "Location services are not available in this browser."
+                                );
+
+                                localStorage.setItem(
+                                    "kea_location_consent",
+                                    "unavailable"
+                                );
+
+                                if (locationPermission) {
+
+                                    locationPermission.value =
+                                        "unavailable";
+
+                                }
+
+                                closePrivacyModal();
+
+                                return;
+
+                            }
+
+
+                            allowLocation.disabled = true;
+
+                            allowLocation.textContent =
+                                "Requesting Location...";
+
+
+                            navigator.geolocation.getCurrentPosition(
+
+                                function (position) {
+
+                                    const coords =
+                                        position.coords;
+
+
+                                    if (latitudeInput) {
+
+                                        latitudeInput.value =
+                                            coords.latitude;
+
+                                    }
+
+
+                                    if (longitudeInput) {
+
+                                        longitudeInput.value =
+                                            coords.longitude;
+
+                                    }
+
+
+                                    if (accuracyInput) {
+
+                                        accuracyInput.value =
+                                            coords.accuracy;
+
+                                    }
+
+
+                                    if (locationPermission) {
+
+                                        locationPermission.value =
+                                            "granted";
+
+                                    }
+
+
+                                    localStorage.setItem(
+                                        "kea_location_consent",
+                                        "granted"
+                                    );
+
+
+                                    allowLocation.disabled =
+                                        false;
+
+                                    allowLocation.textContent =
+                                        "Allow Location";
+
+
+                                    closePrivacyModal();
+
+                                },
+
+
+                                function (error) {
+
+                                    console.warn(
+                                        "Location was not provided:",
+                                        error.message
+                                    );
+
+
+                                    if (locationPermission) {
+
+                                        locationPermission.value =
+                                            "denied";
+
+                                    }
+
+
+                                    localStorage.setItem(
+                                        "kea_location_consent",
+                                        "denied"
+                                    );
+
+
+                                    allowLocation.disabled =
+                                        false;
+
+                                    allowLocation.textContent =
+                                        "Allow Location";
+
+
+                                    closePrivacyModal();
+
+                                },
+
+
+                                {
+                                    enableHighAccuracy: false,
+                                    timeout: 10000,
+                                    maximumAge: 300000
+                                }
+
+                            );
+
+                        }
+                    );
+
+                }
+
+
+                /* =================================================
+                   RESTORE LOCATION CONSENT
+                ================================================= */
+
+                const savedLocationConsent =
+                    localStorage.getItem(
+                        "kea_location_consent"
+                    );
+
+
+                if (
+                    savedLocationConsent === "granted"
+                ) {
+
+                    if (locationPermission) {
+
+                        locationPermission.value =
+                            "previously_granted";
+
+                    }
+
+                }
+
+
+                if (
+                    savedLocationConsent === "denied"
+                ) {
+
+                    if (locationPermission) {
+
+                        locationPermission.value =
+                            "previously_denied";
+
+                    }
+
+                }
+
+
+                /* =================================================
+                   FIRST VISIT PRIVACY MODAL
+                ================================================= */
+
+                if (!savedLocationConsent) {
+
+                    openPrivacyModal();
+
+                }
+
+
+                /* =================================================
+                   GOOGLE APPS SCRIPT RESPONSE
+                ================================================= */
+
+                window.addEventListener(
+                    "message",
+                    function (event) {
+
+                        const data =
+                            event.data;
+
+
+                        if (
+                            !data ||
+                            data.type !==
+                                "KEA_FORM_RESPONSE"
+                        ) {
+
+                            return;
+
+                        }
+
+
+                        if (!submitting) {
+
+                            return;
+
+                        }
+
+
+                        if (timeoutID) {
+
+                            clearTimeout(
+                                timeoutID
+                            );
+
+                            timeoutID = null;
+
+                        }
+
+
+                        submitting = false;
+
+                        button.disabled = false;
+
+                        button.textContent =
+                            "Send Requirement";
+
+
+                        if (
+                            data.success === true
+                        ) {
+
+                            alert(
+                                data.message ||
+                                "Thank you. Your requirement has been sent."
+                            );
+
+
+                            form.reset();
+
+
+                            const currentConsent =
+                                localStorage.getItem(
+                                    "kea_location_consent"
+                                );
+
+
+                            if (locationPermission) {
+
+                                if (
+                                    currentConsent ===
+                                        "granted"
+                                ) {
+
+                                    locationPermission.value =
+                                        "previously_granted";
+
+                                } else if (
+                                    currentConsent ===
+                                        "denied"
+                                ) {
+
+                                    locationPermission.value =
+                                        "previously_denied";
+
+                                } else {
+
+                                    locationPermission.value =
+                                        "not_requested";
+
+                                }
+
+                            }
+
+
+                            nameInput.focus();
+
+                            return;
+
+                        }
+
+
+                        alert(
+                            data.message ||
+                            "Something went wrong while sending your requirement. Please try again."
+                        );
+
+                    }
+                );
 
 
 /* =========================================================
