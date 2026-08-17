@@ -2172,9 +2172,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ? form.querySelector('input[name="website"]')
         : null;
 
-    /* =====================================================
-       PRIVACY
-    ===================================================== */
+    /* Privacy */
 
     const privacyModal =
         document.getElementById("privacy-modal");
@@ -2206,9 +2204,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const accuracyInput =
         document.getElementById("location-accuracy");
 
+
     /* =====================================================
-       SAFETY
-    ===================================================== */
+       SAFETY CHECK
+       ===================================================== */
 
     if (
         !form ||
@@ -2224,36 +2223,57 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
+
+    /* =====================================================
+       STATE
+       ===================================================== */
+
     let submitting = false;
+    let submitTimeout = null;
+
 
     /* =====================================================
        STATUS
-    ===================================================== */
+       ===================================================== */
 
     function showStatus(message, type = "") {
 
-        if (!status) return;
+        if (!status) {
+            return;
+        }
 
         status.textContent = message;
-        status.className =
-            "form-status " + type;
+        status.className = "form-status " + type;
     }
+
+
+    /* =====================================================
+       RESET SUBMIT BUTTON
+       ===================================================== */
 
     function resetButton() {
 
         submitting = false;
+
+        if (submitTimeout) {
+            clearTimeout(submitTimeout);
+            submitTimeout = null;
+        }
+
         button.disabled = false;
-        button.textContent =
-            "Send Requirement";
+        button.textContent = "Send Requirement";
     }
+
 
     /* =====================================================
        PRIVACY MODAL
-    ===================================================== */
+       ===================================================== */
 
     function openPrivacyModal() {
 
-        if (!privacyModal) return;
+        if (!privacyModal) {
+            return;
+        }
 
         privacyModal.hidden = false;
 
@@ -2262,9 +2282,12 @@ document.addEventListener("DOMContentLoaded", function () {
         );
     }
 
+
     function closePrivacyModal() {
 
-        if (!privacyModal) return;
+        if (!privacyModal) {
+            return;
+        }
 
         privacyModal.hidden = true;
 
@@ -2272,6 +2295,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "privacy-modal-open"
         );
     }
+
 
     function denyLocationAccess() {
 
@@ -2281,13 +2305,12 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         if (locationPermission) {
-
-            locationPermission.value =
-                "denied";
+            locationPermission.value = "denied";
         }
 
         closePrivacyModal();
     }
+
 
     if (openPrivacy) {
 
@@ -2297,6 +2320,7 @@ document.addEventListener("DOMContentLoaded", function () {
         );
     }
 
+
     if (privacyClose) {
 
         privacyClose.addEventListener(
@@ -2304,6 +2328,7 @@ document.addEventListener("DOMContentLoaded", function () {
             denyLocationAccess
         );
     }
+
 
     if (denyLocation) {
 
@@ -2313,6 +2338,7 @@ document.addEventListener("DOMContentLoaded", function () {
         );
     }
 
+
     if (privacyUnderstood) {
 
         privacyUnderstood.addEventListener(
@@ -2320,6 +2346,7 @@ document.addEventListener("DOMContentLoaded", function () {
             denyLocationAccess
         );
     }
+
 
     document.addEventListener(
         "keydown",
@@ -2336,9 +2363,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     );
 
+
     /* =====================================================
        LOCATION
-    ===================================================== */
+       ===================================================== */
 
     if (allowLocation) {
 
@@ -2348,29 +2376,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (!navigator.geolocation) {
 
-                    alert(
-                        "Location services are not available in this browser."
-                    );
+                    if (locationPermission) {
+                        locationPermission.value =
+                            "unavailable";
+                    }
 
                     localStorage.setItem(
                         "kea_location_consent",
                         "unavailable"
                     );
 
-                    if (locationPermission) {
-
-                        locationPermission.value =
-                            "unavailable";
-                    }
-
                     closePrivacyModal();
+
                     return;
                 }
+
 
                 allowLocation.disabled = true;
 
                 allowLocation.textContent =
                     "Requesting Location...";
+
 
                 navigator.geolocation.getCurrentPosition(
 
@@ -2379,65 +2405,72 @@ document.addEventListener("DOMContentLoaded", function () {
                         const coords =
                             position.coords;
 
-                        if (latitudeInput) {
 
+                        if (latitudeInput) {
                             latitudeInput.value =
                                 coords.latitude;
                         }
 
-                        if (longitudeInput) {
 
+                        if (longitudeInput) {
                             longitudeInput.value =
                                 coords.longitude;
                         }
 
-                        if (accuracyInput) {
 
+                        if (accuracyInput) {
                             accuracyInput.value =
                                 coords.accuracy;
                         }
 
-                        if (locationPermission) {
 
+                        if (locationPermission) {
                             locationPermission.value =
                                 "granted";
                         }
+
 
                         localStorage.setItem(
                             "kea_location_consent",
                             "granted"
                         );
 
+
                         allowLocation.disabled =
                             false;
 
                         allowLocation.textContent =
                             "Allow Location";
 
+
                         closePrivacyModal();
                     },
+
 
                     function () {
 
                         if (locationPermission) {
-
                             locationPermission.value =
                                 "denied";
                         }
+
 
                         localStorage.setItem(
                             "kea_location_consent",
                             "denied"
                         );
 
+
                         allowLocation.disabled =
                             false;
 
                         allowLocation.textContent =
                             "Allow Location";
 
+
                         closePrivacyModal();
                     },
+
 
                     {
                         enableHighAccuracy: false,
@@ -2449,47 +2482,52 @@ document.addEventListener("DOMContentLoaded", function () {
         );
     }
 
+
     /* =====================================================
        RESTORE LOCATION CONSENT
-    ===================================================== */
+       ===================================================== */
 
     const savedLocationConsent =
         localStorage.getItem(
             "kea_location_consent"
         );
 
+
     if (
-        savedLocationConsent ===
-        "granted"
+        savedLocationConsent === "granted"
     ) {
 
         if (locationPermission) {
-
             locationPermission.value =
                 "previously_granted";
         }
     }
 
+
     if (
-        savedLocationConsent ===
-        "denied"
+        savedLocationConsent === "denied"
     ) {
 
         if (locationPermission) {
-
             locationPermission.value =
                 "previously_denied";
         }
     }
 
-    if (!savedLocationConsent) {
 
-        openPrivacyModal();
-    }
+    /*
+     * IMPORTANT:
+     *
+     * Do NOT automatically open the location dialog.
+     *
+     * Location is optional and should not block
+     * someone from submitting an enquiry.
+     */
+
 
     /* =====================================================
        GOOGLE APPS SCRIPT RESPONSE
-    ===================================================== */
+       ===================================================== */
 
     window.addEventListener(
         "message",
@@ -2497,19 +2535,44 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const data = event.data;
 
+
+            /*
+             * Only accept messages coming from our
+             * hidden response iframe.
+             */
+
             if (
-                !data ||
-                data.type !==
-                    "KEA_FORM_RESPONSE"
+                event.source !== iframe.contentWindow
             ) {
                 return;
             }
+
+
+            if (
+                !data ||
+                typeof data !== "object"
+            ) {
+                return;
+            }
+
+
+            if (
+                data.type !==
+                "KEA_FORM_RESPONSE"
+            ) {
+                return;
+            }
+
 
             if (!submitting) {
                 return;
             }
 
+
             resetButton();
+
+
+            /* SUCCESS */
 
             if (data.success === true) {
 
@@ -2519,27 +2582,29 @@ document.addEventListener("DOMContentLoaded", function () {
                     "success"
                 );
 
+
                 form.reset();
+
+
+                /*
+                 * Restore location status after
+                 * form.reset().
+                 */
 
                 const consent =
                     localStorage.getItem(
                         "kea_location_consent"
                     );
 
+
                 if (locationPermission) {
 
-                    if (
-                        consent ===
-                        "granted"
-                    ) {
+                    if (consent === "granted") {
 
                         locationPermission.value =
                             "previously_granted";
 
-                    } else if (
-                        consent ===
-                        "denied"
-                    ) {
+                    } else if (consent === "denied") {
 
                         locationPermission.value =
                             "previously_denied";
@@ -2551,22 +2616,25 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 }
 
-                nameInput.focus();
 
                 return;
             }
 
+
+            /* FAILURE */
+
             showStatus(
                 data.message ||
-                "Something went wrong. Please try again.",
+                "The enquiry could not be submitted. Please try again.",
                 "error"
             );
         }
     );
 
+
     /* =====================================================
        FORM SUBMISSION
-    ===================================================== */
+       ===================================================== */
 
     form.addEventListener(
         "submit",
@@ -2574,20 +2642,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
             event.preventDefault();
 
+
             if (submitting) {
                 return;
             }
 
-            /* HONEYPOT */
+
+            /* =================================================
+               HONEYPOT
+               ================================================= */
 
             if (
                 honeypot &&
                 honeypot.value.trim() !== ""
             ) {
+
+                console.warn(
+                    "Honeypot triggered."
+                );
+
                 return;
             }
 
-            /* VALUES */
+
+            /* =================================================
+               VALUES
+               ================================================= */
 
             const name =
                 nameInput.value.trim();
@@ -2598,7 +2678,10 @@ document.addEventListener("DOMContentLoaded", function () {
             const message =
                 messageInput.value.trim();
 
-            /* VALIDATION */
+
+            /* =================================================
+               VALIDATION
+               ================================================= */
 
             if (!name) {
 
@@ -2612,6 +2695,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
+
             if (!email) {
 
                 showStatus(
@@ -2623,6 +2707,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 return;
             }
+
 
             if (!emailInput.checkValidity()) {
 
@@ -2636,6 +2721,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
+
             if (!message) {
 
                 showStatus(
@@ -2648,96 +2734,111 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            /* SUBMIT */
+
+            /* =================================================
+               START SUBMISSION
+               ================================================= */
 
             submitting = true;
 
             button.disabled = true;
 
-            button.textContent =
-                "Sending...";
+            button.textContent = "Sending...";
 
             showStatus(
                 "Sending your requirement..."
             );
 
+
             /*
-             * Native form submission is intentional.
-             * It works with the hidden iframe and avoids
-             * requiring CORS/fetch configuration.
+             * Submit normally to the hidden iframe.
+             *
+             * This avoids CORS problems with fetch().
              */
 
             HTMLFormElement.prototype.submit.call(
                 form
             );
 
-            /*
-             * Safety timeout.
-             */
 
-            window.setTimeout(
-                function () {
+            /* =================================================
+               TIMEOUT
+               ================================================= */
 
-                    if (!submitting) {
-                        return;
-                    }
+            submitTimeout =
+                window.setTimeout(
+                    function () {
 
-                    resetButton();
+                        if (!submitting) {
+                            return;
+                        }
 
-                    showStatus(
-                        "The server is taking longer than expected. Your enquiry may still have been received. Please wait a moment before trying again.",
-                        "error"
-                    );
 
-                },
-                30000
-            );
+                        resetButton();
+
+
+                        showStatus(
+                            "The server did not respond in time. Your enquiry may still have been received. Please wait before submitting again.",
+                            "error"
+                        );
+
+                    },
+                    30000
+                );
         }
     );
 
+
     /* =====================================================
        SMOOTH SCROLL
-    ===================================================== */
+       ===================================================== */
 
     document
         .querySelectorAll('a[href^="#"]')
-        .forEach(function (anchor) {
+        .forEach(
+            function (anchor) {
 
-            anchor.addEventListener(
-                "click",
-                function (event) {
+                anchor.addEventListener(
+                    "click",
+                    function (event) {
 
-                    const targetID =
-                        this.getAttribute("href");
+                        const targetID =
+                            this.getAttribute("href");
 
-                    if (
-                        !targetID ||
-                        targetID === "#"
-                    ) {
-                        return;
+
+                        if (
+                            !targetID ||
+                            targetID === "#"
+                        ) {
+                            return;
+                        }
+
+
+                        const target =
+                            document.querySelector(
+                                targetID
+                            );
+
+
+                        if (!target) {
+                            return;
+                        }
+
+
+                        event.preventDefault();
+
+
+                        target.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
+                        });
                     }
-
-                    const target =
-                        document.querySelector(
-                            targetID
-                        );
-
-                    if (!target) {
-                        return;
-                    }
-
-                    event.preventDefault();
-
-                    target.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                    });
-                }
-            );
-        });
+                );
+            }
+        );
 
 });
 </script>
 
-</body>
+</body> 
 </html>
