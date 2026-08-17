@@ -2,13 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0B1F3A">
-    <meta name="description" content="Kaye Eloisa Arnejo | Practical, hands-on freelance, contract and project support across software, electrical, electronics, hardware, construction, clinical, mental health-related, documentation and technical work.">
-    <title>KEA | Practical Hands-On Support for Work That Needs to Get Done</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#0B1F3A"
+    >
+
+    <meta
+        name="description"
+        content="Kaye Eloisa Arnejo | Practical, hands-on freelance, contract and project support across software, electrical, electronics, hardware, construction, clinical, documentation, research and technical work."
+    >
+
+    <title>
+        KEA | Practical Hands-On Support for Work That Needs to Get Done
+    </title>
 
     <style>
-        * { box-sizing: border-box; }
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
 
         html {
             scroll-behavior: smooth;
@@ -17,14 +41,23 @@
 
         body {
             margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            overflow-x: hidden;
+
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
             background: #f5f7fa;
             color: #1f2937;
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
-        a { color: inherit; }
+        a {
+            color: inherit;
+        }
 
         button,
         input,
@@ -43,16 +76,29 @@
             --border: #E2E8F0;
             --white: #FFFFFF;
             --background: #F5F7FA;
-            --shadow: 0 5px 22px rgba(15, 23, 42, 0.07);
+
+            --shadow:
+                0 5px 22px rgba(15, 23, 42, 0.07);
         }
 
-        /* HERO */
+        /* =====================================================
+           HERO
+        ===================================================== */
 
         header {
             padding: 78px 20px 72px;
+
             text-align: center;
+
             color: white;
-            background: linear-gradient(135deg, #07182D 0%, #0B1F3A 58%, #163E6D 100%);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #07182D 0%,
+                    #0B1F3A 58%,
+                    #163E6D 100%
+                );
         }
 
         .hero {
@@ -62,57 +108,88 @@
 
         .availability {
             display: inline-block;
+
             padding: 6px 14px;
             margin-bottom: 20px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.15);
+
             border-radius: 30px;
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.15);
+
+            background:
+                rgba(255,255,255,0.08);
+
             color: #BFDBFE;
+
             font-size: 12px;
             font-weight: 700;
         }
 
         header h1 {
-            margin-bottom: 20px;
-            font-size: clamp(2.3rem, 6vw, 3.7rem);
+            margin: 0 0 20px;
+
+            font-size:
+                clamp(2.3rem, 6vw, 3.7rem);
+
             line-height: 1.08;
+
             letter-spacing: -1.2px;
         }
 
         .hero-question {
             margin-bottom: 12px;
-            font-size: clamp(1.25rem, 3vw, 1.7rem);
+
+            font-size:
+                clamp(1.25rem, 3vw, 1.7rem);
+
             font-weight: 650;
         }
 
         .hero-description {
             max-width: 720px;
             margin: auto;
+
             color: #CBDCF3;
+
             font-size: 1rem;
             line-height: 1.75;
         }
 
         .hero-buttons {
             display: flex;
+
             justify-content: center;
             align-items: center;
+
             flex-wrap: wrap;
+
             gap: 10px;
+
             margin-top: 30px;
         }
 
         .button {
             display: inline-flex;
+
             align-items: center;
             justify-content: center;
+
             min-height: 48px;
+
             padding: 11px 23px;
+
             border-radius: 7px;
+
             text-decoration: none;
+
             font-size: 14px;
             font-weight: 750;
-            transition: background 0.2s ease, transform 0.2s ease;
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
         }
 
         .button-primary {
@@ -127,31 +204,53 @@
 
         .button-secondary {
             color: white;
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.2);
+
+            background:
+                rgba(255,255,255,0.08);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.2);
         }
 
         .button-secondary:hover {
-            background: rgba(255,255,255,0.15);
+            background:
+                rgba(255,255,255,0.15);
         }
 
-        /* NAVIGATION */
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
 
         nav {
             position: sticky;
+
             top: 0;
+
             z-index: 1000;
-            background: rgba(255,255,255,0.97);
-            border-bottom: 1px solid var(--border);
-            box-shadow: 0 2px 9px rgba(15,23,42,0.05);
+
+            background:
+                rgba(255,255,255,0.97);
+
+            border-bottom:
+                1px solid
+                var(--border);
+
+            box-shadow:
+                0 2px 9px
+                rgba(15,23,42,0.05);
         }
 
         nav ul {
             display: flex;
+
             justify-content: center;
             align-items: center;
+
             flex-wrap: wrap;
+
             list-style: none;
+
             margin: 0;
             padding: 0;
         }
@@ -162,9 +261,13 @@
 
         nav a {
             display: block;
+
             padding: 14px 0;
+
             color: #334155;
+
             text-decoration: none;
+
             font-size: 13px;
             font-weight: 650;
         }
@@ -173,11 +276,15 @@
             color: var(--blue);
         }
 
-        /* LAYOUT */
+        /* =====================================================
+           LAYOUT
+        ===================================================== */
 
         .container {
             max-width: 1100px;
+
             margin: 40px auto;
+
             padding: 0 20px;
         }
 
@@ -187,40 +294,63 @@
 
         .card {
             padding: 34px;
+
             background: white;
-            border: 1px solid var(--border);
+
+            border:
+                1px solid
+                var(--border);
+
             border-radius: 14px;
+
             box-shadow: var(--shadow);
         }
 
         .label {
             margin-bottom: 7px;
+
             color: var(--blue);
+
             font-size: 12px;
             font-weight: 800;
+
             text-transform: uppercase;
+
             letter-spacing: 0.9px;
         }
 
         .section-title {
-            margin-bottom: 9px;
+            margin:
+                0 0 9px;
+
             color: var(--navy);
-            font-size: clamp(1.55rem, 4vw, 2rem);
+
+            font-size:
+                clamp(1.55rem, 4vw, 2rem);
+
             line-height: 1.25;
         }
 
         .section-intro {
             max-width: 780px;
+
             color: var(--muted);
+
             font-size: 0.95rem;
         }
 
-        /* INTRODUCTION */
+        /* =====================================================
+           INTRODUCTION
+        ===================================================== */
 
         .intro-grid {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
+
+            grid-template-columns:
+                1.2fr 0.8fr;
+
             gap: 25px;
+
             align-items: stretch;
         }
 
@@ -230,116 +360,175 @@
 
         .intro-text p {
             margin-top: 13px;
+
             color: #475569;
+
             font-size: 0.95rem;
         }
 
         .intro-box {
             padding: 25px;
-            background: var(--blue-soft);
-            border: 1px solid #DBEAFE;
+
+            background:
+                var(--blue-soft);
+
+            border:
+                1px solid
+                #DBEAFE;
+
             border-radius: 10px;
         }
 
         .intro-box strong {
             display: block;
+
             margin-bottom: 8px;
+
             color: var(--navy);
+
             font-size: 1rem;
         }
 
         .intro-box p {
             margin: 0;
+
             color: #475569;
+
             font-size: 0.88rem;
         }
 
-        /* SERVICES */
+        /* =====================================================
+           SERVICES
+        ===================================================== */
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
             gap: 16px;
+
             margin-top: 27px;
         }
 
         .service {
             padding: 24px;
+
             background: #FFFFFF;
-            border: 1px solid var(--border);
+
+            border:
+                1px solid
+                var(--border);
+
             border-radius: 10px;
-            transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+
+            transition:
+                border-color 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
         }
 
         .service:hover {
             border-color: #BFDBFE;
-            transform: translateY(-3px);
-            box-shadow: 0 9px 25px rgba(37,99,235,0.07);
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 9px 25px
+                rgba(37,99,235,0.07);
         }
 
         .service-number {
             margin-bottom: 6px;
+
             color: #93C5FD;
+
             font-size: 11px;
             font-weight: 800;
         }
 
         .service h3 {
-            margin-bottom: 7px;
+            margin:
+                0 0 7px;
+
             color: var(--navy);
+
             font-size: 1.05rem;
         }
 
         .service p {
             margin-bottom: 13px;
+
             color: var(--muted);
+
             font-size: 0.88rem;
         }
 
         .service ul {
             display: flex;
+
             flex-direction: column;
+
             gap: 5px;
+
             list-style: none;
+
             margin: 0;
             padding: 0;
         }
 
         .service li {
             position: relative;
+
             padding-left: 17px;
+
             color: #475569;
+
             font-size: 0.84rem;
         }
 
         .service li::before {
             content: "✓";
+
             position: absolute;
+
             left: 0;
+
             color: var(--blue);
+
             font-weight: 800;
         }
 
-        /* HELP / WORK / PROCESS */
+        /* =====================================================
+           HELP / WORK / PROCESS
+        ===================================================== */
 
         .help-grid,
         .work-options,
         .process {
             display: grid;
+
             gap: 14px;
+
             margin-top: 25px;
         }
 
         .help-grid {
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns:
+                repeat(3, 1fr);
         }
 
         .work-options {
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns:
+                repeat(3, 1fr);
         }
 
         .process {
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns:
+                repeat(3, 1fr);
+
             gap: 16px;
         }
 
@@ -347,20 +536,29 @@
         .option,
         .process-item {
             padding: 20px;
+
             background: #F8FAFC;
-            border: 1px solid var(--border);
+
+            border:
+                1px solid
+                var(--border);
+
             border-radius: 9px;
         }
 
         .help-item strong {
             display: block;
+
             margin-bottom: 4px;
+
             color: var(--navy);
+
             font-size: 0.92rem;
         }
 
         .help-item span {
             color: var(--muted);
+
             font-size: 0.82rem;
         }
 
@@ -370,15 +568,20 @@
 
         .option h3,
         .process-item h3 {
-            margin-bottom: 5px;
+            margin:
+                0 0 5px;
+
             color: var(--navy);
+
             font-size: 0.98rem;
         }
 
         .option p,
         .process-item p {
             margin: 0;
+
             color: var(--muted);
+
             font-size: 0.84rem;
         }
 
@@ -389,100 +592,165 @@
         .process-number {
             width: 36px;
             height: 36px;
+
             display: flex;
+
             align-items: center;
             justify-content: center;
+
             margin-bottom: 12px;
+
             border-radius: 50%;
+
             background: var(--blue);
+
             color: white;
+
             font-size: 13px;
             font-weight: 800;
         }
 
-        /* AREAS */
+        /* =====================================================
+           AREAS
+        ===================================================== */
 
         .areas {
             display: flex;
+
             flex-wrap: wrap;
+
             gap: 8px;
+
             margin-top: 22px;
         }
 
         .area {
             padding: 8px 14px;
-            background: var(--blue-soft);
-            border: 1px solid #DBEAFE;
+
+            background:
+                var(--blue-soft);
+
+            border:
+                1px solid
+                #DBEAFE;
+
             border-radius: 30px;
+
             color: var(--navy);
+
             font-size: 12px;
             font-weight: 650;
         }
 
-        /* CTA */
+        /* =====================================================
+           CTA
+        ===================================================== */
 
         .cta {
             padding: 45px 25px;
-            background: linear-gradient(135deg, #0B1F3A, #163E6D);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0B1F3A,
+                    #163E6D
+                );
+
             border-radius: 14px;
+
             color: white;
+
             text-align: center;
+
             box-shadow: var(--shadow);
         }
 
         .cta h2 {
-            margin-bottom: 10px;
-            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            margin:
+                0 0 10px;
+
+            font-size:
+                clamp(1.6rem, 4vw, 2.2rem);
         }
 
         .cta p {
             max-width: 680px;
-            margin: 0 auto 23px;
+
+            margin:
+                0 auto 23px;
+
             color: #CBDCF3;
+
             font-size: 0.94rem;
         }
 
-        /* CONTACT */
+        /* =====================================================
+           CONTACT
+        ===================================================== */
 
         #contact {
             max-width: 850px;
+
             margin: 45px auto;
+
             padding: 0 20px;
         }
 
         .contact-card {
             padding: 36px;
+
             background: white;
-            border: 1px solid var(--border);
+
+            border:
+                1px solid
+                var(--border);
+
             border-radius: 14px;
+
             box-shadow: var(--shadow);
         }
 
         .contact-header {
             margin-bottom: 25px;
+
             text-align: center;
         }
 
         .contact-header h2 {
-            margin-bottom: 8px;
+            margin:
+                0 0 8px;
+
             color: var(--navy);
+
             font-size: 1.9rem;
         }
 
         .contact-header p {
             max-width: 650px;
+
             margin: auto;
+
             color: var(--muted);
+
             font-size: 0.92rem;
         }
 
         .contact-note {
             padding: 16px 18px;
+
             margin-bottom: 23px;
-            background: var(--blue-soft);
-            border-left: 3px solid var(--blue);
+
+            background:
+                var(--blue-soft);
+
+            border-left:
+                3px solid
+                var(--blue);
+
             border-radius: 6px;
+
             color: #475569;
+
             font-size: 0.86rem;
         }
 
@@ -492,15 +760,21 @@
 
         form {
             max-width: 620px;
+
             display: flex;
+
             flex-direction: column;
+
             gap: 8px;
+
             margin: auto;
         }
 
         form label {
             margin-top: 7px;
+
             color: var(--text);
+
             font-size: 13px;
             font-weight: 700;
         }
@@ -509,53 +783,81 @@
         form textarea,
         form select {
             width: 100%;
+
             padding: 12px 13px;
-            border: 1px solid #CBD5E1;
+
+            border:
+                1px solid
+                #CBD5E1;
+
             border-radius: 7px;
+
             background: white;
+
             color: var(--text);
+
             font-size: 15px;
+
             outline: none;
         }
 
         form textarea {
             min-height: 155px;
+
             resize: vertical;
         }
 
         form input:focus,
         form textarea:focus,
         form select:focus {
-            border-color: var(--blue);
-            box-shadow: 0 0 0 3px rgba(37,99,235,0.11);
+            border-color:
+                var(--blue);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(37,99,235,0.11);
         }
 
-        form button {
+        form button[type="submit"] {
             min-height: 49px;
+
             margin-top: 13px;
+
             border: none;
+
             border-radius: 7px;
-            background: var(--blue);
+
+            background:
+                var(--blue);
+
             color: white;
+
             font-size: 15px;
             font-weight: 750;
+
             cursor: pointer;
         }
 
-        form button:hover {
-            background: var(--blue-dark);
+        form button[type="submit"]:hover {
+            background:
+                var(--blue-dark);
         }
 
-        form button:disabled {
+        form button[type="submit"]:disabled {
             opacity: 0.65;
+
             cursor: wait;
         }
 
         .form-status {
             min-height: 22px;
+
             margin-top: 12px;
+
             color: var(--muted);
+
             font-size: 14px;
+
             text-align: center;
         }
 
@@ -567,18 +869,47 @@
             color: #B91C1C;
         }
 
-        /* PRIVACY MODAL */
+        /* =====================================================
+           HIDDEN FORM ELEMENTS
+        ===================================================== */
+
+        .form-hidden {
+            display: none !important;
+
+            position: absolute !important;
+
+            left: -9999px !important;
+
+            width: 1px !important;
+            height: 1px !important;
+
+            opacity: 0 !important;
+        }
+
+        /* =====================================================
+           PRIVACY MODAL
+        ===================================================== */
 
         .privacy-modal {
             position: fixed;
+
             inset: 0;
+
             z-index: 9999;
+
             display: flex;
+
             align-items: center;
             justify-content: center;
+
             padding: 20px;
-            background: rgba(7,24,45,0.72);
-            backdrop-filter: blur(5px);
+
+            background:
+                rgba(7,24,45,0.72);
+
+            backdrop-filter:
+                blur(5px);
+
             overflow-y: auto;
         }
 
@@ -588,65 +919,106 @@
 
         .privacy-panel {
             position: relative;
+
             width: 100%;
+
             max-width: 650px;
+
             max-height: 90vh;
+
             overflow-y: auto;
+
             padding: 32px;
+
             background: #FFFFFF;
-            border: 1px solid #E2E8F0;
+
+            border:
+                1px solid
+                #E2E8F0;
+
             border-radius: 15px;
-            box-shadow: 0 25px 70px rgba(15,23,42,0.25);
+
+            box-shadow:
+                0 25px 70px
+                rgba(15,23,42,0.25);
         }
 
         .privacy-close {
             position: absolute;
+
             top: 14px;
             right: 16px;
+
             width: 36px;
             height: 36px;
+
             border: none;
+
             border-radius: 50%;
-            background: #F1F5F9;
+
+            background:
+                #F1F5F9;
+
             color: #334155;
+
             font-size: 24px;
+
             line-height: 1;
+
             cursor: pointer;
         }
 
         .privacy-close:hover {
-            background: #E2E8F0;
+            background:
+                #E2E8F0;
         }
 
         .privacy-panel h2 {
-            margin-bottom: 10px;
+            margin:
+                0 0 10px;
+
             padding-right: 35px;
+
             color: var(--navy);
+
             font-size: 1.7rem;
         }
 
         .privacy-intro {
             margin-bottom: 22px;
+
             color: #475569;
+
             font-size: 0.94rem;
+
             line-height: 1.7;
         }
 
         .privacy-section {
             padding: 17px 0;
-            border-top: 1px solid var(--border);
+
+            border-top:
+                1px solid
+                var(--border);
         }
 
         .privacy-section h3 {
-            margin-bottom: 6px;
+            margin:
+                0 0 6px;
+
             color: var(--navy);
+
             font-size: 0.98rem;
         }
 
         .privacy-section p {
-            margin-bottom: 8px;
+            margin:
+                0 0 8px;
+
             color: var(--muted);
+
             font-size: 0.86rem;
+
             line-height: 1.65;
         }
 
@@ -656,70 +1028,109 @@
 
         .privacy-actions {
             display: flex;
+
             gap: 10px;
+
             margin-top: 20px;
         }
 
         .privacy-button {
             flex: 1;
+
             min-height: 47px;
+
             padding: 10px 18px;
+
             border: none;
+
             border-radius: 7px;
+
             font-size: 14px;
             font-weight: 750;
+
             cursor: pointer;
         }
 
         .privacy-primary {
-            background: var(--blue);
+            background:
+                var(--blue);
+
             color: white;
         }
 
         .privacy-primary:hover {
-            background: var(--blue-dark);
+            background:
+                var(--blue-dark);
         }
 
         .privacy-secondary {
-            background: #F1F5F9;
+            background:
+                #F1F5F9;
+
             color: #334155;
-            border: 1px solid #CBD5E1;
+
+            border:
+                1px solid
+                #CBD5E1;
         }
 
         .privacy-secondary:hover {
-            background: #E2E8F0;
+            background:
+                #E2E8F0;
         }
 
         .privacy-text-button {
             display: block;
+
             width: 100%;
+
             margin-top: 12px;
+
             padding: 8px;
+
             border: none;
+
             background: transparent;
+
             color: var(--blue);
+
             font-size: 13px;
             font-weight: 700;
+
             cursor: pointer;
         }
 
         .privacy-floating {
             position: fixed;
+
             right: 15px;
             bottom: 15px;
+
             z-index: 900;
         }
 
         .privacy-floating button {
             padding: 8px 13px;
-            border: 1px solid #CBD5E1;
+
+            border:
+                1px solid
+                #CBD5E1;
+
             border-radius: 20px;
-            background: rgba(255,255,255,0.96);
+
+            background:
+                rgba(255,255,255,0.96);
+
             color: #475569;
+
             font-size: 11px;
             font-weight: 700;
+
             cursor: pointer;
-            box-shadow: 0 3px 12px rgba(15,42,0,0.10);
+
+            box-shadow:
+                0 3px 12px
+                rgba(15,42,0,0.10);
         }
 
         .privacy-floating button:hover {
@@ -730,14 +1141,22 @@
             overflow: hidden;
         }
 
-        /* FOOTER */
+        /* =====================================================
+           FOOTER
+        ===================================================== */
 
         footer {
             margin-top: 45px;
+
             padding: 30px 20px;
-            background: var(--navy);
+
+            background:
+                var(--navy);
+
             color: #94A3B8;
+
             text-align: center;
+
             font-size: 13px;
         }
 
@@ -745,34 +1164,43 @@
             color: white;
         }
 
-        /* RESPONSIVE */
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
 
         @media (max-width: 850px) {
+
             .intro-grid {
                 grid-template-columns: 1fr;
             }
 
             .help-grid,
             .work-options {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns:
+                    1fr 1fr;
             }
 
             .process {
                 grid-template-columns: 1fr;
             }
+
         }
 
         @media (max-width: 700px) {
+
             .services-grid,
             .help-grid,
             .work-options {
                 grid-template-columns: 1fr;
             }
+
         }
 
         @media (max-width: 600px) {
+
             header {
-                padding: 70px 16px 55px;
+                padding:
+                    70px 16px 55px;
             }
 
             header h1 {
@@ -788,7 +1216,8 @@
             }
 
             nav ul {
-                padding: 5px 5px 8px;
+                padding:
+                    5px 5px 8px;
             }
 
             nav li {
@@ -796,13 +1225,18 @@
             }
 
             nav a {
-                padding: 8px 1px;
+                padding:
+                    8px 1px;
+
                 font-size: 11px;
             }
 
             .container {
-                margin: 25px auto;
-                padding: 0 12px;
+                margin:
+                    25px auto;
+
+                padding:
+                    0 12px;
             }
 
             .card {
@@ -810,11 +1244,13 @@
             }
 
             #contact {
-                padding: 0 12px;
+                padding:
+                    0 12px;
             }
 
             .contact-card {
-                padding: 25px 18px;
+                padding:
+                    25px 18px;
             }
 
             form input,
@@ -829,7 +1265,9 @@
 
             .privacy-panel {
                 max-height: 94vh;
-                padding: 25px 20px;
+
+                padding:
+                    25px 20px;
             }
 
             .privacy-actions {
@@ -839,9 +1277,11 @@
             .privacy-button {
                 width: 100%;
             }
+
         }
 
         @media (prefers-reduced-motion: reduce) {
+
             html {
                 scroll-behavior: auto;
             }
@@ -850,22 +1290,32 @@
             *::before,
             *::after {
                 scroll-behavior: auto !important;
+
                 transition: none !important;
             }
+
         }
+
     </style>
 </head>
 
 <body>
 
+<!-- =========================================================
+     HERO
+========================================================= -->
+
 <header id="home">
+
     <div class="hero">
 
         <div class="availability">
             Available for Freelance &amp; Project Work
         </div>
 
-        <h1>Kaye Eloisa Arnejo</h1>
+        <h1>
+            Kaye Eloisa Arnejo
+        </h1>
 
         <div class="hero-question">
             Have work that needs to be done?
@@ -873,39 +1323,85 @@
 
         <p class="hero-description">
             Practical, hands-on support across software and technology,
-            electrical, electronics and hardware, construction and civil projects,
-            clinical and mental health-related work, documentation,
+            electrical, electronics and hardware, construction and civil
+            projects, clinical and medical-related work, documentation,
             research and technical tasks.
         </p>
 
         <div class="hero-buttons">
-            <a href="#contact" class="button button-primary">
+
+            <a
+                href="#contact"
+                class="button button-primary"
+            >
                 Tell Me What You Need
             </a>
 
-            <a href="#services" class="button button-secondary">
+            <a
+                href="#services"
+                class="button button-secondary"
+            >
                 See What I Can Help With
             </a>
+
         </div>
 
     </div>
+
 </header>
 
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
 <nav aria-label="Main navigation">
+
     <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#help">What I Can Help With</a></li>
-        <li><a href="#process">How It Works</a></li>
-        <li><a href="#contact">Enquire</a></li>
+
+        <li>
+            <a href="#home">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="#services">
+                Services
+            </a>
+        </li>
+
+        <li>
+            <a href="#help">
+                What I Can Help With
+            </a>
+        </li>
+
+        <li>
+            <a href="#process">
+                How It Works
+            </a>
+        </li>
+
+        <li>
+            <a href="#contact">
+                Enquire
+            </a>
+        </li>
+
     </ul>
+
 </nav>
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
 
 <main class="container">
 
     <!-- INTRODUCTION -->
 
     <section class="section">
+
         <div class="card">
 
             <div class="intro-grid">
@@ -984,11 +1480,15 @@
             </div>
 
         </div>
+
     </section>
 
     <!-- SERVICES -->
 
-    <section class="section" id="services">
+    <section
+        class="section"
+        id="services"
+    >
 
         <div class="card">
 
@@ -1003,13 +1503,11 @@
             <p class="section-intro">
                 Practical, hands-on support across technical,
                 electrical, electronics, hardware, project,
-                clinical, mental health-related, construction,
-                research and administrative requirements.
+                clinical, construction, research and administrative
+                requirements.
             </p>
 
             <div class="services-grid">
-
-                <!-- 01 -->
 
                 <div class="service">
 
@@ -1037,8 +1535,6 @@
                     </ul>
 
                 </div>
-
-                <!-- 02 -->
 
                 <div class="service">
 
@@ -1069,8 +1565,6 @@
 
                 </div>
 
-                <!-- 03 -->
-
                 <div class="service">
 
                     <div class="service-number">
@@ -1098,8 +1592,6 @@
                     </ul>
 
                 </div>
-
-                <!-- 04 -->
 
                 <div class="service">
 
@@ -1131,8 +1623,6 @@
 
                 </div>
 
-                <!-- 05 -->
-
                 <div class="service">
 
                     <div class="service-number">
@@ -1159,8 +1649,6 @@
                     </ul>
 
                 </div>
-
-                <!-- 06 -->
 
                 <div class="service">
 
@@ -1191,8 +1679,6 @@
                     </ul>
 
                 </div>
-
-                <!-- 07 -->
 
                 <div class="service">
 
@@ -1228,9 +1714,12 @@
 
     </section>
 
-    <!-- HELP -->
+    <!-- WHAT I CAN HELP WITH -->
 
-    <section class="section" id="help">
+    <section
+        class="section"
+        id="help"
+    >
 
         <div class="card">
 
@@ -1380,7 +1869,7 @@
 
     </section>
 
-    <!-- WAYS TO WORK -->
+    <!-- WORK OPTIONS -->
 
     <section class="section">
 
@@ -1498,74 +1987,23 @@
 
                 <span class="area">Software</span>
                 <span class="area">Web Technology</span>
-
-                <span class="area">
-                    Electrical
-                </span>
-
-                <span class="area">
-                    Electronics
-                </span>
-
-                <span class="area">
-                    Hardware
-                </span>
-
-                <span class="area">
-                    Technical Documentation
-                </span>
-
-                <span class="area">
-                    Construction
-                </span>
-
-                <span class="area">
-                    Civil Projects
-                </span>
-
-                <span class="area">
-                    Clinical Support
-                </span>
-
-                <span class="area">
-                    Medical-Related Support
-                </span>
-
-                <span class="area">
-                    Mental Health-Related Support
-                </span>
-
-                <span class="area">
-                    Research
-                </span>
-
-                <span class="area">
-                    Documentation
-                </span>
-
-                <span class="area">
-                    Data Organisation
-                </span>
-
-                <span class="area">
-                    Project Support
-                </span>
-
-                <span class="area">
-                    Technical Support
-                </span>
-
-                <span class="area">
-                    Hands-On Support
-                </span>
-
-                <span class="area">
-                    Freelance Work
-                </span>
-
-                <span class="area">
-                    Contract Work
-                </span>
+                <span class="area">Electrical</span>
+                <span class="area">Electronics</span>
+                <span class="area">Hardware</span>
+                <span class="area">Technical Documentation</span>
+                <span class="area">Construction</span>
+                <span class="area">Civil Projects</span>
+                <span class="area">Clinical Support</span>
+                <span class="area">Medical-Related Support</span>
+                <span class="area">Mental Health-Related Support</span>
+                <span class="area">Research</span>
+                <span class="area">Documentation</span>
+                <span class="area">Data Organisation</span>
+                <span class="area">Project Support</span>
+                <span class="area">Technical Support</span>
+                <span class="area">Hands-On Support</span>
+                <span class="area">Freelance Work</span>
+                <span class="area">Contract Work</span>
 
             </div>
 
@@ -1575,7 +2013,10 @@
 
     <!-- PROCESS -->
 
-    <section class="section" id="process">
+    <section
+        class="section"
+        id="process"
+    >
 
         <div class="card">
 
@@ -1675,7 +2116,10 @@
                 have not quite figured out yet, send me the details.
             </p>
 
-            <a href="#contact" class="button button-primary">
+            <a
+                href="#contact"
+                class="button button-primary"
+            >
                 Tell Me What You Need
             </a>
 
@@ -1685,7 +2129,9 @@
 
 </main>
 
-<!-- CONTACT -->
+<!-- =========================================================
+     CONTACT
+========================================================= -->
 
 <section id="contact">
 
@@ -1718,18 +2164,30 @@
             The information you submit will be used to respond
             to your enquiry and discuss the work you are requesting.
             This page uses a third-party service provider to process
-            and transmit contact-form submissions. Please do not
-            include passwords, financial information, medical records
-            or other sensitive information unless it is genuinely
-            necessary for the enquiry.
+            and transmit contact-form submissions.
+
+            Please do not include passwords, financial information,
+            medical records or other sensitive information unless
+            it is genuinely necessary for the enquiry.
 
         </div>
 
+        <!-- =====================================================
+             CONTACT FORM
+
+             IMPORTANT:
+             Keep the Apps Script URL exactly as provided.
+        ===================================================== -->
+
         <form
             id="contact-form"
-            action="https://script.google.com/macros/s/AKfycbwO5QYESX4hhs7ldpAQ8JwHooA5J_NIRcPe9WNVVDPhtU8iulIJGIRDO8uyEbpL0BdGJQ/exec"
+
+            action="https://script.google.com/macros/s/AKfycbzhkcw76ij3XXhOLu3aEBrkNhau1hgO3bSkS15m7KNuH8j01IieB6Pr8k9OLO0AK1fQ/exec"
+
             method="POST"
+
             target="form-response-frame"
+
             novalidate
         >
 
@@ -1765,7 +2223,10 @@
                 What kind of help do you need?
             </label>
 
-            <select id="service" name="service">
+            <select
+                id="service"
+                name="service"
+            >
 
                 <option value="">
                     Choose one if applicable
@@ -1834,7 +2295,13 @@
                 required
             ></textarea>
 
-            <!-- LOCATION -->
+            <!-- =================================================
+                 OPTIONAL LOCATION
+
+                 Location is NOT requested automatically.
+                 It is only collected if the visitor explicitly
+                 gives browser permission.
+            ================================================== -->
 
             <input
                 type="hidden"
@@ -1864,7 +2331,22 @@
                 value=""
             >
 
-            <!-- HONEYPOT -->
+            <!-- =================================================
+                 USER AGENT
+            ================================================== -->
+
+            <input
+                type="hidden"
+                id="user-agent"
+                name="user_agent"
+                value=""
+            >
+
+            <!-- =================================================
+                 HONEYPOT
+
+                 Genuine visitors should never fill this field.
+            ================================================== -->
 
             <input
                 type="text"
@@ -1872,13 +2354,7 @@
                 tabindex="-1"
                 autocomplete="off"
                 aria-hidden="true"
-                style="
-                    display:none !important;
-                    position:absolute !important;
-                    left:-9999px !important;
-                    width:1px !important;
-                    height:1px !important;
-                "
+                class="form-hidden"
             >
 
             <button
@@ -1897,28 +2373,28 @@
 
         </form>
 
+        <!-- =====================================================
+             HIDDEN RESPONSE IFRAME
+
+             Google Apps Script response is loaded here.
+        ===================================================== -->
+
         <iframe
             name="form-response-frame"
             id="form-response-frame"
             title="Form response"
             aria-hidden="true"
             tabindex="-1"
-            style="
-                width:0;
-                height:0;
-                border:0;
-                position:absolute;
-                left:-9999px;
-                top:-9999px;
-                visibility:hidden;
-            "
+            class="form-hidden"
         ></iframe>
 
     </div>
 
 </section>
 
-<!-- FOOTER -->
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
 <footer>
 
@@ -1940,7 +2416,9 @@
 
 </footer>
 
-<!-- PRIVACY MODAL -->
+<!-- =========================================================
+     PRIVACY MODAL
+========================================================= -->
 
 <div
     id="privacy-modal"
@@ -1971,6 +2449,7 @@
         </h2>
 
         <p class="privacy-intro">
+
             This page may request your location to help provide
             relevant information or support related to your enquiry.
             Location access is optional.
@@ -1978,6 +2457,7 @@
             This page also uses a third-party service provider
             to support certain page functions, including the
             processing and transmission of contact-form submissions.
+
         </p>
 
         <div class="privacy-section">
@@ -1987,9 +2467,9 @@
             </h3>
 
             <p>
-                This page uses a third-party service provider, to
-                process and transmit information submitted
-                through the contact form.
+                This page uses a third-party service provider to
+                process and transmit information submitted through
+                the contact form.
             </p>
 
             <p>
@@ -2136,7 +2616,9 @@
 
 </div>
 
-<!-- PRIVACY FLOATING BUTTON -->
+<!-- =========================================================
+     PRIVACY FLOATING BUTTON
+========================================================= -->
 
 <div class="privacy-floating">
 
@@ -2149,696 +2631,934 @@
 
 </div>
 
-<!-- JAVASCRIPT -->
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
 
-    /* =====================================================
-       ELEMENTS
-    ===================================================== */
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-    const form = document.getElementById("contact-form");
-    const button = document.getElementById("submit-button");
-    const status = document.getElementById("form-status");
+        "use strict";
 
-    const nameInput = document.getElementById("name");
-    const emailInput = document.getElementById("email");
-    const messageInput = document.getElementById("message");
+        /* =====================================================
+           ELEMENTS
+        ===================================================== */
 
-    const iframe = document.getElementById("form-response-frame");
+        const form =
+            document.getElementById(
+                "contact-form"
+            );
 
-    const honeypot = form
-        ? form.querySelector('input[name="website"]')
-        : null;
+        const button =
+            document.getElementById(
+                "submit-button"
+            );
 
-    /* Privacy */
+        const status =
+            document.getElementById(
+                "form-status"
+            );
 
-    const privacyModal =
-        document.getElementById("privacy-modal");
+        const nameInput =
+            document.getElementById(
+                "name"
+            );
 
-    const privacyClose =
-        document.getElementById("privacy-close");
+        const emailInput =
+            document.getElementById(
+                "email"
+            );
 
-    const openPrivacy =
-        document.getElementById("open-privacy");
+        const messageInput =
+            document.getElementById(
+                "message"
+            );
 
-    const allowLocation =
-        document.getElementById("allow-location");
+        const iframe =
+            document.getElementById(
+                "form-response-frame"
+            );
 
-    const denyLocation =
-        document.getElementById("deny-location");
+        const userAgentInput =
+            document.getElementById(
+                "user-agent"
+            );
 
-    const privacyUnderstood =
-        document.getElementById("privacy-understood");
+        const honeypot =
+            form
+                ? form.querySelector(
+                    'input[name="website"]'
+                )
+                : null;
 
-    const locationPermission =
-        document.getElementById("location-permission");
+        /* =====================================================
+           PRIVACY ELEMENTS
+        ===================================================== */
 
-    const latitudeInput =
-        document.getElementById("latitude");
+        const privacyModal =
+            document.getElementById(
+                "privacy-modal"
+            );
 
-    const longitudeInput =
-        document.getElementById("longitude");
+        const privacyClose =
+            document.getElementById(
+                "privacy-close"
+            );
 
-    const accuracyInput =
-        document.getElementById("location-accuracy");
+        const openPrivacy =
+            document.getElementById(
+                "open-privacy"
+            );
 
+        const allowLocation =
+            document.getElementById(
+                "allow-location"
+            );
 
-    /* =====================================================
-       SAFETY CHECK
-       ===================================================== */
+        const denyLocation =
+            document.getElementById(
+                "deny-location"
+            );
 
-    if (
-        !form ||
-        !button ||
-        !iframe ||
-        !nameInput ||
-        !emailInput ||
-        !messageInput
-    ) {
-        console.error(
-            "KEA contact form could not be initialised."
-        );
-        return;
-    }
+        const privacyUnderstood =
+            document.getElementById(
+                "privacy-understood"
+            );
 
+        const locationPermission =
+            document.getElementById(
+                "location-permission"
+            );
 
-    /* =====================================================
-       STATE
-       ===================================================== */
+        const latitudeInput =
+            document.getElementById(
+                "latitude"
+            );
 
-    let submitting = false;
-    let submitTimeout = null;
+        const longitudeInput =
+            document.getElementById(
+                "longitude"
+            );
 
+        const accuracyInput =
+            document.getElementById(
+                "location-accuracy"
+            );
 
-    /* =====================================================
-       STATUS
-       ===================================================== */
+        /* =====================================================
+           SAFETY CHECK
+        ===================================================== */
 
-    function showStatus(message, type = "") {
+        if (
+            !form ||
+            !button ||
+            !iframe ||
+            !nameInput ||
+            !emailInput ||
+            !messageInput
+        ) {
 
-        if (!status) {
+            console.error(
+                "KEA contact form could not be initialised."
+            );
+
             return;
         }
 
-        status.textContent = message;
-        status.className = "form-status " + type;
-    }
+        let submitting = false;
 
+        let submissionTimer = null;
 
-    /* =====================================================
-       RESET SUBMIT BUTTON
-       ===================================================== */
+        /* =====================================================
+           USER AGENT
+        ===================================================== */
 
-    function resetButton() {
+        if (userAgentInput) {
 
-        submitting = false;
+            userAgentInput.value =
+                navigator.userAgent || "";
 
-        if (submitTimeout) {
-            clearTimeout(submitTimeout);
-            submitTimeout = null;
         }
 
-        button.disabled = false;
-        button.textContent = "Send Requirement";
-    }
+        /* =====================================================
+           STATUS
+        ===================================================== */
 
+        function showStatus(
+            message,
+            type = ""
+        ) {
 
-    /* =====================================================
-       PRIVACY MODAL
-       ===================================================== */
+            if (!status) {
+                return;
+            }
 
-    function openPrivacyModal() {
+            status.textContent =
+                message;
 
-        if (!privacyModal) {
-            return;
-        }
+            status.className =
+                "form-status";
 
-        privacyModal.hidden = false;
+            if (type) {
 
-        document.body.classList.add(
-            "privacy-modal-open"
-        );
-    }
+                status.classList.add(
+                    type
+                );
 
-
-    function closePrivacyModal() {
-
-        if (!privacyModal) {
-            return;
-        }
-
-        privacyModal.hidden = true;
-
-        document.body.classList.remove(
-            "privacy-modal-open"
-        );
-    }
-
-
-    function denyLocationAccess() {
-
-        localStorage.setItem(
-            "kea_location_consent",
-            "denied"
-        );
-
-        if (locationPermission) {
-            locationPermission.value = "denied";
-        }
-
-        closePrivacyModal();
-    }
-
-
-    if (openPrivacy) {
-
-        openPrivacy.addEventListener(
-            "click",
-            openPrivacyModal
-        );
-    }
-
-
-    if (privacyClose) {
-
-        privacyClose.addEventListener(
-            "click",
-            denyLocationAccess
-        );
-    }
-
-
-    if (denyLocation) {
-
-        denyLocation.addEventListener(
-            "click",
-            denyLocationAccess
-        );
-    }
-
-
-    if (privacyUnderstood) {
-
-        privacyUnderstood.addEventListener(
-            "click",
-            denyLocationAccess
-        );
-    }
-
-
-    document.addEventListener(
-        "keydown",
-        function (event) {
-
-            if (
-                event.key === "Escape" &&
-                privacyModal &&
-                !privacyModal.hidden
-            ) {
-                denyLocationAccess();
             }
 
         }
-    );
 
+        /* =====================================================
+           RESET SUBMISSION
+        ===================================================== */
 
-    /* =====================================================
-       LOCATION
-       ===================================================== */
+        function resetButton() {
 
-    if (allowLocation) {
+            submitting = false;
 
-        allowLocation.addEventListener(
-            "click",
-            function () {
+            button.disabled = false;
 
-                if (!navigator.geolocation) {
+            button.textContent =
+                "Send Requirement";
 
-                    if (locationPermission) {
-                        locationPermission.value =
-                            "unavailable";
-                    }
+            if (submissionTimer) {
 
-                    localStorage.setItem(
-                        "kea_location_consent",
-                        "unavailable"
-                    );
+                clearTimeout(
+                    submissionTimer
+                );
 
-                    closePrivacyModal();
+                submissionTimer = null;
 
-                    return;
-                }
+            }
 
+        }
 
-                allowLocation.disabled = true;
+        /* =====================================================
+           PRIVACY MODAL
+        ===================================================== */
 
-                allowLocation.textContent =
-                    "Requesting Location...";
+        function openPrivacyModal() {
 
+            if (!privacyModal) {
+                return;
+            }
 
-                navigator.geolocation.getCurrentPosition(
+            privacyModal.hidden =
+                false;
 
-                    function (position) {
+            document.body.classList.add(
+                "privacy-modal-open"
+            );
 
-                        const coords =
-                            position.coords;
+            if (privacyClose) {
 
-
-                        if (latitudeInput) {
-                            latitudeInput.value =
-                                coords.latitude;
-                        }
-
-
-                        if (longitudeInput) {
-                            longitudeInput.value =
-                                coords.longitude;
-                        }
-
-
-                        if (accuracyInput) {
-                            accuracyInput.value =
-                                coords.accuracy;
-                        }
-
-
-                        if (locationPermission) {
-                            locationPermission.value =
-                                "granted";
-                        }
-
-
-                        localStorage.setItem(
-                            "kea_location_consent",
-                            "granted"
-                        );
-
-
-                        allowLocation.disabled =
-                            false;
-
-                        allowLocation.textContent =
-                            "Allow Location";
-
-
-                        closePrivacyModal();
-                    },
-
-
+                setTimeout(
                     function () {
 
+                        privacyClose.focus();
+
+                    },
+                    50
+                );
+
+            }
+
+        }
+
+        function closePrivacyModal() {
+
+            if (!privacyModal) {
+                return;
+            }
+
+            privacyModal.hidden =
+                true;
+
+            document.body.classList.remove(
+                "privacy-modal-open"
+            );
+
+        }
+
+        function denyLocationAccess() {
+
+            try {
+
+                localStorage.setItem(
+                    "kea_location_consent",
+                    "denied"
+                );
+
+            } catch (error) {
+
+                console.warn(
+                    "Local storage unavailable.",
+                    error
+                );
+
+            }
+
+            if (locationPermission) {
+
+                locationPermission.value =
+                    "denied";
+
+            }
+
+            closePrivacyModal();
+
+        }
+
+        if (openPrivacy) {
+
+            openPrivacy.addEventListener(
+                "click",
+                openPrivacyModal
+            );
+
+        }
+
+        if (privacyClose) {
+
+            privacyClose.addEventListener(
+                "click",
+                denyLocationAccess
+            );
+
+        }
+
+        if (denyLocation) {
+
+            denyLocation.addEventListener(
+                "click",
+                denyLocationAccess
+            );
+
+        }
+
+        if (privacyUnderstood) {
+
+            privacyUnderstood.addEventListener(
+                "click",
+                denyLocationAccess
+            );
+
+        }
+
+        /* =====================================================
+           ESCAPE KEY
+        ===================================================== */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Escape" &&
+                    privacyModal &&
+                    !privacyModal.hidden
+                ) {
+
+                    denyLocationAccess();
+
+                }
+
+            }
+        );
+
+        /* =====================================================
+           LOCATION
+        ===================================================== */
+
+        if (allowLocation) {
+
+            allowLocation.addEventListener(
+                "click",
+                function () {
+
+                    if (
+                        !navigator.geolocation
+                    ) {
+
                         if (locationPermission) {
+
                             locationPermission.value =
-                                "denied";
+                                "unavailable";
+
                         }
 
+                        try {
 
-                        localStorage.setItem(
-                            "kea_location_consent",
-                            "denied"
-                        );
+                            localStorage.setItem(
+                                "kea_location_consent",
+                                "unavailable"
+                            );
 
+                        } catch (error) {
 
-                        allowLocation.disabled =
-                            false;
+                            console.warn(
+                                "Local storage unavailable.",
+                                error
+                            );
 
-                        allowLocation.textContent =
-                            "Allow Location";
-
+                        }
 
                         closePrivacyModal();
-                    },
 
-
-                    {
-                        enableHighAccuracy: false,
-                        timeout: 10000,
-                        maximumAge: 300000
+                        return;
                     }
+
+                    allowLocation.disabled =
+                        true;
+
+                    allowLocation.textContent =
+                        "Requesting Location...";
+
+                    navigator.geolocation.getCurrentPosition(
+
+                        function (position) {
+
+                            const coords =
+                                position.coords;
+
+                            if (latitudeInput) {
+
+                                latitudeInput.value =
+                                    String(
+                                        coords.latitude
+                                    );
+
+                            }
+
+                            if (longitudeInput) {
+
+                                longitudeInput.value =
+                                    String(
+                                        coords.longitude
+                                    );
+
+                            }
+
+                            if (accuracyInput) {
+
+                                accuracyInput.value =
+                                    String(
+                                        coords.accuracy
+                                    );
+
+                            }
+
+                            if (locationPermission) {
+
+                                locationPermission.value =
+                                    "granted";
+
+                            }
+
+                            try {
+
+                                localStorage.setItem(
+                                    "kea_location_consent",
+                                    "granted"
+                                );
+
+                            } catch (error) {
+
+                                console.warn(
+                                    "Local storage unavailable.",
+                                    error
+                                );
+
+                            }
+
+                            allowLocation.disabled =
+                                false;
+
+                            allowLocation.textContent =
+                                "Allow Location";
+
+                            closePrivacyModal();
+
+                        },
+
+                        function () {
+
+                            if (locationPermission) {
+
+                                locationPermission.value =
+                                    "denied";
+
+                            }
+
+                            try {
+
+                                localStorage.setItem(
+                                    "kea_location_consent",
+                                    "denied"
+                                );
+
+                            } catch (error) {
+
+                                console.warn(
+                                    "Local storage unavailable.",
+                                    error
+                                );
+
+                            }
+
+                            allowLocation.disabled =
+                                false;
+
+                            allowLocation.textContent =
+                                "Allow Location";
+
+                            closePrivacyModal();
+
+                        },
+
+                        {
+                            enableHighAccuracy: false,
+                            timeout: 10000,
+                            maximumAge: 300000
+                        }
+
+                    );
+
+                }
+            );
+
+        }
+
+        /* =====================================================
+           RESTORE LOCATION CONSENT
+        ===================================================== */
+
+        let savedLocationConsent =
+            null;
+
+        try {
+
+            savedLocationConsent =
+                localStorage.getItem(
+                    "kea_location_consent"
                 );
-            }
-        );
-    }
 
+        } catch (error) {
 
-    /* =====================================================
-       RESTORE LOCATION CONSENT
-       ===================================================== */
+            console.warn(
+                "Local storage unavailable.",
+                error
+            );
 
-    const savedLocationConsent =
-        localStorage.getItem(
-            "kea_location_consent"
-        );
-
-
-    if (
-        savedLocationConsent === "granted"
-    ) {
-
-        if (locationPermission) {
-            locationPermission.value =
-                "previously_granted";
         }
-    }
 
+        if (
+            savedLocationConsent ===
+            "granted"
+        ) {
 
-    if (
-        savedLocationConsent === "denied"
-    ) {
+            if (locationPermission) {
 
-        if (locationPermission) {
-            locationPermission.value =
-                "previously_denied";
+                locationPermission.value =
+                    "previously_granted";
+
+            }
+
+        } else if (
+            savedLocationConsent ===
+            "denied"
+        ) {
+
+            if (locationPermission) {
+
+                locationPermission.value =
+                    "previously_denied";
+
+            }
+
+        } else if (
+            savedLocationConsent ===
+            "unavailable"
+        ) {
+
+            if (locationPermission) {
+
+                locationPermission.value =
+                    "unavailable";
+
+            }
+
         }
-    }
 
+        /*
+         * Show the privacy panel only on the first visit.
+         */
 
-    /*
-     * IMPORTANT:
-     *
-     * Do NOT automatically open the location dialog.
-     *
-     * Location is optional and should not block
-     * someone from submitting an enquiry.
-     */
+        if (!savedLocationConsent) {
 
+            openPrivacyModal();
 
-    /* =====================================================
-       GOOGLE APPS SCRIPT RESPONSE
-       ===================================================== */
+        }
 
-    window.addEventListener(
-        "message",
-        function (event) {
+        /* =====================================================
+           MESSAGE FROM GOOGLE APPS SCRIPT
+        ===================================================== */
 
-            const data = event.data;
+        window.addEventListener(
+            "message",
+            function (event) {
 
+                const data =
+                    event.data;
 
-            /*
-             * Only accept messages coming from our
-             * hidden response iframe.
-             */
+                if (
+                    !data ||
+                    data.type !==
+                        "KEA_FORM_RESPONSE"
+                ) {
 
-            if (
-                event.source !== iframe.contentWindow
-            ) {
-                return;
-            }
+                    return;
 
+                }
 
-            if (
-                !data ||
-                typeof data !== "object"
-            ) {
-                return;
-            }
+                if (!submitting) {
 
+                    return;
 
-            if (
-                data.type !==
-                "KEA_FORM_RESPONSE"
-            ) {
-                return;
-            }
+                }
 
+                resetButton();
 
-            if (!submitting) {
-                return;
-            }
+                if (
+                    data.success === true
+                ) {
 
+                    showStatus(
+                        data.message ||
+                        "Thank you. Your requirement has been received.",
+                        "success"
+                    );
 
-            resetButton();
+                    form.reset();
 
+                    /*
+                     * Restore user agent after form.reset().
+                     */
 
-            /* SUCCESS */
+                    if (userAgentInput) {
 
-            if (data.success === true) {
+                        userAgentInput.value =
+                            navigator.userAgent || "";
+
+                    }
+
+                    /*
+                     * Restore location state.
+                     */
+
+                    let consent = null;
+
+                    try {
+
+                        consent =
+                            localStorage.getItem(
+                                "kea_location_consent"
+                            );
+
+                    } catch (error) {
+
+                        console.warn(
+                            "Local storage unavailable.",
+                            error
+                        );
+
+                    }
+
+                    if (locationPermission) {
+
+                        if (
+                            consent ===
+                            "granted"
+                        ) {
+
+                            locationPermission.value =
+                                "previously_granted";
+
+                        } else if (
+                            consent ===
+                            "denied"
+                        ) {
+
+                            locationPermission.value =
+                                "previously_denied";
+
+                        } else if (
+                            consent ===
+                            "unavailable"
+                        ) {
+
+                            locationPermission.value =
+                                "unavailable";
+
+                        } else {
+
+                            locationPermission.value =
+                                "not_requested";
+
+                        }
+
+                    }
+
+                    nameInput.focus();
+
+                    return;
+
+                }
 
                 showStatus(
                     data.message ||
-                    "Thank you. Your requirement has been received.",
-                    "success"
-                );
-
-
-                form.reset();
-
-
-                /*
-                 * Restore location status after
-                 * form.reset().
-                 */
-
-                const consent =
-                    localStorage.getItem(
-                        "kea_location_consent"
-                    );
-
-
-                if (locationPermission) {
-
-                    if (consent === "granted") {
-
-                        locationPermission.value =
-                            "previously_granted";
-
-                    } else if (consent === "denied") {
-
-                        locationPermission.value =
-                            "previously_denied";
-
-                    } else {
-
-                        locationPermission.value =
-                            "not_requested";
-                    }
-                }
-
-
-                return;
-            }
-
-
-            /* FAILURE */
-
-            showStatus(
-                data.message ||
-                "The enquiry could not be submitted. Please try again.",
-                "error"
-            );
-        }
-    );
-
-
-    /* =====================================================
-       FORM SUBMISSION
-       ===================================================== */
-
-    form.addEventListener(
-        "submit",
-        function (event) {
-
-            event.preventDefault();
-
-
-            if (submitting) {
-                return;
-            }
-
-
-            /* =================================================
-               HONEYPOT
-               ================================================= */
-
-            if (
-                honeypot &&
-                honeypot.value.trim() !== ""
-            ) {
-
-                console.warn(
-                    "Honeypot triggered."
-                );
-
-                return;
-            }
-
-
-            /* =================================================
-               VALUES
-               ================================================= */
-
-            const name =
-                nameInput.value.trim();
-
-            const email =
-                emailInput.value.trim();
-
-            const message =
-                messageInput.value.trim();
-
-
-            /* =================================================
-               VALIDATION
-               ================================================= */
-
-            if (!name) {
-
-                showStatus(
-                    "Please enter your name or organisation.",
+                    "Something went wrong. Please try again.",
                     "error"
                 );
 
-                nameInput.focus();
-
-                return;
-            }
-
-
-            if (!email) {
-
-                showStatus(
-                    "Please enter your email address.",
-                    "error"
-                );
-
-                emailInput.focus();
-
-                return;
-            }
-
-
-            if (!emailInput.checkValidity()) {
-
-                showStatus(
-                    "Please enter a valid email address.",
-                    "error"
-                );
-
-                emailInput.focus();
-
-                return;
-            }
-
-
-            if (!message) {
-
-                showStatus(
-                    "Please tell me about the work you need help with.",
-                    "error"
-                );
-
-                messageInput.focus();
-
-                return;
-            }
-
-
-            /* =================================================
-               START SUBMISSION
-               ================================================= */
-
-            submitting = true;
-
-            button.disabled = true;
-
-            button.textContent = "Sending...";
-
-            showStatus(
-                "Sending your requirement..."
-            );
-
-
-            /*
-             * Submit normally to the hidden iframe.
-             *
-             * This avoids CORS problems with fetch().
-             */
-
-            HTMLFormElement.prototype.submit.call(
-                form
-            );
-
-
-            /* =================================================
-               TIMEOUT
-               ================================================= */
-
-            submitTimeout =
-                window.setTimeout(
-                    function () {
-
-                        if (!submitting) {
-                            return;
-                        }
-
-
-                        resetButton();
-
-
-                        showStatus(
-                            "The server did not respond in time. Your enquiry may still have been received. Please wait before submitting again.",
-                            "error"
-                        );
-
-                    },
-                    30000
-                );
-        }
-    );
-
-
-    /* =====================================================
-       SMOOTH SCROLL
-       ===================================================== */
-
-    document
-        .querySelectorAll('a[href^="#"]')
-        .forEach(
-            function (anchor) {
-
-                anchor.addEventListener(
-                    "click",
-                    function (event) {
-
-                        const targetID =
-                            this.getAttribute("href");
-
-
-                        if (
-                            !targetID ||
-                            targetID === "#"
-                        ) {
-                            return;
-                        }
-
-
-                        const target =
-                            document.querySelector(
-                                targetID
-                            );
-
-
-                        if (!target) {
-                            return;
-                        }
-
-
-                        event.preventDefault();
-
-
-                        target.scrollIntoView({
-                            behavior: "smooth",
-                            block: "start"
-                        });
-                    }
-                );
             }
         );
 
-});
+        /* =====================================================
+           FORM SUBMISSION
+        ===================================================== */
+
+        form.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+                if (submitting) {
+
+                    return;
+
+                }
+
+                /* ---------------------------------------------
+                   HONEYPOT
+                --------------------------------------------- */
+
+                if (
+                    honeypot &&
+                    honeypot.value.trim() !== ""
+                ) {
+
+                    /*
+                     * Silently ignore likely spam.
+                     */
+
+                    return;
+
+                }
+
+                /* ---------------------------------------------
+                   USER AGENT
+                --------------------------------------------- */
+
+                if (userAgentInput) {
+
+                    userAgentInput.value =
+                        navigator.userAgent || "";
+
+                }
+
+                /* ---------------------------------------------
+                   VALUES
+                --------------------------------------------- */
+
+                const name =
+                    nameInput.value.trim();
+
+                const email =
+                    emailInput.value.trim();
+
+                const message =
+                    messageInput.value.trim();
+
+                /* ---------------------------------------------
+                   VALIDATION
+                --------------------------------------------- */
+
+                if (!name) {
+
+                    showStatus(
+                        "Please enter your name or organisation.",
+                        "error"
+                    );
+
+                    nameInput.focus();
+
+                    return;
+
+                }
+
+                if (!email) {
+
+                    showStatus(
+                        "Please enter your email address.",
+                        "error"
+                    );
+
+                    emailInput.focus();
+
+                    return;
+
+                }
+
+                if (
+                    !emailInput.checkValidity()
+                ) {
+
+                    showStatus(
+                        "Please enter a valid email address.",
+                        "error"
+                    );
+
+                    emailInput.focus();
+
+                    return;
+
+                }
+
+                if (!message) {
+
+                    showStatus(
+                        "Please tell me about the work you need help with.",
+                        "error"
+                    );
+
+                    messageInput.focus();
+
+                    return;
+
+                }
+
+                /* ---------------------------------------------
+                   SUBMIT
+                --------------------------------------------- */
+
+                submitting = true;
+
+                button.disabled =
+                    true;
+
+                button.textContent =
+                    "Sending...";
+
+                showStatus(
+                    "Sending your requirement..."
+                );
+
+                /*
+                 * IMPORTANT:
+                 *
+                 * We deliberately use native form submission
+                 * into the hidden iframe.
+                 *
+                 * This avoids CORS/fetch problems with Google
+                 * Apps Script.
+                 */
+
+                HTMLFormElement.prototype.submit.call(
+                    form
+                );
+
+                /* ---------------------------------------------
+                   TIMEOUT SAFETY
+                --------------------------------------------- */
+
+                submissionTimer =
+                    window.setTimeout(
+                        function () {
+
+                            if (!submitting) {
+
+                                return;
+
+                            }
+
+                            resetButton();
+
+                            showStatus(
+                                "The server is taking longer than expected. Please check your Google Apps Script deployment and try again.",
+                                "error"
+                            );
+
+                        },
+                        30000
+                    );
+
+            }
+        );
+
+        /* =====================================================
+           SMOOTH SCROLL
+        ===================================================== */
+
+        document
+            .querySelectorAll(
+                'a[href^="#"]'
+            )
+            .forEach(
+                function (anchor) {
+
+                    anchor.addEventListener(
+                        "click",
+                        function (event) {
+
+                            const targetID =
+                                this.getAttribute(
+                                    "href"
+                                );
+
+                            if (
+                                !targetID ||
+                                targetID === "#"
+                            ) {
+
+                                return;
+
+                            }
+
+                            const target =
+                                document.querySelector(
+                                    targetID
+                                );
+
+                            if (!target) {
+
+                                return;
+
+                            }
+
+                            event.preventDefault();
+
+                            target.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start"
+                            });
+
+                        }
+                    );
+
+                }
+            );
+
+    }
+
+);
+
 </script>
 
-</body> 
+</body>
 </html>
