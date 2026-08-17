@@ -3866,7 +3866,7 @@ document.addEventListener(
                 /*
                  * Native form submission is intentional.
                  *
-                 * It sends the form to Apps Script inside the
+                 * It sends the form to Third Party inside the
                  * hidden iframe and avoids CORS/fetch issues.
                  */
                 HTMLFormElement.prototype.submit.call(
@@ -3893,7 +3893,7 @@ document.addEventListener(
 
 
                             showStatus(
-                                "The server is taking longer than expected. Please check the Apps Script deployment and try again.",
+                                "The server is taking longer than expected.",
                                 "error"
                             );
 
