@@ -2172,16 +2172,6 @@
         </div>
 
 
-        <!-- =================================================
-             CONTACT FORM
-
-             IMPORTANT:
-             This is your existing Apps Script deployment URL.
-
-             If you create a NEW deployment and Google gives
-             you a different /exec URL, replace ONLY this URL.
-        ================================================== -->
-
         <form
             id="contact-form"
             action="https://script.google.com/macros/s/AKfycbwGqR7OPCveCtHGIghiR9iiM5pD4LeeAtYpTPOq7RqZo9hi4KAgqA2P_s-ntZLZ2KTm/exec"
@@ -2189,7 +2179,6 @@
             target="form-response-frame"
             novalidate
         >
-
 
             <label for="name">
                 Name / Organisation
@@ -2302,13 +2291,6 @@
 
             <!-- =================================================
                  LOCATION
-
-                 Location is OPTIONAL.
-
-                 It is never automatically requested.
-
-                 Coordinates are submitted only after the visitor
-                 explicitly chooses "Allow Location".
             ================================================== -->
 
             <input
@@ -2354,8 +2336,6 @@
 
             <!-- =================================================
                  HONEYPOT
-
-                 Genuine visitors should never fill this field.
             ================================================== -->
 
             <input
@@ -2386,12 +2366,6 @@
 
         </form>
 
-
-        <!-- =================================================
-             HIDDEN RESPONSE IFRAME
-
-             Google Apps Script loads its response here.
-        ================================================== -->
 
         <iframe
             name="form-response-frame"
@@ -2523,6 +2497,12 @@
                 If you allow location access, your browser may
                 provide latitude, longitude and location accuracy.
                 This page does not continuously track your location.
+            </p>
+
+            <p>
+                The page may use several fresh location readings
+                during an explicit location request and retain the
+                most accurate reading obtained during that request.
             </p>
 
             <p>
@@ -2971,21 +2951,10 @@ document.addEventListener(
 
 
         /* =====================================================
-           DENY LOCATION
+           CLEAR LOCATION FIELDS
         ===================================================== */
 
-        function denyLocationAccess() {
-
-            saveLocationConsent(
-                "denied"
-            );
-
-            if (locationPermission) {
-
-                locationPermission.value =
-                    "denied";
-
-            }
+        function clearLocationFields() {
 
             if (latitudeInput) {
 
@@ -3007,6 +2976,28 @@ document.addEventListener(
                     "";
 
             }
+
+        }
+
+
+        /* =====================================================
+           DENY LOCATION
+        ===================================================== */
+
+        function denyLocationAccess() {
+
+            saveLocationConsent(
+                "denied"
+            );
+
+            if (locationPermission) {
+
+                locationPermission.value =
+                    "denied";
+
+            }
+
+            clearLocationFields();
 
             closePrivacyModal();
 
@@ -3080,7 +3071,7 @@ document.addEventListener(
 
 
         /* =====================================================
-           LOCATION REQUEST
+           HIGH-ACCURACY LOCATION REQUEST
         ===================================================== */
 
         if (allowLocation) {
@@ -3115,129 +3106,383 @@ document.addEventListener(
                         true;
 
                     allowLocation.textContent =
-                        "Requesting Location...";
+                        "Finding Accurate Location...";
 
 
-                    navigator.geolocation.getCurrentPosition(
-
-                        function (position) {
-
-                            const coords =
-                                position.coords;
-
-
-                            if (latitudeInput) {
-
-                                latitudeInput.value =
-                                    String(
-                                        coords.latitude
-                                    );
-
-                            }
+                    /*
+                     * Keep the best location reading obtained
+                     * during this explicit request.
+                     */
+                    let bestPosition =
+                        null;
 
 
-                            if (longitudeInput) {
-
-                                longitudeInput.value =
-                                    String(
-                                        coords.longitude
-                                    );
-
-                            }
+                    /*
+                     * Prevent callbacks from changing the
+                     * location after the request has finished.
+                     */
+                    let finished =
+                        false;
 
 
-                            if (accuracyInput) {
-
-                                accuracyInput.value =
-                                    String(
-                                        coords.accuracy
-                                    );
-
-                            }
+                    /*
+                     * ID returned by watchPosition().
+                     */
+                    let watchId =
+                        null;
 
 
-                            if (locationPermission) {
-
-                                locationPermission.value =
-                                    "granted";
-
-                            }
-
-
-                            saveLocationConsent(
-                                "granted"
-                            );
+                    /*
+                     * Start time of the request.
+                     */
+                    const startTime =
+                        Date.now();
 
 
-                            allowLocation.disabled =
-                                false;
-
-                            allowLocation.textContent =
-                                "Allow Location";
-
-
-                            closePrivacyModal();
-
-                        },
+                    /*
+                     * Maximum amount of time we allow the
+                     * browser/device to improve the location.
+                     */
+                    const MAX_LOCATION_TIME =
+                        25000;
 
 
-                        function () {
-
-                            if (locationPermission) {
-
-                                locationPermission.value =
-                                    "denied";
-
-                            }
-
-
-                            if (latitudeInput) {
-
-                                latitudeInput.value =
-                                    "";
-
-                            }
+                    /*
+                     * Accuracy target.
+                     *
+                     * 10 metres or better is considered a
+                     * sufficiently good result for this form.
+                     */
+                    const TARGET_ACCURACY =
+                        10;
 
 
-                            if (longitudeInput) {
+                    /* -----------------------------------------
+                       FINISH WITH BEST POSITION
+                    ----------------------------------------- */
 
-                                longitudeInput.value =
-                                    "";
+                    function finishLocation(
+                        position
+                    ) {
 
-                            }
-
-
-                            if (accuracyInput) {
-
-                                accuracyInput.value =
-                                    "";
-
-                            }
-
-
-                            saveLocationConsent(
-                                "denied"
-                            );
-
-
-                            allowLocation.disabled =
-                                false;
-
-                            allowLocation.textContent =
-                                "Allow Location";
-
-
-                            closePrivacyModal();
-
-                        },
-
-
-                        {
-                            enableHighAccuracy: false,
-                            timeout: 10000,
-                            maximumAge: 300000
+                        if (finished) {
+                            return;
                         }
 
+                        finished =
+                            true;
+
+
+                        if (
+                            watchId !== null
+                        ) {
+
+                            navigator.geolocation.clearWatch(
+                                watchId
+                            );
+
+                            watchId =
+                                null;
+
+                        }
+
+
+                        const coords =
+                            position.coords;
+
+
+                        /*
+                         * Latitude and longitude are stored with
+                         * 8 decimal places.
+                         */
+                        if (latitudeInput) {
+
+                            latitudeInput.value =
+                                coords.latitude.toFixed(8);
+
+                        }
+
+
+                        if (longitudeInput) {
+
+                            longitudeInput.value =
+                                coords.longitude.toFixed(8);
+
+                        }
+
+
+                        /*
+                         * Accuracy is expressed by the browser
+                         * in metres.
+                         */
+                        if (accuracyInput) {
+
+                            accuracyInput.value =
+                                coords.accuracy.toFixed(2);
+
+                        }
+
+
+                        if (locationPermission) {
+
+                            locationPermission.value =
+                                "granted";
+
+                        }
+
+
+                        saveLocationConsent(
+                            "granted"
+                        );
+
+
+                        allowLocation.disabled =
+                            false;
+
+                        allowLocation.textContent =
+                            "Allow Location";
+
+
+                        closePrivacyModal();
+
+                    }
+
+
+                    /* -----------------------------------------
+                       LOCATION SUCCESS
+                    ----------------------------------------- */
+
+                    function handlePosition(
+                        position
+                    ) {
+
+                        if (finished) {
+                            return;
+                        }
+
+
+                        /*
+                         * Keep the position with the smallest
+                         * accuracy radius.
+                         *
+                         * Example:
+                         *
+                         * 100 m = relatively poor
+                         * 25 m  = better
+                         * 10 m  = good
+                         * 5 m   = very good
+                         */
+                        if (
+                            !bestPosition ||
+                            position.coords.accuracy <
+                                bestPosition.coords.accuracy
+                        ) {
+
+                            bestPosition =
+                                position;
+
+                        }
+
+
+                        /*
+                         * Stop immediately when the device
+                         * reports a sufficiently accurate fix.
+                         */
+                        if (
+                            position.coords.accuracy <=
+                            TARGET_ACCURACY
+                        ) {
+
+                            finishLocation(
+                                position
+                            );
+
+                            return;
+
+                        }
+
+
+                        /*
+                         * If 20 seconds have passed and we have
+                         * a usable position, use the best one.
+                         */
+                        const elapsed =
+                            Date.now() -
+                            startTime;
+
+
+                        if (
+                            elapsed >= 20000 &&
+                            bestPosition
+                        ) {
+
+                            finishLocation(
+                                bestPosition
+                            );
+
+                        }
+
+                    }
+
+
+                    /* -----------------------------------------
+                       LOCATION ERROR
+                    ----------------------------------------- */
+
+                    function handleLocationError(
+                        error
+                    ) {
+
+                        if (finished) {
+                            return;
+                        }
+
+
+                        console.warn(
+                            "Location error:",
+                            error.code,
+                            error.message
+                        );
+
+
+                        /*
+                         * If we already received a position,
+                         * use the best position obtained rather
+                         * than throwing it away.
+                         */
+                        if (bestPosition) {
+
+                            finishLocation(
+                                bestPosition
+                            );
+
+                            return;
+
+                        }
+
+
+                        finished =
+                            true;
+
+
+                        if (
+                            watchId !== null
+                        ) {
+
+                            navigator.geolocation.clearWatch(
+                                watchId
+                            );
+
+                            watchId =
+                                null;
+
+                        }
+
+
+                        if (locationPermission) {
+
+                            locationPermission.value =
+                                "denied";
+
+                        }
+
+
+                        clearLocationFields();
+
+
+                        saveLocationConsent(
+                            "denied"
+                        );
+
+
+                        allowLocation.disabled =
+                            false;
+
+                        allowLocation.textContent =
+                            "Allow Location";
+
+
+                        closePrivacyModal();
+
+                    }
+
+
+                    /* -----------------------------------------
+                       START HIGH-ACCURACY WATCH
+                    ----------------------------------------- */
+
+                    /*
+                     * watchPosition() is deliberately used instead
+                     * of getCurrentPosition().
+                     *
+                     * This allows the device to provide several
+                     * readings while GPS/Wi-Fi positioning improves.
+                     */
+                    watchId =
+                        navigator.geolocation.watchPosition(
+                            handlePosition,
+                            handleLocationError,
+                            {
+                                /*
+                                 * Ask the browser/device for its
+                                 * highest available accuracy.
+                                 */
+                                enableHighAccuracy: true,
+
+                                /*
+                                 * Do not accept an old cached
+                                 * location.
+                                 */
+                                maximumAge: 0,
+
+                                /*
+                                 * Give the device enough time
+                                 * to obtain a fresh GPS fix.
+                                 */
+                                timeout:
+                                    MAX_LOCATION_TIME
+                            }
+                        );
+
+
+                    /* -----------------------------------------
+                       ABSOLUTE SAFETY TIMEOUT
+                    ----------------------------------------- */
+
+                    window.setTimeout(
+                        function () {
+
+                            if (finished) {
+                                return;
+                            }
+
+
+                            /*
+                             * If we have received at least one
+                             * position, use the most accurate one.
+                             */
+                            if (bestPosition) {
+
+                                finishLocation(
+                                    bestPosition
+                                );
+
+                                return;
+
+                            }
+
+
+                            /*
+                             * No position was received at all.
+                             */
+                            handleLocationError({
+                                code: 3,
+                                message:
+                                    "Location request timed out."
+                            });
+
+                        },
+                        MAX_LOCATION_TIME + 1000
                     );
 
                 }
@@ -3277,13 +3522,10 @@ document.addEventListener(
         ) {
 
             /*
-             * Important:
+             * Do not automatically request location again.
              *
-             * We do NOT automatically request the location
-             * again just because the visitor previously granted
-             * permission.
-             *
-             * The visitor must explicitly choose Allow Location.
+             * The visitor must explicitly choose
+             * "Allow Location".
              */
             if (locationPermission) {
 
@@ -3322,7 +3564,6 @@ document.addEventListener(
         /*
          * Show privacy panel only on first visit.
          */
-
         if (!savedLocationConsent) {
 
             openPrivacyModal();
@@ -3387,7 +3628,7 @@ document.addEventListener(
 
 
                     /*
-                     * Restore location state.
+                     * Restore location consent state.
                      */
                     let consent =
                         null;
@@ -3447,29 +3688,10 @@ document.addEventListener(
 
 
                     /*
-                     * Do not preserve old coordinates after
+                     * Never retain old coordinates after
                      * successful submission.
                      */
-                    if (latitudeInput) {
-
-                        latitudeInput.value =
-                            "";
-
-                    }
-
-                    if (longitudeInput) {
-
-                        longitudeInput.value =
-                            "";
-
-                    }
-
-                    if (accuracyInput) {
-
-                        accuracyInput.value =
-                            "";
-
-                    }
+                    clearLocationFields();
 
 
                     nameInput.focus();
@@ -3519,7 +3741,6 @@ document.addEventListener(
                     /*
                      * Silently ignore probable spam.
                      */
-
                     return;
 
                 }
