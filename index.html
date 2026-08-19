@@ -707,6 +707,16 @@
 
             background:
                 #E2E8F0;
+
+            cursor: zoom-in;
+
+            transition:
+                transform 0.25s ease;
+        }
+
+        .gallery-image:hover {
+            transform:
+                scale(1.03);
         }
 
         .gallery-placeholder {
@@ -759,6 +769,140 @@
             font-size: 0.82rem;
 
             line-height: 1.55;
+        }
+
+
+        /* =====================================================
+           IMAGE ZOOM / MAGNIFICATION
+        ===================================================== */
+
+        .image-zoom-modal {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 10000;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 25px;
+
+            background:
+                rgba(7,24,45,0.92);
+
+            backdrop-filter:
+                blur(6px);
+
+            cursor: zoom-out;
+        }
+
+        .image-zoom-modal[hidden] {
+            display: none;
+        }
+
+        .image-zoom-content {
+            position: relative;
+
+            max-width: 95vw;
+            max-height: 92vh;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-zoom-content img {
+            display: block;
+
+            max-width: 95vw;
+            max-height: 92vh;
+
+            width: auto;
+            height: auto;
+
+            object-fit: contain;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 25px 80px
+                rgba(0,0,0,0.45);
+
+            cursor: zoom-out;
+        }
+
+        .image-zoom-close {
+            position: fixed;
+
+            top: 18px;
+            right: 22px;
+
+            z-index: 10001;
+
+            width: 44px;
+            height: 44px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,0.12);
+
+            color: white;
+
+            font-size: 30px;
+
+            line-height: 1;
+
+            cursor: pointer;
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .image-zoom-close:hover {
+            background:
+                rgba(255,255,255,0.22);
+
+            transform:
+                scale(1.05);
+        }
+
+        .image-zoom-caption {
+            position: fixed;
+
+            left: 50%;
+            bottom: 20px;
+
+            transform:
+                translateX(-50%);
+
+            max-width: 90vw;
+
+            padding: 8px 15px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(0,0,0,0.55);
+
+            color: white;
+
+            font-size: 13px;
+
+            text-align: center;
+
+            pointer-events: none;
+        }
+
+        body.image-zoom-open {
+            overflow: hidden;
         }
 
 
@@ -1411,6 +1555,27 @@
 
             .privacy-button {
                 width: 100%;
+            }
+
+            .image-zoom-modal {
+                padding: 12px;
+            }
+
+            .image-zoom-content img {
+                max-width: 96vw;
+                max-height: 88vh;
+
+                border-radius: 5px;
+            }
+
+            .image-zoom-close {
+                top: 12px;
+                right: 12px;
+
+                width: 40px;
+                height: 40px;
+
+                font-size: 26px;
             }
 
         }
@@ -2117,7 +2282,6 @@
             </h2>
 
             <p class="section-intro">
-                Sample
             </p>
 
 
@@ -2557,6 +2721,46 @@
 
 
 <!-- =========================================================
+     IMAGE ZOOM MODAL
+========================================================= -->
+
+<div
+    id="image-zoom-modal"
+    class="image-zoom-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Enlarged image"
+    hidden
+>
+
+    <button
+        type="button"
+        class="image-zoom-close"
+        id="image-zoom-close"
+        aria-label="Close enlarged image"
+    >
+        &times;
+    </button>
+
+    <div class="image-zoom-content">
+
+        <img
+            id="image-zoom-display"
+            src=""
+            alt=""
+        >
+
+    </div>
+
+    <div
+        id="image-zoom-caption"
+        class="image-zoom-caption"
+    ></div>
+
+</div>
+
+
+<!-- =========================================================
      PRIVACY MODAL
 ========================================================= -->
 
@@ -2892,6 +3096,31 @@ document.addEventListener(
 
 
         /* =====================================================
+           IMAGE ZOOM ELEMENTS
+        ===================================================== */
+
+        const imageZoomModal =
+            document.getElementById(
+                "image-zoom-modal"
+            );
+
+        const imageZoomDisplay =
+            document.getElementById(
+                "image-zoom-display"
+            );
+
+        const imageZoomClose =
+            document.getElementById(
+                "image-zoom-close"
+            );
+
+        const imageZoomCaption =
+            document.getElementById(
+                "image-zoom-caption"
+            );
+
+
+        /* =====================================================
            SAFETY CHECK
         ===================================================== */
 
@@ -2988,6 +3217,167 @@ document.addEventListener(
                     null;
 
             }
+
+        }
+
+
+        /* =====================================================
+           IMAGE ZOOM FUNCTIONS
+        ===================================================== */
+
+        function openImageZoom(image) {
+
+            if (
+                !imageZoomModal ||
+                !imageZoomDisplay
+            ) {
+
+                return;
+
+            }
+
+
+            imageZoomDisplay.src =
+                image.src;
+
+            imageZoomDisplay.alt =
+                image.alt ||
+                "Enlarged image";
+
+
+            const caption =
+                image
+                    .closest(".gallery-item")
+                    ?.querySelector(
+                        ".gallery-caption h3"
+                    )
+                    ?.textContent
+                    .trim();
+
+
+            if (imageZoomCaption) {
+
+                imageZoomCaption.textContent =
+                    caption || "";
+
+            }
+
+
+            imageZoomModal.hidden =
+                false;
+
+            document.body.classList.add(
+                "image-zoom-open"
+            );
+
+
+            setTimeout(
+                function () {
+
+                    if (imageZoomClose) {
+
+                        imageZoomClose.focus();
+
+                    }
+
+                },
+                50
+            );
+
+        }
+
+
+        function closeImageZoom() {
+
+            if (!imageZoomModal) {
+                return;
+            }
+
+
+            imageZoomModal.hidden =
+                true;
+
+            document.body.classList.remove(
+                "image-zoom-open"
+            );
+
+
+            if (imageZoomDisplay) {
+
+                imageZoomDisplay.src =
+                    "";
+
+                imageZoomDisplay.alt =
+                    "";
+
+            }
+
+
+            if (imageZoomCaption) {
+
+                imageZoomCaption.textContent =
+                    "";
+
+            }
+
+        }
+
+
+        /* =====================================================
+           ENABLE IMAGE ZOOM
+        ===================================================== */
+
+        document
+            .querySelectorAll(
+                ".gallery-image"
+            )
+            .forEach(
+                function (image) {
+
+                    image.addEventListener(
+                        "click",
+                        function () {
+
+                            openImageZoom(
+                                image
+                            );
+
+                        }
+                    );
+
+                }
+            );
+
+
+        if (imageZoomClose) {
+
+            imageZoomClose.addEventListener(
+                "click",
+                closeImageZoom
+            );
+
+        }
+
+
+        if (imageZoomModal) {
+
+            imageZoomModal.addEventListener(
+                "click",
+                function (event) {
+
+                    if (
+                        event.target ===
+                            imageZoomModal ||
+                        event.target ===
+                            imageZoomDisplay
+                    ) {
+
+                        closeImageZoom();
+
+                    }
+
+                }
+            );
 
         }
 
@@ -3154,12 +3544,25 @@ document.addEventListener(
 
 
         /* =====================================================
-           ESCAPE
+           KEYBOARD ESCAPE
         ===================================================== */
 
         document.addEventListener(
             "keydown",
             function (event) {
+
+                if (
+                    event.key === "Escape" &&
+                    imageZoomModal &&
+                    !imageZoomModal.hidden
+                ) {
+
+                    closeImageZoom();
+
+                    return;
+
+                }
+
 
                 if (
                     event.key === "Escape" &&
