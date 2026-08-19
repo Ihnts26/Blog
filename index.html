@@ -83,6 +83,7 @@
                 0 5px 22px rgba(15, 23, 42, 0.07);
         }
 
+
         /* =====================================================
            HERO
         ===================================================== */
@@ -220,6 +221,7 @@
                 rgba(255,255,255,0.15);
         }
 
+
         /* =====================================================
            NAVIGATION
         ===================================================== */
@@ -277,6 +279,7 @@
         nav a:hover {
             color: var(--blue);
         }
+
 
         /* =====================================================
            LAYOUT
@@ -341,6 +344,7 @@
             font-size: 0.95rem;
         }
 
+
         /* =====================================================
            INTRODUCTION
         ===================================================== */
@@ -398,6 +402,7 @@
 
             font-size: 0.88rem;
         }
+
 
         /* =====================================================
            SERVICES
@@ -502,6 +507,7 @@
 
             font-weight: 800;
         }
+
 
         /* =====================================================
            HELP / WORK / PROCESS
@@ -612,6 +618,7 @@
             font-weight: 800;
         }
 
+
         /* =====================================================
            AREAS
         ===================================================== */
@@ -643,6 +650,117 @@
             font-size: 12px;
             font-weight: 650;
         }
+
+
+        /* =====================================================
+           GALLERY
+        ===================================================== */
+
+        .gallery-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+
+            margin-top: 27px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+
+            background: white;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 4px 16px
+                rgba(15,23,42,0.05);
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .gallery-item:hover {
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(15,23,42,0.10);
+        }
+
+        .gallery-image {
+            width: 100%;
+
+            aspect-ratio: 16 / 10;
+
+            display: block;
+
+            object-fit: cover;
+
+            background:
+                #E2E8F0;
+        }
+
+        .gallery-placeholder {
+            width: 100%;
+
+            aspect-ratio: 16 / 10;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #EFF6FF,
+                    #DBEAFE
+                );
+
+            color:
+                var(--blue);
+
+            font-size: 14px;
+            font-weight: 750;
+
+            text-align: center;
+        }
+
+        .gallery-caption {
+            padding:
+                16px 17px 18px;
+        }
+
+        .gallery-caption h3 {
+            margin:
+                0 0 5px;
+
+            color: var(--navy);
+
+            font-size: 0.98rem;
+        }
+
+        .gallery-caption p {
+            margin: 0;
+
+            color: var(--muted);
+
+            font-size: 0.82rem;
+
+            line-height: 1.55;
+        }
+
 
         /* =====================================================
            CTA
@@ -685,6 +803,7 @@
 
             font-size: 0.94rem;
         }
+
 
         /* =====================================================
            CONTACT
@@ -875,6 +994,7 @@
             color: #B91C1C;
         }
 
+
         /* =====================================================
            HIDDEN FORM ELEMENTS
         ===================================================== */
@@ -891,6 +1011,7 @@
 
             opacity: 0 !important;
         }
+
 
         /* =====================================================
            PRIVACY MODAL
@@ -1147,6 +1268,7 @@
             overflow: hidden;
         }
 
+
         /* =====================================================
            FOOTER
         ===================================================== */
@@ -1170,6 +1292,7 @@
             color: white;
         }
 
+
         /* =====================================================
            RESPONSIVE
         ===================================================== */
@@ -1190,13 +1313,19 @@
                 grid-template-columns: 1fr;
             }
 
+            .gallery-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
         }
 
         @media (max-width: 700px) {
 
             .services-grid,
             .help-grid,
-            .work-options {
+            .work-options,
+            .gallery-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1387,6 +1516,12 @@
         </li>
 
         <li>
+            <a href="#gallery">
+                Gallery
+            </a>
+        </li>
+
+        <li>
             <a href="#process">
                 How It Works
             </a>
@@ -1529,10 +1664,6 @@
             <div class="services-grid">
 
 
-                <!-- =================================================
-                     01 SOFTWARE
-                ================================================== -->
-
                 <div class="service">
 
                     <div class="service-number">
@@ -1560,10 +1691,6 @@
 
                 </div>
 
-
-                <!-- =================================================
-                     02 ELECTRICAL / ELECTRONICS / HARDWARE
-                ================================================== -->
 
                 <div class="service">
 
@@ -1594,10 +1721,6 @@
                 </div>
 
 
-                <!-- =================================================
-                     03 CONSTRUCTION
-                ================================================== -->
-
                 <div class="service">
 
                     <div class="service-number">
@@ -1625,10 +1748,6 @@
 
                 </div>
 
-
-                <!-- =================================================
-                     04 CLINICAL / MEDICAL
-                ================================================== -->
 
                 <div class="service">
 
@@ -1659,10 +1778,6 @@
                 </div>
 
 
-                <!-- =================================================
-                     05 DOCUMENTATION / PROJECT SUPPORT
-                ================================================== -->
-
                 <div class="service">
 
                     <div class="service-number">
@@ -1690,10 +1805,6 @@
 
                 </div>
 
-
-                <!-- =================================================
-                     06 CUSTOM PROJECT SUPPORT
-                ================================================== -->
 
                 <div class="service">
 
@@ -1978,6 +2089,68 @@
                 <span class="area">Hands-On Support</span>
                 <span class="area">Freelance Work</span>
                 <span class="area">Contract Work</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         GALLERY
+    ===================================================== -->
+
+    <section
+        class="section"
+        id="gallery"
+    >
+
+        <div class="card">
+
+            <div class="label">
+                Gallery
+            </div>
+
+            <h2 class="section-title">
+                Selected Work &amp; Project Visuals
+            </h2>
+
+            <p class="section-intro">
+                Sample works and project visuals.
+            </p>
+
+
+            <div class="gallery-grid">
+
+
+                <!-- =================================================
+                     FLOOR
+                ================================================== -->
+
+                <article class="gallery-item">
+
+                    <img
+                        src="images/Floor.jpg"
+                        alt="Floor project work"
+                        class="gallery-image"
+                        loading="lazy"
+                    >
+
+                    <div class="gallery-caption">
+
+                        <h3>
+                            Floor
+                        </h3>
+
+                        <p>
+                            Sample project visual.
+                        </p>
+
+                    </div>
+
+                </article>
+
 
             </div>
 
@@ -2275,9 +2448,7 @@
             ></textarea>
 
 
-            <!-- =================================================
-                 LOCATION
-            ================================================== -->
+            <!-- LOCATION DATA -->
 
             <input
                 type="hidden"
@@ -2307,11 +2478,6 @@
                 value=""
             >
 
-
-            <!-- =================================================
-                 USER AGENT
-            ================================================== -->
-
             <input
                 type="hidden"
                 id="user-agent"
@@ -2320,9 +2486,7 @@
             >
 
 
-            <!-- =================================================
-                 HONEYPOT
-            ================================================== -->
+            <!-- HONEYPOT -->
 
             <input
                 type="text"
@@ -2643,54 +2807,25 @@ document.addEventListener(
         ===================================================== */
 
         const form =
-            document.getElementById(
-                "contact-form"
-            );
+            document.getElementById("contact-form");
 
         const button =
-            document.getElementById(
-                "submit-button"
-            );
+            document.getElementById("submit-button");
 
         const status =
-            document.getElementById(
-                "form-status"
-            );
+            document.getElementById("form-status");
 
         const nameInput =
-            document.getElementById(
-                "name"
-            );
+            document.getElementById("name");
 
         const emailInput =
-            document.getElementById(
-                "email"
-            );
-
-        const serviceInput =
-            document.getElementById(
-                "service"
-            );
-
-        const timeframeInput =
-            document.getElementById(
-                "timeframe"
-            );
-
-        const messageInput =
-            document.getElementById(
-                "message"
-            );
+            document.getElementById("email");
 
         const iframe =
-            document.getElementById(
-                "form-response-frame"
-            );
+            document.getElementById("form-response-frame");
 
         const userAgentInput =
-            document.getElementById(
-                "user-agent"
-            );
+            document.getElementById("user-agent");
 
         const honeypot =
             form
@@ -2698,6 +2833,27 @@ document.addEventListener(
                     'input[name="website"]'
                 )
                 : null;
+
+
+        /* =====================================================
+           FORM OPTIONAL ELEMENTS
+        ===================================================== */
+
+        const locationPermission =
+            document.getElementById(
+                "location-permission"
+            );
+
+        const latitudeInput =
+            document.getElementById("latitude");
+
+        const longitudeInput =
+            document.getElementById("longitude");
+
+        const accuracyInput =
+            document.getElementById(
+                "location-accuracy"
+            );
 
 
         /* =====================================================
@@ -2734,26 +2890,6 @@ document.addEventListener(
                 "privacy-understood"
             );
 
-        const locationPermission =
-            document.getElementById(
-                "location-permission"
-            );
-
-        const latitudeInput =
-            document.getElementById(
-                "latitude"
-            );
-
-        const longitudeInput =
-            document.getElementById(
-                "longitude"
-            );
-
-        const accuracyInput =
-            document.getElementById(
-                "location-accuracy"
-            );
-
 
         /* =====================================================
            SAFETY CHECK
@@ -2764,8 +2900,7 @@ document.addEventListener(
             !button ||
             !iframe ||
             !nameInput ||
-            !emailInput ||
-            !messageInput
+            !emailInput
         ) {
 
             console.error(
@@ -2778,7 +2913,6 @@ document.addEventListener(
 
 
         let submitting = false;
-
         let submissionTimer = null;
 
 
@@ -2879,9 +3013,7 @@ document.addEventListener(
                 function () {
 
                     if (privacyClose) {
-
                         privacyClose.focus();
-
                     }
 
                 },
@@ -2935,30 +3067,21 @@ document.addEventListener(
 
 
         /* =====================================================
-           CLEAR LOCATION FIELDS
+           CLEAR LOCATION
         ===================================================== */
 
         function clearLocationFields() {
 
             if (latitudeInput) {
-
-                latitudeInput.value =
-                    "";
-
+                latitudeInput.value = "";
             }
 
             if (longitudeInput) {
-
-                longitudeInput.value =
-                    "";
-
+                longitudeInput.value = "";
             }
 
             if (accuracyInput) {
-
-                accuracyInput.value =
-                    "";
-
+                accuracyInput.value = "";
             }
 
         }
@@ -2970,9 +3093,7 @@ document.addEventListener(
 
         function denyLocationAccess() {
 
-            saveLocationConsent(
-                "denied"
-            );
+            saveLocationConsent("denied");
 
             if (locationPermission) {
 
@@ -3033,7 +3154,7 @@ document.addEventListener(
 
 
         /* =====================================================
-           ESCAPE KEY
+           ESCAPE
         ===================================================== */
 
         document.addEventListener(
@@ -3055,7 +3176,7 @@ document.addEventListener(
 
 
         /* =====================================================
-           HIGH-ACCURACY LOCATION REQUEST
+           LOCATION
         ===================================================== */
 
         if (allowLocation) {
@@ -3064,9 +3185,7 @@ document.addEventListener(
                 "click",
                 function () {
 
-                    if (
-                        !navigator.geolocation
-                    ) {
+                    if (!navigator.geolocation) {
 
                         if (locationPermission) {
 
@@ -3090,7 +3209,7 @@ document.addEventListener(
                         true;
 
                     allowLocation.textContent =
-                        "Finding Accurate Location...";
+                        "Finding Location...";
 
 
                     let bestPosition =
@@ -3145,7 +3264,9 @@ document.addEventListener(
                         if (latitudeInput) {
 
                             latitudeInput.value =
-                                coords.latitude.toFixed(8);
+                                Number(
+                                    coords.latitude
+                                ).toFixed(8);
 
                         }
 
@@ -3153,7 +3274,9 @@ document.addEventListener(
                         if (longitudeInput) {
 
                             longitudeInput.value =
-                                coords.longitude.toFixed(8);
+                                Number(
+                                    coords.longitude
+                                ).toFixed(8);
 
                         }
 
@@ -3161,7 +3284,9 @@ document.addEventListener(
                         if (accuracyInput) {
 
                             accuracyInput.value =
-                                coords.accuracy.toFixed(2);
+                                Number(
+                                    coords.accuracy
+                                ).toFixed(2);
 
                         }
 
@@ -3461,9 +3586,7 @@ document.addEventListener(
 
 
                 if (!submitting) {
-
                     return;
-
                 }
 
 
@@ -3482,7 +3605,6 @@ document.addEventListener(
 
 
                     form.reset();
-
 
                     setUserAgent();
 
@@ -3546,7 +3668,6 @@ document.addEventListener(
 
                     clearLocationFields();
 
-
                     nameInput.focus();
 
                     return;
@@ -3576,15 +3697,9 @@ document.addEventListener(
 
 
                 if (submitting) {
-
                     return;
-
                 }
 
-
-                /* ---------------------------------------------
-                   HONEYPOT
-                --------------------------------------------- */
 
                 if (
                     honeypot &&
@@ -3596,16 +3711,8 @@ document.addEventListener(
                 }
 
 
-                /* ---------------------------------------------
-                   USER AGENT
-                --------------------------------------------- */
-
                 setUserAgent();
 
-
-                /* ---------------------------------------------
-                   VALUES
-                --------------------------------------------- */
 
                 const name =
                     nameInput.value.trim();
@@ -3613,13 +3720,16 @@ document.addEventListener(
                 const email =
                     emailInput.value.trim();
 
+                const messageInput =
+                    document.getElementById(
+                        "message"
+                    );
+
                 const message =
-                    messageInput.value.trim();
+                    messageInput
+                        ? messageInput.value.trim()
+                        : "";
 
-
-                /* ---------------------------------------------
-                   VALIDATION
-                --------------------------------------------- */
 
                 if (!name) {
 
@@ -3672,7 +3782,9 @@ document.addEventListener(
                         "error"
                     );
 
-                    messageInput.focus();
+                    if (messageInput) {
+                        messageInput.focus();
+                    }
 
                     return;
 
@@ -3695,10 +3807,6 @@ document.addEventListener(
                 }
 
 
-                /* ---------------------------------------------
-                   SUBMIT
-                --------------------------------------------- */
-
                 submitting =
                     true;
 
@@ -3719,18 +3827,12 @@ document.addEventListener(
                 );
 
 
-                /* ---------------------------------------------
-                   TIMEOUT SAFETY
-                --------------------------------------------- */
-
                 submissionTimer =
                     window.setTimeout(
                         function () {
 
                             if (!submitting) {
-
                                 return;
-
                             }
 
 
@@ -3738,7 +3840,7 @@ document.addEventListener(
 
 
                             showStatus(
-                                "Thank you. Your requirement has been received.",
+                                "The request may have been submitted, but no confirmation was received. Please check your email or try again.",
                                 "error"
                             );
 
@@ -3788,9 +3890,7 @@ document.addEventListener(
 
 
                             if (!target) {
-
                                 return;
-
                             }
 
 
@@ -3813,6 +3913,7 @@ document.addEventListener(
 );
 
 </script>
+
 
 </body>
 
