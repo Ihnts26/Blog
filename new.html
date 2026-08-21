@@ -1,0 +1,4366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#0B1F3A"
+    >
+
+    <meta
+        name="description"
+        content="Kaye Eloisa Arnejo | Practical, hands-on freelance, contract and project support across software, electrical, electronics, hardware, construction, clinical, documentation, research and technical work."
+    >
+
+    <title>
+        KEA | Practical Hands-On Support for Work That Needs to Get Done
+    </title>
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 70px;
+        }
+
+        body {
+            margin: 0;
+            overflow-x: hidden;
+
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            background: #f5f7fa;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font-family: inherit;
+        }
+
+        :root {
+            --navy: #0B1F3A;
+            --blue: #2563EB;
+            --blue-dark: #1D4ED8;
+            --blue-soft: #EFF6FF;
+            --text: #1F2937;
+            --muted: #64748B;
+            --border: #E2E8F0;
+            --white: #FFFFFF;
+            --background: #F5F7FA;
+
+            --shadow:
+                0 5px 22px rgba(15, 23, 42, 0.07);
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        header {
+            padding: 78px 20px 72px;
+            text-align: center;
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #07182D 0%,
+                    #0B1F3A 58%,
+                    #163E6D 100%
+                );
+        }
+
+        .hero {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .availability {
+            display: inline-block;
+
+            padding: 6px 14px;
+            margin-bottom: 20px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.15);
+
+            border-radius: 30px;
+
+            background:
+                rgba(255,255,255,0.08);
+
+            color: #BFDBFE;
+
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        header h1 {
+            margin: 0 0 20px;
+
+            font-size:
+                clamp(2.3rem, 6vw, 3.7rem);
+
+            line-height: 1.08;
+            letter-spacing: -1.2px;
+        }
+
+        .hero-question {
+            margin-bottom: 12px;
+
+            font-size:
+                clamp(1.25rem, 3vw, 1.7rem);
+
+            font-weight: 650;
+        }
+
+        .hero-description {
+            max-width: 720px;
+            margin: auto;
+
+            color: #CBDCF3;
+
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+
+        .hero-buttons {
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .button {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            min-height: 48px;
+
+            padding: 11px 23px;
+
+            border-radius: 7px;
+
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 750;
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .button-primary {
+            background: var(--blue);
+            color: white;
+        }
+
+        .button-primary:hover {
+            background: var(--blue-dark);
+            transform: translateY(-2px);
+        }
+
+        .button-secondary {
+            color: white;
+
+            background:
+                rgba(255,255,255,0.08);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.2);
+        }
+
+        .button-secondary:hover {
+            background:
+                rgba(255,255,255,0.15);
+        }
+
+
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
+
+        nav {
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            background:
+                rgba(255,255,255,0.97);
+
+            border-bottom:
+                1px solid
+                var(--border);
+
+            box-shadow:
+                0 2px 9px
+                rgba(15,23,42,0.05);
+        }
+
+        nav ul {
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            list-style: none;
+
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            margin: 0 13px;
+        }
+
+        nav a {
+            display: block;
+
+            padding: 14px 0;
+
+            color: #334155;
+
+            text-decoration: none;
+
+            font-size: 13px;
+            font-weight: 650;
+        }
+
+        nav a:hover {
+            color: var(--blue);
+        }
+
+
+        /* =====================================================
+           LAYOUT
+        ===================================================== */
+
+        .container {
+            max-width: 1100px;
+
+            margin: 40px auto;
+
+            padding: 0 20px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .card {
+            padding: 34px;
+
+            background: white;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 14px;
+
+            box-shadow: var(--shadow);
+        }
+
+        .label {
+            margin-bottom: 7px;
+
+            color: var(--blue);
+
+            font-size: 12px;
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.9px;
+        }
+
+        .section-title {
+            margin:
+                0 0 9px;
+
+            color: var(--navy);
+
+            font-size:
+                clamp(1.55rem, 4vw, 2rem);
+
+            line-height: 1.25;
+        }
+
+        .section-intro {
+            max-width: 780px;
+
+            color: var(--muted);
+
+            font-size: 0.95rem;
+        }
+
+
+        /* =====================================================
+           INTRODUCTION
+        ===================================================== */
+
+        .intro-grid {
+            display: grid;
+
+            grid-template-columns:
+                1.2fr 0.8fr;
+
+            gap: 25px;
+
+            align-items: stretch;
+        }
+
+        .intro-text {
+            padding-right: 10px;
+        }
+
+        .intro-text p {
+            margin-top: 13px;
+
+            color: #475569;
+
+            font-size: 0.95rem;
+        }
+
+        .intro-box {
+            padding: 25px;
+
+            background:
+                var(--blue-soft);
+
+            border:
+                1px solid
+                #DBEAFE;
+
+            border-radius: 10px;
+        }
+
+        .intro-box strong {
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: var(--navy);
+
+            font-size: 1rem;
+        }
+
+        .intro-box p {
+            margin: 0;
+
+            color: #475569;
+
+            font-size: 0.88rem;
+        }
+
+
+        /* =====================================================
+           SERVICES
+        ===================================================== */
+
+        .services-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 16px;
+
+            margin-top: 27px;
+        }
+
+        .service {
+            padding: 24px;
+
+            background: #FFFFFF;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 10px;
+
+            transition:
+                border-color 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .service:hover {
+            border-color: #BFDBFE;
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 9px 25px
+                rgba(37,99,235,0.07);
+        }
+
+        .service-number {
+            margin-bottom: 6px;
+
+            color: #93C5FD;
+
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .service h3 {
+            margin:
+                0 0 7px;
+
+            color: var(--navy);
+
+            font-size: 1.05rem;
+        }
+
+        .service p {
+            margin-bottom: 13px;
+
+            color: var(--muted);
+
+            font-size: 0.88rem;
+        }
+
+        .service ul {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 5px;
+
+            list-style: none;
+
+            margin: 0;
+            padding: 0;
+        }
+
+        .service li {
+            position: relative;
+
+            padding-left: 17px;
+
+            color: #475569;
+
+            font-size: 0.84rem;
+        }
+
+        .service li::before {
+            content: "✓";
+
+            position: absolute;
+
+            left: 0;
+
+            color: var(--blue);
+
+            font-weight: 800;
+        }
+
+
+        /* =====================================================
+           HELP / WORK / PROCESS
+        ===================================================== */
+
+        .help-grid,
+        .work-options,
+        .process {
+            display: grid;
+
+            gap: 14px;
+
+            margin-top: 25px;
+        }
+
+        .help-grid {
+            grid-template-columns:
+                repeat(3, 1fr);
+        }
+
+        .work-options {
+            grid-template-columns:
+                repeat(3, 1fr);
+        }
+
+        .process {
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 16px;
+        }
+
+        .help-item,
+        .option,
+        .process-item {
+            padding: 20px;
+
+            background: #F8FAFC;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 9px;
+        }
+
+        .help-item strong {
+            display: block;
+
+            margin-bottom: 4px;
+
+            color: var(--navy);
+
+            font-size: 0.92rem;
+        }
+
+        .help-item span {
+            color: var(--muted);
+
+            font-size: 0.82rem;
+        }
+
+        .option {
+            background: white;
+        }
+
+        .option h3,
+        .process-item h3 {
+            margin:
+                0 0 5px;
+
+            color: var(--navy);
+
+            font-size: 0.98rem;
+        }
+
+        .option p,
+        .process-item p {
+            margin: 0;
+
+            color: var(--muted);
+
+            font-size: 0.84rem;
+        }
+
+        .process-item {
+            padding: 22px;
+        }
+
+        .process-number {
+            width: 36px;
+            height: 36px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 12px;
+
+            border-radius: 50%;
+
+            background: var(--blue);
+
+            color: white;
+
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+
+        /* =====================================================
+           AREAS
+        ===================================================== */
+
+        .areas {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-top: 22px;
+        }
+
+        .area {
+            padding: 8px 14px;
+
+            background:
+                var(--blue-soft);
+
+            border:
+                1px solid
+                #DBEAFE;
+
+            border-radius: 30px;
+
+            color: var(--navy);
+
+            font-size: 12px;
+            font-weight: 650;
+        }
+
+
+        /* =====================================================
+           EXAMPLES / GALLERY
+        ===================================================== */
+
+        .gallery-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+
+            margin-top: 27px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+
+            background: white;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 4px 16px
+                rgba(15,23,42,0.05);
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .gallery-item:hover {
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(15,23,42,0.10);
+        }
+
+        .gallery-image {
+            width: 100%;
+
+            aspect-ratio: 16 / 10;
+
+            display: block;
+
+            object-fit: cover;
+
+            background:
+                #E2E8F0;
+
+            cursor: zoom-in;
+
+            transition:
+                transform 0.25s ease;
+        }
+
+        .gallery-image:hover {
+            transform:
+                scale(1.03);
+        }
+
+        /* NEW: MP4 VIDEO */
+
+        .gallery-video {
+            width: 100%;
+
+            aspect-ratio: 16 / 10;
+
+            display: block;
+
+            object-fit: cover;
+
+            background:
+                #07182D;
+        }
+
+        .gallery-caption {
+            padding:
+                16px 17px 18px;
+        }
+
+        .gallery-caption h3 {
+            margin:
+                0 0 5px;
+
+            color: var(--navy);
+
+            font-size: 0.98rem;
+        }
+
+        .gallery-caption p {
+            margin: 0;
+
+            color: var(--muted);
+
+            font-size: 0.82rem;
+
+            line-height: 1.55;
+        }
+
+
+        /* =====================================================
+           IMAGE ZOOM / MAGNIFICATION
+        ===================================================== */
+
+        .image-zoom-modal {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 10000;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 25px;
+
+            background:
+                rgba(7,24,45,0.92);
+
+            backdrop-filter:
+                blur(6px);
+
+            cursor: zoom-out;
+        }
+
+        .image-zoom-modal[hidden] {
+            display: none;
+        }
+
+        .image-zoom-content {
+            position: relative;
+
+            max-width: 95vw;
+            max-height: 92vh;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-zoom-content img {
+            display: block;
+
+            max-width: 95vw;
+            max-height: 92vh;
+
+            width: auto;
+            height: auto;
+
+            object-fit: contain;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 25px 80px
+                rgba(0,0,0,0.45);
+
+            cursor: zoom-out;
+        }
+
+        .image-zoom-close {
+            position: fixed;
+
+            top: 18px;
+            right: 22px;
+
+            z-index: 10001;
+
+            width: 44px;
+            height: 44px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,0.12);
+
+            color: white;
+
+            font-size: 30px;
+
+            line-height: 1;
+
+            cursor: pointer;
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .image-zoom-close:hover {
+            background:
+                rgba(255,255,255,0.22);
+
+            transform:
+                scale(1.05);
+        }
+
+        .image-zoom-caption {
+            position: fixed;
+
+            left: 50%;
+            bottom: 20px;
+
+            transform:
+                translateX(-50%);
+
+            max-width: 90vw;
+
+            padding: 8px 15px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(0,0,0,0.55);
+
+            color: white;
+
+            font-size: 13px;
+
+            text-align: center;
+
+            pointer-events: none;
+        }
+
+        body.image-zoom-open {
+            overflow: hidden;
+        }
+
+
+        /* =====================================================
+           CTA
+        ===================================================== */
+
+        .cta {
+            padding: 45px 25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0B1F3A,
+                    #163E6D
+                );
+
+            border-radius: 14px;
+
+            color: white;
+
+            text-align: center;
+
+            box-shadow: var(--shadow);
+        }
+
+        .cta h2 {
+            margin:
+                0 0 10px;
+
+            font-size:
+                clamp(1.6rem, 4vw, 2.2rem);
+        }
+
+        .cta p {
+            max-width: 680px;
+
+            margin:
+                0 auto 23px;
+
+            color: #CBDCF3;
+
+            font-size: 0.94rem;
+        }
+
+
+        /* =====================================================
+           CONTACT
+        ===================================================== */
+
+        #contact {
+            max-width: 850px;
+
+            margin: 45px auto;
+
+            padding: 0 20px;
+        }
+
+        .contact-card {
+            padding: 36px;
+
+            background: white;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 14px;
+
+            box-shadow: var(--shadow);
+        }
+
+        .contact-header {
+            margin-bottom: 25px;
+
+            text-align: center;
+        }
+
+        .contact-header h2 {
+            margin:
+                0 0 8px;
+
+            color: var(--navy);
+
+            font-size: 1.9rem;
+        }
+
+        .contact-header p {
+            max-width: 650px;
+
+            margin: auto;
+
+            color: var(--muted);
+
+            font-size: 0.92rem;
+        }
+
+        .contact-note {
+            padding: 16px 18px;
+
+            margin-bottom: 23px;
+
+            background:
+                var(--blue-soft);
+
+            border-left:
+                3px solid
+                var(--blue);
+
+            border-radius: 6px;
+
+            color: #475569;
+
+            font-size: 0.86rem;
+        }
+
+        .contact-note strong {
+            color: var(--navy);
+        }
+
+        form {
+            max-width: 620px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px;
+
+            margin: auto;
+        }
+
+        form label {
+            margin-top: 7px;
+
+            color: var(--text);
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        form input,
+        form textarea,
+        form select {
+            width: 100%;
+
+            padding: 12px 13px;
+
+            border:
+                1px solid
+                #CBD5E1;
+
+            border-radius: 7px;
+
+            background: white;
+
+            color: var(--text);
+
+            font-size: 15px;
+
+            outline: none;
+        }
+
+        form textarea {
+            min-height: 155px;
+
+            resize: vertical;
+        }
+
+        form input:focus,
+        form textarea:focus,
+        form select:focus {
+            border-color:
+                var(--blue);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(37,99,235,0.11);
+        }
+
+        form button[type="submit"] {
+            min-height: 49px;
+
+            margin-top: 13px;
+
+            border: none;
+
+            border-radius: 7px;
+
+            background:
+                var(--blue);
+
+            color: white;
+
+            font-size: 15px;
+            font-weight: 750;
+
+            cursor: pointer;
+
+            transition:
+                background 0.2s ease,
+                opacity 0.2s ease;
+        }
+
+        form button[type="submit"]:hover {
+            background:
+                var(--blue-dark);
+        }
+
+        form button[type="submit"]:disabled {
+            opacity: 0.65;
+
+            cursor: wait;
+        }
+
+        .form-status {
+            min-height: 22px;
+
+            margin-top: 12px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+            text-align: center;
+        }
+
+        .form-status.success {
+            color: #15803D;
+        }
+
+        .form-status.error {
+            color: #B91C1C;
+        }
+
+
+        /* =====================================================
+           HIDDEN FORM ELEMENTS
+        ===================================================== */
+
+        .form-hidden {
+            display: none !important;
+
+            position: absolute !important;
+
+            left: -9999px !important;
+
+            width: 1px !important;
+            height: 1px !important;
+
+            opacity: 0 !important;
+        }
+
+
+        /* =====================================================
+           PRIVACY MODAL
+        ===================================================== */
+
+        .privacy-modal {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 9999;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            background:
+                rgba(7,24,45,0.72);
+
+            backdrop-filter:
+                blur(5px);
+
+            overflow-y: auto;
+        }
+
+        .privacy-modal[hidden] {
+            display: none;
+        }
+
+        .privacy-panel {
+            position: relative;
+
+            width: 100%;
+
+            max-width: 650px;
+
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            padding: 32px;
+
+            background: #FFFFFF;
+
+            border:
+                1px solid
+                #E2E8F0;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 25px 70px
+                rgba(15,23,42,0.25);
+        }
+
+        .privacy-close {
+            position: absolute;
+
+            top: 14px;
+            right: 16px;
+
+            width: 36px;
+            height: 36px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background:
+                #F1F5F9;
+
+            color: #334155;
+
+            font-size: 24px;
+
+            line-height: 1;
+
+            cursor: pointer;
+        }
+
+        .privacy-close:hover {
+            background:
+                #E2E8F0;
+        }
+
+        .privacy-panel h2 {
+            margin:
+                0 0 10px;
+
+            padding-right: 35px;
+
+            color: var(--navy);
+
+            font-size: 1.7rem;
+        }
+
+        .privacy-intro {
+            margin-bottom: 22px;
+
+            color: #475569;
+
+            font-size: 0.94rem;
+
+            line-height: 1.7;
+        }
+
+        .privacy-section {
+            padding: 17px 0;
+
+            border-top:
+                1px solid
+                var(--border);
+        }
+
+        .privacy-section h3 {
+            margin:
+                0 0 6px;
+
+            color: var(--navy);
+
+            font-size: 0.98rem;
+        }
+
+        .privacy-section p {
+            margin:
+                0 0 8px;
+
+            color: var(--muted);
+
+            font-size: 0.86rem;
+
+            line-height: 1.65;
+        }
+
+        .privacy-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .privacy-actions {
+            display: flex;
+
+            gap: 10px;
+
+            margin-top: 20px;
+        }
+
+        .privacy-button {
+            flex: 1;
+
+            min-height: 47px;
+
+            padding: 10px 18px;
+
+            border: none;
+
+            border-radius: 7px;
+
+            font-size: 14px;
+            font-weight: 750;
+
+            cursor: pointer;
+        }
+
+        .privacy-primary {
+            background:
+                var(--blue);
+
+            color: white;
+        }
+
+        .privacy-primary:hover {
+            background:
+                var(--blue-dark);
+        }
+
+        .privacy-secondary {
+            background:
+                #F1F5F9;
+
+            color: #334155;
+
+            border:
+                1px solid
+                #CBD5E1;
+        }
+
+        .privacy-secondary:hover {
+            background:
+                #E2E8F0;
+        }
+
+        .privacy-text-button {
+            display: block;
+
+            width: 100%;
+
+            margin-top: 12px;
+
+            padding: 8px;
+
+            border: none;
+
+            background: transparent;
+
+            color: var(--blue);
+
+            font-size: 13px;
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        .privacy-floating {
+            position: fixed;
+
+            right: 15px;
+            bottom: 15px;
+
+            z-index: 900;
+        }
+
+        .privacy-floating button {
+            padding: 8px 13px;
+
+            border:
+                1px solid
+                #CBD5E1;
+
+            border-radius: 20px;
+
+            background:
+                rgba(255,255,255,0.96);
+
+            color: #475569;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 3px 12px
+                rgba(15,23,42,0.10);
+        }
+
+        .privacy-floating button:hover {
+            color: var(--blue);
+        }
+
+        body.privacy-modal-open {
+            overflow: hidden;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            margin-top: 45px;
+
+            padding: 30px 20px;
+
+            background:
+                var(--navy);
+
+            color: #94A3B8;
+
+            text-align: center;
+
+            font-size: 13px;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 850px) {
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .help-grid,
+            .work-options {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .process {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 700px) {
+
+            .services-grid,
+            .help-grid,
+            .work-options,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                padding:
+                    70px 16px 55px;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons .button {
+                width: 100%;
+            }
+
+            nav ul {
+                padding:
+                    5px 5px 8px;
+            }
+
+            nav li {
+                margin: 0 5px;
+            }
+
+            nav a {
+                padding:
+                    8px 1px;
+
+                font-size: 11px;
+            }
+
+            .container {
+                margin:
+                    25px auto;
+
+                padding:
+                    0 12px;
+            }
+
+            .card {
+                padding: 22px;
+            }
+
+            #contact {
+                padding:
+                    0 12px;
+            }
+
+            .contact-card {
+                padding:
+                    25px 18px;
+            }
+
+            form input,
+            form textarea,
+            form select {
+                font-size: 16px;
+            }
+
+            .privacy-modal {
+                padding: 12px;
+            }
+
+            .privacy-panel {
+                max-height: 94vh;
+
+                padding:
+                    25px 20px;
+            }
+
+            .privacy-actions {
+                flex-direction: column;
+            }
+
+            .privacy-button {
+                width: 100%;
+            }
+
+            .image-zoom-modal {
+                padding: 12px;
+            }
+
+            .image-zoom-content img {
+                max-width: 96vw;
+                max-height: 88vh;
+
+                border-radius: 5px;
+            }
+
+            .image-zoom-close {
+                top: 12px;
+                right: 12px;
+
+                width: 40px;
+                height: 40px;
+
+                font-size: 26px;
+            }
+
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+
+                transition: none !important;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<header id="home">
+
+    <div class="hero">
+
+        <div class="availability">
+            Available for Freelance &amp; Project Work
+        </div>
+
+        <h1>
+            Kaye Eloisa Arnejo
+        </h1>
+
+        <div class="hero-question">
+            Have work that needs to be done?
+        </div>
+
+        <p class="hero-description">
+            Practical, hands-on support across software,
+            electrical, electronics and hardware, construction and civil
+            projects, clinical and medical-related work, documentation,
+            research and technical tasks.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+                href="#contact"
+                class="button button-primary"
+            >
+                Tell Me What You Need
+            </a>
+
+            <a
+                href="#services"
+                class="button button-secondary"
+            >
+                See What I Can Help With
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav aria-label="Main navigation">
+
+    <ul>
+
+        <li>
+            <a href="#home">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="#services">
+                Services
+            </a>
+        </li>
+
+        <li>
+            <a href="#help">
+                What I Can Help With
+            </a>
+        </li>
+
+        <li>
+            <a href="#gallery">
+                Examples
+            </a>
+        </li>
+
+        <li>
+            <a href="#process">
+                How It Works
+            </a>
+        </li>
+
+        <li>
+            <a href="#contact">
+                Enquire
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main class="container">
+
+
+    <!-- =====================================================
+         INTRODUCTION
+    ===================================================== -->
+
+    <section class="section">
+
+        <div class="card">
+
+            <div class="intro-grid">
+
+                <div class="intro-text">
+
+                    <div class="label">
+                        Practical &amp; Hands-On Support
+                    </div>
+
+                    <h2 class="section-title">
+                        Let's Make the Work Easier
+                    </h2>
+
+                    <p>
+                        Some projects need technical knowledge.
+                        Others need someone who can get involved,
+                        organise information, prepare documentation,
+                        coordinate tasks, follow up requirements
+                        or simply take care of work that is slowing
+                        everything else down.
+                    </p>
+
+                    <p>
+                        My approach is practical and hands-on:
+                        understand what needs to be done, work through
+                        the details and help move the task toward a
+                        useful result.
+                    </p>
+
+                    <p>
+                        My background covers software,
+                        electrical, electronics and hardware,
+                        construction-related environments,
+                        clinical and medical-related work,
+                        research, documentation and technical
+                        project support.
+                    </p>
+
+                    <p>
+                        Support can be arranged around the actual
+                        requirement — whether that means a single
+                        task, a defined project, temporary support
+                        or ongoing assistance.
+                    </p>
+
+                </div>
+
+
+                <div class="intro-box">
+
+                    <strong>
+                        You don't need to know exactly what service you need.
+                    </strong>
+
+                    <p>
+                        Tell me what you are trying to accomplish,
+                        what needs to be done and when you need it.
+                        We can identify the practical tasks involved
+                        and discuss the appropriate arrangement.
+                    </p>
+
+                    <br>
+
+                    <strong>
+                        A hands-on approach means getting involved.
+                    </strong>
+
+                    <p>
+                        Where appropriate, I can work through the
+                        details with you rather than simply providing
+                        general advice.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SERVICES
+    ===================================================== -->
+
+    <section
+        class="section"
+        id="services"
+    >
+
+        <div class="card">
+
+            <div class="label">
+                Services
+            </div>
+
+            <h2 class="section-title">
+                What I Can Help You With
+            </h2>
+
+            <p class="section-intro">
+                Practical, hands-on support across software,
+                electrical, electronics, hardware, project,
+                clinical, construction, research and documentation
+                requirements.
+            </p>
+
+
+            <div class="services-grid">
+
+
+                <div class="service">
+
+                    <div class="service-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Software
+                    </h3>
+
+                    <p>
+                        Hands-on support with software-related tasks,
+                        technical projects and digital systems
+                        requirements.
+                    </p>
+
+                    <ul>
+                        <li>Software development support</li>
+                        <li>Application work</li>
+                        <li>Technical documentation</li>
+                        <li>Testing and troubleshooting</li>
+                        <li>Data and system organisation</li>
+                        <li>Technology project assistance</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="service">
+
+                    <div class="service-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Electrical, Electronics &amp; Hardware
+                    </h3>
+
+                    <p>
+                        Practical support for electrical,
+                        electronics and hardware project tasks.
+                    </p>
+
+                    <ul>
+                        <li>Electrical project support</li>
+                        <li>Electrical documentation</li>
+                        <li>Electronics project support</li>
+                        <li>Hardware documentation</li>
+                        <li>Components, parts and equipment organisation</li>
+                        <li>Testing and troubleshooting support</li>
+                        <li>Technical records</li>
+                        <li>Electrical, electronics and hardware research</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="service">
+
+                    <div class="service-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Construction &amp; Civil Project Support
+                    </h3>
+
+                    <p>
+                        Practical, hands-on assistance with
+                        construction, civil technology and
+                        project-related technical tasks.
+                    </p>
+
+                    <ul>
+                        <li>Project documentation</li>
+                        <li>Technical records</li>
+                        <li>Construction project support</li>
+                        <li>Project coordination</li>
+                        <li>Material and document tracking</li>
+                        <li>Site-related documentation support</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="service">
+
+                    <div class="service-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Clinical, Medical &amp; Mental Health Support
+                    </h3>
+
+                    <p>
+                        Appropriate non-diagnostic support for
+                        clinical, medical-related and mental
+                        health-related environments, documentation,
+                        research and coordination.
+                    </p>
+
+                    <ul>
+                        <li>Clinical documentation</li>
+                        <li>Research assistance</li>
+                        <li>Information organisation</li>
+                        <li>Mental health-related project support</li>
+                        <li>Clinical project coordination</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="service">
+
+                    <div class="service-number">
+                        05
+                    </div>
+
+                    <h3>
+                        Documentation &amp; Project Support
+                    </h3>
+
+                    <p>
+                        Practical support with the documentation,
+                        information and project tasks needed to keep
+                        technical or professional work moving.
+                    </p>
+
+                    <ul>
+                        <li>Technical document preparation</li>
+                        <li>Project documentation</li>
+                        <li>Information organisation</li>
+                        <li>Research and reference gathering</li>
+                        <li>Technical records</li>
+                        <li>Specific project-related tasks</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="service">
+
+                    <div class="service-number">
+                        06
+                    </div>
+
+                    <h3>
+                        Custom Project Support
+                    </h3>
+
+                    <p>
+                        Have a requirement that does not fit neatly
+                        into one category? Start with the task and
+                        we can discuss the practical, hands-on
+                        support needed.
+                    </p>
+
+                    <ul>
+                        <li>Define the task</li>
+                        <li>Clarify the expected result</li>
+                        <li>Identify required support</li>
+                        <li>Discuss timeframe</li>
+                        <li>Agree on the scope</li>
+                        <li>Work toward the required result</li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         WHAT I CAN HELP WITH
+    ===================================================== -->
+
+    <section
+        class="section"
+        id="help"
+    >
+
+        <div class="card">
+
+            <div class="label">
+                Start With the Task
+            </div>
+
+            <h2 class="section-title">
+                Maybe You Need Someone to...
+            </h2>
+
+            <p class="section-intro">
+                You do not need to figure out the perfect job title
+                first. Start with the actual work that needs to be
+                completed.
+            </p>
+
+
+            <div class="help-grid">
+
+                <div class="help-item">
+                    <strong>Build or improve software</strong>
+                    <span>
+                        Development, testing, troubleshooting,
+                        documentation and technology tasks.
+                    </span>
+                </div>
+
+                <div class="help-item">
+                    <strong>Work on electrical systems</strong>
+                    <span>
+                        Electrical project tasks, documentation,
+                        technical information, testing and
+                        troubleshooting support.
+                    </span>
+                </div>
+
+                <div class="help-item">
+                    <strong>Work on electronics and hardware</strong>
+                    <span>
+                        Components, hardware, electronics,
+                        technical records, testing and
+                        electronics-related tasks.
+                    </span>
+                </div>
+
+                <div class="help-item">
+                    <strong>Support a construction project</strong>
+                    <span>
+                        Documentation, project coordination,
+                        technical assistance and practical
+                        project tasks.
+                    </span>
+                </div>
+
+                <div class="help-item">
+                    <strong>Support clinical-related work</strong>
+                    <span>
+                        Documentation, research and appropriate
+                        project support.
+                    </span>
+                </div>
+
+                <div class="help-item">
+                    <strong>Support mental health-related work</strong>
+                    <span>
+                        Non-diagnostic research, documentation,
+                        coordination and support-service tasks.
+                    </span>
+                </div>
+
+                <div class="help-item">
+                    <strong>Organise technical information</strong>
+                    <span>
+                        Research, references, specifications
+                        and project information.
+                    </span>
+                </div>
+
+                <div class="help-item">
+                    <strong>Prepare technical documents</strong>
+                    <span>
+                        Organising project information, references,
+                        records and technical documentation.
+                    </span>
+                </div>
+
+                <div class="help-item">
+                    <strong>Research a technical requirement</strong>
+                    <span>
+                        Gather information, compare references
+                        and organise useful findings.
+                    </span>
+                </div>
+
+                <div class="help-item">
+                    <strong>Catch up on a project task</strong>
+                    <span>
+                        Take on a defined task when a project
+                        needs additional hands-on support.
+                    </span>
+                </div>
+
+                <div class="help-item">
+                    <strong>Handle something specific</strong>
+                    <span>
+                        Explain the requirement and discuss the
+                        practical support needed.
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         WORK OPTIONS
+    ===================================================== -->
+
+    <section class="section">
+
+        <div class="card">
+
+            <div class="label">
+                Flexible Arrangements
+            </div>
+
+            <h2 class="section-title">
+                Work With Me Based on What You Need
+            </h2>
+
+            <p class="section-intro">
+                Different tasks require different arrangements.
+                The work can be discussed around the scope,
+                timeframe and expected result.
+            </p>
+
+
+            <div class="work-options">
+
+                <div class="option">
+                    <h3>One-Time Task</h3>
+                    <p>
+                        A specific task that simply needs to be completed.
+                    </p>
+                </div>
+
+                <div class="option">
+                    <h3>Short-Term Help</h3>
+                    <p>
+                        Additional support during a busy period
+                        or temporary workload.
+                    </p>
+                </div>
+
+                <div class="option">
+                    <h3>Project-Based</h3>
+                    <p>
+                        Support for a defined project with an
+                        agreed scope and timeframe.
+                    </p>
+                </div>
+
+                <div class="option">
+                    <h3>Ongoing Support</h3>
+                    <p>
+                        Regular help with recurring technical,
+                        documentation or project tasks.
+                    </p>
+                </div>
+
+                <div class="option">
+                    <h3>Contract Work</h3>
+                    <p>
+                        Work based on agreed responsibilities,
+                        requirements and duration.
+                    </p>
+                </div>
+
+                <div class="option">
+                    <h3>Custom Arrangement</h3>
+                    <p>
+                        Something different? Tell me about the
+                        requirement and we can discuss it.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         AREAS
+    ===================================================== -->
+
+    <section class="section">
+
+        <div class="card">
+
+            <div class="label">
+                Areas of Support
+            </div>
+
+            <h2 class="section-title">
+                Different Types of Work, One Practical Approach
+            </h2>
+
+            <p class="section-intro">
+                My approach is hands-on and task-focused, allowing
+                me to work across different technical and
+                professional environments depending on the
+                requirement.
+            </p>
+
+
+            <div class="areas">
+
+                <span class="area">Software</span>
+                <span class="area">Electrical</span>
+                <span class="area">Electronics</span>
+                <span class="area">Hardware</span>
+                <span class="area">Technical Documentation</span>
+                <span class="area">Construction</span>
+                <span class="area">Civil Projects</span>
+                <span class="area">Clinical Support</span>
+                <span class="area">Medical-Related Support</span>
+                <span class="area">Mental Health-Related Support</span>
+                <span class="area">Research</span>
+                <span class="area">Project Support</span>
+                <span class="area">Technical Support</span>
+                <span class="area">Hands-On Support</span>
+                <span class="area">Freelance Work</span>
+                <span class="area">Contract Work</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         EXAMPLES
+    ===================================================== -->
+
+    <section
+        class="section"
+        id="gallery"
+    >
+
+        <div class="card">
+
+            <div class="label">
+                Examples
+            </div>
+
+            <h2 class="section-title">
+                Project Examples
+            </h2>
+
+            <p class="section-intro">
+                Examples of practical project and hands-on work.
+            </p>
+
+
+            <div class="gallery-grid">
+
+
+                <!-- =================================================
+                     FLOOR 1
+                ================================================== -->
+
+                <article class="gallery-item">
+
+                    <img
+                        src="Floor.jpg"
+                        alt="Floor project work"
+                        class="gallery-image"
+                        loading="lazy"
+                    >
+
+                    <div class="gallery-caption">
+
+                        <h3>
+                            Floor1
+                        </h3>
+
+                        <p>
+                            Floor project example.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =================================================
+                     FLOOR 2
+                ================================================== -->
+
+                <article class="gallery-item">
+
+                    <img
+                        src="ha.png"
+                        alt="Floor project"
+                        class="gallery-image"
+                        loading="lazy"
+                    >
+
+                    <div class="gallery-caption">
+
+                        <h3>
+                            Floor2
+                        </h3>
+
+                        <p>
+                            Floor project example.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =================================================
+                     All
+                ================================================== -->
+
+                <article class="gallery-item">
+
+                    <video
+                        class="gallery-video"
+                        controls
+                        preload="metadata"
+                        playsinline
+                    >
+
+                        <source
+                            src="C:\Users\kayee\Videos\Recording 2026-08-21 134559.mp4"
+                            type="video/mp4"
+                        >
+
+
+                    </video>
+
+                    <div class="gallery-caption">
+
+                        <h3>
+                            Project Video
+                        </h3>
+
+                        <p>
+                            Video example of project work.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PROCESS
+    ===================================================== -->
+
+    <section
+        class="section"
+        id="process"
+    >
+
+        <div class="card">
+
+            <div class="label">
+                Simple Process
+            </div>
+
+            <h2 class="section-title">
+                Tell Me What Needs to Be Done
+            </h2>
+
+            <p class="section-intro">
+                You do not need to prepare a complicated proposal.
+                A simple description of the task is enough to
+                start the conversation. The goal is to understand
+                the requirement and take a practical, hands-on
+                approach to the work.
+            </p>
+
+
+            <div class="process">
+
+                <div class="process-item">
+
+                    <div class="process-number">
+                        1
+                    </div>
+
+                    <h3>
+                        Tell Me About the Work
+                    </h3>
+
+                    <p>
+                        Explain the task, problem, project,
+                        technical requirement or workload you
+                        need help with.
+                    </p>
+
+                </div>
+
+
+                <div class="process-item">
+
+                    <div class="process-number">
+                        2
+                    </div>
+
+                    <h3>
+                        Discuss the Requirement
+                    </h3>
+
+                    <p>
+                        We clarify the scope, timeframe,
+                        expected output, resources and other
+                        relevant details.
+                    </p>
+
+                </div>
+
+
+                <div class="process-item">
+
+                    <div class="process-number">
+                        3
+                    </div>
+
+                    <h3>
+                        Get Hands-On and Get It Done
+                    </h3>
+
+                    <p>
+                        If it is a good fit, we agree on the
+                        responsibilities and arrangement and
+                        work toward the required result.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA
+    ===================================================== -->
+
+    <section class="section">
+
+        <div class="cta">
+
+            <h2>
+                Have Something You Need Help With?
+            </h2>
+
+            <p>
+                Whether it is software, electrical work,
+                electronics, hardware, construction,
+                clinical or mental health-related work,
+                documentation, research or a specific task you
+                have not quite figured out yet, send me the details.
+            </p>
+
+            <a
+                href="#contact"
+                class="button button-primary"
+            >
+                Tell Me What You Need
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section id="contact">
+
+    <div class="contact-card">
+
+        <div class="contact-header">
+
+            <div class="label">
+                Project / Service Enquiry
+            </div>
+
+            <h2>
+                Tell Me What You Need
+            </h2>
+
+            <p>
+                Give me a few details about the work.
+                You do not need to know exactly what service
+                category it belongs to.
+            </p>
+
+        </div>
+
+
+        <div class="contact-note">
+
+            <strong>
+                Privacy:
+            </strong>
+
+            The information you submit will be used to respond
+            to your enquiry and discuss the work you are requesting.
+            This page uses a third-party service provider
+            to process and transmit contact-form submissions.
+
+            Please do not include passwords, financial information,
+            medical records or other sensitive information unless
+            it is genuinely necessary for the enquiry.
+
+        </div>
+
+
+        <form
+            id="contact-form"
+            action="https://script.google.com/macros/s/AKfycbztum6ezA20yfMsdrLHgF5zN9KnG0hVuq6Ftw6s12nV0sGSC6LgsLpFCcyFhrTRLnuS4g/exec"
+            method="POST"
+            target="form-response-frame"
+            novalidate
+        >
+
+            <label for="name">
+                Name / Organisation
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                name="name"
+                autocomplete="name"
+                placeholder="Your name or organisation"
+                maxlength="200"
+                required
+            >
+
+
+            <label for="email">
+                Email
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                placeholder="your.email@example.com"
+                maxlength="320"
+                required
+            >
+
+
+            <label for="service">
+                What kind of help do you need?
+            </label>
+
+            <select
+                id="service"
+                name="service"
+            >
+
+                <option value="">
+                    Choose one if applicable
+                </option>
+
+                <option value="Software Engineering">
+                    Software Engineering
+                </option>
+
+                <option value="Electrical / Electronics / Hardware">
+                    Electrical / Electronics / Hardware
+                </option>
+
+                <option value="Construction / Civil Project">
+                    Construction / Civil Project
+                </option>
+
+                <option value="Clinical / Medical Support">
+                    Clinical / Medical Support
+                </option>
+
+                <option value="Mental Health-Related Support">
+                    Mental Health-Related Support
+                </option>
+
+                <option value="Documentation / Project Support">
+                    Documentation / Project Support
+                </option>
+
+                <option value="Research / Information">
+                    Research / Information
+                </option>
+
+                <option value="Project / Task Support">
+                    Project / Task Support
+                </option>
+
+                <option value="Something Else">
+                    Something Else
+                </option>
+
+            </select>
+
+
+            <label for="timeframe">
+                When do you need help?
+            </label>
+
+            <input
+                type="text"
+                id="timeframe"
+                name="timeframe"
+                maxlength="200"
+                placeholder="Example: ASAP, next week, this month, ongoing"
+            >
+
+
+            <label for="message">
+                Tell Me About the Work
+            </label>
+
+            <textarea
+                id="message"
+                name="message"
+                rows="7"
+                maxlength="10000"
+                placeholder="What needs to be done? What would you like help with? What should the final result look like?"
+                required
+            ></textarea>
+
+
+            <!-- LOCATION DATA -->
+
+            <input
+                type="hidden"
+                id="location-permission"
+                name="location_permission"
+                value="not_requested"
+            >
+
+            <input
+                type="hidden"
+                id="latitude"
+                name="latitude"
+                value=""
+            >
+
+            <input
+                type="hidden"
+                id="longitude"
+                name="longitude"
+                value=""
+            >
+
+            <input
+                type="hidden"
+                id="location-accuracy"
+                name="location_accuracy"
+                value=""
+            >
+
+            <input
+                type="hidden"
+                id="user-agent"
+                name="user_agent"
+                value=""
+            >
+
+
+            <!-- HONEYPOT -->
+
+            <input
+                type="text"
+                name="website"
+                tabindex="-1"
+                autocomplete="off"
+                aria-hidden="true"
+                class="form-hidden"
+            >
+
+
+            <button
+                type="submit"
+                id="submit-button"
+            >
+                Send Requirement
+            </button>
+
+
+            <div
+                id="form-status"
+                class="form-status"
+                role="status"
+                aria-live="polite"
+            ></div>
+
+        </form>
+
+
+        <iframe
+            name="form-response-frame"
+            id="form-response-frame"
+            title="Form response"
+            aria-hidden="true"
+            tabindex="-1"
+            class="form-hidden"
+        ></iframe>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <p>
+        Freelance • Contract • Project Support
+    </p>
+
+    <p>
+        Software • Electrical • Electronics • Hardware •
+        Construction • Clinical • Mental Health-Related •
+        Technical Support
+    </p>
+
+    <br>
+
+    <p>
+        &copy; 2026 KEA. All rights reserved.
+    </p>
+
+</footer>
+
+
+<!-- =========================================================
+     IMAGE ZOOM MODAL
+========================================================= -->
+
+<div
+    id="image-zoom-modal"
+    class="image-zoom-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Enlarged image"
+    hidden
+>
+
+    <button
+        type="button"
+        class="image-zoom-close"
+        id="image-zoom-close"
+        aria-label="Close enlarged image"
+    >
+        &times;
+    </button>
+
+    <div class="image-zoom-content">
+
+        <img
+            id="image-zoom-display"
+            src=""
+            alt=""
+        >
+
+    </div>
+
+    <div
+        id="image-zoom-caption"
+        class="image-zoom-caption"
+    ></div>
+
+</div>
+
+
+<!-- =========================================================
+     PRIVACY MODAL
+========================================================= -->
+
+<div
+    id="privacy-modal"
+    class="privacy-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="privacy-modal-title"
+    hidden
+>
+
+    <div class="privacy-panel">
+
+        <button
+            type="button"
+            class="privacy-close"
+            id="privacy-close"
+            aria-label="Close privacy panel"
+        >
+            &times;
+        </button>
+
+
+        <div class="label">
+            Privacy &amp; Terms
+        </div>
+
+
+        <h2 id="privacy-modal-title">
+            Your Privacy Matters
+        </h2>
+
+
+        <p class="privacy-intro">
+
+            This page may request your location to help provide
+            relevant information or support related to your enquiry.
+            Location access is optional.
+
+            This page also uses a third-party service provider
+            to process and transmit contact-form submissions.
+
+        </p>
+
+
+        <div class="privacy-section">
+
+            <h3>
+                Third-Party Service Provider
+            </h3>
+
+            <p>
+                This page uses a third-party service provider to
+                receive and process form submissions.
+            </p>
+
+            <p>
+                Information submitted through the form may be
+                stored by the third-party service provider.
+            </p>
+
+            <p>
+                You should avoid submitting passwords, financial
+                information, medical records or other sensitive
+                information unless it is genuinely necessary
+                for the enquiry.
+            </p>
+
+        </div>
+
+
+        <div class="privacy-section">
+
+            <h3>
+                Location Information
+            </h3>
+
+            <p>
+                Location access is optional. Your browser will only
+                be asked for location permission if you explicitly
+                choose "Allow Location".
+            </p>
+
+            <p>
+                If you allow location access, your browser may
+                provide latitude, longitude and location accuracy.
+                This page does not continuously track your location.
+            </p>
+
+            <p>
+                The page may use several fresh location readings
+                during an explicit location request and retain the
+                most accurate reading obtained during that request.
+            </p>
+
+            <p>
+                Refusing location access does not prevent you from
+                submitting an enquiry.
+            </p>
+
+        </div>
+
+
+        <div class="privacy-section">
+
+            <h3>
+                How Information Is Used
+            </h3>
+
+            <p>
+                Information submitted through this page may be used
+                to respond to your enquiry, understand your
+                requirements, provide appropriate support and
+                communicate with you about your request.
+            </p>
+
+            <p>
+                Information may be stored in the enquiry
+                and used to manage the enquiry.
+            </p>
+
+        </div>
+
+
+        <div class="privacy-section">
+
+            <h3>
+                Technical &amp; Professional Scope
+            </h3>
+
+            <p>
+                Technical, electrical, electronics, hardware,
+                construction, clinical, medical and mental
+                health-related support is subject to the actual
+                scope of work, applicable requirements, qualifications,
+                permissions and any professional responsibilities
+                that may apply.
+            </p>
+
+            <p>
+                Mental health-related support offered through this
+                page is not a substitute for emergency care,
+                diagnosis, psychotherapy, medical treatment or
+                other regulated professional services unless
+                separately agreed and appropriately qualified.
+            </p>
+
+        </div>
+
+
+        <div class="privacy-section">
+
+            <h3>
+                Terms of Use
+            </h3>
+
+            <p>
+                Information provided through this page should be
+                accurate and must not be used for unlawful purposes.
+                Any proposed work remains subject to discussion,
+                availability, scope and agreement before work begins.
+            </p>
+
+        </div>
+
+
+        <div class="privacy-section">
+
+            <h3>
+                Your Choice
+            </h3>
+
+            <p>
+                You can use this page without allowing location
+                access. Refusing location permission will not
+                prevent you from submitting an enquiry.
+            </p>
+
+        </div>
+
+
+        <div class="privacy-actions">
+
+            <button
+                type="button"
+                class="privacy-button privacy-primary"
+                id="allow-location"
+            >
+                Allow Location
+            </button>
+
+            <button
+                type="button"
+                class="privacy-button privacy-secondary"
+                id="deny-location"
+            >
+                Don't Allow
+            </button>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="privacy-text-button"
+            id="privacy-understood"
+        >
+            Continue Without Location
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     PRIVACY FLOATING BUTTON
+========================================================= -->
+
+<div class="privacy-floating">
+
+    <button
+        type="button"
+        id="open-privacy"
+    >
+        Privacy &amp; Terms
+    </button>
+
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        "use strict";
+
+
+        /* =====================================================
+           ELEMENTS
+        ===================================================== */
+
+        const form =
+            document.getElementById("contact-form");
+
+        const button =
+            document.getElementById("submit-button");
+
+        const status =
+            document.getElementById("form-status");
+
+        const nameInput =
+            document.getElementById("name");
+
+        const emailInput =
+            document.getElementById("email");
+
+        const iframe =
+            document.getElementById("form-response-frame");
+
+        const userAgentInput =
+            document.getElementById("user-agent");
+
+        const honeypot =
+            form
+                ? form.querySelector(
+                    'input[name="website"]'
+                )
+                : null;
+
+
+        /* =====================================================
+           FORM OPTIONAL ELEMENTS
+        ===================================================== */
+
+        const locationPermission =
+            document.getElementById(
+                "location-permission"
+            );
+
+        const latitudeInput =
+            document.getElementById("latitude");
+
+        const longitudeInput =
+            document.getElementById("longitude");
+
+        const accuracyInput =
+            document.getElementById(
+                "location-accuracy"
+            );
+
+
+        /* =====================================================
+           PRIVACY ELEMENTS
+        ===================================================== */
+
+        const privacyModal =
+            document.getElementById(
+                "privacy-modal"
+            );
+
+        const privacyClose =
+            document.getElementById(
+                "privacy-close"
+            );
+
+        const openPrivacy =
+            document.getElementById(
+                "open-privacy"
+            );
+
+        const allowLocation =
+            document.getElementById(
+                "allow-location"
+            );
+
+        const denyLocation =
+            document.getElementById(
+                "deny-location"
+            );
+
+        const privacyUnderstood =
+            document.getElementById(
+                "privacy-understood"
+            );
+
+
+        /* =====================================================
+           IMAGE ZOOM ELEMENTS
+        ===================================================== */
+
+        const imageZoomModal =
+            document.getElementById(
+                "image-zoom-modal"
+            );
+
+        const imageZoomDisplay =
+            document.getElementById(
+                "image-zoom-display"
+            );
+
+        const imageZoomClose =
+            document.getElementById(
+                "image-zoom-close"
+            );
+
+        const imageZoomCaption =
+            document.getElementById(
+                "image-zoom-caption"
+            );
+
+
+        /* =====================================================
+           SAFETY CHECK
+        ===================================================== */
+
+        if (
+            !form ||
+            !button ||
+            !iframe ||
+            !nameInput ||
+            !emailInput
+        ) {
+
+            console.error(
+                "KEA contact form could not be initialised."
+            );
+
+            return;
+
+        }
+
+
+        let submitting = false;
+        let submissionTimer = null;
+
+
+        /* =====================================================
+           USER AGENT
+        ===================================================== */
+
+        function setUserAgent() {
+
+            if (userAgentInput) {
+
+                userAgentInput.value =
+                    navigator.userAgent || "";
+
+            }
+
+        }
+
+        setUserAgent();
+
+
+        /* =====================================================
+           STATUS
+        ===================================================== */
+
+        function showStatus(
+            message,
+            type = ""
+        ) {
+
+            if (!status) {
+                return;
+            }
+
+            status.textContent =
+                message;
+
+            status.className =
+                "form-status";
+
+            if (type) {
+
+                status.classList.add(
+                    type
+                );
+
+            }
+
+        }
+
+
+        /* =====================================================
+           RESET SUBMISSION
+        ===================================================== */
+
+        function resetButton() {
+
+            submitting = false;
+
+            button.disabled =
+                false;
+
+            button.textContent =
+                "Send Requirement";
+
+            if (submissionTimer) {
+
+                clearTimeout(
+                    submissionTimer
+                );
+
+                submissionTimer =
+                    null;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           IMAGE ZOOM
+        ===================================================== */
+
+        function openImageZoom(image) {
+
+            if (
+                !imageZoomModal ||
+                !imageZoomDisplay
+            ) {
+
+                return;
+
+            }
+
+            imageZoomDisplay.src =
+                image.src;
+
+            imageZoomDisplay.alt =
+                image.alt ||
+                "Enlarged image";
+
+
+            const caption =
+                image
+                    .closest(".gallery-item")
+                    ?.querySelector(
+                        ".gallery-caption h3"
+                    )
+                    ?.textContent
+                    .trim();
+
+
+            if (imageZoomCaption) {
+
+                imageZoomCaption.textContent =
+                    caption || "";
+
+            }
+
+
+            imageZoomModal.hidden =
+                false;
+
+            document.body.classList.add(
+                "image-zoom-open"
+            );
+
+
+            setTimeout(
+                function () {
+
+                    if (imageZoomClose) {
+
+                        imageZoomClose.focus();
+
+                    }
+
+                },
+                50
+            );
+
+        }
+
+
+        function closeImageZoom() {
+
+            if (!imageZoomModal) {
+                return;
+            }
+
+            imageZoomModal.hidden =
+                true;
+
+            document.body.classList.remove(
+                "image-zoom-open"
+            );
+
+
+            if (imageZoomDisplay) {
+
+                imageZoomDisplay.src =
+                    "";
+
+                imageZoomDisplay.alt =
+                    "";
+
+            }
+
+
+            if (imageZoomCaption) {
+
+                imageZoomCaption.textContent =
+                    "";
+
+            }
+
+        }
+
+
+        /* =====================================================
+           ENABLE IMAGE ZOOM
+        ===================================================== */
+
+        document
+            .querySelectorAll(
+                ".gallery-image"
+            )
+            .forEach(
+                function (image) {
+
+                    image.addEventListener(
+                        "click",
+                        function () {
+
+                            openImageZoom(
+                                image
+                            );
+
+                        }
+                    );
+
+                }
+            );
+
+
+        if (imageZoomClose) {
+
+            imageZoomClose.addEventListener(
+                "click",
+                closeImageZoom
+            );
+
+        }
+
+
+        if (imageZoomModal) {
+
+            imageZoomModal.addEventListener(
+                "click",
+                function (event) {
+
+                    if (
+                        event.target ===
+                            imageZoomModal ||
+                        event.target ===
+                            imageZoomDisplay
+                    ) {
+
+                        closeImageZoom();
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        /* =====================================================
+           PRIVACY MODAL
+        ===================================================== */
+
+        function openPrivacyModal() {
+
+            if (!privacyModal) {
+                return;
+            }
+
+            privacyModal.hidden =
+                false;
+
+            document.body.classList.add(
+                "privacy-modal-open"
+            );
+
+            setTimeout(
+                function () {
+
+                    if (privacyClose) {
+                        privacyClose.focus();
+                    }
+
+                },
+                50
+            );
+
+        }
+
+
+        function closePrivacyModal() {
+
+            if (!privacyModal) {
+                return;
+            }
+
+            privacyModal.hidden =
+                true;
+
+            document.body.classList.remove(
+                "privacy-modal-open"
+            );
+
+        }
+
+
+        /* =====================================================
+           SAVE LOCATION CONSENT
+        ===================================================== */
+
+        function saveLocationConsent(
+            value
+        ) {
+
+            try {
+
+                localStorage.setItem(
+                    "kea_location_consent",
+                    value
+                );
+
+            } catch (error) {
+
+                console.warn(
+                    "Local storage unavailable.",
+                    error
+                );
+
+            }
+
+        }
+
+
+        /* =====================================================
+           CLEAR LOCATION
+        ===================================================== */
+
+        function clearLocationFields() {
+
+            if (latitudeInput) {
+                latitudeInput.value = "";
+            }
+
+            if (longitudeInput) {
+                longitudeInput.value = "";
+            }
+
+            if (accuracyInput) {
+                accuracyInput.value = "";
+            }
+
+        }
+
+
+        /* =====================================================
+           DENY LOCATION
+        ===================================================== */
+
+        function denyLocationAccess() {
+
+            saveLocationConsent("denied");
+
+            if (locationPermission) {
+
+                locationPermission.value =
+                    "denied";
+
+            }
+
+            clearLocationFields();
+
+            closePrivacyModal();
+
+        }
+
+
+        /* =====================================================
+           PRIVACY EVENTS
+        ===================================================== */
+
+        if (openPrivacy) {
+
+            openPrivacy.addEventListener(
+                "click",
+                openPrivacyModal
+            );
+
+        }
+
+
+        if (privacyClose) {
+
+            privacyClose.addEventListener(
+                "click",
+                denyLocationAccess
+            );
+
+        }
+
+
+        if (denyLocation) {
+
+            denyLocation.addEventListener(
+                "click",
+                denyLocationAccess
+            );
+
+        }
+
+
+        if (privacyUnderstood) {
+
+            privacyUnderstood.addEventListener(
+                "click",
+                denyLocationAccess
+            );
+
+        }
+
+
+        /* =====================================================
+           KEYBOARD ESCAPE
+        ===================================================== */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Escape" &&
+                    imageZoomModal &&
+                    !imageZoomModal.hidden
+                ) {
+
+                    closeImageZoom();
+
+                    return;
+
+                }
+
+
+                if (
+                    event.key === "Escape" &&
+                    privacyModal &&
+                    !privacyModal.hidden
+                ) {
+
+                    denyLocationAccess();
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           LOCATION
+        ===================================================== */
+
+        if (allowLocation) {
+
+            allowLocation.addEventListener(
+                "click",
+                function () {
+
+                    if (!navigator.geolocation) {
+
+                        if (locationPermission) {
+
+                            locationPermission.value =
+                                "unavailable";
+
+                        }
+
+                        saveLocationConsent(
+                            "unavailable"
+                        );
+
+                        closePrivacyModal();
+
+                        return;
+
+                    }
+
+
+                    allowLocation.disabled =
+                        true;
+
+                    allowLocation.textContent =
+                        "Finding Location...";
+
+
+                    let bestPosition =
+                        null;
+
+                    let finished =
+                        false;
+
+                    let watchId =
+                        null;
+
+                    const startTime =
+                        Date.now();
+
+                    const MAX_LOCATION_TIME =
+                        25000;
+
+                    const TARGET_ACCURACY =
+                        10;
+
+
+                    function finishLocation(
+                        position
+                    ) {
+
+                        if (finished) {
+                            return;
+                        }
+
+                        finished =
+                            true;
+
+
+                        if (
+                            watchId !== null
+                        ) {
+
+                            navigator.geolocation.clearWatch(
+                                watchId
+                            );
+
+                            watchId =
+                                null;
+
+                        }
+
+
+                        const coords =
+                            position.coords;
+
+
+                        if (latitudeInput) {
+
+                            latitudeInput.value =
+                                Number(
+                                    coords.latitude
+                                ).toFixed(8);
+
+                        }
+
+
+                        if (longitudeInput) {
+
+                            longitudeInput.value =
+                                Number(
+                                    coords.longitude
+                                ).toFixed(8);
+
+                        }
+
+
+                        if (accuracyInput) {
+
+                            accuracyInput.value =
+                                Number(
+                                    coords.accuracy
+                                ).toFixed(2);
+
+                        }
+
+
+                        if (locationPermission) {
+
+                            locationPermission.value =
+                                "granted";
+
+                        }
+
+
+                        saveLocationConsent(
+                            "granted"
+                        );
+
+
+                        allowLocation.disabled =
+                            false;
+
+                        allowLocation.textContent =
+                            "Allow Location";
+
+
+                        closePrivacyModal();
+
+                    }
+
+
+                    function handlePosition(
+                        position
+                    ) {
+
+                        if (finished) {
+                            return;
+                        }
+
+
+                        if (
+                            !bestPosition ||
+                            position.coords.accuracy <
+                                bestPosition.coords.accuracy
+                        ) {
+
+                            bestPosition =
+                                position;
+
+                        }
+
+
+                        if (
+                            position.coords.accuracy <=
+                            TARGET_ACCURACY
+                        ) {
+
+                            finishLocation(
+                                position
+                            );
+
+                            return;
+
+                        }
+
+
+                        const elapsed =
+                            Date.now() -
+                            startTime;
+
+
+                        if (
+                            elapsed >= 20000 &&
+                            bestPosition
+                        ) {
+
+                            finishLocation(
+                                bestPosition
+                            );
+
+                        }
+
+                    }
+
+
+                    function handleLocationError(
+                        error
+                    ) {
+
+                        if (finished) {
+                            return;
+                        }
+
+
+                        console.warn(
+                            "Location error:",
+                            error.code,
+                            error.message
+                        );
+
+
+                        if (bestPosition) {
+
+                            finishLocation(
+                                bestPosition
+                            );
+
+                            return;
+
+                        }
+
+
+                        finished =
+                            true;
+
+
+                        if (
+                            watchId !== null
+                        ) {
+
+                            navigator.geolocation.clearWatch(
+                                watchId
+                            );
+
+                            watchId =
+                                null;
+
+                        }
+
+
+                        if (locationPermission) {
+
+                            locationPermission.value =
+                                "denied";
+
+                        }
+
+
+                        clearLocationFields();
+
+
+                        saveLocationConsent(
+                            "denied"
+                        );
+
+
+                        allowLocation.disabled =
+                            false;
+
+                        allowLocation.textContent =
+                            "Allow Location";
+
+
+                        closePrivacyModal();
+
+                    }
+
+
+                    watchId =
+                        navigator.geolocation.watchPosition(
+                            handlePosition,
+                            handleLocationError,
+                            {
+                                enableHighAccuracy: true,
+                                maximumAge: 0,
+                                timeout:
+                                    MAX_LOCATION_TIME
+                            }
+                        );
+
+
+                    window.setTimeout(
+                        function () {
+
+                            if (finished) {
+                                return;
+                            }
+
+
+                            if (bestPosition) {
+
+                                finishLocation(
+                                    bestPosition
+                                );
+
+                                return;
+
+                            }
+
+
+                            handleLocationError({
+                                code: 3,
+                                message:
+                                    "Location request timed out."
+                            });
+
+                        },
+                        MAX_LOCATION_TIME + 1000
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* =====================================================
+           RESTORE LOCATION STATE
+        ===================================================== */
+
+        let savedLocationConsent =
+            null;
+
+
+        try {
+
+            savedLocationConsent =
+                localStorage.getItem(
+                    "kea_location_consent"
+                );
+
+        } catch (error) {
+
+            console.warn(
+                "Local storage unavailable.",
+                error
+            );
+
+        }
+
+
+        if (
+            savedLocationConsent ===
+            "granted"
+        ) {
+
+            if (locationPermission) {
+
+                locationPermission.value =
+                    "previously_granted";
+
+            }
+
+        } else if (
+            savedLocationConsent ===
+            "denied"
+        ) {
+
+            if (locationPermission) {
+
+                locationPermission.value =
+                    "previously_denied";
+
+            }
+
+        } else if (
+            savedLocationConsent ===
+            "unavailable"
+        ) {
+
+            if (locationPermission) {
+
+                locationPermission.value =
+                    "unavailable";
+
+            }
+
+        }
+
+
+        if (!savedLocationConsent) {
+
+            openPrivacyModal();
+
+        }
+
+
+        /* =====================================================
+           GOOGLE APPS SCRIPT RESPONSE
+        ===================================================== */
+
+        window.addEventListener(
+            "message",
+            function (event) {
+
+                const data =
+                    event.data;
+
+
+                if (
+                    !data ||
+                    data.type !==
+                        "KEA_FORM_RESPONSE"
+                ) {
+
+                    return;
+
+                }
+
+
+                if (!submitting) {
+                    return;
+                }
+
+
+                resetButton();
+
+
+                if (
+                    data.success === true
+                ) {
+
+                    showStatus(
+                        data.message ||
+                        "Thank you. Your requirement has been received.",
+                        "success"
+                    );
+
+
+                    form.reset();
+
+                    setUserAgent();
+
+
+                    let consent =
+                        null;
+
+
+                    try {
+
+                        consent =
+                            localStorage.getItem(
+                                "kea_location_consent"
+                            );
+
+                    } catch (error) {
+
+                        console.warn(
+                            "Local storage unavailable.",
+                            error
+                        );
+
+                    }
+
+
+                    if (locationPermission) {
+
+                        if (
+                            consent ===
+                            "granted"
+                        ) {
+
+                            locationPermission.value =
+                                "previously_granted";
+
+                        } else if (
+                            consent ===
+                            "denied"
+                        ) {
+
+                            locationPermission.value =
+                                "previously_denied";
+
+                        } else if (
+                            consent ===
+                            "unavailable"
+                        ) {
+
+                            locationPermission.value =
+                                "unavailable";
+
+                        } else {
+
+                            locationPermission.value =
+                                "not_requested";
+
+                        }
+
+                    }
+
+
+                    clearLocationFields();
+
+                    nameInput.focus();
+
+                    return;
+
+                }
+
+
+                showStatus(
+                    data.message ||
+                    "Something went wrong. Please try again.",
+                    "error"
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           FORM SUBMISSION
+        ===================================================== */
+
+        form.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                if (submitting) {
+                    return;
+                }
+
+
+                if (
+                    honeypot &&
+                    honeypot.value.trim() !== ""
+                ) {
+
+                    return;
+
+                }
+
+
+                setUserAgent();
+
+
+                const name =
+                    nameInput.value.trim();
+
+                const email =
+                    emailInput.value.trim();
+
+                const messageInput =
+                    document.getElementById(
+                        "message"
+                    );
+
+                const message =
+                    messageInput
+                        ? messageInput.value.trim()
+                        : "";
+
+
+                if (!name) {
+
+                    showStatus(
+                        "Please enter your name or organisation.",
+                        "error"
+                    );
+
+                    nameInput.focus();
+
+                    return;
+
+                }
+
+
+                if (!email) {
+
+                    showStatus(
+                        "Please enter your email address.",
+                        "error"
+                    );
+
+                    emailInput.focus();
+
+                    return;
+
+                }
+
+
+                if (
+                    !emailInput.checkValidity()
+                ) {
+
+                    showStatus(
+                        "Please enter a valid email address.",
+                        "error"
+                    );
+
+                    emailInput.focus();
+
+                    return;
+
+                }
+
+
+                if (!message) {
+
+                    showStatus(
+                        "Please tell me about the work you need help with.",
+                        "error"
+                    );
+
+                    if (messageInput) {
+                        messageInput.focus();
+                    }
+
+                    return;
+
+                }
+
+
+                if (
+                    message.length > 10000
+                ) {
+
+                    showStatus(
+                        "Your message is too long. Please shorten it.",
+                        "error"
+                    );
+
+                    messageInput.focus();
+
+                    return;
+
+                }
+
+
+                submitting =
+                    true;
+
+                button.disabled =
+                    true;
+
+                button.textContent =
+                    "Sending...";
+
+
+                showStatus(
+                    "Sending your requirement..."
+                );
+
+
+                HTMLFormElement.prototype.submit.call(
+                    form
+                );
+
+
+                submissionTimer =
+                    window.setTimeout(
+                        function () {
+
+                            if (!submitting) {
+                                return;
+                            }
+
+
+                            resetButton();
+
+
+                            showStatus(
+                                "The request may have been submitted, but no confirmation was received. Please check your email or try again.",
+                                "error"
+                            );
+
+                        },
+                        30000
+                    );
+
+            }
+        );
+
+
+        /* =====================================================
+           SMOOTH SCROLL
+        ===================================================== */
+
+        document
+            .querySelectorAll(
+                'a[href^="#"]'
+            )
+            .forEach(
+                function (anchor) {
+
+                    anchor.addEventListener(
+                        "click",
+                        function (event) {
+
+                            const targetID =
+                                this.getAttribute(
+                                    "href"
+                                );
+
+
+                            if (
+                                !targetID ||
+                                targetID === "#"
+                            ) {
+
+                                return;
+
+                            }
+
+
+                            const target =
+                                document.querySelector(
+                                    targetID
+                                );
+
+
+                            if (!target) {
+                                return;
+                            }
+
+
+                            event.preventDefault();
+
+
+                            target.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start"
+                            });
+
+                        }
+                    );
+
+                }
+            );
+
+    }
+
+);
+
+</script>
+
+</body>
+
+</html>
