@@ -90,9 +90,7 @@
 
         header {
             padding: 78px 20px 72px;
-
             text-align: center;
-
             color: white;
 
             background:
@@ -137,7 +135,6 @@
                 clamp(2.3rem, 6vw, 3.7rem);
 
             line-height: 1.08;
-
             letter-spacing: -1.2px;
         }
 
@@ -169,7 +166,6 @@
             flex-wrap: wrap;
 
             gap: 10px;
-
             margin-top: 30px;
         }
 
@@ -653,7 +649,7 @@
 
 
         /* =====================================================
-           EXAMPLES
+           EXAMPLES / GALLERY
         ===================================================== */
 
         .gallery-grid {
@@ -719,32 +715,19 @@
                 scale(1.03);
         }
 
-        .gallery-placeholder {
+        /* NEW: MP4 VIDEO */
+
+        .gallery-video {
             width: 100%;
 
             aspect-ratio: 16 / 10;
 
-            display: flex;
+            display: block;
 
-            align-items: center;
-            justify-content: center;
-
-            padding: 20px;
+            object-fit: cover;
 
             background:
-                linear-gradient(
-                    135deg,
-                    #EFF6FF,
-                    #DBEAFE
-                );
-
-            color:
-                var(--blue);
-
-            font-size: 14px;
-            font-weight: 750;
-
-            text-align: center;
+                #07182D;
         }
 
         .gallery-caption {
@@ -2277,10 +2260,11 @@
             </div>
 
             <h2 class="section-title">
-                
+                Project Examples
             </h2>
 
             <p class="section-intro">
+                Examples of practical project and hands-on work.
             </p>
 
 
@@ -2288,7 +2272,7 @@
 
 
                 <!-- =================================================
-                     FLOOR
+                     FLOOR 1
                 ================================================== -->
 
                 <article class="gallery-item">
@@ -2307,33 +2291,79 @@
                         </h3>
 
                         <p>
+                            Floor project example.
                         </p>
 
                     </div>
 
                 </article>
 
+
+                <!-- =================================================
+                     FLOOR 2
+                ================================================== -->
+
                 <article class="gallery-item">
 
-    <img
-        src="ha.png"
-        alt="Floor Project"
-        class="gallery-image"
-        loading="lazy"
-    >
+                    <img
+                        src="ha.png"
+                        alt="Floor project"
+                        class="gallery-image"
+                        loading="lazy"
+                    >
 
-    <div class="gallery-caption">
+                    <div class="gallery-caption">
 
-        <h3>
-            Floor2
-        </h3>
+                        <h3>
+                            Floor2
+                        </h3>
 
-        <p>
-        </p>
+                        <p>
+                            Floor project example.
+                        </p>
 
-    </div>
+                    </div>
 
-</article>
+                </article>
+
+
+                <!-- =================================================
+                     All
+                ================================================== -->
+
+                <article class="gallery-item">
+
+                    <video
+                        class="gallery-video"
+                        controls
+                        preload="metadata"
+                        playsinline
+                    >
+
+                        <source
+                            src="C:\Users\kayee\Videos\Recording 2026-08-21 134559.mp4"
+                            type="video/mp4"
+                        >
+
+
+                    </video>
+
+                    <div class="gallery-caption">
+
+                        <h3>
+                            Project Video
+                        </h3>
+
+                        <p>
+                            Video example of project work.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </div>
 
         </div>
 
@@ -2693,7 +2723,6 @@
                 role="status"
                 aria-live="polite"
             ></div>
-
 
         </form>
 
@@ -3239,7 +3268,7 @@ document.addEventListener(
 
 
         /* =====================================================
-           IMAGE ZOOM FUNCTIONS
+           IMAGE ZOOM
         ===================================================== */
 
         function openImageZoom(image) {
@@ -3252,7 +3281,6 @@ document.addEventListener(
                 return;
 
             }
-
 
             imageZoomDisplay.src =
                 image.src;
@@ -3309,7 +3337,6 @@ document.addEventListener(
             if (!imageZoomModal) {
                 return;
             }
-
 
             imageZoomModal.hidden =
                 true;
@@ -4333,7 +4360,6 @@ document.addEventListener(
 );
 
 </script>
-
 
 </body>
 
